@@ -1,0 +1,5 @@
+^\R\apagar.dat$
+^\R\.Random.seed$
+^data-raw$
+^.*\.Rproj$
+^\.Rproj\.user$
