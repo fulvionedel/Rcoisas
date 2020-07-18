@@ -30,7 +30,7 @@ tabuleiro(x)
 # Sem o total
 tabuleiro(x, total = FALSE)[,-3]
 
-# Apenas as frequências absolutas e a \% acumulada
+# Apenas as frequÃªncias absolutas e a \% acumulada
 tabuleiro(x)[,-3]
 
 }
