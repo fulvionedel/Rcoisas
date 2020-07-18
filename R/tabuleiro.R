@@ -6,6 +6,7 @@
 #' @param x O vetor a ser tabulado
 #' @param digits nº de decimais na tabela
 #' @param total TRUE (default) apresenta o total de categorias na tabela
+#' @param cum TRUE (default) apresenta as frequências acumuladas das cateogrias
 #' @param format Caráter indicando se o formato da tabela é anglo-saxão ("en", default) ou latino ("pt"); se "pt", os decimais serão apresentados depois de vírgula e os milhares separados por ponto # NÃO IMPLEMENTADO -- COLOCAR ISSO NUM MÉTODO PRINT.tabuleiro
 #' @param data Optional argument. Data frame containing \code{x}. Defaults to NULL
 #' @param ... permite o uso de argumentos da função \code{\link{table}}
@@ -23,7 +24,7 @@
 #' 
 #' @export
 #' 
-tabuleiro <- function(x, digits = 1, total = TRUE, format = 'en', data = NULL, ...) {
+tabuleiro <- function(x, digits = 1, total = TRUE, cum = TRUE, format = 'en', data = NULL, ...) {
   if ( !is.null(data) ) {
     x = data[,deparse(substitute(x))]
   } 
@@ -49,12 +50,15 @@ tabuleiro <- function(x, digits = 1, total = TRUE, format = 'en', data = NULL, .
 #   rownames(miolo) <- NULL
 #   colnames(miolo)[1] <- nome
   tabela <- rbind(miolo, Total)
-  if(total == TRUE) return(tabela)
+  # if(total == TRUE) return(tabela)
   # if(format == 'pt'){
   #   # colnames(miolo)[2] = format(colnames(miolo)[2], justify = 'c')
   #   # colnames(miolo)[2] = "   %"
   #   miolo = format(miolo, justify = 'c')
   #   tabela = format(tabela, justify = 'c')
   # }
-  else return(miolo)
+  # else return(miolo)
+  if(total == FALSE) tabela <- miolo
+  if(cum == FALSE) tabela <- tabela[, 1:2]
+  return(tabela)
 }
