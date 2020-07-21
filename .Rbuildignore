@@ -3,3 +3,4 @@
 ^data-raw$
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^\man\Rcoisas_0.0.0.9010.pdf$
