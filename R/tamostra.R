@@ -39,7 +39,7 @@ tamostra.zmedia <- function(dp, erro, alfa=.05, perdas=0) {
 #' @title tamostra.tmedia
 #' @description tamostra.tmedia Estimar médias com variância desconhecida (teste t)
 #' @param pop tamanho da população (default = 10000)
-#' @details 
+#' @details  ### Precisa esta linha? ###
 #' @describeIn tamostra Estimar médias com variância desconhecida (teste t)
 tamostra.tmedia <- function(dp, erro, pop=10000, alfa=.05, perdas=0) {
   if(erro <= 0) stop(mensagem.erro)
@@ -63,8 +63,7 @@ tamostra.tmedia <- function(dp, erro, pop=10000, alfa=.05, perdas=0) {
 #' @title tamostra.prop
 #' @description tamostra.prop Estimar proporções
 #' @param prop proporção esperada
-#' @details 
-#' @export
+#' @details ### Precisa esta linha? ###
 #' @describeIn tamostra Estimar proporções
 tamostra.prop <- function(prop, erro, alfa=.05, perdas=0) {
   if(erro <= 0) stop(mensagem.erro)
@@ -87,7 +86,7 @@ tamostra.prop <- function(prop, erro, alfa=.05, perdas=0) {
 #' @param beta probabilidade de erro tipo II (1-poder)
 #' @param p1 proporção na população 1
 #' @param p2 proporção na população 2
-#' @details
+#' @details ### Precisa esta linha? ###
 tamostra.2prop <- function(p1, p2, alfa = 0.05, beta = 0.2, perdas = 0){
   za = qnorm(alfa/2)
   zb = qnorm(beta)
@@ -98,8 +97,8 @@ tamostra.2prop <- function(p1, p2, alfa = 0.05, beta = 0.2, perdas = 0){
   
   return(n)
 }
-#' 
-#'  @examples 
+#' @export
+#' @examples 
 #' tamostra.zmedia(8,5)
 #' tamostra.tmedia(8,5)
 #' tamostra.prop(.3,.03)

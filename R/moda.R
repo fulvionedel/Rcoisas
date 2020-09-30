@@ -5,6 +5,7 @@
 #' @param x A vector. Maybe numeric, character or factor
 #' @param tipo Defines the method. `int1` (the default) find the most frequent value in an unimodal distribution; `int2` finds the two most frequent values in a bimodal distribution; `dens` computes the value of most density in a numeric variable. If the variable is continuous, with only unique values, `tipo` will be coerced to `dens`
 #' @param count Should the frequencies of values be described?
+#' @export
 
 moda <- function(x, tipo = "int1", count = FALSE) {
   if(length(unique(x)) == length(x) & tipo !="dens") {

@@ -11,18 +11,22 @@
 #' @param data Optional argument. Data frame containing \code{x}. Defaults to NULL
 #' @param ... permite o uso de argumentos da função \code{\link{table}}
 #' 
+#' @export
+#' 
 #' @examples 
 #' set.seed(1)
 #' x <- rbinom(100000, 3, .25)
+#' 
 #' tabuleiro(x)
 #' 
 #' # Sem o total
+#' tabuleiro(x, total = FALSE)
+#' 
+#' # Sem as frequências acumuladas
+#' tabuleiro(x, cum = FALSE)
+#' 
+#' # Oculta a frequência acumulada absoluta e mantém a % acumulada
 #' tabuleiro(x, total = FALSE)[,-3]
-#' 
-#' # Apenas as frequências absolutas e a % acumulada
-#' tabuleiro(x)[,-3]
-#' 
-#' @export
 #' 
 tabuleiro <- function(x, digits = 1, total = TRUE, cum = TRUE, format = 'en', data = NULL, ...) {
   if ( !is.null(data) ) {

@@ -4,6 +4,8 @@
 #' 
 #' @param pop População. Nome do arquivo a ser lido.
 #' @param ... outros argumentos da função `foreign`
+#' 
+#' @export
 
 ler_popbr <-
   function (pop, ...) 

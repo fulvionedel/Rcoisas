@@ -50,6 +50,12 @@ Comparar duas proporções
 Veja o caso de cada função específica
 
 Quando o valor de \code{erro} é menor que um, é entendido como proporção; quando maior ou igual a um, é entendido como pontos percentuais; \code{erro >= 100} retorna erro
+
+### Precisa esta linha? ###
+
+### Precisa esta linha? ###
+
+### Precisa esta linha? ###
 }
 \section{Functions}{
 \itemize{

@@ -5,6 +5,7 @@
 #' @param dec no. de decimais
 #' @param nomes nomes para as filas e colunas
 #' @param p.value ?????????????
+#' @export
 tango <-
 function(independente, dependente, dec=2, 
          nomes = c(substitute(independente), substitute(dependente)),

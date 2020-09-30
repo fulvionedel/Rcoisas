@@ -4,7 +4,15 @@
 \alias{tabuleiro}
 \title{Tabela de frequências univariada}
 \usage{
-tabuleiro(x, digits = 1, total = TRUE, format = "en", data = NULL, ...)
+tabuleiro(
+  x,
+  digits = 1,
+  total = TRUE,
+  cum = TRUE,
+  format = "en",
+  data = NULL,
+  ...
+)
 }
 \arguments{
 \item{x}{O vetor a ser tabulado}
@@ -12,6 +20,8 @@ tabuleiro(x, digits = 1, total = TRUE, format = "en", data = NULL, ...)
 \item{digits}{nº de decimais na tabela}
 
 \item{total}{TRUE (default) apresenta o total de categorias na tabela}
+
+\item{cum}{TRUE (default) apresenta as frequências acumuladas das cateogrias}
 
 \item{format}{Caráter indicando se o formato da tabela é anglo-saxão ("en", default) ou latino ("pt"); se "pt", os decimais serão apresentados depois de vírgula e os milhares separados por ponto # NÃO IMPLEMENTADO -- COLOCAR ISSO NUM MÉTODO PRINT.tabuleiro}
 
@@ -25,13 +35,17 @@ Constrói uma tabela com distribuição de frequências brutas, relativas e acum
 \examples{
 set.seed(1)
 x <- rbinom(100000, 3, .25)
+
 tabuleiro(x)
 
 # Sem o total
-tabuleiro(x, total = FALSE)[,-3]
+tabuleiro(x, total = FALSE)
 
-# Apenas as frequÃªncias absolutas e a \% acumulada
-tabuleiro(x)[,-3]
+# Sem as frequências acumuladas
+tabuleiro(x, cum = FALSE)
+
+# Oculta a frequência acumulada absoluta e mantém a \% acumulada
+tabuleiro(x, total = FALSE)[,-3]
 
 }
 \author{

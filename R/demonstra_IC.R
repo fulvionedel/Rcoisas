@@ -40,6 +40,7 @@ demonstra_IC <- function(pop, n, r, replace = TRUE, ...) {
     ggplot2::theme(legend.position="none") +
     ggplot2::coord_flip() 
   
+  
   return(list("mediapop" = mean(pop),
               "medias" = medias, 
               "grafico" = grafico, 
