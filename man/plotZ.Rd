@@ -20,14 +20,43 @@ plotZ(
   ...
 )
 }
+\arguments{
+\item{x}{valor a comparar com a média}
+
+\item{mu}{média}
+
+\item{dp}{desvio-padrão}
+
+\item{p}{probabilidade}
+
+\item{z}{escore-z}
+
+\item{cor}{cor do preenchimento da área sob a curva}
+
+\item{main}{título}
+
+\item{sub}{subtítulo}
+
+\item{sentido}{"menor" (padrão) calcula e desenha a probabilidade de um valor menor ou igual a x, p ou z; "maior" calcula e desenha a probabilidade de um valor maior que x, p ou z}
+
+\item{cex.main}{tamanho da fonte do título}
+
+\item{cex.sub}{tamanho da fonte do subtítulo}
+
+\item{cex.axis}{tamanho da fonte do eixo}
+
+\item{...}{Permite o uso de outros parâmetros gráficos (veja o uso de `density`, nos exemplos)}
+}
 \description{
 Gráfico da probababilidade de pertencer a uma área da curva Normal
 }
 \examples{
 plotZ(p = .975)
 plotZ(p = .025)
-plotZ(z = 1.96)
-plotZ(z = -1.96)
+plotZ(z = 1.96, density = 20)
+plotZ(z = -1.96, density = 40)
+plotZ(x = 10, mu = 4.7, dp = 2.7, cor = "yellow")
+plotZ(x = 10, mu = 4.7, dp = 2.7, sentido = "maior")
 plotZ(p =  .975, sentido = "maior")
 plotZ(p =  .025, sentido = "maior")
 plotZ(z =  1.96, sentido = "maior")
