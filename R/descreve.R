@@ -2,7 +2,8 @@
 #' @aliases descreve
 #' @description Performs a 'complete' description of a numerical variable, continuous or integer, and plots a histogram maybe with lines for mean, median, 1 and 2 sd from and to mean and normal probability curve for the plotted parameters.
 #' 
-#' @import e1071 stats graphics 
+#' @importFrom e1071 skewness kurtosis
+#' @import stats graphics 
 #' 
 #' @param x A numeric vector
 #' @param dec The number of digits
@@ -34,6 +35,7 @@
 #' 
 #' @seealso \code{\link{hist}} and \code{\link{par}} for graphic paramters
 #' 
+#' @importFrom e1071 skewness kurtosis
 #' @export
 
 descreve <-
@@ -53,7 +55,7 @@ descreve <-
     miss <- round(sum(is.na(x)))
     val <- round(n - miss)
     p.miss <- miss/n * 100
-    soma <- sum(x, na.rm = na.rm)
+    soma <- round(sum(x, na.rm = na.rm), dec)
     media <- mean(x, na.rm = na.rm)
     vari <- var(x, na.rm = na.rm)
     dp <- sd(x, na.rm = na.rm)
@@ -81,7 +83,7 @@ descreve <-
     # p25 <- 
     p50 <- round(p50, dec)
     # p75 <- 
-    # iiq <- 
+    iiq <- round(iiq, dec)
     menor <- round(menor, dec)
     maior <- round(maior, dec)
     amplitude <- round(amplitude, dec)

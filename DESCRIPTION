@@ -11,7 +11,8 @@ License: GPL-3
 Imports: e1071, 
          graphics, 
          Hmisc, 
-         stats
+         stats,
+         tidyr
 Suggests: ggplot2,
           ggthemes,
           foreign

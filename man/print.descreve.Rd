@@ -4,14 +4,14 @@
 \alias{print.descreve}
 \title{Imprime o resultado da funcao \code{\link{descreve}}}
 \usage{
-\method{print}{descreve}(x, dec = 2, ...)
+\method{print}{descreve}(x, print = "output", ...)
 }
 \arguments{
 \item{x}{Um output de \code{\link{descreve}}}
 
-\item{dec}{Número de decimais}
+\item{print}{Modo de apresentação; \code{print = "tabela"} retorna uma tabela com as estatísticas}
 
-\item{...}{**Acho** que permite coisas de \code{\link{print}}}
+\item{...}{Não sei se serve de algo mas parece que precisa}
 }
 \description{
 Imprime o resultado da funcao \code{\link{descreve}}
