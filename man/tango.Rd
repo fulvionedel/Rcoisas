@@ -2,7 +2,7 @@
 % Please edit documentation in R/tango.R
 \name{tango}
 \alias{tango}
-\title{Apresenta uma tabela multidimensional}
+\title{Apresenta uma tabela n x 2}
 \usage{
 tango(
   independente,

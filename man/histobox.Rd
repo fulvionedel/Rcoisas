@@ -4,12 +4,12 @@
 \alias{histobox}
 \title{Função para desenhar histogramas com boxplot integrado}
 \usage{
-histobox(x, limites, col.h = "cyan", col.bx = "skyblue1", ...)
+histobox(x, limites = NULL, col.h = "cyan", col.bx = "skyblue1", ...)
 }
 \arguments{
 \item{x}{uma variável numérica}
 
-\item{limites}{limites do eixo x **Tem de arrumar, não funciona como opção**}
+\item{limites}{limites do eixo x}
 
 \item{col.h}{= cor do histograma}
 
@@ -19,4 +19,7 @@ histobox(x, limites, col.h = "cyan", col.bx = "skyblue1", ...)
 }
 \description{
 os eixos são centrados
+}
+\examples{
+histobox(rnorm(1000))
 }

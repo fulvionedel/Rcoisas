@@ -2,7 +2,7 @@
 % Please edit documentation in R/tabuleiro2.R
 \name{tabuleiro2}
 \alias{tabuleiro2}
-\title{Tabela de frequências semelhante ao output do SPSS}
+\title{Tabela de frequências com separadores latinos}
 \usage{
 tabuleiro2(varcat, digits = 1)
 }
@@ -12,12 +12,17 @@ tabuleiro2(varcat, digits = 1)
 \item{digits}{No. de decimais}
 }
 \description{
-Tabela de frequências semelhante ao output do SPSS
+Tabela de frequências com separadores latinos
 }
 \examples{
-data("iris") 
-varcat <- iris$Species
-varcat[1:7] <- NA # criar missings
-tabuleiro2(varcat)
+# criar uma variÃ¡vel politÃ´mica
+x <- cut(rnorm(1000), 3) # sem missings
+tabuleiro2(x)
+x[1:100] <- NA # gerar missings
+tabuleiro2(x)
+
+\dontrun{
+knitr::kable(tabuleiro2(x), align = rep("r", 4))
+}
 
 }

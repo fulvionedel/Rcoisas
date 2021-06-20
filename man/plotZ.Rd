@@ -13,7 +13,7 @@ plotZ(
   cor = 2,
   main = NULL,
   sub = NULL,
-  sentido = "menor",
+  area = "abaixo",
   cex.main = 2,
   cex.sub = 1.5,
   cex.axis = 1.3,
@@ -37,7 +37,7 @@ plotZ(
 
 \item{sub}{subtítulo}
 
-\item{sentido}{"menor" (padrão) calcula e desenha a probabilidade de um valor menor ou igual a x, p ou z; "maior" calcula e desenha a probabilidade de um valor maior que x, p ou z}
+\item{area}{"abaixo" (padrão) calcula e desenha a probabilidade de um valor menor ou igual a x, p ou z; "acima" calcula e desenha a probabilidade de um valor maior que x, p ou z}
 
 \item{cex.main}{tamanho da fonte do título}
 
@@ -51,15 +51,18 @@ plotZ(
 Gráfico da probababilidade de pertencer a uma área da curva Normal
 }
 \examples{
+\dontrun{
 plotZ(p = .975)
 plotZ(p = .025)
 plotZ(z = 1.96, density = 20)
 plotZ(z = -1.96, density = 40)
 plotZ(x = 10, mu = 4.7, dp = 2.7, cor = "yellow")
-plotZ(x = 10, mu = 4.7, dp = 2.7, sentido = "maior")
-plotZ(p =  .975, sentido = "maior")
-plotZ(p =  .025, sentido = "maior")
-plotZ(z =  1.96, sentido = "maior")
-plotZ(z = -1.96, sentido = "maior")
+plotZ(x = 10, mu = 4.7, dp = 2.7, area = "acima")
+plotZ(p =  .975, area = "acima")
+plotZ(p =  .025, area = "acima")
+plotZ(z =  1.96, area = "acima")
+plotZ(z = -1.96, area = "acima")
+plotZ(x = c(8, 10), mu = 4.7, dp = 2.7)
+}
 
 }

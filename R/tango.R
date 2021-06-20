@@ -1,4 +1,4 @@
-#' @title Apresenta uma tabela multidimensional
+#' @title Apresenta uma tabela n x 2
 #' @description Apresenta uma tabela n x 2
 #' @param independente Variavel independente
 #' @param dependente Variavel dependente

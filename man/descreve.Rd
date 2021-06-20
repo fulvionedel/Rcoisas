@@ -11,8 +11,10 @@ descreve(
   data = NULL,
   histograma = TRUE,
   breaks = "Sturges",
+  freq = TRUE,
   main = NULL,
   xlab = NULL,
+  ylab = NULL,
   linhas = 2,
   curva = TRUE,
   densidade = FALSE,
@@ -47,9 +49,13 @@ descreve(
 
 \item{breaks}{number of breaks, according to \code{\link{hist}}; the default method is 'Sturges'}
 
+\item{freq}{TRUE (default) set y axis to frequency; FAlSE set it to density}
+
 \item{main}{Graphic title}
 
 \item{xlab}{Label for x axis}
+
+\item{ylab}{Label for y axis}
 
 \item{linhas}{TRUE (default) draws vertical lines with median, mean, and SD +1 position at the histogram}
 

@@ -2,7 +2,8 @@
 #' @aliases print.descreve
 #' @rdname print.descreve
 #' @family descreve
-#' @param x Um output de \code{\link{descreve}}
+#' 
+#' @param x Um objeto da classe \code{descreve}, output de \code{\link{descreve}}
 #' @param print Modo de apresentação; \code{print = "tabela"} retorna uma tabela com as estatísticas
 #' @param ... Não sei se serve de algo mas parece que precisa
 #' 
@@ -40,8 +41,7 @@ print.descreve <- function(x, print = "output", ...) {
   
   # -------------
   print.tabela <- function(x) {
-    df <- unlist(x)[-1] 
-    df <- as_tibble(as.list(df))
+    df <- as.data.frame(as.numeric(unlist(x)[-1]))
     nomes <- c(# "Vari\u00E1vel",
       "n", 
       "V\u00E1lidos",
@@ -65,11 +65,9 @@ print.descreve <- function(x, print = "output", ...) {
       "P95",
       "P97.5",
       "IIQ")
-    names(df) <- nomes
-    if (df[3] == 0) df[4] <- NULL
-    df <- gather(df, key = "Estat\u00EDstica")
-    df$value <- as.numeric(df$value)
-    names(df)[2] <- deparse(substitute(x))
+    names(df) <- deparse(substitute(x))
+    rownames(df) <- nomes
+    if (df["Missings",] == 0) df <- df[-4,,drop=FALSE]
     df
   }
   # -------------

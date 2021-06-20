@@ -7,7 +7,7 @@
 \method{print}{descreve}(x, print = "output", ...)
 }
 \arguments{
-\item{x}{Um output de \code{\link{descreve}}}
+\item{x}{Um objeto da classe \code{descreve}, output de \code{\link{descreve}}}
 
 \item{print}{Modo de apresentação; \code{print = "tabela"} retorna uma tabela com as estatísticas}
 

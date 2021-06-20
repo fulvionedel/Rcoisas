@@ -25,15 +25,14 @@
 #' @family csapAIH
 #' @export
 #' @examples 
-#' temp <- tempfile()
-#' download.file("ftp://ftp.datasus.gov.br/dissemin/publicos/IBGE/POP/POPBR12.zip", temp)
-#' pop <- read.csv(unz(temp, "POPBR12.csv"))
-#'                           
-#' plot_pir(pop, local = 'Brasil')
-#' plot_pir(pop[substr(pop$MUNIC_RES, 1,2)==42, ], local='Santa Catarina')
-#' plot_pir(pop[substr(pop$MUNIC_RES, 1,2)==43, ], local='Rio Grande do Sul')
-#' plot_pir(pop[pop$MUNIC_RES==431490, ], local='Porto Alegre, RS')
-#' plot_pir(pop[pop$MUNIC_RES==430520, ], local='Cerro Largo, RS')
+#' \dontrun{
+#' data("POPBR12")
+#' plot_pir(POPBR12, local = 'Brasil')
+#' plot_pir(POPBR12[substr(POPBR12$MUNIC_RES, 1,2)==42, ], local='Santa Catarina')
+#' plot_pir(POPBR12[substr(POPBR12$MUNIC_RES, 1,2)==43, ], local='Rio Grande do Sul')
+#' plot_pir(POPBR12[POPBR12$MUNIC_RES==431490, ], local='Porto Alegre, RS')
+#' plot_pir(POPBR12[POPBR12$MUNIC_RES==430520, ], local='Cerro Largo, RS')
+#' }
 #' 
 plot_pir <- 
 function(pop, tabela = FALSE, ano = NULL, local="popula\U00e7\U00e3o", title = NULL, fontsize = 1.1, nfxetar = 17, axes=FALSE, fonte=NULL, x.lim=NULL, colmasc="mediumblue", colfem="red2", colfxetar="white", border=par("fg"), inside=T, drop.unused.levels = FALSE, ...)
