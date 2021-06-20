@@ -11,8 +11,10 @@
 #' @param data Optional argument. Data frame containing \code{x}. Defaults to NULL.
 #' @param histograma TRUE (default) draws a histogram
 #' @param breaks number of breaks, according to \code{\link{hist}}; the default method is 'Sturges'
+#' @param freq TRUE (default) set y axis to frequency; FAlSE set it to density
 #' @param main Graphic title
 #' @param xlab Label for x axis
+#' @param ylab Label for y axis
 #' @param linhas TRUE (default) draws vertical lines with median, mean, and SD +1 position at the histogram
 #' @param curva TRUE (default) draws the expected normal curve 
 #' @param densidade defaults to FALSE; turn to TRUE to draw the density line
@@ -40,7 +42,8 @@
 
 descreve <-
   function (x, dec = 2, na.rm = TRUE, data = NULL,
-            histograma = TRUE, breaks='Sturges', main = NULL, xlab = NULL,
+            histograma = TRUE, breaks='Sturges', freq = TRUE ,
+            main = NULL, xlab = NULL, ylab= NULL,
             linhas=2, curva=TRUE, densidade=FALSE, col.dens=1,
             col='yellow2', col.curva='DarkGreen', col.media=2, col.dp=col.media, col.mediana=4,
             legenda = TRUE, lugar='topright',
@@ -100,16 +103,24 @@ descreve <-
     ############################
     # O GRÁFICO
     ###########################
-    if(is.null(main)){
-      titulo <- paste("Histograma de", destinatio)
-    } else
-      titulo <- main
-    if(is.null(xlab)){
-      x.lab <- destinatio
-    } else
-      x.lab <- xlab
     if (histograma == T) {
-      hist(x, main = titulo, xlab = x.lab, breaks=breaks, border=0, ylab='Frequ\U00EAncia', ...)
+      if(is.null(main)){
+        titulo <- paste("Histograma de", destinatio)
+      } else
+        titulo <- main
+      if(is.null(xlab)){
+        x.lab <- destinatio
+      } else
+        x.lab <- xlab
+      if(is.null(ylab)){
+        if(freq == TRUE) y.lab <- 'Frequ\U00EAncia'
+        else
+          if(freq == FALSE) y.lab <- "Densidade"
+      } 
+      else
+        y.lab <- ylab
+      
+      hist(x, freq = freq, main = titulo, xlab = x.lab, ylab = y.lab, breaks=breaks, border=0, ...)
       par(new = T)
       hist(x, freq = F, axes = F, xlab = "", ylab = "", main = "", breaks=breaks, col=col, ...)
       if(is.null(cex)) cex = .8

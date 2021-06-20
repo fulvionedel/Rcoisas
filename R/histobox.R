@@ -3,23 +3,23 @@
 #' 
 #' @aliases histobox
 #' @param x uma variável numérica
-#' @param limites limites do eixo x **Tem de arrumar, não funciona como opção**
+#' @param limites limites do eixo x
 #' @param col.h = cor do histograma
 #' @param col.bx = cor do boxplot
 #' @param ... outros parâmetros de \code{\link{hist}} e \code{\link{boxplot}}
 #' 
+#' @examples 
+#' histobox(rnorm(1000))
 #' @export
 histobox <-
-  function(x, limites, col.h='cyan', col.bx='skyblue1', ... )
-  {
-    nf <- layout(mat = matrix(c(1,2),2,1, byrow=TRUE),  heights = c(4,1))
-    mini <- min(x, na.rm=T) + min(x, na.rm=T)*.1
-    maxi <- max(x, na.rm=T) + max(x, na.rm=T)*.1
-    limites <- c(mini, maxi)
-    # par(mar=c(5.1, 4.1, 1.1, 2.1))
-    par(mar=c(3.1, 4.1, 1.1, 2.1))
-    hist(x, axes=F, xlim=limites, xlab='', col=col.h, ...)
-    axis(2)
-    par(mar=c(1.5, 4.1, 21, 2.1),new=T)
-    boxplot(x, horizontal=TRUE, outline=TRUE, frame=F, col=col.bx, ylim=limites)
-  }
+  function(x, limites = NULL, col.h='cyan', col.bx='skyblue1', ... )
+{
+  mini <- min(x, na.rm=T) + min(x, na.rm=T)*.1
+  maxi <- max(x, na.rm=T) + max(x, na.rm=T)*.1
+  if(is.null(limites)) limites <- c(mini, maxi)
+  layout(mat = matrix(c(1,2),2,1, byrow=TRUE), heights = c(1,8))
+  par(mar=c(0, 3.1, 1.1, 2.1))
+  boxplot(x, horizontal=TRUE, xaxt = "n", frame=F, col=col.bx, ylim=limites)
+  par(mar=c(4, 3.1, 1.1, 2.1))
+  hist(x, xlim=limites, main = NULL, col=col.h, ...)
+}
