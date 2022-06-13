@@ -41,10 +41,10 @@ tabuleiro(x)
 # Sem o total
 tabuleiro(x, total = FALSE)
 
-# Sem as frequÃªncias acumuladas
+# Sem as frequências acumuladas
 tabuleiro(x, cum = FALSE)
 
-# Oculta a frequÃªncia acumulada absoluta e mantÃ©m a \% acumulada
+# Oculta a frequência acumulada absoluta e mantém a \% acumulada
 tabuleiro(x, total = FALSE)[,-3]
 
 }
