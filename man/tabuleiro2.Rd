@@ -15,7 +15,7 @@ tabuleiro2(varcat, digits = 1)
 Tabela de frequências com separadores latinos
 }
 \examples{
-# criar uma variÃ¡vel politÃ´mica
+# criar uma variável politômica
 x <- cut(rnorm(1000), 3) # sem missings
 tabuleiro2(x)
 x[1:100] <- NA # gerar missings

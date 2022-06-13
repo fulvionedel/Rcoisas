@@ -37,15 +37,15 @@ disponibilizados pelo DATASUS
 \examples{
 data("POPBR12")
 str(POPBR12)
-# "SEXO" Ã© da classe 'integer'; 
-# alÃ©m disso, os primeiros 19 anos de idade estÃ£o em faixas anuais 
-# e os demais (atÃ© 80) em faixas quinquenais.
+# "SEXO" é da classe 'integer'; 
+# além disso, os primeiros 19 anos de idade estão em faixas anuais 
+# e os demais (até 80) em faixas quinquenais.
 \dontrun{
 ggplot_pir(POPBR12, "FXETARIA", "SEXO", "POPULACAO")
 }
-# nÃ£o dÃ¡ o grÃ¡fico desejado
+# não dá o gráfico desejado
 
-# Transformando o sexo em fator e reclassificando a faixa etÃ¡ria:
+# Transformando o sexo em fator e reclassificando a faixa etária:
 require(dplyr)
 POPBR12 <- POPBR12 \%>\% 
   mutate(SEXO = factor(SEXO, labels = c("masc", "fem")),
