@@ -1,14 +1,18 @@
 Package: Rcoisas
 Type: Package
 Title: Minhas Funcionalidades
+
 Version: 0.0.0.9041
 Date: 2022-06-15
 Author: Fúlvio B. Nedel
 Maintainer: Fúlvio B. Nedel <fulvionedel@gmail.com>
+
 Description: Funções para manejo dos arquivos do SUS, pirâmides populacionais,
     descrição e gráficos de variáveis, etc., com 'outputs' em português.
 License: GPL-3
+
 Imports: csapAIH,
+         data.table,
          e1071, 
          ggplot2,
          graphics, 
