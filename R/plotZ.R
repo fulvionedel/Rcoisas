@@ -13,7 +13,7 @@
 #' @param cex.main tamanho da fonte do título
 #' @param cex.sub  tamanho da fonte do subtítulo
 #' @param cex.axis tamanho da fonte do eixo
-#' @param ... Permite o uso de outros parâmetros gráficos (veja o uso de `density`, nos exemplos)
+#' @param ... Permite o uso de outros parâmetros gráficos (ver o uso de `density`, nos exemplos)
 #' 
 #' @examples 
 #' \dontrun{
@@ -27,7 +27,7 @@
 #' plotZ(p =  .025, area = "acima")
 #' plotZ(z =  1.96, area = "acima")
 #' plotZ(z = -1.96, area = "acima")
-#' plotZ(x = c(8, 10), mu = 4.7, dp = 2.7)
+#' # plotZ(x = c(8, 10), mu = 4.7, dp = 2.7)
 #' }
 #' 
 #' @export

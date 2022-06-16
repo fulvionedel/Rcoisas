@@ -45,7 +45,7 @@ plotZ(
 
 \item{cex.axis}{tamanho da fonte do eixo}
 
-\item{...}{Permite o uso de outros parâmetros gráficos (veja o uso de `density`, nos exemplos)}
+\item{...}{Permite o uso de outros parâmetros gráficos (ver o uso de `density`, nos exemplos)}
 }
 \description{
 Gráfico da probababilidade de pertencer a uma área da curva Normal
@@ -62,7 +62,7 @@ plotZ(p =  .975, area = "acima")
 plotZ(p =  .025, area = "acima")
 plotZ(z =  1.96, area = "acima")
 plotZ(z = -1.96, area = "acima")
-plotZ(x = c(8, 10), mu = 4.7, dp = 2.7)
+# plotZ(x = c(8, 10), mu = 4.7, dp = 2.7)
 }
 
 }

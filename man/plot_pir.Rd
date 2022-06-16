@@ -75,6 +75,10 @@ plot_pir(POPBR12[POPBR12$MUNIC_RES==430520, ], local='Cerro Largo, RS')
 }
 
 }
+\seealso{
+Other csapAIH: 
+\code{\link{reexports}}
+}
 \author{
 Fúlvio B. Nedel
 }

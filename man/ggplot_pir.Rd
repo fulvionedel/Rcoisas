@@ -43,7 +43,7 @@ str(POPBR12)
 \dontrun{
 ggplot_pir(POPBR12, "FXETARIA", "SEXO", "POPULACAO")
 }
-# não dá o gráfico desejado
+# não dá o gráfico desejado.
 
 # Transformando o sexo em fator e reclassificando a faixa etária:
 require(dplyr)

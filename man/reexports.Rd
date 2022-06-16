@@ -7,7 +7,14 @@
 \alias{ufbr}
 \alias{ler_popbr}
 \title{Objects exported from other packages}
-\concept{csapAIH DATASUS}
+\seealso{
+Other csapAIH: 
+\code{\link{plot_pir}()}
+}
+\concept{DATASUS
+
+Transforma um vetor com a idade em faixas etárias quinquenais. A primeira faixa pode ser fracionada em "< 1" e "1-4".}
+\concept{csapAIH}
 \keyword{internal}
 \description{
 These objects are imported from other packages. Follow the links
