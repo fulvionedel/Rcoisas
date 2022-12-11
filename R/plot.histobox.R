@@ -1,5 +1,4 @@
 #' Método para histobox
-#' porque ele parece que pede
 #' 
 #' @aliases plot.histobox
 #' @param x Uma variável numérica

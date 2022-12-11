@@ -1,43 +1,42 @@
-#' @title Describes a numerical variable
+#' @title Descreve uma variável numérica
 #' @aliases descreve
-#' @description Performs a 'complete' description of a numerical variable, continuous or integer, and plots a histogram maybe with lines for mean, median, 1 and 2 sd from and to mean and normal probability curve for the plotted parameters.
+#' @description Executa a descrição "completa" de uma variável numérica, contínua ou discreta, e desenha um histograma, possivelmente com linhas para a média, mediana e distância da média até 1 ou 2 desvios-padrão, além da curva de probabilidade Normal para os parâmetros apresentados.
+#' 
+#' @param x Um vetor numérico
+#' @param dec Número de dígitos
+#' @param na.rm TRUE (default) remove os missings
+#' @param data Argumento opcional. Banco de dados contendo \code{x}. O padrão é NULL.
+#' @param histograma TRUE (default) desenha um histograma
+#' @param breaks Número de divisões, de acordo com \code{\link{hist}}; o método padrão é Sturges'
+#' @param freq TRUE (default) define o eixo y como frequência; FAlSE o define como densidade
+#' @param main Título do gráfico
+#' @param xlab Rótulo do eixo x
+#' @param ylab Rótulo do eixo y
+#' @param linhas TRUE (default) desenha linhas verticais com a média, mediana e média + 1 ou 2 DP 
+#' @param curva TRUE (default) desenha a curva normal esperada 
+#' @param densidade O padrão é FALSE; passe para TRUE para desenhar a curva de densidade da distribuição
+#' @param col.dens Cor da curva de densidade; o padrão é 'black'
+#' @param col Cor das barras do histograma; o padrão é 'yellow2'
+#' @param col.curva Cor da curva normal; o padrão é 'DarkGreen'
+#' @param col.media Cor da linha da média; o padrão é 'red'
+#' @param col.dp Cor das linhas do SP; por padrão é a mesma que col.media ('red')
+#' @param col.mediana Cor da linha da mediana; o padrão é 'blue' 
+#' @param legenda TRUE (default) desenha a legenda
+#' @param lty.curva Tipo da linha da curva normal; padrão é 2
+#' @param lwd.curva Largura da linha da curva normal; padrão é 1
+#' @param lty.dens Tipo da linha da curva de densidade; padrão é 3
+#' @param lwd.dens Largura da linha da curva de densidade; padrão é 2
+#' @param lty Tipo da linha para o histograma; padrão é NULL
+#' @param lwd Largura da linha para o histograma; padrão é NULL
+#' @param cex Tamanho da fonte
+#' @param lugar Posição da legenda; padrão é 'toprigt'
+#' @param ... Toma parâmetros de outras funções utilizadas
+#' 
+#' @seealso \code{\link{hist}} and \code{\link{par}} para os parâmetros gráficos
 #' 
 #' @importFrom e1071 skewness kurtosis
-#' @import stats graphics 
+#' @import graphics stats 
 #' 
-#' @param x A numeric vector
-#' @param dec The number of digits
-#' @param na.rm TRUE (default) removes missings
-#' @param data Optional argument. Data frame containing \code{x}. Defaults to NULL.
-#' @param histograma TRUE (default) draws a histogram
-#' @param breaks number of breaks, according to \code{\link{hist}}; the default method is 'Sturges'
-#' @param freq TRUE (default) set y axis to frequency; FAlSE set it to density
-#' @param main Graphic title
-#' @param xlab Label for x axis
-#' @param ylab Label for y axis
-#' @param linhas TRUE (default) draws vertical lines with median, mean, and SD +1 position at the histogram
-#' @param curva TRUE (default) draws the expected normal curve 
-#' @param densidade defaults to FALSE; turn to TRUE to draw the density line
-#' @param col.dens colour of density line; defaults to 1 (black)
-#' @param col colour of histogram bars; defaults to 'yellow2'
-#' @param col.curva colour of normal curve; defaults to 'DarkGreen'
-#' @param col.media colour of mean line; defaults to 2 (red)
-#' @param col.dp colour of SD lines; defaults to col.media 
-#' @param col.mediana colour of median line; defaults to 4 (blue) 
-#' @param legenda TRUE (default) draws a legend
-#' @param lty.curva line type of normal curve; defaults to 2
-#' @param lwd.curva line width of normal curve; defautls to 1
-#' @param lty.dens line type of density curve; defaults to 3
-#' @param lwd.dens line width of density curve; defaults to 2
-#' @param lty line type for the histogram; defaults to NULL
-#' @param lwd line width for the histogram; defaults to NULL
-#' @param cex font size
-#' @param lugar legend position; defaults to 'toprigt'
-#' @param ... takes paramters from other functions
-#' 
-#' @seealso \code{\link{hist}} and \code{\link{par}} for graphic paramters
-#' 
-#' @importFrom e1071 skewness kurtosis
 #' @export
 
 descreve <-

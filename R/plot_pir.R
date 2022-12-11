@@ -1,6 +1,5 @@
 #' Pirâmides populacionais com os arquivos de população
 #' disponibilizados pelo DATASUS
-#' @author Fúlvio B. Nedel
 #' @aliases plot_pir
 #' 
 #' @importFrom utils read.table write.table

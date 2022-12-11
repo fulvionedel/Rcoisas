@@ -2,8 +2,7 @@
 % Please edit documentation in R/ggplot_pir.R
 \name{ggplot_pir}
 \alias{ggplot_pir}
-\title{Pirâmides populacionais com os arquivos de população
-disponibilizados pelo DATASUS}
+\title{Pirâmides populacionais}
 \usage{
 ggplot_pir(
   banco,
@@ -18,21 +17,20 @@ ggplot_pir(
 \arguments{
 \item{banco}{Um \code{data frame} com população ou casos por sexo e faixa etária.}
 
-\item{idade}{nome da variável com a idade ou faixa etária.}
+\item{idade}{Nome da variável com a idade ou faixa etária.}
 
-\item{sexo}{nome da variável com o sexo; deve ser um \code{factor}.}
+\item{sexo}{Nome da variável com o sexo; deve ser um \code{factor}.}
 
-\item{populacao}{nome da variável com a população ou casos, se houver; por padrão é \code{NULL} e a função calcula a frequência por sexo e faixa etária indicada.}
+\item{populacao}{Nome da variável com a população ou casos, se houver; por padrão é \code{NULL} e a função calcula a frequência por sexo e faixa etária indicada.}
 
-\item{catsexo}{vetor com o nome das categorias da variável sexo; padrão é \code{c("masc", "fem")}; o sexo masculino deve ser a primeira categoria.}
+\item{catsexo}{Vetor com o nome das categorias da variável sexo; padrão é \code{c("masc", "fem")}; o sexo masculino deve ser a primeira categoria.}
 
 \item{cores}{Cores das barras, para as categorias masculino e feminino. O padrão é \code{c("darkblue", "violetred")}.}
 
 \item{nsize}{Tamanho do texto com o nº total de habitantes. O padrão é 3.5.}
 }
 \description{
-Pirâmides populacionais com os arquivos de população
-disponibilizados pelo DATASUS
+Pirâmides populacionais
 }
 \examples{
 data("POPBR12")
@@ -60,9 +58,8 @@ ggplot_pir(POPBR12[POPBR12$MUNIC_RES==430520, ],
 ## Mortalidade por anos completos de vida
 
 data("obitosRS2019")
-ggplot_pir(obitosRS2019, "idade", "sexo", catsexo = 1:2)
+obitosRS2019 \%>\%
+  mutate(sexo = as.factor(sexo)) \%>\% 
+  ggplot_pir("idade", "sexo")
 
-}
-\author{
-Fúlvio B. Nedel
 }

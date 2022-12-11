@@ -18,6 +18,3 @@ bolero(independente, dependente = NULL, dec = 2, dnn = NULL)
 \description{
 Analisa uma tabela 2x2 e apresenta um output com rótulos em português
 }
-\author{
-Fúlvio B. Nedel
-}

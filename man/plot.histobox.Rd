@@ -2,8 +2,7 @@
 % Please edit documentation in R/plot.histobox.R
 \name{plot.histobox}
 \alias{plot.histobox}
-\title{Método para histobox
-porque ele parece que pede}
+\title{Método para histobox}
 \usage{
 \method{plot}{histobox}(x, ...)
 }
@@ -14,5 +13,4 @@ porque ele parece que pede}
 }
 \description{
 Método para histobox
-porque ele parece que pede
 }

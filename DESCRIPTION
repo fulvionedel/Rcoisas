@@ -1,8 +1,8 @@
 Package: Rcoisas
 Type: Package
 Title: Minhas Funcionalidades
-Version: 0.0.0.9041
-Date: 2022-06-15
+Version: 0.0.0.905
+Date: 2022-12-11
 Author: Fúlvio B. Nedel
 Maintainer: Fúlvio B. Nedel <fulvionedel@gmail.com>
 Description: Funções para manejo dos arquivos do SUS, pirâmides populacionais,
@@ -12,17 +12,17 @@ Imports: csapAIH,
          e1071, 
          ggplot2,
          graphics, 
-         ggpp,
          Hmisc, 
-         lemon,
          stats,
          tidyr,
          dplyr
-Suggests: ggthemes,
-          foreign
+Suggests: foreign,
+          ggthemes,
+          ggpp,
+          lemon
 Encoding: UTF-8
 Language: pt-br
 LazyData: true
-RoxygenNote: 7.2.0
+RoxygenNote: 7.2.2
 Depends: 
     R (>= 2.10)

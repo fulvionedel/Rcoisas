@@ -1,5 +1,4 @@
 #' Bolero: tabelas 2x2
-#' @author Fúlvio B. Nedel
 #' @description Analisa uma tabela 2x2 e apresenta um output com rótulos em português
 #' @aliases bolero
 #' 
@@ -27,8 +26,8 @@ function(independente, dependente = NULL, dec = 2, dnn = NULL) {
   lci.rp <- exp(log(rp) - 1.96 * se.log.rp)
   uci.rp <- exp(log(rp) + 1.96 * se.log.rp)
   or <- (a/b)/(c/d)
-  ft <- fisher.test(tab)
-  qui <- chisq.test(tab)
+  ft <- stats::fisher.test(tab)
+  qui <- stats::chisq.test(tab)
   varexp <- names(as.data.frame(tab))[1]
   vardesf <- names(as.data.frame(tab))[2]
   #### IC exato pra RP, pelo intervalo exato da Odds no teste de Fisher
@@ -41,7 +40,7 @@ function(independente, dependente = NULL, dec = 2, dnn = NULL) {
       "\n-------------------------------------------------------------", 
       "\nVar. dependente :", names(as.data.frame(tab))[2], "=", colnames(tab)[1], 
       "\nVar. independente:", names(as.data.frame(tab))[1], "=", rownames(tab)[1], "\n\n")
-  print(addmargins(tab)) #, FUN=list(Total=sum)))
+  print(stats::addmargins(tab)) #, FUN=list(Total=sum)))
   cat('\nPropor\U00E7\u00F5es (%)\n')
   print(proptab)
   #cat("\n  Raz\U00E3o de Probabilidades:", formatC(rr, format="f", dig=dec), 

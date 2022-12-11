@@ -2,7 +2,7 @@
 % Please edit documentation in R/print.descreve.R
 \name{print.descreve}
 \alias{print.descreve}
-\title{Imprime o resultado da funcao \code{\link{descreve}}}
+\title{Imprime o resultado da função \code{\link{descreve}}}
 \usage{
 \method{print}{descreve}(x, print = "output", ...)
 }
@@ -14,6 +14,6 @@
 \item{...}{Não sei se serve de algo mas parece que precisa}
 }
 \description{
-Imprime o resultado da funcao \code{\link{descreve}}
+Imprime o resultado da função \code{\link{descreve}}
 }
 \concept{descreve}

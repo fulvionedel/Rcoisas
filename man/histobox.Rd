@@ -2,7 +2,7 @@
 % Please edit documentation in R/histobox.R
 \name{histobox}
 \alias{histobox}
-\title{Função para desenhar histogramas com boxplot integrado}
+\title{Histograma com boxplot}
 \usage{
 histobox(x, limites = NULL, col.h = "cyan", col.bx = "skyblue1", ...)
 }
@@ -18,7 +18,7 @@ histobox(x, limites = NULL, col.h = "cyan", col.bx = "skyblue1", ...)
 \item{...}{outros parâmetros de \code{\link{hist}} e \code{\link{boxplot}}}
 }
 \description{
-os eixos são centrados
+Desenha um histograma com boxplot integrado ao mesmo gráfico
 }
 \examples{
 histobox(rnorm(1000))

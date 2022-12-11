@@ -1,5 +1,5 @@
-#' @title Função para desenhar histogramas com boxplot integrado
-#' @description os eixos são centrados
+#' @title Histograma com boxplot
+#' @description Desenha um histograma com boxplot integrado ao mesmo gráfico
 #' 
 #' @aliases histobox
 #' @param x uma variável numérica
@@ -12,14 +12,14 @@
 #' histobox(rnorm(1000))
 #' @export
 histobox <-
-  function(x, limites = NULL, col.h='cyan', col.bx='skyblue1', ... )
+  function(x, limites = NULL, col.h = 'cyan', col.bx = 'skyblue1', ... )
 {
-  mini <- min(x, na.rm=T) + min(x, na.rm=T)*.1
-  maxi <- max(x, na.rm=T) + max(x, na.rm=T)*.1
+  mini <- min(x, na.rm = T) + min(x, na.rm = T)*.1
+  maxi <- max(x, na.rm = T) + max(x, na.rm = T)*.1
   if(is.null(limites)) limites <- c(mini, maxi)
   layout(mat = matrix(c(1,2),2,1, byrow=TRUE), heights = c(1,8))
-  par(mar=c(0, 3.1, 1.1, 2.1))
-  boxplot(x, horizontal=TRUE, xaxt = "n", frame=F, col=col.bx, ylim=limites)
-  par(mar=c(4, 3.1, 1.1, 2.1))
-  hist(x, xlim=limites, main = NULL, col=col.h, ...)
+  par(mar = c(0, 3.1, 1.1, 2.1))
+  boxplot(x, horizontal = TRUE, xaxt = "n", frame = F, col = col.bx, ylim = limites)
+  par(mar = c(4, 3.1, 1.1, 2.1))
+  hist(x, xlim = limites, main = NULL, col = col.h, ...)
 }

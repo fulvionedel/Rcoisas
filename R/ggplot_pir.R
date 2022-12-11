@@ -1,18 +1,14 @@
-#' Pirâmides populacionais com os arquivos de população
-#' disponibilizados pelo DATASUS
-#' @author Fúlvio B. Nedel
+#' Pirâmides populacionais 
 #' @aliases ggplot_pir
 #' 
 #' @import ggplot2
 #' @importFrom dplyr %>% group_by summarise
-#' @importFrom ggpp geom_text_npc
-#' @importFrom lemon scale_y_symmetric
 #' 
 #' @param banco Um \code{data frame} com população ou casos por sexo e faixa etária.
-#' @param idade nome da variável com a idade ou faixa etária.
-#' @param sexo nome da variável com o sexo; deve ser um \code{factor}.
-#' @param populacao nome da variável com a população ou casos, se houver; por padrão é \code{NULL} e a função calcula a frequência por sexo e faixa etária indicada.
-#' @param catsexo vetor com o nome das categorias da variável sexo; padrão é \code{c("masc", "fem")}; o sexo masculino deve ser a primeira categoria.
+#' @param idade Nome da variável com a idade ou faixa etária.
+#' @param sexo Nome da variável com o sexo; deve ser um \code{factor}.
+#' @param populacao Nome da variável com a população ou casos, se houver; por padrão é \code{NULL} e a função calcula a frequência por sexo e faixa etária indicada.
+#' @param catsexo Vetor com o nome das categorias da variável sexo; padrão é \code{c("masc", "fem")}; o sexo masculino deve ser a primeira categoria.
 #' @param cores Cores das barras, para as categorias masculino e feminino. O padrão é \code{c("darkblue", "violetred")}.
 #' @param nsize Tamanho do texto com o nº total de habitantes. O padrão é 3.5.
 #' 
@@ -42,16 +38,18 @@
 #' ## Mortalidade por anos completos de vida
 #' 
 #' data("obitosRS2019")
-#' ggplot_pir(obitosRS2019, "idade", "sexo", catsexo = 1:2)
+#' obitosRS2019 %>%
+#'   mutate(sexo = as.factor(sexo)) %>% 
+#'   ggplot_pir("idade", "sexo")
 #' 
 #' @export
 #' 
 ggplot_pir <- function(banco, idade, sexo, populacao = NULL, catsexo = c("masc", "fem"), cores = c("darkblue", "violetred"), nsize = 3.5) {
-  ..prop.. <- NULL
+  prop <- NULL
   if(is.null(populacao)) {
     graf <- ggplot(banco, aes(x = .data[[idade]], fill = .data[[sexo]])) +
-      geom_bar(data = subset(banco, sexo == catsexo[1]), aes(y=..prop..*(-1))) +
-      geom_bar(data = subset(banco, sexo == catsexo[2]), aes(y=..prop..))  
+      geom_bar(data = subset(banco, sexo == catsexo[1]), aes(y = after_stat(prop)*(-1))) +
+      geom_bar(data = subset(banco, sexo == catsexo[2]), aes(y=after_stat(prop)))  
     nmasc <- table(banco[[sexo]] == catsexo[1])['TRUE']
     nfem  <- table(banco[[sexo]] == catsexo[2])['TRUE']
   } 
@@ -69,12 +67,12 @@ ggplot_pir <- function(banco, idade, sexo, populacao = NULL, catsexo = c("masc",
     nmasc <- as.numeric(n[1, 2])
     nfem  <- as.numeric(n[2, 2])
   }
-  ggnmasc <- geom_text_npc(aes(npcx = .98, npcy = 0.05,
+  ggnmasc <- ggpp::geom_text_npc(aes(npcx = .98, npcy = 0.05,
                                label = paste("N =",
                                              suppressWarnings(
                                                formatC(nmasc, format = "fg", big.mark = ".")))),
                            col = cores[1], size = nsize)
-  ggnfem <- geom_text_npc(aes(npcx = 0.98, npcy = 0.95,
+  ggnfem <- ggpp::geom_text_npc(aes(npcx = 0.98, npcy = 0.95,
                               label = paste("N =",
                                             suppressWarnings(
                                               formatC(nfem, format = "fg", big.mark = ".")))),
@@ -88,10 +86,10 @@ ggplot_pir <- function(banco, idade, sexo, populacao = NULL, catsexo = c("masc",
     ggnfem
   if(is.null(populacao)) {
     graf <- graf +
-      scale_y_symmetric(labels = function (x) paste(abs(x)*100,"%"))
+      lemon::scale_y_symmetric(labels = function (x) paste(abs(x)*100,"%"))
   } else {
     graf <- graf +
-      scale_y_symmetric(labels = function (x) paste(abs(x),"%")) 
+      lemon::scale_y_symmetric(labels = function (x) paste(abs(x),"%")) 
   }
   graf
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/descreve.R
 \name{descreve}
 \alias{descreve}
-\title{Describes a numerical variable}
+\title{Descreve uma variável numérica}
 \usage{
 descreve(
   x,
@@ -37,67 +37,67 @@ descreve(
 )
 }
 \arguments{
-\item{x}{A numeric vector}
+\item{x}{Um vetor numérico}
 
-\item{dec}{The number of digits}
+\item{dec}{Número de dígitos}
 
-\item{na.rm}{TRUE (default) removes missings}
+\item{na.rm}{TRUE (default) remove os missings}
 
-\item{data}{Optional argument. Data frame containing \code{x}. Defaults to NULL.}
+\item{data}{Argumento opcional. Banco de dados contendo \code{x}. O padrão é NULL.}
 
-\item{histograma}{TRUE (default) draws a histogram}
+\item{histograma}{TRUE (default) desenha um histograma}
 
-\item{breaks}{number of breaks, according to \code{\link{hist}}; the default method is 'Sturges'}
+\item{breaks}{Número de divisões, de acordo com \code{\link{hist}}; o método padrão é Sturges'}
 
-\item{freq}{TRUE (default) set y axis to frequency; FAlSE set it to density}
+\item{freq}{TRUE (default) define o eixo y como frequência; FAlSE o define como densidade}
 
-\item{main}{Graphic title}
+\item{main}{Título do gráfico}
 
-\item{xlab}{Label for x axis}
+\item{xlab}{Rótulo do eixo x}
 
-\item{ylab}{Label for y axis}
+\item{ylab}{Rótulo do eixo y}
 
-\item{linhas}{TRUE (default) draws vertical lines with median, mean, and SD +1 position at the histogram}
+\item{linhas}{TRUE (default) desenha linhas verticais com a média, mediana e média + 1 ou 2 DP}
 
-\item{curva}{TRUE (default) draws the expected normal curve}
+\item{curva}{TRUE (default) desenha a curva normal esperada}
 
-\item{densidade}{defaults to FALSE; turn to TRUE to draw the density line}
+\item{densidade}{O padrão é FALSE; passe para TRUE para desenhar a curva de densidade da distribuição}
 
-\item{col.dens}{colour of density line; defaults to 1 (black)}
+\item{col.dens}{Cor da curva de densidade; o padrão é 'black'}
 
-\item{col}{colour of histogram bars; defaults to 'yellow2'}
+\item{col}{Cor das barras do histograma; o padrão é 'yellow2'}
 
-\item{col.curva}{colour of normal curve; defaults to 'DarkGreen'}
+\item{col.curva}{Cor da curva normal; o padrão é 'DarkGreen'}
 
-\item{col.media}{colour of mean line; defaults to 2 (red)}
+\item{col.media}{Cor da linha da média; o padrão é 'red'}
 
-\item{col.dp}{colour of SD lines; defaults to col.media}
+\item{col.dp}{Cor das linhas do SP; por padrão é a mesma que col.media ('red')}
 
-\item{col.mediana}{colour of median line; defaults to 4 (blue)}
+\item{col.mediana}{Cor da linha da mediana; o padrão é 'blue'}
 
-\item{legenda}{TRUE (default) draws a legend}
+\item{legenda}{TRUE (default) desenha a legenda}
 
-\item{lugar}{legend position; defaults to 'toprigt'}
+\item{lugar}{Posição da legenda; padrão é 'toprigt'}
 
-\item{lty.curva}{line type of normal curve; defaults to 2}
+\item{lty.curva}{Tipo da linha da curva normal; padrão é 2}
 
-\item{lwd.curva}{line width of normal curve; defautls to 1}
+\item{lwd.curva}{Largura da linha da curva normal; padrão é 1}
 
-\item{lty.dens}{line type of density curve; defaults to 3}
+\item{lty.dens}{Tipo da linha da curva de densidade; padrão é 3}
 
-\item{lwd.dens}{line width of density curve; defaults to 2}
+\item{lwd.dens}{Largura da linha da curva de densidade; padrão é 2}
 
-\item{lty}{line type for the histogram; defaults to NULL}
+\item{lty}{Tipo da linha para o histograma; padrão é NULL}
 
-\item{lwd}{line width for the histogram; defaults to NULL}
+\item{lwd}{Largura da linha para o histograma; padrão é NULL}
 
-\item{cex}{font size}
+\item{cex}{Tamanho da fonte}
 
-\item{...}{takes paramters from other functions}
+\item{...}{Toma parâmetros de outras funções utilizadas}
 }
 \description{
-Performs a 'complete' description of a numerical variable, continuous or integer, and plots a histogram maybe with lines for mean, median, 1 and 2 sd from and to mean and normal probability curve for the plotted parameters.
+Executa a descrição "completa" de uma variável numérica, contínua ou discreta, e desenha um histograma, possivelmente com linhas para a média, mediana e distância da média até 1 ou 2 desvios-padrão, além da curva de probabilidade Normal para os parâmetros apresentados.
 }
 \seealso{
-\code{\link{hist}} and \code{\link{par}} for graphic paramters
+\code{\link{hist}} and \code{\link{par}} para os parâmetros gráficos
 }

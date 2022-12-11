@@ -1,4 +1,4 @@
-#' Imprime o resultado da funcao \code{\link{descreve}}
+#' Imprime o resultado da função \code{\link{descreve}}
 #' @aliases print.descreve
 #' @rdname print.descreve
 #' @family descreve

@@ -48,6 +48,3 @@ tabuleiro(x, cum = FALSE)
 tabuleiro(x, total = FALSE)[,-3]
 
 }
-\author{
-Fúlvio B. Nedel
-}

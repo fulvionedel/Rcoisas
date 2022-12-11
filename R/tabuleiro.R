@@ -1,5 +1,4 @@
 #' @title Tabela de frequências univariada
-#' @author Fúlvio B. Nedel
 #' @description Constrói uma tabela com distribuição de frequências brutas, relativas e acumuladas, com rótulos em português
 #' @aliases tabuleiro
 #' 
