@@ -1,4 +1,4 @@
-#' @importFrom csapAIH fxetar_quinq ufbr ler_popbr
+#' @importFrom csapAIH fxetar_quinq ufbr ler_popbr popbr2000_2021 
 #' @family csapAIH 
 #' @family DATASUS
 #' 
@@ -13,3 +13,7 @@ csapAIH::ufbr
 #' Importa arquivos de população do DATASUS até 2012.
 #' @export
 csapAIH::ler_popbr
+#' 
+#' Estimativas da população 2000-2021 (DATASUS)
+#' @export
+csapAIH::popbr2000_2021 

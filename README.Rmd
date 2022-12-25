@@ -1,0 +1,61 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# Rcoisas
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+> Funções para aulas e apresentação de resultados em português.
+
+O pacote contém `r sum(table(getNamespaceExports("Rcoisas")))` funções, incluídas algumas importadas do pacote [`csapAIH`](https://github.com/fulvionedel/csapAIH)), principalmente para a descrição de variáveis com 'output' em português, e trabalhar com populações brasileiras .
+
+### Funções no pacote `Rcoisas`
+
+```{r echo=FALSE, comment=NULL}
+# funcoes <- sort(getNamespaceExports("Rcoisas"))
+# c(paste0(head(funcoes, -1), ","), tail(funcoes, 1))
+# library(printr)
+# sort(getNamespaceExports("Rcoisas")) |>
+  # pander::pander()
+help(package = Rcoisas)$info[[2]]
+```
+
+
+## Instalação
+
+O pacote ainda não tem uma primeira versão para ser lançada.
+
+A versão de desenvolvimento pode ser instalada a partir do [GitHub](https://github.com/) com:
+
+``` r
+# install.packages("remotes") # Se for necessário
+remotes::install_github("fulvionedel/Rcoisas")
+```
+
+## Exemplos
+
+
+```{r example}
+library(Rcoisas)
+## basic example code
+
+demonstra_IC(runif(50), n = 3000, r = 100)
+demonstra_IC(rnorm(2000), n = 3000, r = 100, conf.level = 0.99)
+```
+
+
+<!-- You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/v1/examples>. -->
+

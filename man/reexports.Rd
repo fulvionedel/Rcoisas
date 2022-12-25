@@ -6,6 +6,7 @@
 \alias{fxetar_quinq}
 \alias{ufbr}
 \alias{ler_popbr}
+\alias{popbr2000_2021}
 \title{Objects exported from other packages}
 \seealso{
 Other csapAIH: 
@@ -21,6 +22,6 @@ These objects are imported from other packages. Follow the links
 below to see their documentation.
 
 \describe{
-  \item{csapAIH}{\code{\link[csapAIH]{fxetar_quinq}}, \code{\link[csapAIH]{ler_popbr}}, \code{\link[csapAIH]{ufbr}}}
+  \item{csapAIH}{\code{\link[csapAIH]{fxetar_quinq}}, \code{\link[csapAIH]{ler_popbr}}, \code{\link[csapAIH]{popbr2000_2021}}, \code{\link[csapAIH]{ufbr}}}
 }}
 
