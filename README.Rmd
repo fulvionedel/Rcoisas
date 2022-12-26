@@ -36,9 +36,7 @@ help(package = Rcoisas)$info[[2]]
 
 ## Instalação
 
-O pacote ainda não tem uma primeira versão para ser lançada.
-
-A versão de desenvolvimento pode ser instalada a partir do [GitHub](https://github.com/) com:
+O pacote ainda não tem uma primeira versão para ser lançada. A versão de desenvolvimento pode ser instalada a partir do [GitHub](https://github.com/) com:
 
 ``` r
 # install.packages("remotes") # Se for necessário
@@ -50,10 +48,20 @@ remotes::install_github("fulvionedel/Rcoisas")
 
 ```{r example}
 library(Rcoisas)
-## basic example code
+obitos <- obitosRS2019[c("sexo", "idade", "RACACOR", "CAUSABAS")]
+cardio <- grepl("circulatório", csapAIH::cid10cap(obitos$CAUSABAS)) |>
+  factor(levels = c(TRUE, FALSE), labels = c("sim", "não"))
+externas <- grepl("externas", csapAIH::cid10cap(obitos$CAUSABAS)) |>
+  factor(levels = c(TRUE, FALSE), labels = c("sim", "não"))
 
-demonstra_IC(runif(50), n = 3000, r = 100)
-demonstra_IC(rnorm(2000), n = 3000, r = 100, conf.level = 0.99)
+bolero(obitos$sexo, cardio)
+bolero(factor(obitos$sexo, levels = c("masc", "fem")), externas, dnn = c("sexo", "causas externas"))
+
+demonstra_IC(rnorm(384), n = 50000, r = 100)
+
+descreve(rnorm(1000))
+histobox(rnorm(1000))
+dev.off()
 ```
 
 

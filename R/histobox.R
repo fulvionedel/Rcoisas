@@ -14,12 +14,17 @@
 histobox <-
   function(x, limites = NULL, col.h = 'cyan', col.bx = 'skyblue1', ... )
 {
+  old.par <- par(no.readonly = TRUE)
+  on.exit(par(old.par))
+  
   mini <- min(x, na.rm = T) + min(x, na.rm = T)*.1
   maxi <- max(x, na.rm = T) + max(x, na.rm = T)*.1
   if(is.null(limites)) limites <- c(mini, maxi)
   layout(mat = matrix(c(1,2),2,1, byrow=TRUE), heights = c(1,8))
-  par(mar = c(0, 3.1, 1.1, 2.1))
+  op <- par(mar = c(0, 3.1, 1.1, 2.1))
   boxplot(x, horizontal = TRUE, xaxt = "n", frame = F, col = col.bx, ylim = limites)
   par(mar = c(4, 3.1, 1.1, 2.1))
-  hist(x, xlim = limites, main = NULL, col = col.h, ...)
+  hist(x, xlim = limites, main = NULL, col = col.h, ...) 
+
+  invisible()
 }
