@@ -8,12 +8,13 @@
 #' @param ... argumentos aplicáveis à função \code{\link{t.test}}, útil para a modificação do nível de significância. Veja em 'exemplos' e 'detalhes'
 #' 
 #' @examples 
-#' demonstra_IC(runif(50), n = 3000, r = 100)
-#' demonstra_IC(rnorm(2000), n = 3000, r = 100, conf.level = 0.99)
+#' demonstra_IC(runif(1000))
+#' demonstra_IC(rnorm(10000), conf.level = 0.99)
 #' 
 #' @export
 #' 
-demonstra_IC <- function(pop, n, r, replace = TRUE, ...) {
+demonstra_IC <- function(pop, r = 100, replace = TRUE, ...) {
+  n <- length(pop)
   amostras <- data.frame(matrix(nrow = n, ncol = r))
   liminf <- limsup <- media <- numeric(length <- r)
   for(i in 1:r) {

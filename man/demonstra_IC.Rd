@@ -4,24 +4,24 @@
 \alias{demonstra_IC}
 \title{Demonstração do intervalo de confiança}
 \usage{
-demonstra_IC(pop, n, r, replace = TRUE, ...)
+demonstra_IC(pop, r = 100, replace = TRUE, ...)
 }
 \arguments{
 \item{pop}{População fonte das amostras}
-
-\item{n}{Nº de unidades amostrais em cada amostra}
 
 \item{r}{Nº de amostragens}
 
 \item{replace}{Valor lógico para amostragem com reposição, o padrão é TRUE}
 
 \item{...}{argumentos aplicáveis à função \code{\link{t.test}}, útil para a modificação do nível de significância. Veja em 'exemplos' e 'detalhes'}
+
+\item{n}{Nº de unidades amostrais em cada amostra}
 }
 \description{
 Seleciona amostras de uma variável numérica na população e representa as médias e intervalos de confiança de cada amostra em relação à média da população.
 }
 \examples{
-demonstra_IC(runif(50), n = 3000, r = 100)
-demonstra_IC(rnorm(2000), n = 3000, r = 100, conf.level = 0.99)
+demonstra_IC(runif(1000))
+demonstra_IC(rnorm(10000), conf.level = 0.99)
 
 }
