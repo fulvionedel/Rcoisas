@@ -126,14 +126,14 @@ descreve(rnorm(1000))
 
     #> rnorm(1000) :  1000  observações 
     #> 
-    #> Válidos: 1000     Missings: 0     Soma: -49.02 
-    #> Menor: -3     Maior: 3.55     Amplitude: 6.55
-    #> Média: -0.05  DP: 1.03    CV(%): 2096.73
-    #> Assimetria: -0.03     Curtose(real): 2.66
+    #> Válidos: 1000     Missings: 0     Soma: -3.33 
+    #> Menor: -3.95  Maior: 3.39     Amplitude: 7.35
+    #> Média: 0  DP: 1   CV(%): 29951.92
+    #> Assimetria: 0.04  Curtose(real): 3.37
     #> Quantis:
     #>  2.5%    5%   25%   50%   75%   95% 97.5% 
-    #> -2.03 -1.80 -0.78 -0.03  0.69  1.59  1.92 
-    #>        IIQ: 1.48
+    #> -1.92 -1.58 -0.66  0.00  0.65  1.53  2.00 
+    #>        IIQ: 1.3
     histobox(rnorm(1000))
 
 <img src="man/figures/README-unnamed-chunk-6-2.png" width="100%" />
