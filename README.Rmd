@@ -74,6 +74,7 @@ head(ic$medias, 3)
 ic$grafico
 ic$teste.t
 demonstra_IC(rnorm(1000), n = 50000, r = 100)
+demonstra_IC(rnorm(1000), n = 50000, r = 100)
 ```
 
 
