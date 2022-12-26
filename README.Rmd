@@ -65,6 +65,7 @@ bolero(factor(obitos$sexo, levels = c("masc", "fem")), externas, dnn = c("sexo",
 
 <!-- ### Demonstração do intervalo de confiança -->
 
+<<<<<<< HEAD
 ```{r eval=FALSE, echo=FALSE}
 ic <- demonstra_IC(rnorm(1000))
 ic$mediapop
@@ -73,6 +74,10 @@ mean(ic$medias$media)
 head(ic$medias, 3)
 ic$grafico
 ic$teste.t
+=======
+```{r }
+demonstra_IC(rnorm(1000), n = 50000, r = 100)
+>>>>>>> 4b129ba1bc3762badc9d385002b3ef23d064b4aa
 ```
 
 
