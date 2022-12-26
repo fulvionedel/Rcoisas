@@ -39,15 +39,7 @@
 #' 
 #' @export
 
-descreve <-
-  function (x, dec = 2, na.rm = TRUE, data = NULL,
-            histograma = TRUE, breaks='Sturges', freq = TRUE ,
-            main = NULL, xlab = NULL, ylab= NULL,
-            linhas=2, curva=TRUE, densidade=FALSE, col.dens=1,
-            col='yellow2', col.curva='DarkGreen', col.media=2, col.dp=col.media, col.mediana=4,
-            legenda = TRUE, lugar='topright',
-            lty.curva = 2, lwd.curva = 1, lty.dens = 3, lwd.dens = 2,
-            lty = NULL, lwd = NULL, cex = NULL, ...) 
+descreve <- function (x, dec = 2, na.rm = TRUE, data = NULL, histograma = TRUE, breaks='Sturges', freq = TRUE , main = NULL, xlab = NULL, ylab= NULL, linhas=2, curva=TRUE, densidade=FALSE, col.dens=1, col='yellow2', col.curva='DarkGreen', col.media=2, col.dp=col.media, col.mediana=4, legenda = TRUE, lugar='topright', lty.curva = 2, lwd.curva = 1, lty.dens = 3, lwd.dens = 2, lty = NULL, lwd = NULL, cex = NULL, ...) 
   {
     destinatio <- deparse(substitute(x))
     if ( !is.null(data) ) {

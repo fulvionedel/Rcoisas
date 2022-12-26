@@ -45,9 +45,13 @@ remotes::install_github("fulvionedel/Rcoisas")
 
 ## Exemplos
 
-
-```{r example}
+```{r}
 library(Rcoisas)
+```
+
+### Tabelas 2 $\times$ 2
+
+```{r}
 obitos <- obitosRS2019[c("sexo", "idade", "RACACOR", "CAUSABAS")]
 cardio <- grepl("circulatório", csapAIH::cid10cap(obitos$CAUSABAS)) |>
   factor(levels = c(TRUE, FALSE), labels = c("sim", "não"))
@@ -56,12 +60,24 @@ externas <- grepl("externas", csapAIH::cid10cap(obitos$CAUSABAS)) |>
 
 bolero(obitos$sexo, cardio)
 bolero(factor(obitos$sexo, levels = c("masc", "fem")), externas, dnn = c("sexo", "causas externas"))
+```
 
+
+### Demonstração do intervalo de confiança
+
+```{r }
 demonstra_IC(rnorm(384), n = 50000, r = 100)
+```
 
+
+### Descrição univariada
+
+```{r }
 descreve(rnorm(1000))
 histobox(rnorm(1000))
-dev.off()
+
+tabuleiro(obitos$RACACOR)
+tabuleiro2(obitos$RACACOR)
 ```
 
 
