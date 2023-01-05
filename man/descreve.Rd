@@ -33,6 +33,7 @@ descreve(
   lty = NULL,
   lwd = NULL,
   cex = NULL,
+  print = "output",
   ...
 )
 }
@@ -92,6 +93,8 @@ descreve(
 \item{lwd}{Largura da linha para o histograma; padrão é NULL}
 
 \item{cex}{Tamanho da fonte}
+
+\item{print}{Modo de apresentação; \code{print = "tabela"} retorna uma tabela com as estatísticas}
 
 \item{...}{Toma parâmetros de outras funções utilizadas}
 }

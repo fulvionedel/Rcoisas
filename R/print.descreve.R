@@ -8,12 +8,15 @@
 #' @param ... Não sei se serve de algo mas parece que precisa
 #' 
 #' @importFrom tidyr as_tibble gather
-#' @export 
+#' 
+#' @export
 print.descreve <- function(x, print = "output", ...) {
   UseMethod("print.descreve")
 }
 #' 
+#' 
 #' @export
+#' 
 print.descreve <- function(x, print = "output", ...) {
   print.output <-
     function(x) {

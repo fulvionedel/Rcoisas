@@ -49,6 +49,28 @@ remotes::install_github("fulvionedel/Rcoisas")
 library(Rcoisas)
 ```
 
+### Descrição univariada
+
+Funções `descreve`, `histobox` e `tabuleiro`.
+
+```{r }
+varnum <- rnorm(1000)
+descreve(varnum)
+descreve(varnum, print = "tabela")
+histobox(varnum)
+
+tabuleiro(obitosRS2019$RACACOR)
+tabuleiro2(obitosRS2019$RACACOR)
+```
+
+```{r}
+descreve(varnum, print = "tabela") |> 
+  dplyr::mutate(x = formatL(x, format = "fg"))
+
+
+```
+
+
 ### Tabelas 2 $\times$ 2
 
 ```{r}
@@ -60,32 +82,6 @@ externas <- grepl("externas", csapAIH::cid10cap(obitos$CAUSABAS)) |>
 
 bolero(obitos$sexo, cardio)
 bolero(factor(obitos$sexo, levels = c("masc", "fem")), externas, dnn = c("sexo", "causas externas"))
-```
-
-
-<!-- ### Demonstração do intervalo de confiança -->
-
-```{r eval=FALSE, echo=FALSE}
-ic <- demonstra_IC(rnorm(1000))
-ic$mediapop
-mean(ic$medias$media)
-
-head(ic$medias, 3)
-ic$grafico
-ic$teste.t
-demonstra_IC(rnorm(1000), n = 50000, r = 100)
-demonstra_IC(rnorm(1000), n = 50000, r = 100)
-```
-
-
-### Descrição univariada
-
-```{r }
-descreve(rnorm(1000))
-histobox(rnorm(1000))
-
-tabuleiro(obitos$RACACOR)
-tabuleiro2(obitos$RACACOR)
 ```
 
 
