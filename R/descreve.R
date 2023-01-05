@@ -46,11 +46,12 @@ descreve <- function(x, print = "output", ...) {
 #' 
 #' @export
 
-descreve <- function (x, dec = 2, na.rm = TRUE, data = NULL, histograma = TRUE, breaks='Sturges', freq = TRUE , main = NULL, xlab = NULL, ylab= NULL, linhas=2, curva=TRUE, densidade=FALSE, col.dens=1, col='yellow2', col.curva='DarkGreen', col.media=2, col.dp=col.media, col.mediana=4, legenda = TRUE, lugar='topright', lty.curva = 2, lwd.curva = 1, lty.dens = 3, lwd.dens = 2, lty = NULL, lwd = NULL, cex = NULL, print = "output", ...) 
+descreve <- function (x, by = NULL, dec = 2, na.rm = TRUE, data = NULL, histograma = TRUE, breaks='Sturges', freq = TRUE , main = NULL, xlab = NULL, ylab= NULL, linhas=2, curva=TRUE, densidade=FALSE, col.dens=1, col='yellow2', col.curva='DarkGreen', col.media=2, col.dp=col.media, col.mediana=4, legenda = TRUE, lugar='topright', lty.curva = 2, lwd.curva = 1, lty.dens = 3, lwd.dens = 2, lty = NULL, lwd = NULL, cex = NULL, print = "output", ...) 
   {
     destinatio <- deparse(substitute(x))
     if ( !is.null(data) ) {
       x <- data[,deparse(substitute(x))]
+      # by <- data[,deparse(substitute(by))]
     } 
     n <- round(length(x))
     miss <- round(sum(is.na(x)))
@@ -228,8 +229,16 @@ descreve <- function (x, dec = 2, na.rm = TRUE, data = NULL, histograma = TRUE, 
         }
       }
     }
+  
     if(print == "tabela") {
       print.descreve(descr, print = "tabela")
-    } else
-      return(descr)
-  }
+    } else descr
+    
+    if(!is.null(by)) {
+      descr <- tapply(x, by, descreve, ...)
+    } 
+
+    descr
+    
+}
+
