@@ -14,7 +14,10 @@ obitosRS2019 <- obitosRS2019 %>%
   bind_cols(idadeSUS(., "SIM")) %>% 
   select(-IDADE) %>% 
   process_sim() %>% 
-  mutate(sexo = factor(SEXO, levels = c("Masculino", "Feminino"), labels = c("masc", "fem"))) %>% 
+  mutate(idade = as.numeric(idade),
+         sexo = factor(SEXO, 
+                       levels = c("Masculino", "Feminino"), 
+                       labels = c("masc", "fem"))) %>% 
   select(-SEXO) 
 
 for(i in 1:ncol(obitosRS2019)) {
