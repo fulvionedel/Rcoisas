@@ -9,7 +9,7 @@
 > Funções para aulas e apresentação de resultados em português.
 
 O pacote contém 14 funções, incluídas algumas importadas do pacote
-[`csapAIH`](https://github.com/fulvionedel/csapAIH)), principalmente
+[`csapAIH`](https://github.com/fulvionedel/csapAIH), principalmente
 para a descrição de variáveis com ‘output’ em português, e trabalhar com
 populações brasileiras .
 
