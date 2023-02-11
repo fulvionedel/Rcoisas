@@ -27,20 +27,27 @@
 #' @export
 #'   
 fxetar.det_pra_fxetar5 <- function(x) {
-  if(levels(as.factor(x))[1] == "0"   &&
-     levels(as.factor(x))[2] == "101" &&
-     levels(as.factor(x))[3] == "202") {
-    x <- as.factor(
-      case_when(x >=    0 & x <=  404 ~ "00-04",
-                x >=  505 & x <=  909 ~ "05-09",
-                x >= 1010 & x <= 1414 ~ "10-14",
-                x >= 1515 & x <= 1919 ~ "15-19",
-                x >= 8099 ~ "80e+",
-                TRUE ~ paste0(substr(as.character(x), 1,2), 
-                              "-", 
-                              substr(as.character(x), 3,4))
-                )
-      )
+  temp <- levels(as.factor(x))
+  if(!is.integer(x)) x <- as.integer(x)
+  if(temp[1] == "0"   &&
+     temp[2] == "101" &&
+     temp[3] == "202") {
+    # x <- ifelse(x >=    0 & x <=  404, "00-04", 
+    #      ifelse(x >=  505 & x <=  909, "05-09",
+    #      ifelse(x >= 1010 & x <= 1414, "10-14",
+    #      ifelse(x >= 1515 & x <= 1919, "15-19",
+    #      ifelse(x >= 8099, "80e+", 
+    #      paste0(substr(as.character(x), 1,2), "-", substr(as.character(x), 3,4))
+    #      )))))
+    x <- case_when(x >=    0 & x <=  404 ~ "00-04",
+                   x >=  505 & x <=  909 ~ "05-09",
+                   x >= 1010 & x <= 1414 ~ "10-14",
+                   x >= 1515 & x <= 1919 ~ "15-19",
+                   x >= 8099 ~ "80e+",
+                   TRUE ~ paste0(
+                     substr(as.character(x), 1,2), "-", substr(as.character(x), 3,4)
+                     )
+                   )
     x
   }
 }
