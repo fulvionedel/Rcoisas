@@ -35,7 +35,13 @@
 #' 
 #' @seealso \code{\link{hist}} and \code{\link{par}} para os parâmetros gráficos
 #' 
+#' @examples 
+#' descreve(rnorm(100))
+#' descreve(rnorm(100), breaks = 'Scott')
+#' descreve(rnorm(100), linhas = FALSE, densidade = TRUE, col = 'skyblue') 
+#' descreve(rnorm(100), print = "tabela")
 #' 
+#'  
 descreve <- function(x, print = "output", ...) {
   UseMethod("print.descreve")
 }

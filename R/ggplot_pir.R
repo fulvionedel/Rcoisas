@@ -7,7 +7,7 @@
 #' @param banco Um \code{data frame} com população ou casos por sexo e faixa etária.
 #' @param idade Nome da variável com a idade ou faixa etária.
 #' @param sexo Nome da variável com o sexo; deve ser um \code{factor}.
-#' @param populacao Nome da variável com a população ou casos, se houver; por padrão é \code{NULL} e a função calcula a frequência por sexo e faixa etária indicada.
+#' @param populacao Nome da variável com a população ou casos, se houver; por padrão é \code{NULL}, isto é, a função espera um banco de registros individuais e calcula a frequência por sexo e faixa etária indicada.
 #' @param catsexo Vetor com o nome das categorias da variável sexo; padrão é \code{c("masc", "fem")}; o sexo masculino deve ser a primeira categoria.
 #' @param cores Cores das barras, para as categorias masculino e feminino. O padrão é \code{c("darkblue", "violetred")}.
 #' @param nsize Tamanho do texto com o nº total de habitantes. O padrão é 3.5.
@@ -30,21 +30,34 @@
 #'          FXETAR5 = fxetar.det_pra_fxetar5(FXETARIA)) 
 #' ggplot_pir(POPBR12, "FXETAR5", "SEXO", "POPULACAO")
 #' 
-#' # Cerro Largo
+#' # Cerro Largo, RS
 #' ggplot_pir(POPBR12[POPBR12$MUNIC_RES==430520, ], 
 #'            "FXETAR5", "SEXO", "POPULACAO")
 #' 
 #' 
 #' ## Mortalidade por anos completos de vida
 #' 
+#' Se o banco é de registros individuais, sem uma variável com a 
+#' contagem da população, a função conta as frequências em cada 
+#' sexo e faixa etária específicos. 
+#' 
 #' data("obitosRS2019")
+#' str(obitosRS2019)
+#' 
 #' obitosRS2019 %>%
-#'   mutate(sexo = as.factor(sexo)) %>% 
-#'   ggplot_pir("idade", "sexo")
+#'  mutate(sexo = factor(sexo, levels = c("masc", "fem"))) %>% 
+#'  ggplot_pir("idade", "sexo")
+#'  
+#' O comando acima devolve o mesmo gráfico que o comando abaixo: 
+#' 
+#' obitosRS2019 %>%
+#'  mutate(sexo = factor(sexo, levels = c("masc", "fem"))) %>%
+#'  count(idade, sexo) %>% # linha desnecessária
+#'  ggplot_pir("idade", "sexo", "n")
 #' 
 #' @export
 #' 
-ggplot_pir <- function(banco, idade, sexo, populacao = NULL, catsexo = c("masc", "fem"), cores = c("darkblue", "violetred"), nsize = 3.5) {
+ggplot_pir <- function(banco, idade, sexo, populacao = NULL, catsexo = c("masc", "fem"), cores = c("steelblue", "hotpink"), nsize = 3.5) {
   prop <- NULL
   if(is.null(populacao)) {
     graf <- ggplot(banco, aes(x = .data[[idade]], fill = .data[[sexo]])) +
