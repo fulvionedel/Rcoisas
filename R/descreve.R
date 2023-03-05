@@ -56,13 +56,12 @@ descreve <- function (x, by = NULL, dec = 2, na.rm = TRUE, data = NULL, histogra
   {
   # nuntius errorum
   # ---------------
-  if(!is.null(by)) {
-    if(!is.factor(by)) { 
-      stop("by deve ser da classe factor") 
+    if(!is.null(by)) {
+      if(!is.factor(by)) { 
+        stop("by deve ser da classe factor") 
+      }
     }
-  }
-    
-    destinatio <- deparse(substitute(x))
+    recipiens <- deparse(substitute(x))
     if ( !is.null(data) ) {
       x <- data[,deparse(substitute(x))]
       # by <- data[,deparse(substitute(by))]
@@ -104,7 +103,7 @@ descreve <- function (x, by = NULL, dec = 2, na.rm = TRUE, data = NULL, histogra
     maior <- round(maior, dec)
     amplitude <- round(amplitude, dec)
     #
-    descr <- list(variavel = destinatio,
+    descr <- list(variavel = recipiens,
                   n=n, validos=val, miss=miss, p.miss=p.miss, 
                   menor=menor, maior=maior, amplitude=amplitude,
                   soma=soma, media=media, variancia=vari, dp=dp, cv=cv, 
@@ -119,11 +118,11 @@ descreve <- function (x, by = NULL, dec = 2, na.rm = TRUE, data = NULL, histogra
     ###########################
     if (histograma == T) {
       if(is.null(main)){
-        titulo <- paste("Histograma de\n", destinatio)
+        titulo <- paste("Histograma de\n", recipiens)
       } else
         titulo <- main
       if(is.null(xlab)){
-        x.lab <- destinatio
+        x.lab <- recipiens
       } else
         x.lab <- xlab
       if(is.null(ylab)){
@@ -260,8 +259,11 @@ descreve <- function (x, by = NULL, dec = 2, na.rm = TRUE, data = NULL, histogra
       descr <- vector(mode='list', length=ncats)
       # descr <- tapply(x, by, descreve, ..., main = levels(by[i]))
       for(i in 1:ncats) {
-        descr[[i]] <- descreve( x[by == levels(by)[i]],
-                                main = paste(substitute(by) |> deparse(), "==", levels(by)[i]))
+        titulo <- paste(deparse(substitute(x)), "em\n",
+                        deparse(substitute(by)), "==", levels(by)[i])
+        descr[[i]] <- descreve(x[by == levels(by)[i]],
+                               main = titulo,
+                               xlab = deparse(substitute(x)))
         descr[[i]]$variavel <- levels(by)[i]
         # descr[[i]]$variavel <- names(descr[i])
         
