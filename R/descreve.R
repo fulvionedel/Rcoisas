@@ -54,6 +54,14 @@ descreve <- function(x, print = "output", ...) {
 
 descreve <- function (x, by = NULL, dec = 2, na.rm = TRUE, data = NULL, histograma = TRUE, breaks='Sturges', freq = TRUE , main = NULL, xlab = NULL, ylab= NULL, linhas=2, curva=TRUE, densidade=FALSE, col.dens=1, col='yellow2', col.curva='DarkGreen', col.media=2, col.dp=col.media, col.mediana=4, legenda = TRUE, lugar='topright', lty.curva = 2, lwd.curva = 1, lty.dens = 3, lwd.dens = 2, lty = NULL, lwd = NULL, cex = NULL, print = "output", ...) 
   {
+  # nuntius errorum
+  # ---------------
+  if(!is.null(by)) {
+    if(!is.factor(by)) { 
+      stop("by deve ser da classe factor") 
+    }
+  }
+    
     destinatio <- deparse(substitute(x))
     if ( !is.null(data) ) {
       x <- data[,deparse(substitute(x))]
@@ -104,13 +112,14 @@ descreve <- function (x, by = NULL, dec = 2, na.rm = TRUE, data = NULL, histogra
                   quantis=quantis, iiq=iiq)
     class(descr) <- "descreve"
     # class(descr) <- c('descreve', 'descreve2')
-    #    return(descr)
+    
+    
     ############################
     # O GRÁFICO
     ###########################
     if (histograma == T) {
       if(is.null(main)){
-        titulo <- paste("Histograma de", destinatio)
+        titulo <- paste("Histograma de\n", destinatio)
       } else
         titulo <- main
       if(is.null(xlab)){
@@ -235,16 +244,60 @@ descreve <- function (x, by = NULL, dec = 2, na.rm = TRUE, data = NULL, histogra
         }
       }
     }
-  
-    if(print == "tabela") {
-      print.descreve(descr, print = "tabela")
-    } else descr
-    
-    if(!is.null(by)) {
-      descr <- tapply(x, by, descreve, ...)
-    } 
 
+    
+###############################################################################
+    if(!is.null(by)) {
+      ncats <- nlevels(by)
+      linhas = 1
+      colunas = ncats
+      div = 2
+      if(ncats > 3) {
+        linhas = ncats/div
+        colunas = ncats/2
+      }
+      par(mfrow = c(linhas, colunas))
+      descr <- vector(mode='list', length=ncats)
+      # descr <- tapply(x, by, descreve, ..., main = levels(by[i]))
+      for(i in 1:ncats) {
+        descr[[i]] <- descreve( x[by == levels(by)[i]],
+                                main = paste(substitute(by) |> deparse(), "==", levels(by)[i]))
+        descr[[i]]$variavel <- levels(by)[i]
+        # descr[[i]]$variavel <- names(descr[i])
+        
+        # descr2[ , paste0("trial", i)]   <- trial
+        # descr2[ , paste0("qresult", i)] <- ifelse(trial >= df$q, "l", "d")
+
+      }
+    }
+    
     descr
     
-}
+  
 
+###############################################################################
+        
+    # if(print == "tabela") {
+    #   if(is.null(by)) {
+    #     print.descreve(descr, print = "tabela")
+    #   } else
+    #     if(!is.null(by)) {
+    #       descr <- tapply(x, by, descreve, histograma = FALSE, ...)
+    #       for(i in 1:ncats) {
+    #         descr[[i]]$variavel <- names(descr[i])
+    #       }
+    #       # return(list(variavel, descr))
+    #       #   # temp <- matrix(nrow=21, ncol = 1)
+    #         cbind(print.descreve(descr[[cat]], print = "tabela"))
+    #       #   # descr
+    #       #   # cbind(temp[i]) |>
+    #       #     # matrix(., nrow = 21, ncol = ncats) %>% 
+    #       #       # print()
+    #       } 
+    #       # return(descr)
+    #     }
+    # } else
+    #   descr
+    # 
+    
+}

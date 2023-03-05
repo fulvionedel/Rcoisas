@@ -68,11 +68,12 @@ print.descreve <- function(x, print = "output", ...) {
       "P95",
       "P97.5",
       "IIQ")
-    names(df) <- deparse(substitute(x))
+    names(df) <- x$variavel #deparse(substitute(x))
     rownames(df) <- nomes
     if (df["Missings",] == 0) df <- df[-4,,drop=FALSE]
     df
   }
+
   # -------------
 
   if(print == "output") print.output(x) 
