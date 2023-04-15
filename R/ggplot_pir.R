@@ -5,9 +5,9 @@
 #' @importFrom dplyr %>% group_by summarise
 #' 
 #' @param banco Um \code{data frame} com população ou casos por sexo e faixa etária.
-#' @param idade Nome da variável com a idade ou faixa etária.
-#' @param sexo Nome da variável com o sexo; deve ser um \code{factor}.
-#' @param populacao Nome da variável com a população ou casos, se houver; por padrão é \code{NULL}, isto é, a função espera um banco de registros individuais e calcula a frequência por sexo e faixa etária indicada.
+#' @param idade Nome da variável com a idade ou faixa etária deve ir entre aspas.
+#' @param sexo Nome da variável com o sexo; deve ir entre aspas e ser um \code{factor}.
+#' @param populacao Nome da variável (entre aspas) com a população ou casos, se houver; por padrão é \code{NULL}, isto é, a função espera um banco de registros individuais e calcula a frequência por sexo e faixa etária indicada.
 #' @param catsexo Vetor com o nome das categorias da variável sexo; padrão é \code{c("masc", "fem")}; o sexo masculino deve ser a primeira categoria.
 #' @param cores Cores das barras, para as categorias masculino e feminino. O padrão é \code{c("darkblue", "violetred")}.
 #' @param nsize Tamanho do texto com o nº total de habitantes. O padrão é 3.5.
@@ -35,11 +35,11 @@
 #'            "FXETAR5", "SEXO", "POPULACAO")
 #' 
 #' 
-#' ## Mortalidade por anos completos de vida
+#' # ## Mortalidade por anos completos de vida
 #' 
-#' Se o banco é de registros individuais, sem uma variável com a 
-#' contagem da população, a função conta as frequências em cada 
-#' sexo e faixa etária específicos. 
+#' # Se o banco é de registros individuais, sem uma variável com a 
+#' # contagem da população, a função conta as frequências em cada 
+#' # sexo e faixa etária específicos. 
 #' 
 #' data("obitosRS2019")
 #' str(obitosRS2019)
@@ -48,7 +48,7 @@
 #'  mutate(sexo = factor(sexo, levels = c("masc", "fem"))) %>% 
 #'  ggplot_pir("idade", "sexo")
 #'  
-#' O comando acima devolve o mesmo gráfico que o comando abaixo: 
+#' # O comando acima devolve o mesmo gráfico que o comando abaixo: 
 #' 
 #' obitosRS2019 %>%
 #'  mutate(sexo = factor(sexo, levels = c("masc", "fem"))) %>%

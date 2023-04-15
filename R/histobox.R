@@ -10,6 +10,7 @@
 #' 
 #' @examples 
 #' histobox(rnorm(1000))
+#' 
 #' @export
 histobox <-
   function(x, limites = NULL, col.h = 'cyan', col.bx = 'skyblue1', ... )

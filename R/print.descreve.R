@@ -10,16 +10,19 @@
 #' @importFrom tidyr as_tibble gather
 #' 
 #' @export
-print.descreve <- function(x, print = "output", ...) {
-  UseMethod("print.descreve")
+print.descreve <- function(x){#}, print = "output", ...) {
+  UseMethod("print.descreve", x)
 }
 #' 
 #' 
 #' @export
 #' 
 print.descreve <- function(x, print = "output", ...) {
-  print.output <-
-    function(x) {
+  if(print == "output") print.output(x)
+  if(print == "tabela") print.tabela(x)
+}
+
+  print.output <- function(x) {
       cat(x$variavel,': ', x$n, ' observa\u00e7\u00f5es', '\n\n')
       if ( x$miss == 0 ) {
         cat('V\u00E1lidos:', x$val, 
@@ -76,7 +79,9 @@ print.descreve <- function(x, print = "output", ...) {
 
   # -------------
 
-  if(print == "output") print.output(x) 
-    else if(print == "tabela") print.tabela(x)
-  }
+  # if(print == FALSE) x
+  #   else
+  #     if(print == "output") print.output(x)
+  #     else if(print == "tabela") print.tabela(x)
+  # }
 

@@ -3,6 +3,7 @@
 #' @description Executa a descrição "completa" de uma variável numérica, contínua ou discreta, e desenha um histograma, possivelmente com linhas para a média, mediana e distância da média até 1 ou 2 desvios-padrão, além da curva de probabilidade Normal para os parâmetros apresentados.
 #' 
 #' @param x Um vetor numérico
+#' @param by tentar incluir esse argumento
 #' @param dec Número de dígitos
 #' @param na.rm TRUE (default) remove os missings
 #' @param data Argumento opcional. Banco de dados contendo \code{x}. O padrão é NULL.
@@ -104,13 +105,13 @@ descreve <- function (x, by = NULL, dec = 2, na.rm = TRUE, data = NULL, histogra
     amplitude <- round(amplitude, dec)
     #
     descr <- list(variavel = recipiens,
-                  n=n, validos=val, miss=miss, p.miss=p.miss, 
-                  menor=menor, maior=maior, amplitude=amplitude,
-                  soma=soma, media=media, variancia=vari, dp=dp, cv=cv, 
-                  assimetria=assimetria, curtose=curtose, 
-                  quantis=quantis, iiq=iiq)
-    class(descr) <- "descreve"
-    # class(descr) <- c('descreve', 'descreve2')
+                  n = n, validos = val, miss = miss, p.miss = p.miss, 
+                  menor = menor, maior = maior, amplitude = amplitude,
+                  soma = soma, media = media, variancia = vari, dp = dp, cv = cv, 
+                  assimetria = assimetria, curtose = curtose, 
+                  quantis = quantis, iiq = iiq)
+# 
+    # class(descr) <- append(class(descr), 'descreve')
     
     
     ############################
@@ -246,6 +247,8 @@ descreve <- function (x, by = NULL, dec = 2, na.rm = TRUE, data = NULL, histogra
 
     
 ###############################################################################
+# by()
+###############################################################################
     if(!is.null(by)) {
       ncats <- nlevels(by)
       linhas = 1
@@ -256,50 +259,34 @@ descreve <- function (x, by = NULL, dec = 2, na.rm = TRUE, data = NULL, histogra
         colunas = ncats/2
       }
       par(mfrow = c(linhas, colunas))
-      descr <- vector(mode='list', length=ncats)
-      # descr <- tapply(x, by, descreve, ..., main = levels(by[i]))
+      # descr <- vector(mode='list', length=ncats)
+      descr <- NULL
       for(i in 1:ncats) {
         titulo <- paste(deparse(substitute(x)), "em\n",
                         deparse(substitute(by)), "==", levels(by)[i])
         descr[[i]] <- descreve(x[by == levels(by)[i]],
                                main = titulo,
-                               xlab = deparse(substitute(x)))
+                               xlab = deparse(substitute(x)), 
+                               col = col,
+                               ...)
         descr[[i]]$variavel <- levels(by)[i]
-        # descr[[i]]$variavel <- names(descr[i])
-        
-        # descr2[ , paste0("trial", i)]   <- trial
-        # descr2[ , paste0("qresult", i)] <- ifelse(trial >= df$q, "l", "d")
-
       }
+      # class(descr) <- append(class(descr), 'descreve')
     }
-    
-    descr
-    
-  
 
+    class(descr) <- "descreve"
+    
+    if(print == "tabela") {
+        print.descreve(descr, print = "tabela")
+      } else
+        if(print == FALSE) {
+          invisible(unclass(descr))
+          } else
+            if(print == "output") {
+              print.descreve(descr, print = "output")
+              }
+
+    # descr    
 ###############################################################################
-        
-    # if(print == "tabela") {
-    #   if(is.null(by)) {
-    #     print.descreve(descr, print = "tabela")
-    #   } else
-    #     if(!is.null(by)) {
-    #       descr <- tapply(x, by, descreve, histograma = FALSE, ...)
-    #       for(i in 1:ncats) {
-    #         descr[[i]]$variavel <- names(descr[i])
-    #       }
-    #       # return(list(variavel, descr))
-    #       #   # temp <- matrix(nrow=21, ncol = 1)
-    #         cbind(print.descreve(descr[[cat]], print = "tabela"))
-    #       #   # descr
-    #       #   # cbind(temp[i]) |>
-    #       #     # matrix(., nrow = 21, ncol = ncats) %>% 
-    #       #       # print()
-    #       } 
-    #       # return(descr)
-    #     }
-    # } else
-    #   descr
-    # 
     
 }
