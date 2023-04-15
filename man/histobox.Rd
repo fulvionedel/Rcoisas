@@ -22,4 +22,5 @@ Desenha um histograma com boxplot integrado ao mesmo gráfico
 }
 \examples{
 histobox(rnorm(1000))
+
 }

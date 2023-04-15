@@ -17,11 +17,11 @@ ggplot_pir(
 \arguments{
 \item{banco}{Um \code{data frame} com população ou casos por sexo e faixa etária.}
 
-\item{idade}{Nome da variável com a idade ou faixa etária.}
+\item{idade}{Nome da variável com a idade ou faixa etária deve ir entre aspas.}
 
-\item{sexo}{Nome da variável com o sexo; deve ser um \code{factor}.}
+\item{sexo}{Nome da variável com o sexo; deve ir entre aspas e ser um \code{factor}.}
 
-\item{populacao}{Nome da variável com a população ou casos, se houver; por padrão é \code{NULL}, isto é, a função espera um banco de registros individuais e calcula a frequência por sexo e faixa etária indicada.}
+\item{populacao}{Nome da variável (entre aspas) com a população ou casos, se houver; por padrão é \code{NULL}, isto é, a função espera um banco de registros individuais e calcula a frequência por sexo e faixa etária indicada.}
 
 \item{catsexo}{Vetor com o nome das categorias da variável sexo; padrão é \code{c("masc", "fem")}; o sexo masculino deve ser a primeira categoria.}
 
@@ -55,11 +55,11 @@ ggplot_pir(POPBR12[POPBR12$MUNIC_RES==430520, ],
            "FXETAR5", "SEXO", "POPULACAO")
 
 
-## Mortalidade por anos completos de vida
+# ## Mortalidade por anos completos de vida
 
-Se o banco é de registros individuais, sem uma variável com a 
-contagem da população, a função conta as frequências em cada 
-sexo e faixa etária específicos. 
+# Se o banco é de registros individuais, sem uma variável com a 
+# contagem da população, a função conta as frequências em cada 
+# sexo e faixa etária específicos. 
 
 data("obitosRS2019")
 str(obitosRS2019)
@@ -68,7 +68,7 @@ obitosRS2019 \%>\%
  mutate(sexo = factor(sexo, levels = c("masc", "fem"))) \%>\% 
  ggplot_pir("idade", "sexo")
  
-O comando acima devolve o mesmo gráfico que o comando abaixo: 
+# O comando acima devolve o mesmo gráfico que o comando abaixo: 
 
 obitosRS2019 \%>\%
  mutate(sexo = factor(sexo, levels = c("masc", "fem"))) \%>\%

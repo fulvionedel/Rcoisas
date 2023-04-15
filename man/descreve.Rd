@@ -6,6 +6,7 @@
 \usage{
 descreve(
   x,
+  by = NULL,
   dec = 2,
   na.rm = TRUE,
   data = NULL,
@@ -39,6 +40,8 @@ descreve(
 }
 \arguments{
 \item{x}{Um vetor numérico}
+
+\item{by}{tentar incluir esse argumento}
 
 \item{dec}{Número de dígitos}
 
@@ -100,6 +103,14 @@ descreve(
 }
 \description{
 Executa a descrição "completa" de uma variável numérica, contínua ou discreta, e desenha um histograma, possivelmente com linhas para a média, mediana e distância da média até 1 ou 2 desvios-padrão, além da curva de probabilidade Normal para os parâmetros apresentados.
+}
+\examples{
+descreve(rnorm(100))
+descreve(rnorm(100), breaks = 'Scott')
+descreve(rnorm(100), linhas = FALSE, densidade = TRUE, col = 'skyblue') 
+descreve(rnorm(100), print = "tabela")
+
+ 
 }
 \seealso{
 \code{\link{hist}} and \code{\link{par}} para os parâmetros gráficos
