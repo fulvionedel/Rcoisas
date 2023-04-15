@@ -43,11 +43,10 @@ pop <- Hmisc::upData(pop, lowernames=T)
 pop$fxetaria <- as.factor(pop$fxetaria)
 nfaixas = length(levels(pop$fxetaria))
 
-pop$fxetar5 <- #ifelse(nfaixas == 17, pop$fxetaria, 
-  cut(as.numeric(pop$fxetaria), breaks = c(0, 5, 10, 15, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33))
-  #)
-
-levels(pop$fxetar5) <- c("0-4", "5-9", "10-14", "15-19", "20-24", "25-29", "30-34", "35-39", "40-44", "45-49", "50-54", "55-59", "60-64", "65-69", "70-74", "75-79", "80 +")
+if(is.null(pop$fxetar5)) {
+  pop$fxetar5 <- cut(as.numeric(pop$fxetaria), breaks = c(0, 5, 10, 15, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33))
+  levels(pop$fxetar5) <- c("0-4", "5-9", "10-14", "15-19", "20-24", "25-29", "30-34", "35-39", "40-44", "45-49", "50-54", "55-59", "60-64", "65-69", "70-74", "75-79", "80 +")
+}
   
 # -.-.-.-.-.-.-.-.- TABULAR A BASE, ESCREVER ARQUIVO E CRIAR OBJETO "pir"
   xx <- xtabs(populacao ~ fxetar5 + sexo, data = pop, 
