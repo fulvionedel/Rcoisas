@@ -4,6 +4,7 @@ library(microdatasus)
 
 RDRS2019 <- fetch_datasus(2019, 01, 2019, 12, "RS", "SIH-RD")
 RDRS2019 <- RDRS2019[sample(1:nrow(RDRS2019), nrow(RDRS2019)*.01), ]
+rownames(RDRS2019) <- NULL
 
 for(i in 1:ncol(RDRS2019)) {
   if(is.factor(RDRS2019[,i])) {

@@ -19,6 +19,7 @@ obitosRS2019 <- obitosRS2019 %>%
                        levels = c("Masculino", "Feminino"), 
                        labels = c("masc", "fem"))) %>% 
   select(-SEXO) 
+rownames(obitosRS2019) <- NULL
 
 for(i in 1:ncol(obitosRS2019)) {
   if(is.factor(obitosRS2019[,i])) {
