@@ -274,7 +274,7 @@ descreve <- function (x, by = NULL, dec = 2, na.rm = TRUE, data = NULL, histogra
       # class(descr) <- append(class(descr), 'descreve')
     }
 
-    class(descr) <- "descreve"
+    class(descr) <- append(class(descr), 'descreve')
     
     if(print == "tabela") {
         print.descreve(descr, print = "tabela")
@@ -288,5 +288,7 @@ descreve <- function (x, by = NULL, dec = 2, na.rm = TRUE, data = NULL, histogra
 
     # descr    
 ###############################################################################
+
+    descr 
     
 }
