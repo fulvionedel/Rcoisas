@@ -1,4 +1,4 @@
-#' Gráfico da probababilidade de pertencer a uma área da curva Normal
+#' Gráfico da probabilidade de pertencer a uma área da curva Normal
 #' @aliases plotZ
 #' 
 #' @param x valor a comparar com a média

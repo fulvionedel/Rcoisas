@@ -2,7 +2,7 @@
 % Please edit documentation in R/plotZ.R
 \name{plotZ}
 \alias{plotZ}
-\title{Gráfico da probababilidade de pertencer a uma área da curva Normal}
+\title{Gráfico da probabilidade de pertencer a uma área da curva Normal}
 \usage{
 plotZ(
   x = NULL,
@@ -48,7 +48,7 @@ plotZ(
 \item{...}{Permite o uso de outros parâmetros gráficos (ver o uso de `density`, nos exemplos)}
 }
 \description{
-Gráfico da probababilidade de pertencer a uma área da curva Normal
+Gráfico da probabilidade de pertencer a uma área da curva Normal
 }
 \examples{
 \dontrun{

@@ -1,6 +1,6 @@
 NULL
 
-#' Arquivos da AIH
+#' Arquivo da AIH - RS, 2019
 #' 
 #' Internações hospitalares pagas pelo SUS no RS em 2019.
 #' 
@@ -16,7 +16,7 @@ NULL
 #' @source Sistema de Informações sobre Mortalidade (SIM)
 "obitosRS2019"
 
-#' População brasileira
+#' População brasileira, 2012
 #' 
 #' População por sexo e faixa etária. Municípios brasileiros, 2012.
 #' 

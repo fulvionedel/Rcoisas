@@ -3,7 +3,7 @@
 \docType{data}
 \name{POPBR12}
 \alias{POPBR12}
-\title{População brasileira}
+\title{População brasileira, 2012}
 \format{
 Banco de dados com estimativas populacionais por sexo e faixa etária para os municípios brasileiros em 2012. Salvo engano que espero ser corrigido, é o último arquivo com estimativas populacionais a esse nível de detalhamento publicado no repositório FTP do DATASUS. O banco é apresentado na forma em que foi baixado de ftp.datasus.gov.br/dissemin/publicos/IBGE/POP/POPBR12.zip.
 }

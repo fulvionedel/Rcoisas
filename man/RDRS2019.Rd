@@ -3,7 +3,7 @@
 \docType{data}
 \name{RDRS2019}
 \alias{RDRS2019}
-\title{Arquivos da AIH}
+\title{Arquivo da AIH - RS, 2019}
 \format{
 Banco de dados com amostra aleatória de 10\% dos registros dos "arquivos reduzidos" (RD*.DBC) das Autorizações de Internação Hospitalar (AIH) pagas pelo SUS em hospitais do RS em 2019 ("ano de competência" = 2019). O banco é formado pela junção (adição de linhas) de cada um dos arquivos RDRS1901.DBC, ..., RDRS1912.DBC.
 }
