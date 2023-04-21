@@ -18,9 +18,6 @@ print.descreve <- function(x){#}, print = "output", ...) {
 #' @export
 #' 
 print.descreve <- function(x, print = "output", ...) {
-  if(print == "output") print.output(x)
-  if(print == "tabela") print.tabela(x)
-}
 
   print.output <- function(x) {
       cat(x$variavel,': ', x$n, ' observa\u00e7\u00f5es', '\n\n')
@@ -76,6 +73,10 @@ print.descreve <- function(x, print = "output", ...) {
     if (df["Missings",] == 0) df <- df[-4,,drop=FALSE]
     df
   }
+
+  if(print == "output") print.output(x)
+  if(print == "tabela") print.tabela(x)
+}
 
   # -------------
 

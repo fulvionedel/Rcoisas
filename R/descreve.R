@@ -273,22 +273,16 @@ descreve <- function (x, by = NULL, dec = 2, na.rm = TRUE, data = NULL, histogra
       }
       # class(descr) <- append(class(descr), 'descreve')
     }
-
+###############################################################################
+    
     class(descr) <- append(class(descr), 'descreve')
     
     if(print == "tabela") {
         print.descreve(descr, print = "tabela")
-      } else
-        if(print == FALSE) {
-          invisible(unclass(descr))
-          } else
-            if(print == "output") {
-              print.descreve(descr, print = "output")
-              }
-
-    # descr    
-###############################################################################
-
-    descr 
-    
+    } else if(print == FALSE) {
+      invisible(unclass(descr))
+    } else if(print == "output") {
+      print.descreve(descr, print = "output")
+      invisible(descr)
+    }
 }
