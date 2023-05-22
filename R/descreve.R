@@ -37,6 +37,7 @@
 #' @seealso \code{\link{hist}} and \code{\link{par}} para os parâmetros gráficos
 #' 
 #' @examples 
+#' banco <- data.frame(idade = runif(100))
 #' descreve(rnorm(100))
 #' descreve(rnorm(100), breaks = 'Scott')
 #' descreve(rnorm(100), linhas = FALSE, densidade = TRUE, col = 'skyblue') 
@@ -271,14 +272,19 @@ descreve <- function (x, by = NULL, dec = 2, na.rm = TRUE, data = NULL, histogra
                                ...)
         descr[[i]]$variavel <- levels(by)[i]
       }
-      # class(descr) <- append(class(descr), 'descreve')
     }
 ###############################################################################
     
     class(descr) <- append(class(descr), 'descreve')
     
     if(print == "tabela") {
+      # if(is.null(by)) 
         print.descreve(descr, print = "tabela")
+      # else if(!is.null(by)) {
+      #   for(i in 1:ncats) {
+      #     cbind(print.descreve(descr[i], print = 'tabela'))
+      #   }
+      # }
     } else if(print == FALSE) {
       invisible(unclass(descr))
     } else if(print == "output") {
