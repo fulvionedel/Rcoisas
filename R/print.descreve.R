@@ -20,7 +20,7 @@ print.descreve <- function(x){#}, print = "output", ...) {
 print.descreve <- function(x, print = "output", ...) {
 
   print.output <- function(x) {
-      cat(x$variavel,': ', x$n, ' observa\u00e7\u00f5es', '\n\n')
+      cat('\n', x$variavel,': ', x$n, ' observa\u00e7\u00f5es', '\n\n')
       if ( x$miss == 0 ) {
         cat('V\u00E1lidos:', x$val, 
             '\t Missings:', x$miss, 
