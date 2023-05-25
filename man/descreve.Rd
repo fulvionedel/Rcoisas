@@ -105,11 +105,14 @@ descreve(
 Executa a descrição "completa" de uma variável numérica, contínua ou discreta, e desenha um histograma, possivelmente com linhas para a média, mediana e distância da média até 1 ou 2 desvios-padrão, além da curva de probabilidade Normal para os parâmetros apresentados.
 }
 \examples{
-banco <- data.frame(idade = runif(100))
 descreve(rnorm(100))
 descreve(rnorm(100), breaks = 'Scott')
-descreve(rnorm(100), linhas = FALSE, densidade = TRUE, col = 'skyblue') 
+descreve(rnorm(100), breaks = 'Scott', linhas = FALSE, densidade = TRUE, col = 'skyblue') 
 descreve(rnorm(100), print = "tabela")
+obitosRS2019$sexo <- factor(obitosRS2019$sexo)
+descreve(obitosRS2019$idade)
+descreve(idade, obitosRS2019$sexo, data = obitosRS2019)
+with(obitosRS2019, descreve(idade, sexo))
 
  
 }

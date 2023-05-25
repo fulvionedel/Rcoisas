@@ -37,11 +37,14 @@
 #' @seealso \code{\link{hist}} and \code{\link{par}} para os parâmetros gráficos
 #' 
 #' @examples 
-#' banco <- data.frame(idade = runif(100))
 #' descreve(rnorm(100))
 #' descreve(rnorm(100), breaks = 'Scott')
-#' descreve(rnorm(100), linhas = FALSE, densidade = TRUE, col = 'skyblue') 
+#' descreve(rnorm(100), breaks = 'Scott', linhas = FALSE, densidade = TRUE, col = 'skyblue') 
 #' descreve(rnorm(100), print = "tabela")
+#' obitosRS2019$sexo <- factor(obitosRS2019$sexo)
+#' descreve(obitosRS2019$idade)
+#' descreve(idade, obitosRS2019$sexo, data = obitosRS2019)
+#' with(obitosRS2019, descreve(idade, sexo))
 #' 
 #'  
 descreve <- function(x, print = "output", ...) {
@@ -58,15 +61,17 @@ descreve <- function (x, by = NULL, dec = 2, na.rm = TRUE, data = NULL, histogra
   {
   # nuntius errorum
   # ---------------
-    if(!is.null(by)) {
-      if(!is.factor(by)) { 
-        stop("by deve ser da classe factor") 
-      }
-    }
+    # if(!is.null(by)) {
+    #   if(!is.factor(by)) { 
+    #     stop("by deve ser da classe factor") 
+    #   }
+    # }
     recipiens <- deparse(substitute(x))
     if ( !is.null(data) ) {
       x <- data[,deparse(substitute(x))]
-      # by <- data[,deparse(substitute(by))]
+      if( !is.null(by)) {
+        by <- data[,deparse(substitute(by))]
+      }
     } 
     n <- round(length(x))
     miss <- round(sum(is.na(x)))
