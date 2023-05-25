@@ -9,7 +9,7 @@ plot_pir(
   pop,
   tabela = FALSE,
   ano = NULL,
-  local = "população",
+  local = "popula<U+00E7><U+00E3>o",
   title = NULL,
   fontsize = 1.1,
   nfxetar = 17,
