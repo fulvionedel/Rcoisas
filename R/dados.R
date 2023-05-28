@@ -4,7 +4,7 @@ NULL
 #' 
 #' Internações hospitalares pagas pelo SUS no RS em 2019.
 #' 
-#' @format Banco de dados com amostra aleatória de 10\% dos registros dos "arquivos reduzidos" (RD*.DBC) das Autorizações de Internação Hospitalar (AIH) pagas pelo SUS em hospitais do RS em 2019 ("ano de competência" = 2019). O banco é formado pela junção (adição de linhas) de cada um dos arquivos RDRS1901.DBC, ..., RDRS1912.DBC.
+#' @format Banco de dados com amostra aleatória de 10.000 internações dos "arquivos reduzidos" (RD*.DBC) das Autorizações de Internação Hospitalar (AIH) pagas pelo SUS em hospitais do RS em 2019 ("ano de competência" = 2019). O banco é formado pela junção (adição de linhas) de cada um dos arquivos RDRS1901.DBC, ..., RDRS1912.DBC.
 #' @source Bases de Dados do Sistema de Informações Hospitalares do SUS (BD-SIH/SUS)
 "RDRS2019"
 
@@ -12,7 +12,7 @@ NULL
 #' 
 #' Amostra de Declarações de Óbito (DO) de residentes no RS, 2019.
 #' 
-#' @format Banco de dados com amostra aleatória de 1\% das DO de residentes do RS ocorridas em 2019, registrados no Sistema de Informação de Mortalidade (SIM). O banco foi previamente trabalhado para a decodificação da idade, de modo que a idade represente a idade em anos completos (0 para < 1 ano), e para a definição de missings e rótulos no campo sexo.
+#' @format Banco de dados com amostra aleatória de 10.000 DO de 2019 de residentes do RS, registrados no Sistema de Informação de Mortalidade (SIM). O banco foi previamente trabalhado para a decodificação da idade, de modo que a idade represente a idade em anos completos (0 para < 1 ano), e para a definição de missings e rótulos no campo sexo.
 #' @source Sistema de Informações sobre Mortalidade (SIM)
 "obitosRS2019"
 
