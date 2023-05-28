@@ -1,8 +1,8 @@
 Package: Rcoisas
 Type: Package
 Title: Minhas Facilidades
-Version: 0.0.0.905
-Date: 2022-12-11
+Version: 0.0.0.906
+Date: 2023-05-23
 Author: Fúlvio B. Nedel
 Maintainer: Fúlvio B. Nedel <fulvionedel@gmail.com>
 Description: Funções para manejo dos arquivos do SUS, pirâmides populacionais,
