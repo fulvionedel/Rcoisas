@@ -7,7 +7,7 @@ output: github_document
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  # comment = NULL,
+  comment = NULL,
   fig.path = "man/figures/README-",
   out.width = "48%",
   fig.align = "center"
@@ -16,34 +16,20 @@ knitr::opts_chunk$set(
 
 # Rcoisas
 
-badges: start
+<!-- badges: start -->
 <!-- badges: end -->
 
 > Funções para aulas e apresentação de resultados em português.
 
-O pacote contém `r sum(table(getNamespaceExports("Rcoisas")))` funções, incluídas algumas importadas do pacote [`csapAIH`](https://github.com/fulvionedel/csapAIH)), principalmente para a descrição de variáveis com 'output' em português, e trabalhar com populações brasileiras .
-
-### Funções no pacote `Rcoisas`
-
-```{r echo=FALSE, comment=NULL, size=4}
-# funcoes <- sort(getNamespaceExports("Rcoisas"))
-# c(paste0(head(funcoes, -1), ","), tail(funcoes, 1))
-# sort(getNamespaceExports("Rcoisas")) |>
-  # pander::pander()
-help(package = Rcoisas)$info[[2]] |> 
-  stringr::word()
-  # knitr::kable()
-# print(width = 150)
-# options(width = 125)
-```
+O pacote contém funções com _outputs_ em português e bancos de dados úteis para a produção de gráficos e tabelas para aulas, como a descrição "completa" de uma variável numérica ou a construção de indicadores de saúde. Algumas funções são importadas do pacote [`csapAIH`](https://github.com/fulvionedel/csapAIH) (`fxetar_quinq`, `fxetar3g`, `ufbr`, `ler_popbr`, e `popbr2000_2021`). Veja a ajuda para a lista completa e detalhamento das funções e bancos de dados no pacote.
 
 
-## Instalação
+## Instalação 
 
 O pacote ainda não tem uma primeira versão para ser lançada. A versão de desenvolvimento pode ser instalada a partir do [GitHub](https://github.com/) com:
 
-``` r
-# install.packages("remotes") # Se for necessário
+```
+# install.packages("remotes") # Se o pacote 'remotes' não estiver instalado
 remotes::install_github("fulvionedel/Rcoisas")
 ```
 
@@ -55,23 +41,49 @@ library(Rcoisas)
 
 ### Descrição univariada
 
-Funções `descreve`, `histobox` e `tabuleiro`.
+> Funções `descreve`, `histobox` e `tabuleiro`.
+
+#### Variáveis numéricas
+
+**A função `descreve`** realiza a descrição "completa" de uma variável numérica. Por padrão apresenta uma lista com os parâmetros descritos e um histograma com marcas da distribuição da variável. O histograma pode ser suprimido e a lista pode ser transformada em `data.frame`. 
 
 ```{r }
-varnum <- rnorm(1000)
-descreve(varnum)
-descreve(varnum, print = "tabela")
-histobox(varnum)
+descreve(varnum <- rnorm(1000))
+descreve(varnum, histograma = FALSE, print = "tabela")
+```
+O output pode ser guardado em um objeto e depois impresso como lista ou como tabela (de classe `data.frame`) e usado para captar em texto cada parâmetro isoladamente.
 
+```{r }
+x <- descreve(varnum, histograma = FALSE, print = FALSE)
+Rcoisas:::print.descreve(x)
+Rcoisas:::print.descreve(x, print = "tabela")
+paste("Média de", x$media, "e desvio-padrão de", x$dp, "unidades, configurando um coeficiente de variação de", x$cv, "%.")
+```
+
+O objeto pode ser modificado para sua impressão. O exemplo a seguir usa outra função do pacote, `formatL()` para apresentar os valores em formato latino.
+```{r }
+Rcoisas:::print.descreve(x, print = "tabela") |> 
+  tibble::as_tibble(rownames = "parametro") |>
+  dplyr::mutate(varnum = formatL(varnum, format = "fg", digits = 3)) |>
+  knitr::kable()
+```
+
+Um argumento `by`, para estratificação em categorias de um fator, está em desenvolvimento e ainda não funciona adequadamente. `r emo::ji("confused")`
+
+**A função `histobox`** desenha um histograma com um _box-plot_ horizontal acima do gráfico.
+
+```{r }
+histobox(varnum)
+```
+
+#### Variáveis categóricas
+
+```{r }
 tabuleiro(obitosRS2019$RACACOR)
+
 tabuleiro2(obitosRS2019$RACACOR)
 ```
 
-```{r}
-temp <- descreve(varnum, print = "tabela") 
-temp$x <- formatL(temp$varnum, format = "fg", digits = 3)
-temp
-```
 
 
 ### Tabelas 2 $\times$ 2
@@ -84,10 +96,11 @@ externas <- grepl("externas", csapAIH::cid10cap(obitos$CAUSABAS)) |>
   factor(levels = c(TRUE, FALSE), labels = c("sim", "não"))
 
 bolero(obitos$sexo, cardio)
-bolero(factor(obitos$sexo, levels = c("masc", "fem")), externas, dnn = c("sexo", "causas externas"))
+
+bolero(factor(obitos$sexo, levels = c("masc", "fem")), externas, 
+       dnn = c("sexo", "causas externas"))
 ```
 
-badges: end
 
 <!-- You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/v1/examples>. -->
 

@@ -81,7 +81,7 @@ descreve(
 
 \item{legenda}{TRUE (default) desenha a legenda}
 
-\item{lugar}{Posição da legenda; padrão é 'toprigt'}
+\item{lugar}{Posição da legenda; padrão é 'topright'}
 
 \item{lty.curva}{Tipo da linha da curva normal; padrão é 2}
 
@@ -111,8 +111,12 @@ descreve(rnorm(100), breaks = 'Scott', linhas = FALSE, densidade = TRUE, col = '
 descreve(rnorm(100), print = "tabela")
 obitosRS2019$sexo <- factor(obitosRS2019$sexo)
 descreve(obitosRS2019$idade)
+\dontrun{
+# NÃO FUNCIONA!
 descreve(idade, obitosRS2019$sexo, data = obitosRS2019)
+# Esse funciona
 with(obitosRS2019, descreve(idade, sexo))
+}
 
  
 }
