@@ -13,7 +13,7 @@ bolero(independente, dependente = NULL, dec = 2, dnn = NULL)
 
 \item{dec}{No. de decimais}
 
-\item{dnn}{Nome das variáveis}
+\item{dnn}{Nome das variáveis a ser impresso no 'output'}
 }
 \value{
 Um objeto da classe `list` com as tabelas de frequências absolutas e relativas, razão de probabilidades e de odds, com seus intervalos de confiança e valores-p.
