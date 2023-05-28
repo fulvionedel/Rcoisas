@@ -47,6 +47,8 @@ library(Rcoisas)
 
 > Funções `descreve`, `histobox` e `tabuleiro`.
 
+    descreve(x, by = NULL, dec = 2, na.rm = TRUE, data = NULL, histograma = TRUE, breaks = "Sturges", freq = TRUE, main = NULL, xlab = NULL, ylab = NULL, linhas = 2, curva = TRUE, densidade = FALSE, col.dens = 1, col = "yellow2", col.curva = "DarkGreen", col.media = 2, col.dp = col.media, col.mediana = 4, legenda = TRUE, lugar = "topright", lty.curva = 2, lwd.curva = 1, lty.dens = 3, lwd.dens = 2, lty = NULL, lwd = NULL, cex = NULL, print = "output", ...)
+
 ### Variáveis numéricas
 
 **A função `descreve`** realiza a descrição “completa” de uma variável
@@ -55,45 +57,46 @@ um histograma com marcas da distribuição da variável. O histograma pode
 ser suprimido e a lista pode ser transformada em `data.frame`.
 
 ``` r
-descreve(varnum <- rnorm(1000))
+descreve(varnum <- rnorm(1000))  
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-1.png" width="48%" style="display: block; margin: auto;" />
+<img src="man/figures/README-unnamed-chunk-4-1.png" width="48%" style="display: block; margin: auto;" />
 
 
      varnum <- rnorm(1000) :  1000  observações 
 
-    Válidos: 1000    Missings: 0     Soma: -4.78 
-    Menor: -2.72     Maior: 3.46     Amplitude: 6.18
-    Média: 0     DP: 1.01    CV(%): 21127.1
-    Assimetria: 0.08     Curtose(real): 2.98
+    Válidos: 1000    Missings: 0     Soma: -6.8 
+    Menor: -3.31     Maior: 3.14     Amplitude: 6.45
+    Média: -0.01     DP: 0.98    CV(%): 14421.68
+    Assimetria: 0.11     Curtose(real): 2.98
     Quantis:
      2.5%    5%   25%   50%   75%   95% 97.5% 
-    -2.01 -1.64 -0.70 -0.03  0.71  1.65  1.87 
-              IIQ: 1.41 
+    -1.87 -1.56 -0.69  0.01  0.67  1.64  1.97 
+              IIQ: 1.37 
+
     descreve(varnum, histograma = FALSE, print = "tabela")
                  varnum
     n           1000.00
     Válidos     1000.00
     Missings       0.00
-    Menor         -2.72
-    Maior          3.46
-    Amplitude      6.18
-    Soma          -4.78
-    Média          0.00
-    Variância      1.02
-    DP             1.01
-    CV(%)      21127.10
-    Assimetria     0.08
+    Menor         -3.31
+    Maior          3.14
+    Amplitude      6.45
+    Soma          -6.80
+    Média         -0.01
+    Variância      0.96
+    DP             0.98
+    CV(%)      14421.68
+    Assimetria     0.11
     Curtose        2.98
-    P2.5          -2.01
-    P5            -1.64
-    P25           -0.70
-    P50           -0.03
-    P75            0.71
-    P95            1.65
-    P97.5          1.87
-    IIQ            1.41
+    P2.5          -1.87
+    P5            -1.56
+    P25           -0.69
+    P50            0.01
+    P75            0.67
+    P95            1.64
+    P97.5          1.97
+    IIQ            1.37
 
 O output pode ser guardado em um objeto e depois impresso como lista ou
 como tabela (de classe `data.frame`) e usado para captar em texto cada
@@ -105,43 +108,45 @@ Rcoisas:::print.descreve(x)
 
  varnum :  1000  observações 
 
-Válidos: 1000    Missings: 0     Soma: -4.78 
-Menor: -2.72     Maior: 3.46     Amplitude: 6.18
-Média: 0     DP: 1.01    CV(%): 21127.1
-Assimetria: 0.08     Curtose(real): 2.98
+Válidos: 1000    Missings: 0     Soma: -6.8 
+Menor: -3.31     Maior: 3.14     Amplitude: 6.45
+Média: -0.01     DP: 0.98    CV(%): 14421.68
+Assimetria: 0.11     Curtose(real): 2.98
 Quantis:
  2.5%    5%   25%   50%   75%   95% 97.5% 
--2.01 -1.64 -0.70 -0.03  0.71  1.65  1.87 
-          IIQ: 1.41 
+-1.87 -1.56 -0.69  0.01  0.67  1.64  1.97 
+          IIQ: 1.37 
+
 Rcoisas:::print.descreve(x, print = "tabela")
              varnum
 n           1000.00
 Válidos     1000.00
 Missings       0.00
-Menor         -2.72
-Maior          3.46
-Amplitude      6.18
-Soma          -4.78
-Média          0.00
-Variância      1.02
-DP             1.01
-CV(%)      21127.10
-Assimetria     0.08
+Menor         -3.31
+Maior          3.14
+Amplitude      6.45
+Soma          -6.80
+Média         -0.01
+Variância      0.96
+DP             0.98
+CV(%)      14421.68
+Assimetria     0.11
 Curtose        2.98
-P2.5          -2.01
-P5            -1.64
-P25           -0.70
-P50           -0.03
-P75            0.71
-P95            1.65
-P97.5          1.87
-IIQ            1.41
+P2.5          -1.87
+P5            -1.56
+P25           -0.69
+P50            0.01
+P75            0.67
+P95            1.64
+P97.5          1.97
+IIQ            1.37
+
 paste("Média de", x$media, "e desvio-padrão de", x$dp, "unidades, configurando um coeficiente de variação de", x$cv, "%.")
-[1] "Média de 0 e desvio-padrão de 1.01 unidades, configurando um coeficiente de variação de 21127.1 %."
+[1] "Média de -0.01 e desvio-padrão de 0.98 unidades, configurando um coeficiente de variação de 14421.68 %."
 ```
 
 O objeto pode ser modificado para sua impressão. O exemplo a seguir usa
-outra função do pacote, `formatL()` para apresentar os valores em
+outra função do pacote, `formatL()`, para apresentar os valores em
 formato latino.
 
 ``` r
@@ -156,24 +161,24 @@ Rcoisas:::print.descreve(x, print = "tabela") |>
 |          n |  1.000 |
 |    Válidos |  1.000 |
 |   Missings |      0 |
-|      Menor |  -2,72 |
-|      Maior |   3,46 |
-|  Amplitude |   6,18 |
-|       Soma |  -4,78 |
-|      Média |      0 |
-|  Variância |   1,02 |
-|         DP |   1,01 |
-|      CV(%) | 21.127 |
-| Assimetria |   0,08 |
+|      Menor |  -3,31 |
+|      Maior |   3,14 |
+|  Amplitude |   6,45 |
+|       Soma |   -6,8 |
+|      Média |  -0,01 |
+|  Variância |   0,96 |
+|         DP |   0,98 |
+|      CV(%) | 14.422 |
+| Assimetria |   0,11 |
 |    Curtose |   2,98 |
-|       P2.5 |  -2,01 |
-|         P5 |  -1,64 |
-|        P25 |   -0,7 |
-|        P50 |  -0,03 |
-|        P75 |   0,71 |
-|        P95 |   1,65 |
-|      P97.5 |   1,87 |
-|        IIQ |   1,41 |
+|       P2.5 |  -1,87 |
+|         P5 |  -1,56 |
+|        P25 |  -0,69 |
+|        P50 |   0,01 |
+|        P75 |   0,67 |
+|        P95 |   1,64 |
+|      P97.5 |   1,97 |
+|        IIQ |   1,37 |
 
 O formato em tabela é pensado para uma análise estratificada por
 categorias de um fator. Um argumento `by` está em desenvolvimento e
@@ -186,7 +191,7 @@ ainda não funciona adequadamente. 😕
 histobox(varnum)
 ```
 
-<img src="man/figures/README-unnamed-chunk-6-1.png" width="48%" style="display: block; margin: auto;" />
+<img src="man/figures/README-unnamed-chunk-7-1.png" width="48%" style="display: block; margin: auto;" />
 
 ### Variáveis categóricas
 
@@ -265,9 +270,9 @@ knitr::kable(tab2, align = 'r')
 
 Mas os valores da tabela estão em formato caractere e não numérico, o
 que impede a execução de operações matemáticas. Por isso foi rebatizada
-de `tabuleiro2` e seu desenvolvimento descontinuado. Ainda está no
-pacote porque ainda a tenho em várias aulas 😪. É desaconselhável seu
-uso em novos scripts.
+de `tabuleiro2` e seu desenvolvimento descontinuado. Está no pacote
+porque ainda a tenho em várias aulas 😪. É desaconselhável seu uso em
+novos scripts.
 
 ## Curva de Nelson de Moraes
 
@@ -290,7 +295,7 @@ plot(
   sub = "\nAmostra aleatória de 10.000 óbitos.", col.sub = 2, font.sub = 3, cex.sub = .8)
 ```
 
-<img src="man/figures/README-unnamed-chunk-13-1.png" width="48%" style="display: block; margin: auto;" />
+<img src="man/figures/README-unnamed-chunk-14-1.png" width="48%" style="display: block; margin: auto;" />
 
 Neste caso interessam as frequências acumuladas:
 

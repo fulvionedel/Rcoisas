@@ -45,12 +45,17 @@ library(Rcoisas)
 
 > Funções `descreve`, `histobox` e `tabuleiro`.
 
+```{r echo=FALSE}
+cat("descreve", stringr::str_sub(list(args(descreve)) |> as.character(), 10, 456), sep = "")
+```
+
 ### Variáveis numéricas
 
 **A função `descreve`** realiza a descrição "completa" de uma variável numérica. Por padrão apresenta uma lista com os parâmetros descritos e um histograma com marcas da distribuição da variável. O histograma pode ser suprimido e a lista pode ser transformada em `data.frame`. 
 
 ```{r }
-descreve(varnum <- rnorm(1000))
+descreve(varnum <- rnorm(1000))  
+
 descreve(varnum, histograma = FALSE, print = "tabela")
 ```
 O output pode ser guardado em um objeto e depois impresso como lista ou como tabela (de classe `data.frame`) e usado para captar em texto cada parâmetro isoladamente.
@@ -58,11 +63,13 @@ O output pode ser guardado em um objeto e depois impresso como lista ou como tab
 ```{r }
 x <- descreve(varnum, histograma = FALSE, print = FALSE)
 Rcoisas:::print.descreve(x)
+
 Rcoisas:::print.descreve(x, print = "tabela")
+
 paste("Média de", x$media, "e desvio-padrão de", x$dp, "unidades, configurando um coeficiente de variação de", x$cv, "%.")
 ```
 
-O objeto pode ser modificado para sua impressão. O exemplo a seguir usa outra função do pacote, `formatL()` para apresentar os valores em formato latino.
+O objeto pode ser modificado para sua impressão. O exemplo a seguir usa outra função do pacote, `formatL()`, para apresentar os valores em formato latino.
 ```{r }
 Rcoisas:::print.descreve(x, print = "tabela") |> 
   tibble::as_tibble(rownames = "parametro") |>
@@ -111,7 +118,7 @@ que pode facilmente formatada com `kable`.
 knitr::kable(tab2, align = 'r')
 ```
 
-Mas os valores da tabela estão em formato caractere e não numérico, o que impede a execução de operações matemáticas. Por isso foi rebatizada de `tabuleiro2` e seu desenvolvimento descontinuado. Ainda está no pacote porque ainda a tenho em várias aulas `r emo::ji("sleepy")`. É desaconselhável seu uso em novos scripts.
+Mas os valores da tabela estão em formato caractere e não numérico, o que impede a execução de operações matemáticas. Por isso foi rebatizada de `tabuleiro2` e seu desenvolvimento descontinuado. Está no pacote porque ainda a tenho em várias aulas `r emo::ji("sleepy")`. É desaconselhável seu uso em novos scripts.
 
 
 ## Curva de Nelson de Moraes
