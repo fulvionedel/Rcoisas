@@ -1,8 +1,20 @@
+Rcoisas
+================
+
+- <a href="#instalação" id="toc-instalação">Instalação</a>
+- <a href="#exemplos" id="toc-exemplos">Exemplos</a>
+  - <a href="#descrição-univariada" id="toc-descrição-univariada">Descrição
+    univariada</a>
+    - <a href="#variáveis-numéricas" id="toc-variáveis-numéricas">Variáveis
+      numéricas</a>
+    - <a href="#variáveis-categóricas"
+      id="toc-variáveis-categóricas">Variáveis categóricas</a>
+  - <a href="#curva-de-nelson-de-moraes"
+    id="toc-curva-de-nelson-de-moraes">Curva de Nelson de Moraes</a>
+  - <a href="#tabelas-2-times-2" id="toc-tabelas-2-times-2">Tabelas 2 <span
+    class="math inline">×</span> 2</a>
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
-# Rcoisas
-
 <!-- badges: start -->
 <!-- badges: end -->
 
@@ -16,7 +28,7 @@ saúde. Algumas funções são importadas do pacote
 `fxetar3g`, `ufbr`, `ler_popbr`, e `popbr2000_2021`). Veja a ajuda para
 a lista completa e detalhamento das funções e bancos de dados no pacote.
 
-## Instalação
+# Instalação
 
 O pacote ainda não tem uma primeira versão para ser lançada. A versão de
 desenvolvimento pode ser instalada a partir do
@@ -25,17 +37,17 @@ desenvolvimento pode ser instalada a partir do
     # install.packages("remotes") # Se o pacote 'remotes' não estiver instalado
     remotes::install_github("fulvionedel/Rcoisas")
 
-## Exemplos
+# Exemplos
 
 ``` r
 library(Rcoisas)
 ```
 
-### Descrição univariada
+## Descrição univariada
 
 > Funções `descreve`, `histobox` e `tabuleiro`.
 
-#### Variáveis numéricas
+### Variáveis numéricas
 
 **A função `descreve`** realiza a descrição “completa” de uma variável
 numérica. Por padrão apresenta uma lista com os parâmetros descritos e
@@ -51,37 +63,37 @@ descreve(varnum <- rnorm(1000))
 
      varnum <- rnorm(1000) :  1000  observações 
 
-    Válidos: 1000    Missings: 0     Soma: -41.1 
-    Menor: -3.76     Maior: 3.57     Amplitude: 7.34
-    Média: -0.04     DP: 0.99    CV(%): 2415.61
-    Assimetria: 0.01     Curtose(real): 3
+    Válidos: 1000    Missings: 0     Soma: -4.78 
+    Menor: -2.72     Maior: 3.46     Amplitude: 6.18
+    Média: 0     DP: 1.01    CV(%): 21127.1
+    Assimetria: 0.08     Curtose(real): 2.98
     Quantis:
      2.5%    5%   25%   50%   75%   95% 97.5% 
-    -1.97 -1.60 -0.76 -0.06  0.64  1.62  1.87 
-              IIQ: 1.4 
+    -2.01 -1.64 -0.70 -0.03  0.71  1.65  1.87 
+              IIQ: 1.41 
     descreve(varnum, histograma = FALSE, print = "tabela")
-                varnum
-    n          1000.00
-    Válidos    1000.00
-    Missings      0.00
-    Menor        -3.76
-    Maior         3.57
-    Amplitude     7.34
-    Soma        -41.10
-    Média        -0.04
-    Variância     0.99
-    DP            0.99
-    CV(%)      2415.61
-    Assimetria    0.01
-    Curtose       3.00
-    P2.5         -1.97
-    P5           -1.60
-    P25          -0.76
-    P50          -0.06
-    P75           0.64
-    P95           1.62
-    P97.5         1.87
-    IIQ           1.40
+                 varnum
+    n           1000.00
+    Válidos     1000.00
+    Missings       0.00
+    Menor         -2.72
+    Maior          3.46
+    Amplitude      6.18
+    Soma          -4.78
+    Média          0.00
+    Variância      1.02
+    DP             1.01
+    CV(%)      21127.10
+    Assimetria     0.08
+    Curtose        2.98
+    P2.5          -2.01
+    P5            -1.64
+    P25           -0.70
+    P50           -0.03
+    P75            0.71
+    P95            1.65
+    P97.5          1.87
+    IIQ            1.41
 
 O output pode ser guardado em um objeto e depois impresso como lista ou
 como tabela (de classe `data.frame`) e usado para captar em texto cada
@@ -93,39 +105,39 @@ Rcoisas:::print.descreve(x)
 
  varnum :  1000  observações 
 
-Válidos: 1000    Missings: 0     Soma: -41.1 
-Menor: -3.76     Maior: 3.57     Amplitude: 7.34
-Média: -0.04     DP: 0.99    CV(%): 2415.61
-Assimetria: 0.01     Curtose(real): 3
+Válidos: 1000    Missings: 0     Soma: -4.78 
+Menor: -2.72     Maior: 3.46     Amplitude: 6.18
+Média: 0     DP: 1.01    CV(%): 21127.1
+Assimetria: 0.08     Curtose(real): 2.98
 Quantis:
  2.5%    5%   25%   50%   75%   95% 97.5% 
--1.97 -1.60 -0.76 -0.06  0.64  1.62  1.87 
-          IIQ: 1.4 
+-2.01 -1.64 -0.70 -0.03  0.71  1.65  1.87 
+          IIQ: 1.41 
 Rcoisas:::print.descreve(x, print = "tabela")
-            varnum
-n          1000.00
-Válidos    1000.00
-Missings      0.00
-Menor        -3.76
-Maior         3.57
-Amplitude     7.34
-Soma        -41.10
-Média        -0.04
-Variância     0.99
-DP            0.99
-CV(%)      2415.61
-Assimetria    0.01
-Curtose       3.00
-P2.5         -1.97
-P5           -1.60
-P25          -0.76
-P50          -0.06
-P75           0.64
-P95           1.62
-P97.5         1.87
-IIQ           1.40
+             varnum
+n           1000.00
+Válidos     1000.00
+Missings       0.00
+Menor         -2.72
+Maior          3.46
+Amplitude      6.18
+Soma          -4.78
+Média          0.00
+Variância      1.02
+DP             1.01
+CV(%)      21127.10
+Assimetria     0.08
+Curtose        2.98
+P2.5          -2.01
+P5            -1.64
+P25           -0.70
+P50           -0.03
+P75            0.71
+P95            1.65
+P97.5          1.87
+IIQ            1.41
 paste("Média de", x$media, "e desvio-padrão de", x$dp, "unidades, configurando um coeficiente de variação de", x$cv, "%.")
-[1] "Média de -0.04 e desvio-padrão de 0.99 unidades, configurando um coeficiente de variação de 2415.61 %."
+[1] "Média de 0 e desvio-padrão de 1.01 unidades, configurando um coeficiente de variação de 21127.1 %."
 ```
 
 O objeto pode ser modificado para sua impressão. O exemplo a seguir usa
@@ -136,38 +148,39 @@ formato latino.
 Rcoisas:::print.descreve(x, print = "tabela") |> 
   tibble::as_tibble(rownames = "parametro") |>
   dplyr::mutate(varnum = formatL(varnum, format = "fg", digits = 3)) |>
-  knitr::kable()
+  knitr::kable(align = 'r')
 ```
 
-| parametro  | varnum |
-|:-----------|:-------|
-| n          | 1.000  |
-| Válidos    | 1.000  |
-| Missings   | 0      |
-| Menor      | -3,76  |
-| Maior      | 3,57   |
-| Amplitude  | 7,34   |
-| Soma       | -41,1  |
-| Média      | -0,04  |
-| Variância  | 0,99   |
-| DP         | 0,99   |
-| CV(%)      | 2.416  |
-| Assimetria | 0,01   |
-| Curtose    | 3      |
-| P2.5       | -1,97  |
-| P5         | -1,6   |
-| P25        | -0,76  |
-| P50        | -0,06  |
-| P75        | 0,64   |
-| P95        | 1,62   |
-| P97.5      | 1,87   |
-| IIQ        | 1,4    |
+|  parametro | varnum |
+|-----------:|-------:|
+|          n |  1.000 |
+|    Válidos |  1.000 |
+|   Missings |      0 |
+|      Menor |  -2,72 |
+|      Maior |   3,46 |
+|  Amplitude |   6,18 |
+|       Soma |  -4,78 |
+|      Média |      0 |
+|  Variância |   1,02 |
+|         DP |   1,01 |
+|      CV(%) | 21.127 |
+| Assimetria |   0,08 |
+|    Curtose |   2,98 |
+|       P2.5 |  -2,01 |
+|         P5 |  -1,64 |
+|        P25 |   -0,7 |
+|        P50 |  -0,03 |
+|        P75 |   0,71 |
+|        P95 |   1,65 |
+|      P97.5 |   1,87 |
+|        IIQ |   1,41 |
 
-Um argumento `by`, para estratificação em categorias de um fator, está
-em desenvolvimento e ainda não funciona adequadamente. 😕
+O formato em tabela é pensado para uma análise estratificada por
+categorias de um fator. Um argumento `by` está em desenvolvimento e
+ainda não funciona adequadamente. 😕
 
-**A função `histobox`** desenha um histograma com um *box-plot*
-horizontal acima do gráfico.
+**A função `histobox`** desenha um histograma com um diagrama de caixas
+(“*box-plot*”) horizontal acima do gráfico.
 
 ``` r
 histobox(varnum)
@@ -175,10 +188,17 @@ histobox(varnum)
 
 <img src="man/figures/README-unnamed-chunk-6-1.png" width="48%" style="display: block; margin: auto;" />
 
-#### Variáveis categóricas
+### Variáveis categóricas
+
+**As funções `tabuleiro` e `tabuleiro2`** apresentam uma tabela
+univariada com frequências absolutas e relativas (%) simples e
+acumuladas.
+
+    tabuleiro(x, digits = 1, total = TRUE, cum = TRUE, format = "en", data = NULL, ...)
+    tabuleiro2(varcat, digits = 1)
 
 ``` r
-tabuleiro(obitosRS2019$RACACOR)
+tabuleiro(RACACOR, data = obitosRS2019)
          Freq     % Freq.acum %acum
 Amarela    12   0.1        12   0.1
 Branca   8493  88.0      8505  88.1
@@ -186,8 +206,35 @@ Indígena   20   0.2      8525  88.3
 Parda     555   5.7      9080  94.1
 Preta     573   5.9      9653 100.0
 Total    9653 100.0      9653 100.0
+```
 
-tabuleiro2(obitosRS2019$RACACOR)
+Uma tabela para apresentação pode ser feita com a função `kable{knitr}`.
+Esta função tem argumentos para apresentar resultados em formato latino,
+mas o trabalho pode ser abreviado com a função `formatL{Rcoisas}` –
+enquanto o argumento `format` não é implementado. Além disso, a
+frequência acumulada aqui não faz muito sentido.
+
+``` r
+tab1 <- tabuleiro(RACACOR, data = obitosRS2019, cum = FALSE, digits = 3)
+knitr::kable(tab1 |> formatL(format = "fg"), align = 'r')
+```
+
+|          |   Freq |   % |
+|:---------|-------:|----:|
+| Amarela  |     12 | 0,1 |
+| Branca   |  8.493 |  88 |
+| Indígena |     20 | 0,2 |
+| Parda    |    555 |   6 |
+| Preta    |    573 |   6 |
+| Total    | 10.000 | 100 |
+
+A função foi criada para oferecer axs estudantes um modo fácil de criar
+no R uma tabela com essas características e valores em formato latino.
+Na sua primeira versão os valores eram pré-formatados, oferecendo a
+seguinte tabela:
+
+``` r
+(tab2 <- tabuleiro2(obitosRS2019$RACACOR))
               Freq     %(+NA) % válido % acum
 Amarela       "    12" "0,1"  "0,1"    "0,1" 
 Branca        " 8.493" "84,9" "88,0"   "88,1"
@@ -199,7 +246,80 @@ Missing       "   347" "3,5"  "˗"      "˗"
 Total         "10.000" "100"  "˗"      "˗"   
 ```
 
-### Tabelas 2 $\times$ 2
+que pode facilmente formatada com `kable`.
+
+``` r
+knitr::kable(tab2, align = 'r')
+```
+
+|               |   Freq | %(+NA) | % válido | % acum |
+|:--------------|-------:|-------:|---------:|-------:|
+| Amarela       |     12 |    0,1 |      0,1 |    0,1 |
+| Branca        |  8.493 |   84,9 |     88,0 |   88,1 |
+| Indígena      |     20 |    0,2 |      0,2 |   88,3 |
+| Parda         |    555 |    5,5 |      5,7 |   94,1 |
+| Preta         |    573 |    5,7 |      5,9 |    100 |
+| Total válidos |  9.653 |   96,5 |      100 |      ˗ |
+| Missing       |    347 |    3,5 |        ˗ |      ˗ |
+| Total         | 10.000 |    100 |        ˗ |      ˗ |
+
+Mas os valores da tabela estão em formato caractere e não numérico, o
+que impede a execução de operações matemáticas. Por isso foi rebatizada
+de `tabuleiro2` e seu desenvolvimento descontinuado. Ainda está no
+pacote porque ainda a tenho em várias aulas 😪. É desaconselhável seu
+uso em novos scripts.
+
+## Curva de Nelson de Moraes
+
+    fxetarNM(idade = NULL, fxetardet = NULL)
+
+**A função `fxetarNM`** agrega um vetor com a idade ou com a “faixa
+etária detalhada” (classificação do DATASUS) segundo as categorias da
+Curva de Nelson de Moraes (\< 1, 1-4, 5-19, 20-49, 50 e +).
+
+O gráfico pode ser rapidamente produzido desenhando o resultado de
+`prop.table` e `table` sobre `fxetarNM(x)`.
+
+``` r
+plot(
+  prop.table(table(
+    fxetarNM(obitosRS2019$idade)
+    ))*100, 
+  type = 'l', ylab = "%", xlab = "faixa etária", 
+  main = "Curva de Nelson de Moraes. RS, 2019.",
+  sub = "\nAmostra aleatória de 10.000 óbitos.", col.sub = 2, font.sub = 3, cex.sub = .8)
+```
+
+<img src="man/figures/README-unnamed-chunk-13-1.png" width="48%" style="display: block; margin: auto;" />
+
+Neste caso interessam as frequências acumuladas:
+
+``` r
+obitosRS2019$idade |>
+  fxetarNM() |>
+  tabuleiro() |>
+  formatL(format = "fg", digits = 2) |> 
+  knitr::kable(align = 'r')
+```
+
+|        |   Freq |   % | Freq.acum | %acum |
+|:-------|-------:|----:|----------:|------:|
+| \< 1   |    150 | 1,5 |       150 |   1,5 |
+| 1-4    |     23 | 0,2 |       173 |   1,7 |
+| 5-19   |    123 | 1,2 |       296 |     3 |
+| 20-49  |  1.031 |  10 |     1.327 |    13 |
+| 50 e + |  8.663 |  87 |    10.000 |   100 |
+| Total  | 10.000 | 100 |    10.000 |   100 |
+
+## Tabelas 2 $\times$ 2
+
+**A função `bolero`** analisa a tabela de contingências de duas
+variáveis dicotômicas. O exemplo a seguir usa um banco de dados do
+pacote Rcoisas, com uma amostra aleatória de dez mil registros de óbitos
+do RS para comparar a probabilidade de um diagnóstico de causa
+cardiovascular e de causa externa segundo o sexo, entre os óbitos. As
+causas são classificadas com a função `cid10cap()`, do pacote
+[`csapAIH`](https://github.com/fulvionedel/csapAIH).
 
 ``` r
 obitos <- obitosRS2019[c("sexo", "idade", "RACACOR", "CAUSABAS")]
@@ -208,7 +328,7 @@ cardio <- grepl("circulatório", csapAIH::cid10cap(obitos$CAUSABAS)) |>
 externas <- grepl("externas", csapAIH::cid10cap(obitos$CAUSABAS)) |>
   factor(levels = c(TRUE, FALSE), labels = c("sim", "não"))
 
-bolero(obitos$sexo, cardio)
+tabolero <- bolero(obitos$sexo, cardio)
 ===============================================================
                   Tabela 2 por 2 
         bolero(independente, dependente, dec=2, dnn) 
@@ -233,7 +353,13 @@ Razão de Probabilidades: 1.15 ; IC95% (assintótico): 1.08 1.24
 Razão de Odds          : 1.21 ; IC95% (exato)      : 1.10 1.33
 Valor-p: Pearson, Yates: <0,001 ; Fisher: <0,001 
 ===============================================================
+```
 
+Para mudar a categoria de referência mudam-se antes os níveis da
+variável. Os rótulos dos nomes das variáveis podem ser modificados com o
+argumento `dnn`.
+
+``` r
 bolero(factor(obitos$sexo, levels = c("masc", "fem")), externas, 
        dnn = c("sexo", "causas externas"))
 ===============================================================
@@ -261,5 +387,84 @@ Razão de Odds          : 3.30 ; IC95% (exato)      : 2.78 3.93
 Valor-p: Pearson, Yates: <0,001 ; Fisher: <0,001 
 ===============================================================
 ```
+
+`bolero` foi escrita há mais de 20 anos e não pode ser impressa com
+`kable`, mas os elementos de seu output podem ser recuperados. Veja a
+estrutura de seu resultado:
+
+``` r
+# Note que acima foi criado o objeto 'tabolero' 
+str(tabolero)
+List of 14
+ $ tab     : 'table' int [1:2, 1:2] 1248 1226 3438 4086
+  ..- attr(*, "dimnames")=List of 2
+  .. ..$ obitos$sexo: chr [1:2] "fem" "masc"
+  .. ..$ cardio     : chr [1:2] "sim" "não"
+ $ proptab : 'table' num [1:2, 1:2] 26.6 23.1 73.4 76.9
+  ..- attr(*, "dimnames")=List of 2
+  .. ..$ obitos$sexo: chr [1:2] "fem" "masc"
+  .. ..$ cardio     : chr [1:2] "sim" "não"
+ $ RP      : num 1.15
+ $ lci.rp  : num 1.08
+ $ uci.rp  : num 1.24
+ $ OR      : num 1.21
+ $ or.ic   : num [1:2] 1.1 1.33
+  ..- attr(*, "conf.level")= num 0.95
+ $ lci.or  : num 1.1
+ $ uci.or  : num 1.33
+ $ ft      :List of 7
+  ..$ p.value    : num 4.35e-05
+  ..$ conf.int   : num [1:2] 1.1 1.33
+  .. ..- attr(*, "conf.level")= num 0.95
+  ..$ estimate   : Named num 1.21
+  .. ..- attr(*, "names")= chr "odds ratio"
+  ..$ null.value : Named num 1
+  .. ..- attr(*, "names")= chr "odds ratio"
+  ..$ alternative: chr "two.sided"
+  ..$ method     : chr "Fisher's Exact Test for Count Data"
+  ..$ data.name  : chr "tab"
+  ..- attr(*, "class")= chr "htest"
+ $ qui2    :List of 9
+  ..$ statistic: Named num 16.7
+  .. ..- attr(*, "names")= chr "X-squared"
+  ..$ parameter: Named int 1
+  .. ..- attr(*, "names")= chr "df"
+  ..$ p.value  : num 4.41e-05
+  ..$ method   : chr "Pearson's Chi-squared test with Yates' continuity correction"
+  ..$ data.name: chr "tab"
+  ..$ observed : 'table' int [1:2, 1:2] 1248 1226 3438 4086
+  .. ..- attr(*, "dimnames")=List of 2
+  .. .. ..$ obitos$sexo: chr [1:2] "fem" "masc"
+  .. .. ..$ cardio     : chr [1:2] "sim" "não"
+  ..$ expected : num [1:2, 1:2] 1160 1314 3526 3998
+  .. ..- attr(*, "dimnames")=List of 2
+  .. .. ..$ obitos$sexo: chr [1:2] "fem" "masc"
+  .. .. ..$ cardio     : chr [1:2] "sim" "não"
+  ..$ residuals: 'table' num [1:2, 1:2] 2.6 -2.44 -1.49 1.4
+  .. ..- attr(*, "dimnames")=List of 2
+  .. .. ..$ obitos$sexo: chr [1:2] "fem" "masc"
+  .. .. ..$ cardio     : chr [1:2] "sim" "não"
+  ..$ stdres   : 'table' num [1:2, 1:2] 4.11 -4.11 -4.11 4.11
+  .. ..- attr(*, "dimnames")=List of 2
+  .. .. ..$ obitos$sexo: chr [1:2] "fem" "masc"
+  .. .. ..$ cardio     : chr [1:2] "sim" "não"
+  ..- attr(*, "class")= chr "htest"
+ $ p.qui2  : num 4.41e-05
+ $ p.Fisher: num 4.35e-05
+ $ resumo  : 'table' num [1, 1:4] 1.15 1.08 1.24 0
+  ..- attr(*, "dimnames")=List of 2
+  .. ..$ : chr "cardio"
+  .. ..$ : chr [1:4] "RP" "IC95inf" "IC95sup" "p"
+```
+
+Assim podemos dizer, por exemplo, que a probabilidade de que a causa
+básica de óbito seja cardiovascular é 15% maior no sexo feminino que no
+masculino (RP = 1,15; IC<sub>95</sub> 1,08 a 1,24). Veja abaixo o código
+utilizado:
+
+> \[…\] cardiovascular é `formatL((tabolero$RP-1)*100, digits = 0)`%
+> maior no sexo feminino que no masculino (RP =
+> `formatL(tabolero$RP, 2)`; IC<sub>95</sub>
+> `formatL(tabolero$lci.rp, 2)` a `formatL(tabolero$uci.rp, 2)`).
 
 <!-- You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/v1/examples>. -->
