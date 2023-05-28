@@ -30,7 +30,7 @@
 #' @param lty Tipo da linha para o histograma; padrão é NULL
 #' @param lwd Largura da linha para o histograma; padrão é NULL
 #' @param cex Tamanho da fonte
-#' @param lugar Posição da legenda; padrão é 'toprigt'
+#' @param lugar Posição da legenda; padrão é 'topright'
 #' @param print Modo de apresentação; \code{print = "tabela"} retorna uma tabela com as estatísticas
 #' @param ... Toma parâmetros de outras funções utilizadas
 #' 
@@ -43,8 +43,12 @@
 #' descreve(rnorm(100), print = "tabela")
 #' obitosRS2019$sexo <- factor(obitosRS2019$sexo)
 #' descreve(obitosRS2019$idade)
+#' \dontrun{
+#' # NÃO FUNCIONA!
 #' descreve(idade, obitosRS2019$sexo, data = obitosRS2019)
+#' # Esse funciona
 #' with(obitosRS2019, descreve(idade, sexo))
+#' }
 #' 
 #'  
 descreve <- function(x, print = "output", ...) {

@@ -38,7 +38,7 @@ print.descreve <- function(x, print = "output", ...) {
           'M\u00e9dia: ',x$media, '\t DP: ',x$dp, '\t CV(%): ',x$cv, '\n',
           'Assimetria: ',x$assimetria, '\t Curtose(real): ', x$curtose, '\n',
           sep='')
-      cat('Quantis:\n'); print(x$quantis) ; cat('\t\t  IIQ:',x$iiq)
+      cat('Quantis:\n'); print(x$quantis) ; cat('\t\t  IIQ:', x$iiq, "\n")
   }
   # -------------
   
@@ -74,7 +74,7 @@ print.descreve <- function(x, print = "output", ...) {
     df
   }
 
-  if(print == "output") print.output(x)
+  if(print == "output") print.output(x)  
   if(print == "tabela") print.tabela(x)
 }
 
