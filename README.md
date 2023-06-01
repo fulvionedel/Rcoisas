@@ -18,15 +18,15 @@ Rcoisas
 <!-- badges: start -->
 <!-- badges: end -->
 
-> Funções para aulas e apresentação de resultados em português.
+> **Funções para aulas e apresentação de resultados em português.**
 
 O pacote contém funções com *outputs* em português e bancos de dados
 úteis para a produção de gráficos e tabelas para aulas, como a descrição
 “completa” de uma variável numérica ou a construção de indicadores de
 saúde. Algumas funções são importadas do pacote
 [`csapAIH`](https://github.com/fulvionedel/csapAIH) (`fxetar_quinq`,
-`fxetar3g`, `ufbr`, `ler_popbr`, e `popbr2000_2021`). Veja a ajuda para
-a lista completa e detalhamento das funções e bancos de dados no pacote.
+`fxetar3g`, `ufbr`, `ler_popbr` e `popbr2000_2021`). Veja a ajuda para a
+lista completa e detalhamento das funções e bancos de dados no pacote.
 
 # Instalação
 
@@ -65,38 +65,38 @@ descreve(varnum <- rnorm(1000))
 
      varnum <- rnorm(1000) :  1000  observações 
 
-    Válidos: 1000    Missings: 0     Soma: -6.8 
-    Menor: -3.31     Maior: 3.14     Amplitude: 6.45
-    Média: -0.01     DP: 0.98    CV(%): 14421.68
-    Assimetria: 0.11     Curtose(real): 2.98
+    Válidos: 1000    Missings: 0     Soma: -18.44 
+    Menor: -2.98     Maior: 3.27     Amplitude: 6.25
+    Média: -0.02     DP: 0.98    CV(%): 5309.73
+    Assimetria: 0.07     Curtose(real): 2.92
     Quantis:
      2.5%    5%   25%   50%   75%   95% 97.5% 
-    -1.87 -1.56 -0.69  0.01  0.67  1.64  1.97 
-              IIQ: 1.37 
+    -1.88 -1.61 -0.70 -0.01  0.66  1.54  1.94 
+              IIQ: 1.36 
 
     descreve(varnum, histograma = FALSE, print = "tabela")
-                 varnum
-    n           1000.00
-    Válidos     1000.00
-    Missings       0.00
-    Menor         -3.31
-    Maior          3.14
-    Amplitude      6.45
-    Soma          -6.80
-    Média         -0.01
-    Variância      0.96
-    DP             0.98
-    CV(%)      14421.68
-    Assimetria     0.11
-    Curtose        2.98
-    P2.5          -1.87
-    P5            -1.56
-    P25           -0.69
-    P50            0.01
-    P75            0.67
-    P95            1.64
-    P97.5          1.97
-    IIQ            1.37
+                varnum
+    n          1000.00
+    Válidos    1000.00
+    Missings      0.00
+    Menor        -2.98
+    Maior         3.27
+    Amplitude     6.25
+    Soma        -18.44
+    Média        -0.02
+    Variância     0.96
+    DP            0.98
+    CV(%)      5309.73
+    Assimetria    0.07
+    Curtose       2.92
+    P2.5         -1.88
+    P5           -1.61
+    P25          -0.70
+    P50          -0.01
+    P75           0.66
+    P95           1.54
+    P97.5         1.94
+    IIQ           1.36
 
 O output pode ser guardado em um objeto e depois impresso como lista ou
 como tabela (de classe `data.frame`) e usado para captar em texto cada
@@ -108,41 +108,41 @@ Rcoisas:::print.descreve(x)
 
  varnum :  1000  observações 
 
-Válidos: 1000    Missings: 0     Soma: -6.8 
-Menor: -3.31     Maior: 3.14     Amplitude: 6.45
-Média: -0.01     DP: 0.98    CV(%): 14421.68
-Assimetria: 0.11     Curtose(real): 2.98
+Válidos: 1000    Missings: 0     Soma: -18.44 
+Menor: -2.98     Maior: 3.27     Amplitude: 6.25
+Média: -0.02     DP: 0.98    CV(%): 5309.73
+Assimetria: 0.07     Curtose(real): 2.92
 Quantis:
  2.5%    5%   25%   50%   75%   95% 97.5% 
--1.87 -1.56 -0.69  0.01  0.67  1.64  1.97 
-          IIQ: 1.37 
+-1.88 -1.61 -0.70 -0.01  0.66  1.54  1.94 
+          IIQ: 1.36 
 
 Rcoisas:::print.descreve(x, print = "tabela")
-             varnum
-n           1000.00
-Válidos     1000.00
-Missings       0.00
-Menor         -3.31
-Maior          3.14
-Amplitude      6.45
-Soma          -6.80
-Média         -0.01
-Variância      0.96
-DP             0.98
-CV(%)      14421.68
-Assimetria     0.11
-Curtose        2.98
-P2.5          -1.87
-P5            -1.56
-P25           -0.69
-P50            0.01
-P75            0.67
-P95            1.64
-P97.5          1.97
-IIQ            1.37
+            varnum
+n          1000.00
+Válidos    1000.00
+Missings      0.00
+Menor        -2.98
+Maior         3.27
+Amplitude     6.25
+Soma        -18.44
+Média        -0.02
+Variância     0.96
+DP            0.98
+CV(%)      5309.73
+Assimetria    0.07
+Curtose       2.92
+P2.5         -1.88
+P5           -1.61
+P25          -0.70
+P50          -0.01
+P75           0.66
+P95           1.54
+P97.5         1.94
+IIQ           1.36
 
 paste("Média de", x$media, "e desvio-padrão de", x$dp, "unidades, configurando um coeficiente de variação de", x$cv, "%.")
-[1] "Média de -0.01 e desvio-padrão de 0.98 unidades, configurando um coeficiente de variação de 14421.68 %."
+[1] "Média de -0.02 e desvio-padrão de 0.98 unidades, configurando um coeficiente de variação de 5309.73 %."
 ```
 
 O objeto pode ser modificado para sua impressão. O exemplo a seguir usa
@@ -161,24 +161,24 @@ Rcoisas:::print.descreve(x, print = "tabela") |>
 |          n |  1.000 |
 |    Válidos |  1.000 |
 |   Missings |      0 |
-|      Menor |  -3,31 |
-|      Maior |   3,14 |
-|  Amplitude |   6,45 |
-|       Soma |   -6,8 |
-|      Média |  -0,01 |
+|      Menor |  -2,98 |
+|      Maior |   3,27 |
+|  Amplitude |   6,25 |
+|       Soma |  -18,4 |
+|      Média |  -0,02 |
 |  Variância |   0,96 |
 |         DP |   0,98 |
-|      CV(%) | 14.422 |
-| Assimetria |   0,11 |
-|    Curtose |   2,98 |
-|       P2.5 |  -1,87 |
-|         P5 |  -1,56 |
-|        P25 |  -0,69 |
-|        P50 |   0,01 |
-|        P75 |   0,67 |
-|        P95 |   1,64 |
-|      P97.5 |   1,97 |
-|        IIQ |   1,37 |
+|      CV(%) |  5.310 |
+| Assimetria |   0,07 |
+|    Curtose |   2,92 |
+|       P2.5 |  -1,88 |
+|         P5 |  -1,61 |
+|        P25 |   -0,7 |
+|        P50 |  -0,01 |
+|        P75 |   0,66 |
+|        P95 |   1,54 |
+|      P97.5 |   1,94 |
+|        IIQ |   1,36 |
 
 O formato em tabela é pensado para uma análise estratificada por
 categorias de um fator. Um argumento `by` está em desenvolvimento e
@@ -302,19 +302,18 @@ Neste caso interessam as frequências acumuladas:
 ``` r
 obitosRS2019$idade |>
   fxetarNM() |>
-  tabuleiro() |>
+  tabuleiro(total = FALSE) |>
   formatL(format = "fg", digits = 2) |> 
   knitr::kable(align = 'r')
 ```
 
-|        |   Freq |   % | Freq.acum | %acum |
-|:-------|-------:|----:|----------:|------:|
-| \< 1   |    150 | 1,5 |       150 |   1,5 |
-| 1-4    |     23 | 0,2 |       173 |   1,7 |
-| 5-19   |    123 | 1,2 |       296 |     3 |
-| 20-49  |  1.031 |  10 |     1.327 |    13 |
-| 50 e + |  8.663 |  87 |    10.000 |   100 |
-| Total  | 10.000 | 100 |    10.000 |   100 |
+|        |  Freq |   % | Freq.acum | %acum |
+|:-------|------:|----:|----------:|------:|
+| \< 1   |   150 | 1,5 |       150 |   1,5 |
+| 1-4    |    23 | 0,2 |       173 |   1,7 |
+| 5-19   |   123 | 1,2 |       296 |     3 |
+| 20-49  | 1.031 |  10 |     1.327 |    13 |
+| 50 e + | 8.663 |  87 |    10.000 |   100 |
 
 ## Tabelas 2 $\times$ 2
 

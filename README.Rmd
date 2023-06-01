@@ -21,9 +21,9 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-> Funções para aulas e apresentação de resultados em português.
+> **Funções para aulas e apresentação de resultados em português.**
 
-O pacote contém funções com _outputs_ em português e bancos de dados úteis para a produção de gráficos e tabelas para aulas, como a descrição "completa" de uma variável numérica ou a construção de indicadores de saúde. Algumas funções são importadas do pacote [`csapAIH`](https://github.com/fulvionedel/csapAIH) (`fxetar_quinq`, `fxetar3g`, `ufbr`, `ler_popbr`, e `popbr2000_2021`). Veja a ajuda para a lista completa e detalhamento das funções e bancos de dados no pacote.
+O pacote contém funções com _outputs_ em português e bancos de dados úteis para a produção de gráficos e tabelas para aulas, como a descrição "completa" de uma variável numérica ou a construção de indicadores de saúde. Algumas funções são importadas do pacote [`csapAIH`](https://github.com/fulvionedel/csapAIH) (`fxetar_quinq`, `fxetar3g`, `ufbr`, `ler_popbr` e `popbr2000_2021`). Veja a ajuda para a lista completa e detalhamento das funções e bancos de dados no pacote.
 
 
 # Instalação 
@@ -145,7 +145,7 @@ Neste caso interessam as frequências acumuladas:
 ```{r}
 obitosRS2019$idade |>
   fxetarNM() |>
-  tabuleiro() |>
+  tabuleiro(total = FALSE) |>
   formatL(format = "fg", digits = 2) |> 
   knitr::kable(align = 'r')
 ```
