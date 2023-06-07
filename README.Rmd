@@ -129,16 +129,16 @@ cat("fxetarNM", stringr::str_sub(list(args(fxetarNM)) |> as.character(), 10, 41)
 
 **A função `fxetarNM`** agrega um vetor com a idade ou com a "faixa etária detalhada" (classificação do DATASUS) segundo as categorias da Curva de Nelson de Moraes (`r fxetarNM()`).
 
-O gráfico pode ser rapidamente produzido desenhando o resultado de `prop.table` e `table` sobre `fxetarNM(x)`.
+Um gráfico pode ser produzido desenhando o resultado de `table` e `prop.table` sobre `fxetarNM(x)`.
 
 ```{r}
-plot(
-  prop.table(table(
-    fxetarNM(obitosRS2019$idade)
-    ))*100, 
-  type = 'l', ylab = "%", xlab = "faixa etária", 
-  main = "Curva de Nelson de Moraes. RS, 2019.",
-  sub = "\nAmostra aleatória de 10.000 óbitos.", col.sub = 2, font.sub = 3, cex.sub = .8)
+plot(fxetarNM(obitosRS2019$idade) |> 
+       table() |> 
+       prop.table()*100 ,
+     type = 'l', ylab = "%", xlab = "faixa etária", 
+     col.sub = 2, font.sub = 3, cex.sub = .8, 
+     main = "Curva de Nelson de Moraes. RS, 2019.", 
+     sub = "\nAmostra aleatória de 10.000 óbitos.") 
 ```
 
 Neste caso interessam as frequências acumuladas:
@@ -205,7 +205,7 @@ str(tabolero)
 
 Assim podemos dizer, por exemplo, que a probabilidade de que a causa básica de óbito seja cardiovascular é `r formatL((tabolero$RP-1)*100, digits = 0)`% maior no sexo feminino que no masculino (RP = `r formatL(tabolero$RP, 2)`; IC~95~ `r formatL(tabolero$lci.rp, 2)` a `r formatL(tabolero$uci.rp, 2)`). Veja abaixo o código utilizado:
 
-> [...] cardiovascular é `formatL((tabolero$RP-1)*100, digits = 0)`% maior no sexo feminino que no masculino (RP = `formatL(tabolero$RP, 2)`; IC~95~ `formatL(tabolero$lci.rp, 2)` a `formatL(tabolero$uci.rp, 2)`).
+> [...] a probabilidade de que a causa básica de óbito seja cardiovascular é `` `r knitr::inline_expr('formatL((tabolero$RP-1)*100, digits = 0)')` ``% maior no sexo feminino que no masculino (RP = `` `r knitr::inline_expr('formatL(tabolero$RP, 2)')` ``; IC~95~ `` `r knitr::inline_expr('formatL(tabolero$lci.rp, 2)')` `` a `` `r knitr::inline_expr('formatL(tabolero$uci.rp, 2)')` ``).
 
 
 <!-- You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/v1/examples>. -->

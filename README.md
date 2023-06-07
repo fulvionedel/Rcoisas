@@ -65,38 +65,38 @@ descreve(varnum <- rnorm(1000))
 
      varnum <- rnorm(1000) :  1000  observações 
 
-    Válidos: 1000    Missings: 0     Soma: -18.44 
-    Menor: -2.98     Maior: 3.27     Amplitude: 6.25
-    Média: -0.02     DP: 0.98    CV(%): 5309.73
-    Assimetria: 0.07     Curtose(real): 2.92
+    Válidos: 1000    Missings: 0     Soma: -18.42 
+    Menor: -2.79     Maior: 2.86     Amplitude: 5.66
+    Média: -0.02     DP: 0.97    CV(%): 5278.54
+    Assimetria: -0.03    Curtose(real): 2.81
     Quantis:
      2.5%    5%   25%   50%   75%   95% 97.5% 
-    -1.88 -1.61 -0.70 -0.01  0.66  1.54  1.94 
-              IIQ: 1.36 
+    -1.88 -1.62 -0.69 -0.03  0.66  1.60  1.88 
+              IIQ: 1.35 
 
     descreve(varnum, histograma = FALSE, print = "tabela")
                 varnum
     n          1000.00
     Válidos    1000.00
     Missings      0.00
-    Menor        -2.98
-    Maior         3.27
-    Amplitude     6.25
-    Soma        -18.44
+    Menor        -2.79
+    Maior         2.86
+    Amplitude     5.66
+    Soma        -18.42
     Média        -0.02
-    Variância     0.96
-    DP            0.98
-    CV(%)      5309.73
-    Assimetria    0.07
-    Curtose       2.92
+    Variância     0.95
+    DP            0.97
+    CV(%)      5278.54
+    Assimetria   -0.03
+    Curtose       2.81
     P2.5         -1.88
-    P5           -1.61
-    P25          -0.70
-    P50          -0.01
+    P5           -1.62
+    P25          -0.69
+    P50          -0.03
     P75           0.66
-    P95           1.54
-    P97.5         1.94
-    IIQ           1.36
+    P95           1.60
+    P97.5         1.88
+    IIQ           1.35
 
 O output pode ser guardado em um objeto e depois impresso como lista ou
 como tabela (de classe `data.frame`) e usado para captar em texto cada
@@ -108,41 +108,41 @@ Rcoisas:::print.descreve(x)
 
  varnum :  1000  observações 
 
-Válidos: 1000    Missings: 0     Soma: -18.44 
-Menor: -2.98     Maior: 3.27     Amplitude: 6.25
-Média: -0.02     DP: 0.98    CV(%): 5309.73
-Assimetria: 0.07     Curtose(real): 2.92
+Válidos: 1000    Missings: 0     Soma: -18.42 
+Menor: -2.79     Maior: 2.86     Amplitude: 5.66
+Média: -0.02     DP: 0.97    CV(%): 5278.54
+Assimetria: -0.03    Curtose(real): 2.81
 Quantis:
  2.5%    5%   25%   50%   75%   95% 97.5% 
--1.88 -1.61 -0.70 -0.01  0.66  1.54  1.94 
-          IIQ: 1.36 
+-1.88 -1.62 -0.69 -0.03  0.66  1.60  1.88 
+          IIQ: 1.35 
 
 Rcoisas:::print.descreve(x, print = "tabela")
             varnum
 n          1000.00
 Válidos    1000.00
 Missings      0.00
-Menor        -2.98
-Maior         3.27
-Amplitude     6.25
-Soma        -18.44
+Menor        -2.79
+Maior         2.86
+Amplitude     5.66
+Soma        -18.42
 Média        -0.02
-Variância     0.96
-DP            0.98
-CV(%)      5309.73
-Assimetria    0.07
-Curtose       2.92
+Variância     0.95
+DP            0.97
+CV(%)      5278.54
+Assimetria   -0.03
+Curtose       2.81
 P2.5         -1.88
-P5           -1.61
-P25          -0.70
-P50          -0.01
+P5           -1.62
+P25          -0.69
+P50          -0.03
 P75           0.66
-P95           1.54
-P97.5         1.94
-IIQ           1.36
+P95           1.60
+P97.5         1.88
+IIQ           1.35
 
 paste("Média de", x$media, "e desvio-padrão de", x$dp, "unidades, configurando um coeficiente de variação de", x$cv, "%.")
-[1] "Média de -0.02 e desvio-padrão de 0.98 unidades, configurando um coeficiente de variação de 5309.73 %."
+[1] "Média de -0.02 e desvio-padrão de 0.97 unidades, configurando um coeficiente de variação de 5278.54 %."
 ```
 
 O objeto pode ser modificado para sua impressão. O exemplo a seguir usa
@@ -161,24 +161,24 @@ Rcoisas:::print.descreve(x, print = "tabela") |>
 |          n |  1.000 |
 |    Válidos |  1.000 |
 |   Missings |      0 |
-|      Menor |  -2,98 |
-|      Maior |   3,27 |
-|  Amplitude |   6,25 |
+|      Menor |  -2,79 |
+|      Maior |   2,86 |
+|  Amplitude |   5,66 |
 |       Soma |  -18,4 |
 |      Média |  -0,02 |
-|  Variância |   0,96 |
-|         DP |   0,98 |
-|      CV(%) |  5.310 |
-| Assimetria |   0,07 |
-|    Curtose |   2,92 |
+|  Variância |   0,95 |
+|         DP |   0,97 |
+|      CV(%) |  5.279 |
+| Assimetria |  -0,03 |
+|    Curtose |   2,81 |
 |       P2.5 |  -1,88 |
-|         P5 |  -1,61 |
-|        P25 |   -0,7 |
-|        P50 |  -0,01 |
+|         P5 |  -1,62 |
+|        P25 |  -0,69 |
+|        P50 |  -0,03 |
 |        P75 |   0,66 |
-|        P95 |   1,54 |
-|      P97.5 |   1,94 |
-|        IIQ |   1,36 |
+|        P95 |    1,6 |
+|      P97.5 |   1,88 |
+|        IIQ |   1,35 |
 
 O formato em tabela é pensado para uma análise estratificada por
 categorias de um fator. Um argumento `by` está em desenvolvimento e
@@ -282,17 +282,17 @@ novos scripts.
 etária detalhada” (classificação do DATASUS) segundo as categorias da
 Curva de Nelson de Moraes (\< 1, 1-4, 5-19, 20-49, 50 e +).
 
-O gráfico pode ser rapidamente produzido desenhando o resultado de
-`prop.table` e `table` sobre `fxetarNM(x)`.
+Um gráfico pode ser produzido desenhando o resultado de `table` e
+`prop.table` sobre `fxetarNM(x)`.
 
 ``` r
-plot(
-  prop.table(table(
-    fxetarNM(obitosRS2019$idade)
-    ))*100, 
-  type = 'l', ylab = "%", xlab = "faixa etária", 
-  main = "Curva de Nelson de Moraes. RS, 2019.",
-  sub = "\nAmostra aleatória de 10.000 óbitos.", col.sub = 2, font.sub = 3, cex.sub = .8)
+plot(fxetarNM(obitosRS2019$idade) |> 
+       table() |> 
+       prop.table()*100 ,
+     type = 'l', ylab = "%", xlab = "faixa etária", 
+     col.sub = 2, font.sub = 3, cex.sub = .8, 
+     main = "Curva de Nelson de Moraes. RS, 2019.", 
+     sub = "\nAmostra aleatória de 10.000 óbitos.") 
 ```
 
 <img src="man/figures/README-unnamed-chunk-14-1.png" width="48%" style="display: block; margin: auto;" />
@@ -466,9 +466,11 @@ básica de óbito seja cardiovascular é 15% maior no sexo feminino que no
 masculino (RP = 1,15; IC<sub>95</sub> 1,08 a 1,24). Veja abaixo o código
 utilizado:
 
-> \[…\] cardiovascular é `formatL((tabolero$RP-1)*100, digits = 0)`%
+> \[…\] a probabilidade de que a causa básica de óbito seja
+> cardiovascular é `` `r formatL((tabolero$RP-1)*100, digits = 0)` ``%
 > maior no sexo feminino que no masculino (RP =
-> `formatL(tabolero$RP, 2)`; IC<sub>95</sub>
-> `formatL(tabolero$lci.rp, 2)` a `formatL(tabolero$uci.rp, 2)`).
+> `` `r formatL(tabolero$RP, 2)` ``; IC<sub>95</sub>
+> `` `r formatL(tabolero$lci.rp, 2)` `` a
+> `` `r formatL(tabolero$uci.rp, 2)` ``).
 
 <!-- You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/v1/examples>. -->
