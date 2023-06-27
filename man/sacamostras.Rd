@@ -4,7 +4,7 @@
 \alias{sacamostras}
 \title{Toma múltiplas amostras aleatórias de um banco de dados.}
 \usage{
-sacamostras(data, size, prefix, suffixes)
+sacamostras(data, size, prefix, suffixes, tipo = 2)
 }
 \arguments{
 \item{data}{"Data frame" fonte das amostras.}
@@ -14,6 +14,8 @@ sacamostras(data, size, prefix, suffixes)
 \item{prefix}{Texto para o início do nome dos "data frames" e bancos de dados.}
 
 \item{suffixes}{Vetor com texto para o final do nome dos "data frames" e bancos de dados.}
+
+\item{tipo}{Formatação do arquivo csv; `tipo = 1` invoca a função \code{\link{write.csv}}, com campos separados por vírgula (`,`) e decimais separados por ponto (`.`), enquanto `tipo = 2` (padrão) invoca a função \code{\link{write.csv2}}, criando arquivos com campos separados por ponto-e-vírgula (`;`) e decimais separados por vírgula (`,`).}
 }
 \description{
 Toma múltiplas amostras aleatórias sem reposição de um banco de dados. Cada amostra é salva em um objeto da classe `data.frame` e exportada para um arquivo .csv, enquanto o conjunto dos objetos é salvo num arquivo de dados do R (.RData). Os arquivos são salvos no diretório de trabalho da sessão ativa. O nº de amostras a extrair é dado pelo comprimento de uma lista indicada no argumento `suffixes`

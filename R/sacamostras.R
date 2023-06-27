@@ -9,6 +9,7 @@
 #' @param size Tamanho das amostras (nº de registros).
 #' @param prefix Texto para o início do nome dos "data frames" e bancos de dados.
 #' @param suffixes Vetor com texto para o final do nome dos "data frames" e bancos de dados.
+#' @param tipo Formatação do arquivo csv; `tipo = 1` invoca a função \code{\link{write.csv}}, com campos separados por vírgula (`,`) e decimais separados por ponto (`.`), enquanto `tipo = 2` (padrão) invoca a função \code{\link{write.csv2}}, criando arquivos com campos separados por ponto-e-vírgula (`;`) e decimais separados por vírgula (`,`).
 #' 
 #' @examples
 #' # Perceba que a função não é enderaçada a nenhum objeto (tipo `x <- sacamostras(...)`), 
@@ -23,7 +24,7 @@
 #' @importFrom dplyr slice_sample
 #' @export
 #' 
-sacamostras <- function(data, size, prefix, suffixes) {
+sacamostras <- function(data, size, prefix, suffixes, tipo = 2) {
   
   sample_objects <- list()  # Create an empty list to store sample objects
   
@@ -38,7 +39,9 @@ sacamostras <- function(data, size, prefix, suffixes) {
     
     # Save as CSV file
     csv_file <- paste0(save_name, ".csv")
-    utils::write.csv(sample_data, file = csv_file, row.names = FALSE)
+    if(tipo == 1) {
+      utils::write.csv(sample_data, file = csv_file, row.names = FALSE)
+      } else if(tipo == 2) utils::write.csv2(sample_data, file = csv_file, row.names = FALSE)
     cat("Sample", i, "saved as", csv_file, "\n")
     
     # Save as an object in the workspace
