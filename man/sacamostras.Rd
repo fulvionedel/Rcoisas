@@ -4,7 +4,7 @@
 \alias{sacamostras}
 \title{Toma múltiplas amostras aleatórias de um banco de dados.}
 \usage{
-sacamostras(data, size, prefix, suffixes, tipo = 2)
+sacamostras(data, size, prefix, suffixes, tipo = 2, seed = NULL)
 }
 \arguments{
 \item{data}{"Data frame" fonte das amostras.}
@@ -13,9 +13,11 @@ sacamostras(data, size, prefix, suffixes, tipo = 2)
 
 \item{prefix}{Texto para o início do nome dos "data frames" e bancos de dados.}
 
-\item{suffixes}{Vetor com texto para o final do nome dos "data frames" e bancos de dados.}
+\item{suffixes}{Vetor numérico ou de caracteres, será usado como texto para o final do nome dos bancos de dados. Se for um vetor numérico e o argumento \code{seed} não for definido, será então usado para definir a "semente" das amostras (v. argumento \code{seed}).}
 
 \item{tipo}{Formatação do arquivo csv; `tipo = 1` invoca a função \code{\link{write.csv}}, com campos separados por vírgula (`,`) e decimais separados por ponto (`.`), enquanto `tipo = 2` (padrão) invoca a função \code{\link{write.csv2}}, criando arquivos com campos separados por ponto-e-vírgula (`;`) e decimais separados por vírgula (`,`).}
+
+\item{seed}{Vetor de números inteiros do tamanho do número de amostras desejado. É usado como "semente" para os números (pseudo)aleatórios que geram as amostras, permitindo assim sua reprodução. Se \code{NULL} (padrão), é tomado de \code{suffixes}, caso este seja um vetor de números inteiros. Argumento obrigatório quando \code{suffixes} não for numérico.}
 }
 \description{
 Toma múltiplas amostras aleatórias sem reposição de um banco de dados. Cada amostra é salva em um objeto da classe `data.frame` e exportada para um arquivo .csv, enquanto o conjunto dos objetos é salvo num arquivo de dados do R (.RData). Os arquivos são salvos no diretório de trabalho da sessão ativa. O nº de amostras a extrair é dado pelo comprimento de uma lista indicada no argumento `suffixes`
@@ -29,6 +31,12 @@ semente = 1:7
 sacamostras(data = RDRS2019, size = 100, prefix = "amostra_", suffixes = semente) 
 # Amostra de 10\\% dos registros:
 sacamostras(data = RDRS2019, size = .01, prefix = "amostra_", suffixes = semente) 
+# Amostra de 10\\% dos registros:
+sacamostras(data = RDRS2019, size = .01, prefix = "amostra_", suffixes = "bis", seed = semente) 
+all.equal(amostra_bis1, amostra_1) 
+sacamostras(data = RDRS2019, size = .01, prefix = "amostra", suffixes = semente, seed = 11:17)
+all.equal(amostra11, amostra_1) 
+rm(list = ls(pattern = "amostra"))
 unlink("amostra*") # apaga os arquivos criados
 
 }
