@@ -8,33 +8,61 @@
 #' @param data "Data frame" fonte das amostras.
 #' @param size Tamanho das amostras (nº de registros).
 #' @param prefix Texto para o início do nome dos "data frames" e bancos de dados.
-#' @param suffixes Vetor com texto para o final do nome dos "data frames" e bancos de dados.
+#' @param suffixes Vetor numérico ou de caracteres, será usado como texto para o final do nome dos bancos de dados. Se for um vetor numérico e o argumento \code{seed} não for definido, será então usado para definir a "semente" das amostras (v. argumento \code{seed}). 
 #' @param tipo Formatação do arquivo csv; `tipo = 1` invoca a função \code{\link{write.csv}}, com campos separados por vírgula (`,`) e decimais separados por ponto (`.`), enquanto `tipo = 2` (padrão) invoca a função \code{\link{write.csv2}}, criando arquivos com campos separados por ponto-e-vírgula (`;`) e decimais separados por vírgula (`,`).
+#' @param seed Vetor de números inteiros do tamanho do número de amostras desejado. É usado como "semente" para os números (pseudo)aleatórios que geram as amostras, permitindo assim sua reprodução. Se \code{NULL} (padrão), é tomado de \code{suffixes}, caso este seja um vetor de números inteiros. Argumento obrigatório quando \code{suffixes} não for numérico.
 #' 
 #' @examples
-#' # Perceba que a função não é enderaçada a nenhum objeto (tipo `x <- sacamostras(...)`), 
+#' # Perceba que a função não é enderaçada a nenhum objeto (como em `x <- sacamostras(...)`), 
 #' # uma vez que ela já cria os bancos de dados como objetos no espaço de trabalho.
 #' semente = 1:7
-#' # Amostra de 100 registros:
+#' # Amostras de 100 registros:
 #' sacamostras(data = RDRS2019, size = 100, prefix = "amostra_", suffixes = semente) 
-#' # Amostra de 10\% dos registros:
+#' # Amostras de 10\% dos registros:
 #' sacamostras(data = RDRS2019, size = .01, prefix = "amostra_", suffixes = semente) 
+#' # Amostras de 10\% dos registros, com outra "semente":
+#' sacamostras(data = RDRS2019, size = .01, prefix = "amostra", suffixes = semente, seed = 11:17)
+#' # Amostras de 10\% dos registros, com outros nomes, mas mesma "semente":
+#' sacamostras(data = RDRS2019, size = .01, 
+#'             prefix = "amostra", suffixes = paste0("0", 1:7), 
+#'             seed = semente)
+#' all.equal(amostra01, amostra_1) 
+#' rm(list = ls(pattern = "amostra"))
 #' unlink("amostra*") # apaga os arquivos criados
+#' # A função retorna um aviso de erro se o argumento 'suffixes' não tiver 
+#' # o mesmo comprimento do argumento 'seed':
+#' \dontrun{
+#' sacamostras(data = RDRS2019, size = .01, prefix = "amostra_", suffixes = "bis", seed = semente) 
+#' }
 #' 
 #' @importFrom dplyr slice_sample
 #' @export
 #' 
-sacamostras <- function(data, size, prefix, suffixes, tipo = 2) {
+sacamostras <- function(data, size, prefix, suffixes, tipo = 2, seed = NULL) {
+  
+  if(!is.null(seed) && length(suffixes) != length(seed)) {
+    stop("Length of 'suffixes' is not the same of 'seed'")
+  }
   
   sample_objects <- list()  # Create an empty list to store sample objects
+  nsamples <- if(!is.null(seed)) {
+    length(seed)
+  } else {
+    length(suffixes)
+  }
   
-  for (i in 1:length(suffixes)) {
-    set.seed(suffixes[i])  # Set the seed based on the suffixes element
+  for (i in 1:nsamples) {
+    if(is.null(seed)) {
+      set.seed(suffixes[i]) # Set the seed based on the suffixes argument
+    } else {
+      set.seed(seed[i])  
+    }
     if(size >= 1) {
       sample_data <- slice_sample(data, n = size)
     } else if(size < 1) {
       sample_data <- slice_sample(data, prop = size)
     }
+
     save_name <- paste0(prefix, suffixes[i])
     
     # Save as CSV file
@@ -45,17 +73,18 @@ sacamostras <- function(data, size, prefix, suffixes, tipo = 2) {
     cat("Sample", i, "saved as", csv_file, "\n")
     
     # Save as an object in the workspace
-    pos <- NULL
-    assign(save_name, sample_data)#, envir = .GlobalEnv)
+    pos <- 1 #NULL
+    assign(save_name, sample_data, envir = as.environment(pos))
     cat("Sample", i, "saved as an object:", save_name, "\n")
     
     # Add sample object to the list
     sample_objects[[i]] <- sample_data
   }
-  
+
   # Save the list of sample objects as an RData file
   rdata_file <- paste0(prefix, "samples.RData")
-  save(list = save_name, file = rdata_file)
+  save.image(#list = save_name, 
+             file = rdata_file)
   cat("Samples saved as an RData file:", rdata_file, "\n")
   
   # return(sample_objects) # Não tem porque devolver o objeto, acho que só polui o output
