@@ -20,20 +20,21 @@
 #' sacamostras(data = RDRS2019, size = 100, prefix = "amostra_", suffixes = semente) 
 #' # Amostras de 10\% dos registros:
 #' sacamostras(data = RDRS2019, size = .01, prefix = "amostra_", suffixes = semente) 
-#' # Amostras de 10\% dos registros, com outra "semente":
+#' # Amostras de 10\% dos registros, com outra semente:
 #' sacamostras(data = RDRS2019, size = .01, prefix = "amostra", suffixes = semente, seed = 11:17)
 #' # Amostras de 10\% dos registros, com outros nomes, mas mesma "semente":
 #' sacamostras(data = RDRS2019, size = .01, 
 #'             prefix = "amostra", suffixes = paste0("0", 1:7), 
 #'             seed = semente)
 #' all.equal(amostra01, amostra_1) 
+#' 
+#' # Amostra de 10\% dos registros:
+#' sacamostras(data = RDRS2019, size = .01, prefix = "amostra_", suffixes = "bis", seed = semente) 
+#' all.equal(amostra_bis1, amostra_1) 
+#' sacamostras(data = RDRS2019, size = .01, prefix = "amostra", suffixes = semente, seed = 11:17)
+#' all.equal(amostra11, amostra_1) 
 #' rm(list = ls(pattern = "amostra"))
 #' unlink("amostra*") # apaga os arquivos criados
-#' # A função retorna um aviso de erro se o argumento 'suffixes' não tiver 
-#' # o mesmo comprimento do argumento 'seed':
-#' \dontrun{
-#' sacamostras(data = RDRS2019, size = .01, prefix = "amostra_", suffixes = "bis", seed = semente) 
-#' }
 #' 
 #' @importFrom dplyr slice_sample
 #' @export
@@ -64,6 +65,11 @@ sacamostras <- function(data, size, prefix, suffixes, tipo = 2, seed = NULL) {
     }
 
     save_name <- paste0(prefix, suffixes[i])
+    if(is.null(seed)) {
+      save_name <- paste0(prefix, suffixes[i])
+    } else {
+      save_name <- paste0(prefix, rep(suffixes, nsamples)[i], (1:nsamples)[i])
+    }
     
     # Save as CSV file
     csv_file <- paste0(save_name, ".csv")
@@ -76,6 +82,11 @@ sacamostras <- function(data, size, prefix, suffixes, tipo = 2, seed = NULL) {
     pos <- 1 #NULL
     assign(save_name, sample_data, envir = as.environment(pos))
     cat("Sample", i, "saved as an object:", save_name, "\n")
+    
+    # pos <- 1
+    # envir = as.environment(pos)
+    # assign("trellis.par.theme", trellis.par.get(), envir = envir)
+    
     
     # Add sample object to the list
     sample_objects[[i]] <- sample_data
