@@ -9,7 +9,7 @@ fxetarNM(idade = NULL, fxetardet = NULL)
 \arguments{
 \item{idade}{Vetor numérico representando a idade em valores contínuos ou inteiros.}
 
-\item{fxetardet}{Vetor da classe \code{factor} ou \code{character} com diferentes categorizações de faixa etária disponíveis para tabulação no TABNET ("faixa etária detalhada", e outras formas com detalhamento de < 1 ano, 1 a 4 anos e faixas quinquenais ou decenais que permitem o cálculo )  representando 17 faixas etárias quinquenais, rotuladas conforme o resultado da função \code{\link{fxetar_quinq}} (números separados por hífen, sem espaços: "0-4", ..., "75-79", "80 e +").}
+\item{fxetardet}{Vetor da classe \code{factor} ou \code{character} com diferentes categorizações de faixa etária disponíveis para tabulação no TABNET ("faixa etária detalhada", e outras formas com detalhamento de < 1 ano, 1 a 4 anos e faixas quinquenais ou decenais que permitem o cálculo )  representando 17 faixas etárias quinquenais, rotuladas conforme o resultado da função \code{csapAIH::fxetar_quinq} (números separados por hífen, sem espaços: "0-4", ..., "75-79", "80 e +").}
 }
 \value{
 _Se fornecida a idade_, devolve um fator com as frequências observada em cada faixa etária; _se fornecida a faixa etária_, devolve um vetor da classe caractere com as frequências de cada faixa etária; _se não são fornecidas nem a idade nem a faixa etária_ -- com `fxetarNM()` --, a função devolve um vetor com os nomes das faixas etárias.
@@ -27,11 +27,14 @@ idade <- as.integer(runif(100, 0, 100))
 ## Computar a faixa etária
 fxetarNM(idade) |> table()
 
-# Recategorizar a faixa etária quinquenal
+# Recategorizar a faixa etária quinquenal 
+\dontrun{
+# (usa função do pacote csapAIH)
 # Criar um vetor para faixa etária quinquenal
-fxetar <- fxetar_quinq(idade)
+fxetar <- csapAIH::fxetar_quinq(idade)
 # Computar a faixa etária em três grandes gupos
 fxetarNM(fxetardet = fxetar) |> table()
+}
 
 # ## Tabela do TABNET
 # Os óbitos de residentes do RS em 2021 por faixa etária detalhada podem ser tabulados no TABNET, 

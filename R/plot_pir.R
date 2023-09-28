@@ -21,7 +21,7 @@
 #' @param fontsize Tamanho de fonte do título do gráfico
 #' @param drop.unused.levels Apagar níveis não usados nos fatores?
 #' @param ... argumentos de outras funções
-#' @family csapAIH
+#' 
 #' @export
 #' @examples 
 #' \dontrun{
