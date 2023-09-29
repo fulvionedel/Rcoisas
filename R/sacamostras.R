@@ -15,32 +15,38 @@
 #' @examples
 #' # Perceba que a função não é enderaçada a nenhum objeto (como em `x <- sacamostras(...)`), 
 #' # uma vez que ela já cria os bancos de dados como objetos no espaço de trabalho.
-#' semente = 1:7
+#' semente = 1:3
 #' # Amostras de 100 registros:
 #' sacamostras(data = RDRS2019, size = 100, prefix = "amostra_", suffixes = semente) 
 #' # Amostras de 10\% dos registros:
 #' sacamostras(data = RDRS2019, size = .01, prefix = "amostra_", suffixes = semente) 
 #' # Amostras de 10\% dos registros, com outra semente:
-#' sacamostras(data = RDRS2019, size = .01, prefix = "amostra", suffixes = semente, seed = 11:17)
+#' sacamostras(data = RDRS2019, size = .01, prefix = "s", suffixes = semente, seed = 11:13)
 #' 
 #' # Amostras de 10\% dos registros, com outros nomes, mas mesma "semente":
 #' sacamostras(data = RDRS2019, size = .01, 
-#'             prefix = "amostra", suffixes = paste0("0", 1:7), 
+#'             prefix = "amostra", suffixes = paste0("0", 1:3), 
 #'             seed = semente)
-#' all.equal(amostra01, amostra_1) 
+#' all.equal(amostra011, amostra_1) 
 #' 
 #' # Amostra de 10\% dos registros, com mesmos nomes mas outra "semente":
-#' sacamostras(data = RDRS2019, size = .01, prefix = "amostra", suffixes = semente, seed = 11:17)
-#' all.equal(amostra1, amostra_1) 
+#' sacamostras(data = RDRS2019, size = .01, prefix = "amostra", suffixes = semente, seed = 11:13)
+#' all.equal(amostra11, s11) 
 #' 
 #' # A função retorna um aviso de erro se o argumento 'suffixes' não tiver 
 #' # o mesmo comprimento do argumento 'seed':
 #' \dontrun{
 #' sacamostras(data = RDRS2019, size = .01, prefix = "amostra_", suffixes = "bis", seed = semente) 
 #' }
+#' # Amostra de 10\% dos registros:
+#' sacamostras(data = RDRS2019, size = .01, prefix = "amostra_", 
+#'             suffixes = rep("bis", length(semente)), seed = semente) 
+#' all.equal(amostra_bis1, amostra_1) 
+#' sacamostras(data = RDRS2019, size = .01, prefix = "amostra", suffixes = semente, seed = 11:13)
+#' all.equal(amostra11, s11) 
 #' rm(list = ls(pattern = "amostra"))
-#' unlink("amostra*") # apaga os arquivos criados
-
+#' rm(list = ls(pattern = "s"))
+#' unlink(c("amostra*", "s*")) # apaga os arquivos criados
 #' 
 #' @importFrom dplyr slice_sample
 #' @export
@@ -72,6 +78,12 @@ sacamostras <- function(data, size, prefix, suffixes, tipo = 2, seed = NULL) {
 
     save_name <- paste0(prefix, suffixes[i])
 
+    if(is.null(seed)) {
+      save_name <- paste0(prefix, suffixes[i])
+    } else {
+      save_name <- paste0(prefix, rep(suffixes, nsamples)[i], (1:nsamples)[i])
+    }
+    
     # Save as CSV file
     csv_file <- paste0(save_name, ".csv")
     if(tipo == 1) {
