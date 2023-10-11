@@ -35,6 +35,7 @@ descreve(
   lwd = NULL,
   cex = NULL,
   print = "output",
+  soma = FALSE,
   ...
 )
 }
@@ -98,6 +99,8 @@ descreve(
 \item{cex}{Tamanho da fonte}
 
 \item{print}{Modo de apresentação; \code{print = "tabela"} retorna uma tabela com as estatísticas}
+
+\item{soma}{TRUE apresenta a soma dos valores; padrão é FALSE}
 
 \item{...}{Toma parâmetros de outras funções utilizadas}
 }

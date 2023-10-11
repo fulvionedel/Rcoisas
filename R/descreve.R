@@ -32,6 +32,7 @@
 #' @param cex Tamanho da fonte
 #' @param lugar Posição da legenda; padrão é 'topright'
 #' @param print Modo de apresentação; \code{print = "tabela"} retorna uma tabela com as estatísticas
+#' @param soma TRUE apresenta a soma dos valores; padrão é FALSE
 #' @param ... Toma parâmetros de outras funções utilizadas
 #' 
 #' @seealso \code{\link{hist}} and \code{\link{par}} para os parâmetros gráficos
@@ -61,7 +62,7 @@ descreve <- function(x, print = "output", ...) {
 #' 
 #' @export
 
-descreve <- function (x, by = NULL, dec = 2, na.rm = TRUE, data = NULL, histograma = TRUE, breaks='Sturges', freq = TRUE , main = NULL, xlab = NULL, ylab= NULL, linhas=2, curva=TRUE, densidade=FALSE, col.dens=1, col='yellow2', col.curva='DarkGreen', col.media=2, col.dp=col.media, col.mediana=4, legenda = TRUE, lugar='topright', lty.curva = 2, lwd.curva = 1, lty.dens = 3, lwd.dens = 2, lty = NULL, lwd = NULL, cex = NULL, print = "output", ...) 
+descreve <- function (x, by = NULL, dec = 2, na.rm = TRUE, data = NULL, histograma = TRUE, breaks = 'Sturges', freq = TRUE , main = NULL, xlab = NULL, ylab = NULL, linhas = 2, curva = TRUE, densidade = FALSE, col.dens = 1, col = 'yellow2', col.curva = 'DarkGreen', col.media = 2, col.dp = col.media, col.mediana = 4, legenda = TRUE, lugar='topright', lty.curva = 2, lwd.curva = 1, lty.dens = 3, lwd.dens = 2, lty = NULL, lwd = NULL, cex = NULL, print = "output", soma = FALSE, ...) 
   {
   # nuntius errorum
   # ---------------
@@ -81,7 +82,6 @@ descreve <- function (x, by = NULL, dec = 2, na.rm = TRUE, data = NULL, histogra
     miss <- round(sum(is.na(x)))
     val <- round(n - miss)
     p.miss <- miss/n * 100
-    soma <- round(sum(x, na.rm = na.rm), dec)
     media <- mean(x, na.rm = na.rm)
     vari <- var(x, na.rm = na.rm)
     dp <- sd(x, na.rm = na.rm)
@@ -117,9 +117,15 @@ descreve <- function (x, by = NULL, dec = 2, na.rm = TRUE, data = NULL, histogra
     descr <- list(variavel = recipiens,
                   n = n, validos = val, miss = miss, p.miss = p.miss, 
                   menor = menor, maior = maior, amplitude = amplitude,
-                  soma = soma, media = media, variancia = vari, dp = dp, cv = cv, 
+                  media = media, variancia = vari, dp = dp, cv = cv, 
                   assimetria = assimetria, curtose = curtose, 
                   quantis = quantis, iiq = iiq)
+    #
+    if(soma == TRUE) { 
+      descr$soma <- round(sum(x, na.rm = na.rm), dec)
+    }
+    
+    
 # 
     # class(descr) <- append(class(descr), 'descreve')
     
