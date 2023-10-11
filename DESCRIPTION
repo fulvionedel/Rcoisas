@@ -1,23 +1,22 @@
 Package: Rcoisas
 Type: Package
 Title: Minhas Facilidades
-Version: 0.0.0.906
-Date: 2023-05-23
+Version: 0.0.0.907
+Date: 2023-10-10
 Author: Fúlvio B. Nedel
 Maintainer: Fúlvio B. Nedel <fulvionedel@gmail.com>
-Description: Funções para manejo dos arquivos do SUS, pirâmides populacionais,
-    descrição e gráficos de variáveis, etc., com 'outputs' em português.
+Description: Funções para criação de pirâmides populacionais, descrição e 
+             gráficos de variáveis, etc., com 'outputs' em português.
 License: GPL-3
 Imports: e1071, 
          ggplot2,
          graphics, 
-         Hmisc, 
          stats,
-         tidyr,
          dplyr
 Suggests: foreign,
           ggthemes,
           ggpp,
+          Hmisc, 
           lemon
 Encoding: UTF-8
 Language: pt-br
