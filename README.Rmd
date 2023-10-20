@@ -54,6 +54,7 @@ cat("descreve", stringr::str_sub(list(args(descreve)) |> as.character(), 10, 456
 **A função `descreve`** realiza a descrição "completa" de uma variável numérica. Por padrão apresenta uma lista com os parâmetros descritos e um histograma com marcas da distribuição da variável. O histograma pode ser suprimido e a lista pode ser transformada em `data.frame`. 
 
 ```{r }
+set.seed(1)
 descreve(varnum <- rnorm(1000))  
 
 descreve(varnum, histograma = FALSE, print = "tabela")

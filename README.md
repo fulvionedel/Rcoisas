@@ -52,6 +52,7 @@ um histograma com marcas da distribuição da variável. O histograma pode
 ser suprimido e a lista pode ser transformada em `data.frame`.
 
 ``` r
+set.seed(1)
 descreve(varnum <- rnorm(1000))  
 ```
 
@@ -61,36 +62,36 @@ descreve(varnum <- rnorm(1000))
      varnum <- rnorm(1000) :  1000  observações 
 
     Válidos: 1000    Missings: 0 
-    Menor: -3.49     Maior: 3.07     Amplitude: 6.56
-    Média: 0     DP: 0.99    CV(%): 54849.41
-    Assimetria: -0.14    Curtose(real): 3.03
+    Menor: -3.01     Maior: 3.81     Amplitude: 6.82
+    Média: -0.01     DP: 1.03    CV(%): 8884.81
+    Assimetria: -0.02    Curtose(real): 2.99
     Quantis:
      2.5%    5%   25%   50%   75%   95% 97.5% 
-    -1.96 -1.70 -0.64  0.02  0.67  1.59  1.87 
-              IIQ: 1.31 
+    -2.13 -1.73 -0.70 -0.04  0.69  1.74  2.01 
+              IIQ: 1.39 
 
     descreve(varnum, histograma = FALSE, print = "tabela")
-                 varnum
-    n           1000.00
-    Válidos     1000.00
-    Missings       0.00
-    Menor         -3.49
-    Maior          3.07
-    Amplitude      6.56
-    Média          0.00
-    Variância      0.98
-    DP             0.99
-    CV(%)      54849.41
-    Assimetria    -0.14
-    Curtose        3.03
-    P2.5          -1.96
-    P5            -1.70
-    P25           -0.64
-    P50            0.02
-    P75            0.67
-    P95            1.59
-    P97.5          1.87
-    IIQ            1.31
+                varnum
+    n          1000.00
+    Válidos    1000.00
+    Missings      0.00
+    Menor        -3.01
+    Maior         3.81
+    Amplitude     6.82
+    Média        -0.01
+    Variância     1.07
+    DP            1.03
+    CV(%)      8884.81
+    Assimetria   -0.02
+    Curtose       2.99
+    P2.5         -2.13
+    P5           -1.73
+    P25          -0.70
+    P50          -0.04
+    P75           0.69
+    P95           1.74
+    P97.5         2.01
+    IIQ           1.39
 
 O output pode ser guardado em um objeto e depois impresso como lista ou
 como tabela (de classe `data.frame`) e usado para captar em texto cada
@@ -103,39 +104,39 @@ Rcoisas:::print.descreve(x)
  varnum :  1000  observações 
 
 Válidos: 1000    Missings: 0 
-Menor: -3.49     Maior: 3.07     Amplitude: 6.56
-Média: 0     DP: 0.99    CV(%): 54849.41
-Assimetria: -0.14    Curtose(real): 3.03
+Menor: -3.01     Maior: 3.81     Amplitude: 6.82
+Média: -0.01     DP: 1.03    CV(%): 8884.81
+Assimetria: -0.02    Curtose(real): 2.99
 Quantis:
  2.5%    5%   25%   50%   75%   95% 97.5% 
--1.96 -1.70 -0.64  0.02  0.67  1.59  1.87 
-          IIQ: 1.31 
+-2.13 -1.73 -0.70 -0.04  0.69  1.74  2.01 
+          IIQ: 1.39 
 
 Rcoisas:::print.descreve(x, print = "tabela")
-             varnum
-n           1000.00
-Válidos     1000.00
-Missings       0.00
-Menor         -3.49
-Maior          3.07
-Amplitude      6.56
-Média          0.00
-Variância      0.98
-DP             0.99
-CV(%)      54849.41
-Assimetria    -0.14
-Curtose        3.03
-P2.5          -1.96
-P5            -1.70
-P25           -0.64
-P50            0.02
-P75            0.67
-P95            1.59
-P97.5          1.87
-IIQ            1.31
+            varnum
+n          1000.00
+Válidos    1000.00
+Missings      0.00
+Menor        -3.01
+Maior         3.81
+Amplitude     6.82
+Média        -0.01
+Variância     1.07
+DP            1.03
+CV(%)      8884.81
+Assimetria   -0.02
+Curtose       2.99
+P2.5         -2.13
+P5           -1.73
+P25          -0.70
+P50          -0.04
+P75           0.69
+P95           1.74
+P97.5         2.01
+IIQ           1.39
 
 paste("Média de", x$media, "e desvio-padrão de", x$dp, "unidades, configurando um coeficiente de variação de", x$cv, "%.")
-[1] "Média de 0 e desvio-padrão de 0.99 unidades, configurando um coeficiente de variação de 54849.41 %."
+[1] "Média de -0.01 e desvio-padrão de 1.03 unidades, configurando um coeficiente de variação de 8884.81 %."
 ```
 
 O objeto pode ser modificado para sua impressão. O exemplo a seguir usa
@@ -154,23 +155,23 @@ Rcoisas:::print.descreve(x, print = "tabela") |>
 |          n |  1.000 |
 |    Válidos |  1.000 |
 |   Missings |      0 |
-|      Menor |  -3,49 |
-|      Maior |   3,07 |
-|  Amplitude |   6,56 |
-|      Média |      0 |
-|  Variância |   0,98 |
-|         DP |   0,99 |
-|      CV(%) | 54.849 |
-| Assimetria |  -0,14 |
-|    Curtose |   3,03 |
-|       P2.5 |  -1,96 |
-|         P5 |   -1,7 |
-|        P25 |  -0,64 |
-|        P50 |   0,02 |
-|        P75 |   0,67 |
-|        P95 |   1,59 |
-|      P97.5 |   1,87 |
-|        IIQ |   1,31 |
+|      Menor |  -3,01 |
+|      Maior |   3,81 |
+|  Amplitude |   6,82 |
+|      Média |  -0,01 |
+|  Variância |   1,07 |
+|         DP |   1,03 |
+|      CV(%) |  8.885 |
+| Assimetria |  -0,02 |
+|    Curtose |   2,99 |
+|       P2.5 |  -2,13 |
+|         P5 |  -1,73 |
+|        P25 |   -0,7 |
+|        P50 |  -0,04 |
+|        P75 |   0,69 |
+|        P95 |   1,74 |
+|      P97.5 |   2,01 |
+|        IIQ |   1,39 |
 
 O formato em tabela é pensado para uma análise estratificada por
 categorias de um fator. Um argumento `by` está em desenvolvimento e
