@@ -4,12 +4,16 @@
 \alias{fxetarNM}
 \title{Faixa etária nas categorias de Nelson de Moraes}
 \usage{
-fxetarNM(idade = NULL, fxetardet = NULL)
+fxetarNM(idade = NULL, fxetardet = NULL, grafico = FALSE, ...)
 }
 \arguments{
 \item{idade}{Vetor numérico representando a idade em valores contínuos ou inteiros.}
 
 \item{fxetardet}{Vetor da classe \code{factor} ou \code{character} com diferentes categorizações de faixa etária disponíveis para tabulação no TABNET ("faixa etária detalhada", e outras formas com detalhamento de < 1 ano, 1 a 4 anos e faixas quinquenais ou decenais que permitem o cálculo )  representando 17 faixas etárias quinquenais, rotuladas conforme o resultado da função \code{csapAIH::fxetar_quinq} (números separados por hífen, sem espaços: "0-4", ..., "75-79", "80 e +").}
+
+\item{grafico}{Vetor lógico, FALSE por padrão. Se TRUE, desenha o gráfico da curva.}
+
+\item{...}{Permite a definição de outros parâmetros gráficos.}
 }
 \value{
 _Se fornecida a idade_, devolve um fator com as frequências observada em cada faixa etária; _se fornecida a faixa etária_, devolve um vetor da classe caractere com as frequências de cada faixa etária; _se não são fornecidas nem a idade nem a faixa etária_ -- com `fxetarNM()` --, a função devolve um vetor com os nomes das faixas etárias.
@@ -21,20 +25,18 @@ Recodifica vetores com a idade em números inteiros ou em faixas etárias quinqu
 # Apenas citar os grupos:
 fxetarNM()
 
-# Categorizar a idade
-## Criar um vetor para idade
-idade <- as.integer(runif(100, 0, 100))
-## Computar a faixa etária
-fxetarNM(idade) |> table()
+# Observar a curva na amostra de óbitos no RS em 2019:
+## a idade já foi computada, com a função \code{idadeSUS}, do pacote \code{csapAIH}, com
+## csapAIH::idadeSUS(obitosRS2019, sis = "SIM")
+## Computar as faixas etárias de Nelson de Moraes
+fxetarNM(obitosRS2019$idade) |> table()
 
-# Recategorizar a faixa etária quinquenal 
-\dontrun{
-# (usa função do pacote csapAIH)
-# Criar um vetor para faixa etária quinquenal
-fxetar <- csapAIH::fxetar_quinq(idade)
-# Computar a faixa etária em três grandes gupos
-fxetarNM(fxetardet = fxetar) |> table()
-}
+## Desenhar a curva (podem-se usar os parâmetros gráficos)
+fxetarNM(obitosRS2019$idade, grafico = TRUE, 
+         col.sub = 4, font.sub = 3, cex.sub = .8, cex.main = .95,
+         main = "Curva de Nelson de Moraes. RS, 2019.", 
+         sub = "\nAmostra aleatória de 10.000 óbitos.")
+
 
 # ## Tabela do TABNET
 # Os óbitos de residentes do RS em 2021 por faixa etária detalhada podem ser tabulados no TABNET, 
@@ -54,7 +56,7 @@ obitosRS2021 <- data.frame(
 \dontrun{
   obitosRS <- readxl::read_excel("~/Downloads/teste-fxetardet.xlsx", range = "A4:B25")
 }  
-# Com essa tabela, podemos desenhar a curva de Nelson de Moraes, como no seguinte gráfico:
+# Com essa tabela, os seguintes comandos desenham a curva de Nelson de Moraes:
 xtabs(casos/sum(casos)*100 ~ fxetarNM(fxetardet = obitosRS2021$fxetar), data = obitosRS2021) |>
 plot(type = 'l', main = "Curva de Nelson de Moraes.\nRio Grande do Sul, 2021.", 
 xlab = "Faixa etária (anos)", ylab = "\% dos óbitos")
