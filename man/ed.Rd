@@ -19,5 +19,7 @@ ed(RDRS2019) |> # As últimas 5 colunas do banco
   head()
 ed(RDRS2019, 8) |> # As últimas 8 colunas do banco
   head() 
+ed(RDRS2019, 1) |> # A última coluna do banco
+  head() 
 
 }

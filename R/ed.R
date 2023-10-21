@@ -12,9 +12,12 @@
 #'   head()
 #' ed(RDRS2019, 8) |> # As últimas 8 colunas do banco
 #'   head() 
+#' ed(RDRS2019, 1) |> # A última coluna do banco
+#'   head() 
 #'
 #' @export
 #'
 ed <- function(x, n = 5) {
-  x[, (ncol(x)-n):ncol(x)]
+  n <- n-1
+  x[, (ncol(x)-n):ncol(x), drop = FALSE]
 }
