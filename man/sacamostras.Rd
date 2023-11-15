@@ -38,11 +38,11 @@ sacamostras(data = RDRS2019, size = .01, prefix = "s", suffixes = semente, seed 
 sacamostras(data = RDRS2019, size = .01, 
             prefix = "amostra", suffixes = paste0("0", 1:3), 
             seed = semente)
-all.equal(amostra011, amostra_1) 
+all.equal(amostra01_1, amostra_1) 
 
 # Amostra de 10\\% dos registros, com mesmos nomes mas outra "semente":
 sacamostras(data = RDRS2019, size = .01, prefix = "amostra", suffixes = semente, seed = 11:13)
-all.equal(amostra11, s11) 
+all.equal(amostra1_11, s1_11) 
 
 # A função retorna um aviso de erro se o argumento 'suffixes' não tiver 
 # o mesmo comprimento do argumento 'seed':
@@ -52,9 +52,9 @@ sacamostras(data = RDRS2019, size = .01, prefix = "amostra_", suffixes = "bis", 
 # Amostra de 10\\% dos registros:
 sacamostras(data = RDRS2019, size = .01, prefix = "amostra_", 
             suffixes = rep("bis", length(semente)), seed = semente) 
-all.equal(amostra_bis1, amostra_1) 
+all.equal(amostra_bis_1, amostra_1) 
 sacamostras(data = RDRS2019, size = .01, prefix = "amostra", suffixes = semente, seed = 11:13)
-all.equal(amostra11, s11) 
+all.equal(amostra1_11, s1_11) 
 rm(list = ls(pattern = "amostra"))
 rm(list = ls(pattern = "s"))
 unlink(c("amostra*", "s*")) # apaga os arquivos criados
