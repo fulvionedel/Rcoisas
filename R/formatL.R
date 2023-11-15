@@ -7,14 +7,26 @@
 #' @param format Formato numérico (ver \code{\link{formatC}})
 #' @param ... Permite outros argumentos da função \code{\link{formatC}}
 #' 
-#' @export
+#' @returns Um vetor de classe \code{character} com os valores formatados para impressão.
 #' 
 #' @seealso \code{\link{formatC}}, \code{\link{format}}
 #' 
 #' @examples 
 #' formatL(1234.5678)
 #' formatL(rnorm(5), digits = 2)
-
+#' set.seed(1)
+#' x <- c(rnorm(5, 30, 10), rep(20, 2), 25)
+#' x
+#' formatL(x)
+#' formatL(x, format = "fg", digits = 3) 
+#' \dontrun{
+#'  > formatL(x, format = "fg", digits = 3) |>
+#'  +   stringr::str_trim() 
+#'  [1] "23,7" "31,8" "21,6" "46"   "33,3" "20"   "20"   "25"   
+#'  }
+#'  
+#' @export
+#' 
 formatL <- function(x, digits = 1, format = "f", ...) {
   if(!is.numeric(x)) { x <- as.numeric(x) }
   formatC(x, digits = digits, format = format, decimal.mark = ",", big.mark = ".")

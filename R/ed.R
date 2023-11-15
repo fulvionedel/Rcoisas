@@ -6,7 +6,9 @@
 #' 
 #' @param x Banco de dados (objeto da classe \code{data.frame}, \code{matrix} ou \code{table})
 #' @param n Número de colunas a selecionar (por padrão são 5)
-#'
+#' 
+#' @returns Um objeto de classe \code{data.frame} com as últimas colunas selecionadas de uma matriz ou banco de dados.
+#' 
 #' @examples
 #' ed(RDRS2019) |> # As últimas 5 colunas do banco
 #'   head()

@@ -7,7 +7,7 @@
 #' @param dec No. de decimais
 #' @param dnn Nome das variáveis a ser impresso no 'output'
 #' 
-#' @return Um objeto da classe `list` com as tabelas de frequências absolutas e relativas, razão de probabilidades e de odds, com seus intervalos de confiança e valores-p.
+#' @returns Um objeto da classe `list` com as tabelas de frequências absolutas e relativas, razão de probabilidades e de odds, com seus intervalos de confiança e valores-p.
 #' 
 #' @examples
 #' with(RDRS2019, bolero(SEXO, MORTE))

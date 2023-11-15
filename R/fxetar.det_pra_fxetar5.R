@@ -12,7 +12,7 @@
 #'   
 #' @keywords DATASUS
 #' 
-#' @returns Um vetor com a idade categorizada em 17 faixas etárias: quinquenais de 0 a 79 anos e 80 e + anos de idade.
+#' @returns Um vetor da classe \code{character} com a idade categorizada em 17 faixas etárias: quinquenais de 0 a 79 anos e 80 e + anos de idade.
 #' 
 #' @details Falar das faixas etárias do tabnet e tabwin
 #' 

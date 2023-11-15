@@ -15,7 +15,7 @@ fxetar.det_pra_fxetar5(x)
 }}
 }
 \value{
-Um vetor com a idade categorizada em 17 faixas etárias: quinquenais de 0 a 79 anos e 80 e + anos de idade.
+Um vetor da classe \code{character} com a idade categorizada em 17 faixas etárias: quinquenais de 0 a 79 anos e 80 e + anos de idade.
 }
 \description{
 Reclassifica as idades < 20 anos em faixas etárias quinquenais.

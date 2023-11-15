@@ -29,6 +29,9 @@ ggplot_pir(
 
 \item{nsize}{Tamanho do texto com o nº total de habitantes. O padrão é 3.5.}
 }
+\value{
+Um objeto de classe \code{gg} e \code{ggplot} com o gráfico da pirâmide populacional.
+}
 \description{
 Pirâmides populacionais
 }

@@ -11,6 +11,9 @@ ed(x, n = 5)
 
 \item{n}{Número de colunas a selecionar (por padrão são 5)}
 }
+\value{
+Um objeto de classe \code{data.frame} com as últimas colunas selecionadas de uma matriz ou banco de dados.
+}
 \description{
 Enquanto \code{\link{tail}} mostra as últimas linhas de uma matriz ou "data frame", \code{ed()} mostra as últimas colunas de uma matriz ou "data frame".
 }

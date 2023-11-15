@@ -18,10 +18,10 @@ Rcoisas
 O pacote contém funções com *outputs* em português e bancos de dados
 úteis para a produção de gráficos e tabelas para aulas, como a descrição
 “completa” de uma variável numérica ou a construção de indicadores de
-saúde. Algumas funções são importadas do pacote
-[`csapAIH`](https://github.com/fulvionedel/csapAIH) (`fxetar_quinq`,
-`fxetar3g`, `ufbr`, `ler_popbr` e `popbr2000_2021`). Veja a ajuda para a
-lista completa e detalhamento das funções e bancos de dados no pacote.
+saúde, como a curva de Nelson de Moraes.
+<!-- Algumas funções são importadas do pacote [`csapAIH`](https://github.com/fulvionedel/csapAIH) (`fxetar_quinq`, `fxetar3g`, `ufbr`, `ler_popbr` e `popbr2000_2021`).  -->
+Veja a ajuda para a lista completa e detalhamento das funções e bancos
+de dados no pacote.
 
 # Instalação
 

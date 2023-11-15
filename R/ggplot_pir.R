@@ -12,6 +12,8 @@
 #' @param cores Cores das barras, para as categorias masculino e feminino. O padrão é \code{c("darkblue", "violetred")}.
 #' @param nsize Tamanho do texto com o nº total de habitantes. O padrão é 3.5.
 #' 
+#' @returns Um objeto de classe \code{gg} e \code{ggplot} com o gráfico da pirâmide populacional.
+#' 
 #' @examples 
 #' data("POPBR12")
 #' str(POPBR12)
