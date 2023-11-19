@@ -19,7 +19,7 @@ formatL(x, digits = 1, format = "f", ...)
 Um vetor de classe \code{character} com os valores formatados para impressão.
 }
 \description{
-Transforma números em caráter com ponto (.) como separador de milhar e vírgula (,) como separador decimal, alterando os padrões da função \code{\link{formatC}} para \code{big.mark = "."} e \code{decimal.mark = ","}.
+Apresenta números em formato latino, com ponto (.) como separador de milhar e vírgula (,) como separador decimal, mudando a classe do objeto de \code{numeric} para \code{character}. A função simplesmente altera os padrões de \code{\link{formatC}} para \code{big.mark = "."} e \code{decimal.mark = ","}.
 }
 \examples{
 formatL(1234.5678)
