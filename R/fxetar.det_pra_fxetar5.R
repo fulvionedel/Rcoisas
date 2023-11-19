@@ -1,18 +1,17 @@
 #' @title Transforma a "faixa etária detalhada" (DATASUS) em 17 faixas quinquenais.
 #' @aliases fxetar.det_pra_fxetar5
+#' @keywords DATASUS
 #' 
 #' @description Reclassifica as idades < 20 anos em faixas etárias quinquenais.
 #' 
 #' @param x Um vetor com a idade categorizada segundo: (1) os arquivos de população "POPBR??.DBF" (até o ano 2012) disponibilizados pelo DATASUS, ou (2) um \code{data.frame} com o resultado de uma tabulação com a opção "Faixa etária detalhada" no TABNET ou TabWin (v. detalhes)
 #' @param tipo Argumento obrigatório indicando a origem dos dados, se um arquivo de população do DATASUS  ou uma tabulação do TABNET ou TabWin (\code{tipo = "tabela"}). O padrão é \code{tipo = "POPBR"}. V. detalhes.
 #'   
-#' @keywords DATASUS
-#' 
 #' @details
 #' Os arquivos "POPBR??.DBF" têm a idade em anos completos até 19 anos, faixas quinquenais de 20-24 até 75-79 anos e 80 e + anos.   
-#' A "faixa etária detalhada" é uma opção de tabulação dos dados de mortalidade nos aplicativos TABNET (https://datasus.saude.gov.br/informacoes-de-saude-tabnet/) e TabWin, do DATASUS. A idade é detalhada nos componentes da Taxa de Mortalidade Infantil, < 1 ano não especificado, 1-4 anos, faixas quinquenais dos 5 aos 79 anos e 80 e mais.
+#' A "faixa etária detalhada" é uma opção de tabulação dos dados de mortalidade nos aplicativos TABNET (https://datasus.saude.gov.br/informacoes-de-saude-tabnet/) e TabWin, do DATASUS. A idade é detalhada nos componentes da Taxa de Mortalidade Infantil, < 1 ano não especificado, 1-4 anos, faixas quinquenais dos 5 aos 79 anos e 80 e mais. Nas opções de tabulação on-line da "morbidade hospitalar", esses mesmos cortes são usados para a definição da "Faixa Etária 2".
 #' 
-#' @returns Se \code{tipo = "POPBR"}, um vetor da classe \code{character} com a idade categorizada em 17 faixas etárias: quinquenais de 0 a 79 anos e 80 e + anos de idade; se \code{tipo = "tabela"}, uma tabela com a "faixa etária detalhada" agregada nessas 17 faixas etárias.
+#' @returns Se \code{tipo = "POPBR"}, um vetor da classe \code{character} com a idade categorizada em 17 faixas etárias: quinquenais de 0 a 79 anos e 80 e + anos de idade. Se \code{tipo = "tabela"}, uma tabela (de classe \code{data.frame}) com a "faixa etária detalhada" agregada nessas 17 faixas etárias.
 #' 
 #' @examples 
 #' data("POPBR12")
@@ -40,6 +39,10 @@
 #'            3488, 5170, 6557, 7566, 7989, 7438, 14444),
 #'   fem = c(257, 111, 148, 88, 46, 68, 141, 271, 393, 561, 870, 1190, 1681, 
 #'           2175, 3265, 4240, 5370, 6181, 6508, 21159))
+#' dors21
+#' fxetar.det_pra_fxetar5(dors21, tipo = "tabela")
+#' 
+#' dors21$total <- dors21$masc + dors21$fem
 #' fxetar.det_pra_fxetar5(dors21, tipo = "tabela")
 #' 
 #' @importFrom dplyr case_when mutate %>% group_by across
