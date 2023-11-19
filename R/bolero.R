@@ -39,12 +39,15 @@ function(independente, dependente = NULL, dec = 2, dnn = NULL) {
   #### RP = OR/(1-Pne + Pne * OR)
   pne <- c / (c+d) # proporção nos não expostos
   rp.conf.int <- ft$conf.int/(1-pne + pne*ft$conf.int)
+  missings <- length(independente) - sum(tab)
+  propmiss <- missings/length(independente)*100
   cat("===============================================================\n")
   cat("                  Tabela 2 por 2"                            ,
       "\n        bolero(independente, dependente, dec=2, dnn)",
       "\n---------------------------------------------------------------", 
       "\nVar. dependente :", names(as.data.frame(tab))[2], "=", colnames(tab)[1], 
-      "\nVar. independente:", names(as.data.frame(tab))[1], "=", rownames(tab)[1], "\n\n")
+      "\nVar. independente:", names(as.data.frame(tab))[1], "=", rownames(tab)[1], "\n")
+  cat("Missings: ", Rcoisas::formatL(missings, 0), " (", Rcoisas::formatL(propmiss), "\U0025)\n\n", sep = "")
   print(stats::addmargins(tab)) #, FUN=list(Total=sum)))
   cat('\nPropor\U00E7\u00F5es (%)\n')
   print(proptab)
@@ -56,7 +59,7 @@ function(independente, dependente = NULL, dec = 2, dnn = NULL) {
   #    "\n  valor-p(Fisher)        :", ifelse(ft$p.value>=.001, round(ft$p.value, 3), "<0,001"), "\n")
   cat("\nRaz\U00E3o de Probabilidades:", formatC(rp, format="f", digits=dec), 
       "; IC95% (assint\U00F3tico):", formatC(c(lci.rp, uci.rp), format="f", digits=dec),
-      "\n                                IC95\U0025 (exato)      :", formatC(rp.conf.int, format="f", digits=dec))
+      "\n                                 IC95\U0025 (exato)      :", formatC(rp.conf.int, format="f", digits=dec))
   cat("\nRaz\U00E3o de Odds          :", formatC(or, format="f", digits=dec), 
       "; IC95\U0025 (exato)      :", formatC(ft$conf.int, format="f", digits = dec))
   cat("\nValor-p: Pearson, Yates:", ifelse(qui$p.value>=.001, round(qui$p.value, 3), "<0,001"),
