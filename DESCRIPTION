@@ -17,7 +17,8 @@ Suggests: foreign,
           ggthemes,
           ggpp,
           Hmisc, 
-          lemon
+          lemon,
+          stringr
 Encoding: UTF-8
 Language: pt-br
 LazyData: true
