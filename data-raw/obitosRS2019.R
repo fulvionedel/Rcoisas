@@ -12,14 +12,12 @@ obitosRS2019 <- fetch_datasus(year_start = 2019,
 
 obitosRS2019 <- obitosRS2019 %>%
   bind_cols(idadeSUS(., "SIM")) %>% 
-  # select(-IDADE) %>% # Manter as variáveis originais, é bom pros exemplos
   process_sim() %>% 
-  mutate(idade = as.numeric(idade),
-         sexo = factor(SEXO, 
+  mutate(idade = as.numeric(idade), 
+         sexo = factor(SEXO,        # Manter a variável original
                        levels = c("Masculino", "Feminino"), 
-                       labels = c("masc", "fem"))) 
-# %>% 
-  # select(-SEXO) # Manter as variáveis originais
+                       labels = c("masc", "fem")),
+         fxetar5 = factor(fxetar5, levels = fxetar_quinq())) 
 rownames(obitosRS2019) <- NULL
 
 for(i in 1:ncol(obitosRS2019)) {
