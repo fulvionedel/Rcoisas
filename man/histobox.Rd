@@ -4,16 +4,28 @@
 \alias{histobox}
 \title{Histograma com boxplot}
 \usage{
-histobox(x, limites = NULL, col.h = "cyan", col.bx = "skyblue1", ...)
+histobox(
+  x,
+  limites = NULL,
+  col.h = "cyan",
+  col.bx = "skyblue1",
+  maresq = 4.5,
+  mardir = 2.1,
+  ...
+)
 }
 \arguments{
 \item{x}{uma variável numérica}
 
 \item{limites}{limites do eixo x}
 
-\item{col.h}{= cor do histograma}
+\item{col.h}{cor do histograma}
 
-\item{col.bx}{= cor do boxplot}
+\item{col.bx}{cor do boxplot}
+
+\item{maresq}{margem esquerda do gráfico}
+
+\item{mardir}{margem direita do gráfico}
 
 \item{...}{outros parâmetros de \code{\link{hist}} e \code{\link{boxplot}}}
 }
@@ -21,6 +33,13 @@ histobox(x, limites = NULL, col.h = "cyan", col.bx = "skyblue1", ...)
 Desenha um histograma com boxplot integrado ao mesmo gráfico
 }
 \examples{
-histobox(rnorm(1000))
+varnum <- rnorm(1000)
+histobox(varnum)
+histobox(varnum, ylab = "Frequência")
+histobox(varnum, maresq = 2.8)
+# Se a margem esquerda for zero, o eixo y é removido:
+histobox(varnum, col.h = "tomato", col.bx = "yellow", maresq = 0)
+histobox(varnum, col.h = "tomato", col.bx = "yellow", mardir = 0)
+histobox(varnum, col.h = "tomato", col.bx = "yellow", maresq = 0, mardir = 0)
 
 }
