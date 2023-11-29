@@ -1,15 +1,16 @@
 #' @title Histograma com boxplot
 #' @description Desenha um histograma com boxplot integrado ao mesmo gráfico
-#' 
 #' @aliases histobox
-#' @param x uma variável numérica
-#' @param limites limites do eixo x
-#' @param col.h cor do histograma
-#' @param col.bx cor do boxplot
-#' @param maresq margem esquerda do gráfico 
-#' @param mardir margem direita do gráfico
-#' @param ... outros parâmetros de \code{\link{hist}} e \code{\link{boxplot}}
 #' 
+#' @param x Uma variável numérica
+#' @param limites Limites do eixo x
+#' @param col.h Cor do histograma
+#' @param col.bx Cor do boxplot
+#' @param maresq Margem esquerda do gráfico 
+#' @param mardir Margem direita do gráfico
+#' @param ... Outros parâmetros de \code{\link{hist}} e \code{\link{boxplot}}
+#' 
+#' @returns O desenho do gráfico
 #' @examples 
 #' varnum <- rnorm(1000)
 #' histobox(varnum)

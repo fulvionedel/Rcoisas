@@ -15,19 +15,22 @@ histobox(
 )
 }
 \arguments{
-\item{x}{uma variável numérica}
+\item{x}{Uma variável numérica}
 
-\item{limites}{limites do eixo x}
+\item{limites}{Limites do eixo x}
 
-\item{col.h}{cor do histograma}
+\item{col.h}{Cor do histograma}
 
-\item{col.bx}{cor do boxplot}
+\item{col.bx}{Cor do boxplot}
 
-\item{maresq}{margem esquerda do gráfico}
+\item{maresq}{Margem esquerda do gráfico}
 
-\item{mardir}{margem direita do gráfico}
+\item{mardir}{Margem direita do gráfico}
 
-\item{...}{outros parâmetros de \code{\link{hist}} e \code{\link{boxplot}}}
+\item{...}{Outros parâmetros de \code{\link{hist}} e \code{\link{boxplot}}}
+}
+\value{
+O desenho do gráfico
 }
 \description{
 Desenha um histograma com boxplot integrado ao mesmo gráfico

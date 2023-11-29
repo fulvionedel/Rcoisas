@@ -16,7 +16,6 @@
 #' @param ... Permite o uso de outros parâmetros gráficos (ver o uso de `density`, nos exemplos)
 #' 
 #' @examples 
-#' \dontrun{
 #' plotZ(p = .975)
 #' plotZ(p = .025)
 #' plotZ(z = 1.96, density = 20)
@@ -28,7 +27,6 @@
 #' plotZ(z =  1.96, area = "acima")
 #' plotZ(z = -1.96, area = "acima")
 #' # plotZ(x = c(8, 10), mu = 4.7, dp = 2.7)
-#' }
 #' 
 #' @export
 #' 

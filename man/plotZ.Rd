@@ -51,7 +51,6 @@ plotZ(
 Gráfico da probabilidade de pertencer a uma área da curva Normal
 }
 \examples{
-\dontrun{
 plotZ(p = .975)
 plotZ(p = .025)
 plotZ(z = 1.96, density = 20)
@@ -63,6 +62,5 @@ plotZ(p =  .025, area = "acima")
 plotZ(z =  1.96, area = "acima")
 plotZ(z = -1.96, area = "acima")
 # plotZ(x = c(8, 10), mu = 4.7, dp = 2.7)
-}
 
 }
