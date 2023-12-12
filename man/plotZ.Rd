@@ -47,6 +47,9 @@ plotZ(
 
 \item{...}{Permite o uso de outros parâmetros gráficos (ver o uso de `density`, nos exemplos)}
 }
+\value{
+O gráfico (objeto de classe \code{NULL}) com a área de probabilidade achurada.
+}
 \description{
 Gráfico da probabilidade de pertencer a uma área da curva Normal
 }

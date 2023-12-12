@@ -23,14 +23,14 @@ knitr::opts_chunk$set(
 
 > **Funções para aulas e apresentação de resultados em português.**
 
-O pacote contém funções com _outputs_ em português e bancos de dados úteis para a produção de gráficos e tabelas para aulas, como a descrição "completa" de uma variável numérica ou a construção de indicadores de saúde, como a curva de Nelson de Moraes. 
+O pacote contém funções com _outputs_ em português e bancos de dados úteis para a produção de gráficos e tabelas para aulas, como a descrição "completa" de uma variável numérica, uma tabela de frequências, a análise de uma tabela 2 x 2 ou a construção de indicadores de saúde, como a curva de Nelson de Moraes. 
 <!-- Algumas funções são importadas do pacote [`csapAIH`](https://github.com/fulvionedel/csapAIH) (`fxetar_quinq`, `fxetar3g`, `ufbr`, `ler_popbr` e `popbr2000_2021`).  -->
 Veja a ajuda para a lista completa e detalhamento das funções e bancos de dados no pacote.
 
 
 # Instalação 
 
-O pacote ainda não tem uma primeira versão para ser lançada. A versão de desenvolvimento pode ser instalada a partir do [GitHub](https://github.com/) com:
+O pacote ainda não tem uma primeira versão para ser lançada. A versão de desenvolvimento pode ser instalada a partir do [GitHub](https://github.com/) com o pacote `remotes`:
 
 ```
 # install.packages("remotes") # Se o pacote 'remotes' não estiver instalado
@@ -43,7 +43,7 @@ remotes::install_github("fulvionedel/Rcoisas")
 library(Rcoisas)
 ```
 
-## Descrição univariada
+## Descrição univariada 
 
 > Funções `descreve`, `histobox` e `tabuleiro`.
 
@@ -86,10 +86,10 @@ O formato em tabela é pensado para uma análise estratificada por categorias de
 **A função `histobox`** desenha um histograma com um diagrama de caixas ("_box-plot_") horizontal acima do gráfico.
 
 ```{r }
-histobox(varnum)
+histobox(varnum, col.h = "tomato", col.bx = "yellow", xlab = "Medida", ylab = "Frequência")
 ```
 
-### Variáveis categóricas
+### Variáveis categóricas 
 
 **As funções `tabuleiro` e `tabuleiro2`** apresentam uma tabela univariada com frequências absolutas e relativas (%) simples e acumuladas.
 
@@ -124,7 +124,7 @@ knitr::kable(tab2, align = 'r')
 Mas os valores da tabela estão em formato caractere e não numérico, o que impede a execução de operações matemáticas. Por isso foi rebatizada de `tabuleiro2` e seu desenvolvimento descontinuado. Está no pacote porque ainda a tenho em várias aulas `r emo::ji("sleepy")`. É desaconselhável seu uso em novos scripts.
 
 
-## Curva de Nelson de Moraes
+## Curva de Nelson de Moraes 
 
 ```{r echo=FALSE}
 cat("fxetarNM", stringr::str_sub(list(args(fxetarNM)) |> as.character(), 10, 41), sep = "")
@@ -172,7 +172,7 @@ plot(nm2[,c('fxetar', '%')], type = 'l')
 ```
 
 
-## Tabelas 2 x 2
+## Tabelas 2 x 2 
 
 **A função `bolero`** analisa a tabela de contingências de duas variáveis dicotômicas. O exemplo a seguir usa um banco de dados do pacote Rcoisas, com uma amostra aleatória de dez mil registros de óbitos do RS para comparar a probabilidade de um diagnóstico de causa cardiovascular e de causa externa segundo o sexo, entre os óbitos. As causas são classificadas com a função `cid10cap()`, do pacote [`csapAIH`](https://github.com/fulvionedel/csapAIH).
 

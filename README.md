@@ -17,8 +17,9 @@ Rcoisas
 
 O pacote contém funções com *outputs* em português e bancos de dados
 úteis para a produção de gráficos e tabelas para aulas, como a descrição
-“completa” de uma variável numérica ou a construção de indicadores de
-saúde, como a curva de Nelson de Moraes.
+“completa” de uma variável numérica, uma tabela de frequências, a
+análise de uma tabela 2 x 2 ou a construção de indicadores de saúde,
+como a curva de Nelson de Moraes.
 <!-- Algumas funções são importadas do pacote [`csapAIH`](https://github.com/fulvionedel/csapAIH) (`fxetar_quinq`, `fxetar3g`, `ufbr`, `ler_popbr` e `popbr2000_2021`).  -->
 Veja a ajuda para a lista completa e detalhamento das funções e bancos
 de dados no pacote.
@@ -27,7 +28,7 @@ de dados no pacote.
 
 O pacote ainda não tem uma primeira versão para ser lançada. A versão de
 desenvolvimento pode ser instalada a partir do
-[GitHub](https://github.com/) com:
+[GitHub](https://github.com/) com o pacote `remotes`:
 
     # install.packages("remotes") # Se o pacote 'remotes' não estiver instalado
     remotes::install_github("fulvionedel/Rcoisas")
@@ -181,7 +182,7 @@ ainda não funciona adequadamente. 😕
 (“*box-plot*”) horizontal acima do gráfico.
 
 ``` r
-histobox(varnum)
+histobox(varnum, col.h = "tomato", col.bx = "yellow", xlab = "Medida", ylab = "Frequência")
 ```
 
 <img src="man/figures/README-unnamed-chunk-7-1.png" width="48%" style="display: block; margin: auto;" />
@@ -327,6 +328,7 @@ tabolero <- bolero(obitos$sexo, cardio)
 --------------------------------------------------------------- 
 Var. dependente : cardio = sim 
 Var. independente: obitos.sexo = fem 
+Missings: 1 (0,0%)
 
            cardio
 obitos$sexo  sim  não  Sum
@@ -341,7 +343,7 @@ obitos$sexo  sim  não
        masc 23.5 76.5
 
 Razão de Probabilidades: 1.10 ; IC95% (assintótico): 1.02 1.17 
-                                IC95% (exato)      : 1.02 1.17
+                                 IC95% (exato)      : 1.02 1.17
 Razão de Odds          : 1.13 ; IC95% (exato)      : 1.03 1.24
 Valor-p: Pearson, Yates: 0.01 ; Fisher: 0.009 
 ===============================================================
@@ -360,6 +362,7 @@ bolero(factor(obitos$sexo, levels = c("masc", "fem")), externas,
 --------------------------------------------------------------- 
 Var. dependente : causas.externas = sim 
 Var. independente: sexo = masc 
+Missings: 1 (0,0%)
 
       causas externas
 sexo    sim  não  Sum
@@ -374,7 +377,7 @@ sexo    sim  não
   fem   4.4 95.6
 
 Razão de Probabilidades: 2.88 ; IC95% (assintótico): 2.47 3.34 
-                                IC95% (exato)      : 2.49 3.32
+                                 IC95% (exato)      : 2.49 3.32
 Razão de Odds          : 3.15 ; IC95% (exato)      : 2.68 3.72
 Valor-p: Pearson, Yates: <0,001 ; Fisher: <0,001 
 ===============================================================

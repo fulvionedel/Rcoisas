@@ -15,6 +15,8 @@
 #' @param cex.axis tamanho da fonte do eixo
 #' @param ... Permite o uso de outros parâmetros gráficos (ver o uso de `density`, nos exemplos)
 #' 
+#' @returns O gráfico (objeto de classe \code{NULL}) com a área de probabilidade achurada.
+#' 
 #' @examples 
 #' plotZ(p = .975)
 #' plotZ(p = .025)
@@ -82,7 +84,8 @@ plotZ <- function(x = NULL, mu = 0, dp = 1, p = NULL, z = NULL,
         }
       } else if (area == 'acima') {
           if(!is.null(p)) {
-            prob <- bquote(P(X > .(formatC(1-qnorm(p), 3, format = "f", decimal.mark = ","))) == .(p))
+            # prob <- bquote(P(X > .(formatC(1-qnorm(p), 3, format = "f", decimal.mark = ","))) == .(p))
+            prob <- bquote(P(X > .(formatL(qnorm(p), 3, format = "fg"))) == .(formatL(1-pnorm(qnorm(p)), digits = 3, format = 'fg')))
           } else if(!is.null(z)) {
             prob <- bquote(P(Z > .(formatC(z, 2, format = "f", decimal.mark = ","))) == .(formatC(1-pnorm(z), 3, format = "f", decimal.mark = ",")))
           }
@@ -99,7 +102,7 @@ plotZ <- function(x = NULL, mu = 0, dp = 1, p = NULL, z = NULL,
        main = main,
        cex.main = cex.main)
   axis(1, -4:4, cex.axis = cex.axis)
-  mtext(prob, 3, -.25, cex = cex.sub)
+  mtext(prob, 3, -.5, cex = cex.sub)
   # polygon(c(-4, seq(-4,4, .1), 4), c(0, dnorm(seq(-4, 4, .1)), 0), col = 0)
   if (area == "intervalo") {
     # return(zp)
