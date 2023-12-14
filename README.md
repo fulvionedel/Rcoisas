@@ -43,7 +43,7 @@ library(Rcoisas)
 
 > Funções `descreve`, `histobox` e `tabuleiro`.
 
-    descreve(x, by = NULL, dec = 2, na.rm = TRUE, data = NULL, histograma = TRUE, breaks = "Sturges", freq = TRUE, main = NULL, xlab = NULL, ylab = NULL, linhas = 2, curva = TRUE, densidade = FALSE, col.dens = 1, col = "yellow2", col.curva = "DarkGreen", col.media = 2, col.dp = col.media, col.mediana = 4, legenda = TRUE, lugar = "topright", lty.curva = 2, lwd.curva = 1, lty.dens = 3, lwd.dens = 2, lty = NULL, lwd = NULL, cex = NULL, print = "output", soma
+    descreve(x, by = NULL, dec = 2, na.rm = TRUE, data = NULL, histograma = TRUE, breaks = "Sturges", freq = TRUE, main = NULL, xlab = NULL, ylab = NULL, linhas = 2, curva = TRUE, densidade = FALSE, col.dens = 1, col = "yellow2", col.curva = "DarkGreen", col.media = 2, col.dp = col.media, col.mediana = 4, legenda = TRUE, lugar = "topright", lty.curva = 2, lwd.curva = 1, lty.dens = 3, lwd.dens = 2, lty = NULL, lwd = NULL, cex = NULL, print = "output", soma = FALSE, ...)
 
 ### Variáveis numéricas
 
@@ -176,7 +176,48 @@ Rcoisas:::print.descreve(x, print = "tabela") |>
 
 O formato em tabela é pensado para uma análise estratificada por
 categorias de um fator. Um argumento `by` está em desenvolvimento e
-ainda não funciona adequadamente. 😕
+ainda não funciona adequadamente. 😕 A alternativa é juntar
+“manualmente” a descrição de cada estrato:
+
+``` r
+par(mfrow = c(1,3))
+cbind(
+  descreve(idade, data = obitosRS2019[obitosRS2019$sexo == "masc", ], main = "masc", legenda = FALSE, print = 'tabela'),
+  descreve(idade, data = obitosRS2019[obitosRS2019$sexo == "fem", ], main = "fem", legenda = FALSE, print = 'tabela'),
+  descreve(idade, data = obitosRS2019, main = "ambos sexos", print = 'tabela', lugar = 'topleft')
+      ) |>
+  dplyr::rename("Masculino" = 1, "Feminino" = 2, "Ambos sexos" = 3) |>
+  dplyr::mutate(Masculino = formatL(Masculino, format = "fg", digits = 4),
+                Feminino = formatL(Feminino, format = "fg", digits = 4),
+                "Ambos sexos" = formatL(`Ambos sexos`, format = "fg", digits = 4)) |>
+  knitr::kable(align = 'r') 
+```
+
+<img src="man/figures/README-unnamed-chunk-7-1.png" width="98%" style="display: block; margin: auto;" />
+
+|            | Masculino | Feminino | Ambos sexos |
+|:-----------|----------:|---------:|------------:|
+| n          |     5.355 |    4.646 |      10.000 |
+| Válidos    |     5.348 |    4.645 |       9.993 |
+| Missings   |         7 |        1 |           7 |
+| % missings |      0,13 |     0,02 |        0,07 |
+| Menor      |         0 |        0 |           0 |
+| Maior      |       103 |      108 |         108 |
+| Amplitude  |       103 |      108 |         108 |
+| Média      |     65,41 |    71,94 |       68,44 |
+| Variância  |     382,5 |    382,9 |       393,3 |
+| DP         |     19,56 |    19,57 |       19,83 |
+| CV(%)      |      29,9 |     27,2 |       28,98 |
+| Assimetria |     -1,11 |    -1,47 |       -1,23 |
+| Curtose    |      4,24 |     5,73 |        4,71 |
+| P2.5       |        17 |       15 |        16,8 |
+| P5         |        24 |       35 |          27 |
+| P25        |        57 |       63 |          59 |
+| P50        |        69 |       76 |          72 |
+| P75        |        79 |       86 |          83 |
+| P95        |        90 |       94 |          93 |
+| P97.5      |        93 |       97 |          95 |
+| IIQ        |        22 |       23 |          24 |
 
 **A função `histobox`** desenha um histograma com um diagrama de caixas
 (“*box-plot*”) horizontal acima do gráfico.
@@ -185,7 +226,7 @@ ainda não funciona adequadamente. 😕
 histobox(varnum, col.h = "tomato", col.bx = "yellow", xlab = "Medida", ylab = "Frequência")
 ```
 
-<img src="man/figures/README-unnamed-chunk-7-1.png" width="48%" style="display: block; margin: auto;" />
+<img src="man/figures/README-unnamed-chunk-8-1.png" width="48%" style="display: block; margin: auto;" />
 
 ### Variáveis categóricas
 
@@ -245,7 +286,7 @@ Missing       "   327" "3,3"  "˗"      "˗"
 Total         "10.000" "100"  "˗"      "˗"   
 ```
 
-que pode facilmente formatada com `kable`.
+que facilmente pode ser formatada com `kable`.
 
 ``` r
 knitr::kable(tab2, align = 'r')
@@ -270,7 +311,7 @@ novos scripts.
 
 ## Curva de Nelson de Moraes
 
-    fxetarNM(idade = NULL, fxetardet = NULL,
+    fxetarNM(idade = NULL, fxetardet = NULL, grafico = FALSE, ...)
 
 **A função `fxetarNM`** agrega um vetor com a idade ou com a “faixa
 etária detalhada” (classificação do DATASUS) segundo as categorias da
@@ -284,7 +325,7 @@ fxetarNM(obitosRS2019$idade, grafico = TRUE,
          sub = "\nAmostra aleatória de 10.000 óbitos.") 
 ```
 
-<img src="man/figures/README-unnamed-chunk-14-1.png" width="48%" style="display: block; margin: auto;" />
+<img src="man/figures/README-unnamed-chunk-15-1.png" width="48%" style="display: block; margin: auto;" />
 
 Neste caso interessam as frequências acumuladas:
 

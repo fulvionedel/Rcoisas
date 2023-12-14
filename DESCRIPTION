@@ -2,7 +2,7 @@ Package: Rcoisas
 Type: Package
 Title: Minhas Facilidades
 Version: 0.0.0.908
-Date: 2023-11-19
+Date: 2023-12-14
 Author: Fúlvio B. Nedel
 Maintainer: Fúlvio B. Nedel <fulvionedel@gmail.com>
 Description: Funções para criação de pirâmides populacionais, descrição e 

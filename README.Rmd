@@ -48,7 +48,7 @@ library(Rcoisas)
 > Funções `descreve`, `histobox` e `tabuleiro`.
 
 ```{r echo=FALSE}
-cat("descreve", stringr::str_sub(list(args(descreve)) |> as.character(), 10, 456), sep = "")
+cat("descreve", stringr::str_sub(list(args(descreve)) |> as.character(), 10, 470), sep = "")
 ```
 
 ### Variáveis numéricas
@@ -81,6 +81,21 @@ Rcoisas:::print.descreve(x, print = "tabela") |>
 ```
 
 O formato em tabela é pensado para uma análise estratificada por categorias de um fator. Um argumento `by` está em desenvolvimento e ainda não funciona adequadamente. `r emo::ji("confused")`
+A alternativa é juntar "manualmente" a descrição de cada estrato:
+
+```{r out.width="98%", fig.width=10, fig.height=3, fig.align='center'}
+par(mfrow = c(1,3))
+cbind(
+  descreve(idade, data = obitosRS2019[obitosRS2019$sexo == "masc", ], main = "masc", legenda = FALSE, print = 'tabela'),
+  descreve(idade, data = obitosRS2019[obitosRS2019$sexo == "fem", ], main = "fem", legenda = FALSE, print = 'tabela'),
+  descreve(idade, data = obitosRS2019, main = "ambos sexos", print = 'tabela', lugar = 'topleft')
+      ) |>
+  dplyr::rename("Masculino" = 1, "Feminino" = 2, "Ambos sexos" = 3) |>
+  dplyr::mutate(Masculino = formatL(Masculino, format = "fg", digits = 4),
+                Feminino = formatL(Feminino, format = "fg", digits = 4),
+                "Ambos sexos" = formatL(`Ambos sexos`, format = "fg", digits = 4)) |>
+  knitr::kable(align = 'r') 
+```
 
 
 **A função `histobox`** desenha um histograma com um diagrama de caixas ("_box-plot_") horizontal acima do gráfico.
@@ -116,7 +131,7 @@ A função foi criada para oferecer axs estudantes um modo fácil de criar no R 
 (tab2 <- tabuleiro2(obitosRS2019$RACACOR))
 ```
 
-que pode facilmente formatada com `kable`.
+que facilmente pode ser formatada com `kable`.
 ```{r }
 knitr::kable(tab2, align = 'r')
 ```
@@ -127,7 +142,7 @@ Mas os valores da tabela estão em formato caractere e não numérico, o que imp
 ## Curva de Nelson de Moraes 
 
 ```{r echo=FALSE}
-cat("fxetarNM", stringr::str_sub(list(args(fxetarNM)) |> as.character(), 10, 41), sep = "")
+cat("fxetarNM", stringr::str_sub(list(args(fxetarNM)) |> as.character(), 10, 63), sep = "")
 ```
 
 **A função `fxetarNM`** agrega um vetor com a idade ou com a "faixa etária detalhada" (classificação do DATASUS) segundo as categorias da Curva de Nelson de Moraes (`r fxetarNM()`). O argumento `grafico = TRUE` desenha o gráfico da curva.
