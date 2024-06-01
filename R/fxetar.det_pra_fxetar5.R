@@ -51,6 +51,7 @@
 fxetar.det_pra_fxetar5 <- function(x, tipo = "POPBR") {
   if(tipo == "POPBR") {
     # temp <- levels(as.factor(x))
+    x <- x[x != "I000"]
     if(!is.integer(x)) x <- as.integer(x)
     # if(temp[1] == "0"   &&
        # temp[2] == "101" &&
@@ -67,11 +68,12 @@ fxetar.det_pra_fxetar5 <- function(x, tipo = "POPBR") {
     vars <- names(x)
     niveis <- c("0-4", "5-9", "10-14", "15-19", "20-24", "25-29", "30-34", "35-39", "40-44", "45-49", "50-54", "55-59", "60-64", "65-69", "70-74", "75-79", "80e+")
     fxetar5 <- NULL
+    x <- data.frame(x)
     x <- x %>%
       dplyr::mutate(fxetar5 = case_when(stringr::str_detect(x[,1], "dias")
                                         ~ "0-4",
                                         x == "1 a 4 anos" ~ "0-4",
-                                        x == "5 a 9 anos" ~ "05-9",
+                                        x == "5 a 9 anos" ~ "5-9",
                                         x == "Idade ignorada" ~ NA,
                                         TRUE ~ x[,1]) |> factor(labels = niveis)
                     ) %>% 
@@ -81,4 +83,3 @@ fxetar.det_pra_fxetar5 <- function(x, tipo = "POPBR") {
   }
   x
 }
-

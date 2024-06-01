@@ -1,26 +1,27 @@
 #' Pirâmides populacionais com os arquivos de população
-#' disponibilizados pelo DATASUS
+#' disponibilizados pelo DATASUS 
 #' @aliases plot_pir
 #' 
 #' @importFrom utils read.table write.table
 #' 
-#' @param pop Um \code{data frame} com a estrutura dos arquivos "POPBR??.DBF" disponibilizados pelo DATASUS, ou uma tabela com o sexo nas colunas (masc, fem) e a idade em 17 faixas etárias (0-4, ... 75-79, 80+) nas linhas
-#' @param tabela Argumento lógico. Padrão é \code{FALSE}, deve ser mudado para \code{TRUE} quando a população é uma tabela como indicado acima
-#' @param ano Indicar o período de referência. Apenas para quando a população é uma tabela
+#' @param pop Um \code{data frame} com a estrutura dos arquivos "POPBR??.DBF" disponibilizados pelo DATASUS, ou uma tabela com o sexo nas colunas (masc, fem) e a idade em 17 faixas etárias (0-4, ... 75-79, 80+) nas linhas.
+#' @param tabela Argumento lógico. Padrão é \code{FALSE}, deve ser mudado para \code{TRUE} quando a população é uma tabela como indicado acima.
+#' @param ano Indicar o período de referência, para o título do gráfico. Apenas para quando a população é uma tabela, quando se usam os arquivos de população do DATASUS, a informação é capturada automaticamente.
 #' @param local Para o título: de onde é a população representada?
-#' @param nfxetar No. de faixas etárias a serem representadas. Por enquanto única opção é 17 (quinquenais até 80 e +), tá na espera pra incluir outras opções
+#' @param nfxetar No. de faixas etárias a serem representadas. Por enquanto única opção é 17 (quinquenais até 80 e +), tá na espera pra incluir outras opções.
 #' @param axes Não sei se vale a pena ir como opção ou já colocar direto o padrão FALSE. **Ver melhor**
-#' @param fonte Texto para citar a fonte ao pé do gráfico
-#' @param x.lim Limite do eixo x
-#' @param colmasc Cor para o sexo masculino
-#' @param colfem Cor para o sexo feminino
-#' @param colfxetar Cor para os rótulos da faixa etária
-#' @param border Cor da borda das barras
+#' @param fonte Texto para citar a fonte ao pé do gráfico. O padrão é \code{NULL} e se não informado pelo usuário, é impresso no mapa o texto "\emph{Fonte: DATASUS (www.datasus.gov.br)}". Para não aparecer texto algum, informe \code{fonte = ""} ou \code{fonte = FALSE}.
+#' @param x.lim Limites do eixo x.
+#' @param colmasc Cor para o sexo masculino.
+#' @param colfem Cor para o sexo feminino.
+#' @param colfxetar Cor para os rótulos da faixa etária.
+#' @param border Cor da borda das barras.
 #' @param inside Ver a função \code{\link{barplot}} 
-#' @param title Título do gáfico
-#' @param fontsize Tamanho de fonte do título do gráfico
+#' @param title Título do gáfico. O padrão é \code{NULL} e se não informado pelo usuário, é impresso no mapa o texto "Pirâmide populacional." seguido pelo resultado dos argumentos \code{local} e \code{ano}. Para não aparecer texto algum, informe \code{title = ""} ou \code{title = FALSE}.
+#' @param npop Nº total de habitantes, a ser digitado pelo usuário se \code{pop} for uma tabela com a distribuição proporcional de habitantes por sexo e faixa etária. Se os valores forem a porcentagem de habitantes, o texto automático resulta em "200", já que em cada sexo os valores somam 100 (%). O padrão é \code{NULL}.
+#' @param fontsize Tamanho de fonte do título do gráfico.
 #' @param drop.unused.levels Apagar níveis não usados nos fatores?
-#' @param ... argumentos de outras funções
+#' @param ... argumentos de outras funções para personalização do gráfico.
 #' 
 #' @export
 #' @examples 
@@ -34,12 +35,14 @@
 #' }
 #' 
 plot_pir <- 
-function(pop, tabela = FALSE, ano = NULL, local="popula\U00e7\U00e3o", title = NULL, fontsize = 1.1, nfxetar = 17, axes=FALSE, fonte=NULL, x.lim=NULL, colmasc="mediumblue", colfem="red2", colfxetar="white", border=par("fg"), inside=T, drop.unused.levels = FALSE, ...)
+function(pop, tabela = FALSE, ano = NULL, local="popula\U00e7\U00e3o", title = NULL, npop = NULL, fontsize = 1.1, nfxetar = 17, axes=FALSE, fonte=NULL, x.lim=NULL, colmasc="mediumblue", colfem="red2", colfxetar="white", border=par("fg"), inside=T, drop.unused.levels = FALSE, ...)
 {
   if(tabela == FALSE) {
 # Reduzir nomes de variáveis em maiúsculas
 pop <- Hmisc::upData(pop, lowernames=T)
 # -.-.-.-.-.-.-.-.- PREPARAR A VARIÁVEL FAIXA ETÁRIA -.-.-.-.-.-.-.-.-
+pop$fxetaria[pop$fxetaria == "I000"] <- NA
+pop <- na.omit(pop)
 pop$fxetaria <- as.factor(pop$fxetaria)
 nfaixas = length(levels(pop$fxetaria))
 
@@ -69,7 +72,14 @@ if(is.null(pop$fxetar5)) {
     else limite <- x.lim
   metade <- limite/2
   eixo <- seq(-limite, limite, by = metade)
-  npop <- formatC(sum(pir), format="fg", big.mark=".", decimal.mark = ",")
+  if(!isFALSE(npop)) {
+    if(is.null(npop)){
+      npop <- sum(pir)
+    } else if(!is.null(npop)) {
+      npop <- npop
+    } 
+    npop <- formatC(npop, format="fg", big.mark=".", decimal.mark = ",")
+  }
   if(is.null(fonte))
     fonte <- "Fonte: DATASUS (www.datasus.gov.br)" #, ano"
   else fonte <- fonte
@@ -107,16 +117,21 @@ if(is.null(pop$fxetar5)) {
        font=2, 
        col=colfxetar, 
        cex = fontsize-.35)
-  if(is.null(title)) 
-    title(main = paste("Pir\U00e2mide populacional.  ", 
-                       local, ",  ", ano, ".", sep=""), 
-          cex.main = fontsize, ...) 
-  else title(main = title, cex.main = fontsize, ...)
+  if(!isFALSE(title)){
+    if(is.null(title)) 
+      title(main = paste("Pir\U00e2mide populacional.  ", 
+                         local, ",  ", ano, ".", sep=""), 
+            cex.main = fontsize, ...) 
+    else title(main = title, cex.main = fontsize, ...)
+  }
 
-  mtext(paste("(n =", npop, "hab.)"), cex=fontsize-.3, font=2)
+  if(!isFALSE(npop))
+    mtext(paste("(n =", npop, "hab.)"), cex=fontsize-.3, font=2)
+  
   text(-metade, -4, masc, font=2, col=colmasc, cex = fontsize-.2)
   text(metade, -4, fem, font=2, col=colfem, cex = fontsize-.2)
-  text(-(metade*1), -5, fonte, cex=fontsize-.35, font=4)
+  if(!isFALSE(fonte))
+    text(-(metade*1), -5, fonte, cex=fontsize-.35, font=4)
   segments(-prop.table(pir)[,1][17], 17, prop.table(pir)[,2][17], 17, col="white")
   
 return(pir)
