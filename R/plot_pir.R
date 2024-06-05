@@ -1,14 +1,15 @@
 #' Pirâmides populacionais com os arquivos de população
 #' disponibilizados pelo DATASUS 
+#' 
 #' @aliases plot_pir
 #' 
-#' @importFrom utils read.table write.table
+#' @description
+#'  Desenha uma pirâmide etária a partir dos arquivos de população distribuídos pelo DATASUS com censos, contagens e estimativas por sexo e faixa etária para os municípios brasileiros dos anos 1980 a 2012.
 #' 
 #' @param pop Um \code{data frame} com a estrutura dos arquivos "POPBR??.DBF" disponibilizados pelo DATASUS, ou uma tabela com o sexo nas colunas (masc, fem) e a idade em 17 faixas etárias (0-4, ... 75-79, 80+) nas linhas.
 #' @param tabela Argumento lógico. Padrão é \code{FALSE}, deve ser mudado para \code{TRUE} quando a população é uma tabela como indicado acima.
 #' @param ano Indicar o período de referência, para o título do gráfico. Apenas para quando a população é uma tabela, quando se usam os arquivos de população do DATASUS, a informação é capturada automaticamente.
 #' @param local Para o título: de onde é a população representada?
-#' @param nfxetar No. de faixas etárias a serem representadas. Por enquanto única opção é 17 (quinquenais até 80 e +), tá na espera pra incluir outras opções.
 #' @param axes Não sei se vale a pena ir como opção ou já colocar direto o padrão FALSE. **Ver melhor**
 #' @param fonte Texto para citar a fonte ao pé do gráfico. O padrão é \code{NULL} e se não informado pelo usuário, é impresso no mapa o texto "\emph{Fonte: DATASUS (www.datasus.gov.br)}". Para não aparecer texto algum, informe \code{fonte = ""} ou \code{fonte = FALSE}.
 #' @param x.lim Limites do eixo x.
@@ -18,24 +19,25 @@
 #' @param border Cor da borda das barras.
 #' @param inside Ver a função \code{\link{barplot}} 
 #' @param title Título do gáfico. O padrão é \code{NULL} e se não informado pelo usuário, é impresso no mapa o texto "Pirâmide populacional." seguido pelo resultado dos argumentos \code{local} e \code{ano}. Para não aparecer texto algum, informe \code{title = ""} ou \code{title = FALSE}.
-#' @param npop Nº total de habitantes, a ser digitado pelo usuário se \code{pop} for uma tabela com a distribuição proporcional de habitantes por sexo e faixa etária. Se os valores forem a porcentagem de habitantes, o texto automático resulta em "200", já que em cada sexo os valores somam 100 (%). O padrão é \code{NULL}.
+#' @param npop Nº total de habitantes, a ser digitado pelo usuário se \code{pop} for uma tabela com a distribuição proporcional de habitantes por sexo e faixa etária. Se os valores forem a porcentagem de habitantes, o texto automático resulta em "100", já que os valores somam 100\%. O padrão é \code{NULL}.
 #' @param fontsize Tamanho de fonte do título do gráfico.
 #' @param drop.unused.levels Apagar níveis não usados nos fatores?
 #' @param ... argumentos de outras funções para personalização do gráfico.
 #' 
-#' @export
 #' @examples 
-#' \dontrun{
 #' data("POPBR12")
 #' plot_pir(POPBR12, local = 'Brasil')
 #' plot_pir(POPBR12[substr(POPBR12$MUNIC_RES, 1,2)==42, ], local='Santa Catarina')
 #' plot_pir(POPBR12[substr(POPBR12$MUNIC_RES, 1,2)==43, ], local='Rio Grande do Sul')
 #' plot_pir(POPBR12[POPBR12$MUNIC_RES==431490, ], local='Porto Alegre, RS')
 #' plot_pir(POPBR12[POPBR12$MUNIC_RES==430520, ], local='Cerro Largo, RS')
-#' }
+#' 
+#' @importFrom utils read.table write.table
+#' 
+#' @export
 #' 
 plot_pir <- 
-function(pop, tabela = FALSE, ano = NULL, local="popula\U00e7\U00e3o", title = NULL, npop = NULL, fontsize = 1.1, nfxetar = 17, axes=FALSE, fonte=NULL, x.lim=NULL, colmasc="mediumblue", colfem="red2", colfxetar="white", border=par("fg"), inside=T, drop.unused.levels = FALSE, ...)
+function(pop, tabela = FALSE, ano = NULL, local="popula\U00e7\U00e3o", title = NULL, npop = NULL, fontsize = 1.1, axes=FALSE, fonte=NULL, x.lim=NULL, colmasc="mediumblue", colfem="red2", colfxetar="white", border=par("fg"), inside=T, drop.unused.levels = FALSE, ...)
 {
   if(tabela == FALSE) {
 # Reduzir nomes de variáveis em maiúsculas
@@ -111,7 +113,7 @@ if(is.null(pop$fxetar5)) {
        labels   = paste(c(limite, metade, 0, metade, limite)*100, "%", sep=""), 
        font     = 2, 
        cex.axis = fontsize-.2)
-  text(x = 0, y = seq(1:nfxetar), 
+  text(x = 0, y = seq(1:17), 
        labels=row.names(pir), 
        adj=c(0.5,1), 
        font=2, 

@@ -1,9 +1,6 @@
 #' Pirâmides populacionais 
 #' @aliases ggplot_pir
 #' 
-#' @import ggplot2
-#' @importFrom dplyr %>% group_by summarise
-#' 
 #' @param banco Um \code{data frame} com população ou casos por sexo e faixa etária.
 #' @param idade Nome da variável com a idade ou faixa etária deve ir entre aspas.
 #' @param sexo Nome da variável com o sexo; deve ir entre aspas e ser um \code{factor}.
@@ -57,6 +54,9 @@
 #'  count(idade, sexo) %>% # linha desnecessária
 #'  ggplot_pir("idade", "sexo", "n")
 #' 
+#' @import ggplot2
+#' @importFrom dplyr %>% group_by summarise
+#' 
 #' @export
 #' 
 ggplot_pir <- function(banco, idade, sexo, populacao = NULL, catsexo = c("masc", "fem"), cores = c("steelblue", "hotpink"), nsize = 3.5) {
@@ -82,18 +82,15 @@ ggplot_pir <- function(banco, idade, sexo, populacao = NULL, catsexo = c("masc",
     nmasc <- as.numeric(n[1, 2])
     nfem  <- as.numeric(n[2, 2])
   }
-  ggnmasc <- ggpp::geom_text_npc(aes(npcx = .98, npcy = 0.05,
-                               label = paste("N =",
-                                             suppressWarnings(
-                                               formatC(nmasc, format = "fg", big.mark = ".")))),
-                           col = cores[1], size = nsize)
-  ggnfem <- ggpp::geom_text_npc(aes(npcx = 0.98, npcy = 0.95,
-                              label = paste("N =",
-                                            suppressWarnings(
-                                              formatC(nfem, format = "fg", big.mark = ".")))),
-                          col = cores[2], size = nsize)
+  ggnmasc <- ggplot2::annotate("text", x = 17, y = -Inf, vjust = 0, hjust = 0, 
+                               label = paste("n =", Rcoisas::formatL(nmasc, format = 'fg')), 
+                               colour = cores[1], size = nsize)
+  ggnfem  <- ggplot2::annotate("text", 17, Inf, hjust = 1, vjust = 0, 
+                               label = paste("n =", Rcoisas::formatL(nfem, format = 'fg')), colour = cores[2], size = nsize)
   graf <- graf +
     ylab(NULL) +
+    xlab(NULL) +
+    labs(fill = "") +
     coord_flip() +
     theme(legend.position = "bottom") +
     scale_fill_manual(values = cores) +
@@ -101,10 +98,14 @@ ggplot_pir <- function(banco, idade, sexo, populacao = NULL, catsexo = c("masc",
     ggnfem
   if(is.null(populacao)) {
     graf <- graf +
-      lemon::scale_y_symmetric(labels = function (x) paste(abs(x)*100,"%"))
+      lemon::scale_y_symmetric(
+        labels = function (x) paste(formatL(abs(x)*100, 2, 'fg'), "%")
+        )
   } else {
     graf <- graf +
-      lemon::scale_y_symmetric(labels = function (x) paste(abs(x),"%")) 
+      lemon::scale_y_symmetric(
+        labels = function (x) paste(formatL(abs(x), 2, 'fg'), "%")
+        )
   }
   graf
 }

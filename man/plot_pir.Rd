@@ -11,8 +11,8 @@ plot_pir(
   ano = NULL,
   local = "população",
   title = NULL,
+  npop = NULL,
   fontsize = 1.1,
-  nfxetar = 17,
   axes = FALSE,
   fonte = NULL,
   x.lim = NULL,
@@ -26,52 +26,49 @@ plot_pir(
 )
 }
 \arguments{
-\item{pop}{Um \code{data frame} com a estrutura dos arquivos "POPBR??.DBF" disponibilizados pelo DATASUS, ou uma tabela com o sexo nas colunas (masc, fem) e a idade em 17 faixas etárias (0-4, ... 75-79, 80+) nas linhas}
+\item{pop}{Um \code{data frame} com a estrutura dos arquivos "POPBR??.DBF" disponibilizados pelo DATASUS, ou uma tabela com o sexo nas colunas (masc, fem) e a idade em 17 faixas etárias (0-4, ... 75-79, 80+) nas linhas.}
 
-\item{tabela}{Argumento lógico. Padrão é \code{FALSE}, deve ser mudado para \code{TRUE} quando a população é uma tabela como indicado acima}
+\item{tabela}{Argumento lógico. Padrão é \code{FALSE}, deve ser mudado para \code{TRUE} quando a população é uma tabela como indicado acima.}
 
-\item{ano}{Indicar o período de referência. Apenas para quando a população é uma tabela}
+\item{ano}{Indicar o período de referência, para o título do gráfico. Apenas para quando a população é uma tabela, quando se usam os arquivos de população do DATASUS, a informação é capturada automaticamente.}
 
 \item{local}{Para o título: de onde é a população representada?}
 
-\item{title}{Título do gáfico}
+\item{title}{Título do gáfico. O padrão é \code{NULL} e se não informado pelo usuário, é impresso no mapa o texto "Pirâmide populacional." seguido pelo resultado dos argumentos \code{local} e \code{ano}. Para não aparecer texto algum, informe \code{title = ""} ou \code{title = FALSE}.}
 
-\item{fontsize}{Tamanho de fonte do título do gráfico}
+\item{npop}{Nº total de habitantes, a ser digitado pelo usuário se \code{pop} for uma tabela com a distribuição proporcional de habitantes por sexo e faixa etária. Se os valores forem a porcentagem de habitantes, o texto automático resulta em "100", já que os valores somam 100\%. O padrão é \code{NULL}.}
 
-\item{nfxetar}{No. de faixas etárias a serem representadas. Por enquanto única opção é 17 (quinquenais até 80 e +), tá na espera pra incluir outras opções}
+\item{fontsize}{Tamanho de fonte do título do gráfico.}
 
 \item{axes}{Não sei se vale a pena ir como opção ou já colocar direto o padrão FALSE. **Ver melhor**}
 
-\item{fonte}{Texto para citar a fonte ao pé do gráfico}
+\item{fonte}{Texto para citar a fonte ao pé do gráfico. O padrão é \code{NULL} e se não informado pelo usuário, é impresso no mapa o texto "\emph{Fonte: DATASUS (www.datasus.gov.br)}". Para não aparecer texto algum, informe \code{fonte = ""} ou \code{fonte = FALSE}.}
 
-\item{x.lim}{Limite do eixo x}
+\item{x.lim}{Limites do eixo x.}
 
-\item{colmasc}{Cor para o sexo masculino}
+\item{colmasc}{Cor para o sexo masculino.}
 
-\item{colfem}{Cor para o sexo feminino}
+\item{colfem}{Cor para o sexo feminino.}
 
-\item{colfxetar}{Cor para os rótulos da faixa etária}
+\item{colfxetar}{Cor para os rótulos da faixa etária.}
 
-\item{border}{Cor da borda das barras}
+\item{border}{Cor da borda das barras.}
 
 \item{inside}{Ver a função \code{\link{barplot}}}
 
 \item{drop.unused.levels}{Apagar níveis não usados nos fatores?}
 
-\item{...}{argumentos de outras funções}
+\item{...}{argumentos de outras funções para personalização do gráfico.}
 }
 \description{
-Pirâmides populacionais com os arquivos de população
-disponibilizados pelo DATASUS
+Desenha uma pirâmide etária a partir dos arquivos de população distribuídos pelo DATASUS com censos, contagens e estimativas por sexo e faixa etária para os municípios brasileiros dos anos 1980 a 2012.
 }
 \examples{
-\dontrun{
 data("POPBR12")
 plot_pir(POPBR12, local = 'Brasil')
 plot_pir(POPBR12[substr(POPBR12$MUNIC_RES, 1,2)==42, ], local='Santa Catarina')
 plot_pir(POPBR12[substr(POPBR12$MUNIC_RES, 1,2)==43, ], local='Rio Grande do Sul')
 plot_pir(POPBR12[POPBR12$MUNIC_RES==431490, ], local='Porto Alegre, RS')
 plot_pir(POPBR12[POPBR12$MUNIC_RES==430520, ], local='Cerro Largo, RS')
-}
 
 }

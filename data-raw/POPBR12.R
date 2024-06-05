@@ -8,5 +8,8 @@ POPBR12 <- read.csv(unz(temp, "POPBR12.csv"))
 usethis::use_data(POPBR12, overwrite = TRUE)
 
 POPRS2019 <- csapAIH::popbr2000_2021(2019, 2019, "RS") |>
-  droplevels()
+  droplevels() %>% 
+  as.data.frame()
+
 usethis::use_data(POPRS2019, overwrite = TRUE)
+
