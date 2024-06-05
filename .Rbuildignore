@@ -5,3 +5,7 @@
 ^\.Rproj\.user$
 ^README\.Rmd$
 ^docs$
+^vignettes/articles$
+^_pkgdown\.yml$
+^pkgdown$
+^\.github$
