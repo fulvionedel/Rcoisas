@@ -51,7 +51,7 @@
 fxetar.det_pra_fxetar5 <- function(x, tipo = "POPBR") {
   if(tipo == "POPBR") {
     # temp <- levels(as.factor(x))
-    x[x == "I000"] <- NA
+    x[x == "I000"] <- NA 
     if(!is.integer(x)) x <- as.integer(x)
     # if(temp[1] == "0"   &&
        # temp[2] == "101" &&
