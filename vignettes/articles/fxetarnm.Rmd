@@ -88,8 +88,9 @@ fxetarNM(obitosRS2019$idade, grafico = T,
          col.sub = "red", font.sub = 4, 
          family = "sans") |>
   tabuleiro() |>
-  kableExtra::kbl(caption = "Tabulando os resultados para apresentação.", 
-                  format.args = list(big.mark = ".", decimal.mark = ","))
+  kableExtra::kbl(caption = "Os resultados para apresentação.", 
+                  format.args = list(big.mark = ".", decimal.mark = ",")) %>% 
+  kableExtra::kable_classic(full_width = F)
 ```
 
 Para uma análise em mais dimensões, por exemplo a curva por sexo (Figura \@ref(fig:detalhe) e Tabela \@ref(tab:detalhe)), mantenha o argumento `grafico = FALSE` e use as funções do R para uma descrição condicionada por outras variáveis. Penso que o mais útil é incluir o fator resultante da função como uma variável no banco de dados em análise. O código a seguir faz isso através de `mutate(fxetarnm = fxetarNM(idade))`. Note que, uma vez que em nenhum dos dois momentos as ações realizadas sobre `obitosRS2019` são destinadas a um objeto, essas mudanças são temporárias.
@@ -108,11 +109,12 @@ obitosRS2019 %>%
   tidyr::pivot_wider(names_from = sexo, values_from = c(n, perc)) %>% 
   relocate(n_masc, .before = n_fem) %>% 
   relocate(perc_masc, .after = n_masc) %>% 
-  kableExtra::kbl(align = 'r',
-                  caption = "Uma tabela mais detalhada: distribuição por sexo.", 
-                  col.names = c("Faixa etária", rep(c("n", "%"), 2))) %>% 
+  kableExtra::kbl(align = 'crrrr', 
+               caption = "Uma tabela mais detalhada: distribuição por sexo.", 
+               col.names = c("Faixa etária", rep(c("n", "%"), 2))) %>% 
   kableExtra::add_header_above(c("", "Masculino" = 2, "Feminino" = 2)) %>%
-  kableExtra::add_header_above(c("", "Sexo" = 4))
+  kableExtra::add_header_above(c("", "Sexo" = 4)) %>% 
+  kableExtra::kable_classic(full_width = F)
 
 library(ggplot2)
 obitosRS2019 %>% 
