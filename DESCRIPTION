@@ -23,7 +23,8 @@ Suggests:
     lemon,
     stringr,
     knitr,
-    rmarkdown
+    rmarkdown,
+    bookdown
 Encoding: UTF-8
 Language: pt-br
 LazyData: true
