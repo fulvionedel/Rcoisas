@@ -27,13 +27,8 @@ formatL(rnorm(5), digits = 2)
 set.seed(1)
 x <- c(rnorm(5, 30, 10), rep(20, 2), 25)
 x
-formatL(x)
-formatL(x, format = "fg", digits = 3) 
-\dontrun{
- > formatL(x, format = "fg", digits = 3) |>
- +   stringr::str_trim() 
- [1] "23,7" "31,8" "21,6" "46"   "33,3" "20"   "20"   "25"   
- }
+formatL(x) 
+formatL(x, format = "fg", digits = 3)
  
 }
 \seealso{
