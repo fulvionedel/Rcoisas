@@ -27,3 +27,8 @@ NULL
 #' 
 #' @format Banco de dados com estimativas populacionais por sexo e faixa etária para os municípios do Rio Grande do Sul em 2019. Criado com a função \code{\link[csapAIH]{popbr2000_2021}}, que por sua vez usa os dados tabulados do DATASUS e importados pelo pacote \code{brpop}, de Raphael Saldanha. 
 "POPRS2019"
+
+#' População por sexo e faixa etária. Municípios gaúchos, 1980, 2010, 2020.
+#' 
+#' @format Banco de dados com estimativas populacionais por sexo e faixa etária para os municípios do Rio Grande do Sul em 1980, 2010 e 2020. Criado com as funções \code{\link[csapAIH]{ler_popbr}} \code{\link[csapAIH]{popbr2000_2021}}. 
+"poprs"

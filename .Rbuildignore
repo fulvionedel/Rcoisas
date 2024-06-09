@@ -5,6 +5,7 @@
 ^\.Rproj\.user$
 ^README\.Rmd$
 ^docs$
+^inst$
 ^vignettes/articles$
 ^_pkgdown\.yml$
 ^pkgdown$

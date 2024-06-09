@@ -38,32 +38,24 @@ O gráfico é uma oposição de dois gráficos de barras horizontais, um para ca
 Assim, a pirâmide nos dá muito rapidamente uma noção da fase da transição demográfica em que se encontra uma população. Gráficos de base larga representam populuações "jovens", com alta natalidade e baixa expectativa de vida, e gráficos de base estreita e ápice alargado representam populações em fase avançada da transição demográfica, com baixa natalidade e alta expectativa de vida. A Figura \@ref(fig:palegre) mostra a estrutura etária de Porto Alegre, capital do RS, quando eu fazia o ensino secundário, um ano depois de terminar o doutorado e agora. De outro modo, mas junto com a gente, a cidade também envelhece.
 
 ```{r palegre, echo=FALSE, results='hide', fig.height=2.5, out.width="100%", fig.cap="Pirâmide populacional de Porto Alegre, RS, em 1980, 2010 e 2020."}
-poa1980 <- csapAIH::ler_popbr(ano = 1980) %>% 
-  filter(munic_res == "431490",
-         fxetaria != "I000") %>% 
-  mutate(fxetar5 = fxetar.det_pra_fxetar5(fxetaria),
-         sexo = factor(sexo, labels = c("masc", "fem"))) %>%
-  select(-c(munic_res, situacao, fxetaria))  
-
-poa2010 <- csapAIH::ler_popbr(ano = 2010) %>% 
+data("poprs")
+poa <- poprs %>% 
   filter(munic_res == "431490") %>% 
-  mutate(fxetar5 = fxetar.det_pra_fxetar5(fxetaria),
-         sexo = factor(sexo, labels = c("masc", "fem"))) %>% 
-  select(-c(munic_res, situacao, fxetaria)) 
-
-poa2020 <- csapAIH::popbr2000_2021(2020, munic = "431490") %>% 
-  rename(populacao = pop) %>% 
-  select(-c(CO_UF, UF_SIGLA, REGIAO, mun)) 
-
+  droplevels()
 nsize = 0
-gr80 <- poa1980 |>  
+
+gr80 <- dplyr::filter(poa, ano == 1980) %>% 
   ggplot_pir("fxetar5", "sexo", "populacao", nsize = nsize) +
   labs(x = "", fill = "") +
   ggtitle("Porto Alegre, RS, 1980")
-gr2010 <- ggplot_pir(poa2010, "fxetar5", "sexo", "populacao", nsize = nsize) +
+
+gr2010 <- ggplot_pir(dplyr::filter(poa, ano == 2010), 
+                     "fxetar5", "sexo", "populacao", nsize = nsize) +
   labs(x = "", fill = "") +
   ggtitle("Porto Alegre, RS, 2010") 
-gr2020 <- ggplot_pir(poa2020, "fxetar5", "sexo", "populacao", nsize = nsize) +
+
+gr2020 <- ggplot_pir(dplyr::filter(poa, ano == 2020), 
+                     "fxetar5", "sexo", "populacao", nsize = nsize) +
   labs(x = "", fill = "") +
   ggtitle("Porto Alegre, RS, 2020")
 
@@ -93,11 +85,6 @@ gridExtra::grid.arrange(gr80 +
                         nrow = 1)
 ```
 
-
-```{r echo=FALSE}
-data("POPBR2012")
-# plot_pir(POPBR12[POPBR12$MUNIC_RES == "430520",])
-```
 
 ## Censos, estimativas e a necessidade de cadastramento da população residente
 
