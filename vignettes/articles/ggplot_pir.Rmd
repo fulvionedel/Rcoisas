@@ -29,7 +29,6 @@ knitr::opts_chunk$set(
 library(Rcoisas)
 library(dplyr)
 library(ggplot2)
-library(csapAIH)
 ```
 
 O gráfico da estrutura demográfica de uma população, isto é, da distribuição proporcional dos habitantes por faixa etária e sexo, é chamado _pirâmide populacional_ ou _pirâmide etária_, porque em seus primeiros desenhos -- em fases primitivas da Transição Demográfica -- as sociedades apresentam um desenho similar a uma pirâmide, de base larga e estreitando-se a cada faixa etária até um ápice adelgaçado.
