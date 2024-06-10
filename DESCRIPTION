@@ -24,7 +24,8 @@ Suggests:
     stringr,
     knitr,
     rmarkdown,
-    bookdown
+    bookdown,
+    tidyr
 Encoding: UTF-8
 Language: pt-br
 LazyData: true

@@ -126,12 +126,18 @@ O desenho da pirâmide etária é útil para a descrição de uma população. S
 Mas a construção do gráfico é bastante trabalhosa, o que motivou o desenvolvimento de uma função que automatizasse a leitura de dados e produção do gráfico, já que então não encontrei pacotes ou funções do R voltadas a esse fim. Atualmente há alguns pacotes especializados que merecem ser vistos, como [popPyramid](https://github.com/musajajorge/popPyramid), [pyramid](https://cran.r-project.org/web/packages/pyramid/index.html) e [apyramid](https://cran.r-project.org/web/packages/apyramid/vignettes/intro.html).
 
 
-```{r echo=FALSE}
-formatR::usage(plot_pir)
+```
+plot_pir(pop, tabela = FALSE, ano = NULL, local = "população",
+    title = NULL, npop = NULL, fontsize = 1.1, axes = FALSE,
+    fonte = NULL, x.lim = NULL, colmasc = "mediumblue",
+    colfem = "red2", colfxetar = "white", border = par("fg"),
+    inside = T, drop.unused.levels = FALSE, ...)
 ```
 
-```{r echo=FALSE}
-formatR::usage(ggplot_pir)
+```
+ggplot_pir(banco, idade, sexo, populacao = NULL,
+    catsexo = c("masc", "fem"),
+    cores = c("steelblue", "hotpink"), nsize = 3.5)
 ```
 
 As funções `plot_pir()` e `ggplot_pir()` de `Rcoisas` geram gráficos de pirâmide populacional. O pacote tem duas funções para um mesmo fim, em alguns aspectos bastante diferentes entre si, porque foram construídas de acordo com os dados disponíveis para tabulação. `plot_pir()` foi criada para ler os arquivos de população do DATASUS e gerar um gráfico pronto para publicação, com facilidades para gerar o título e mínimas necessidades de editoração (e de possibilidades de ajuste).^[Foi usada para um [aplicativo _shiny_](https://fulvionedel.shinyapps.io/teste-piramide/), com alguns anos de exemplo.] A interrupção da publicação desses arquivos revelou a necessidade de uma função mais flexível na entrada de dados. `ggplot_pir()` atende a essa necessidade; além disso, é construída com `ggplot2`, o que permite a reutilização do gráfico e o uso das demais funções do pacote, além de facilitar o salvamento da figura. Em compensação, exige sempre alguma editoração antes de publicar o gráfico.
