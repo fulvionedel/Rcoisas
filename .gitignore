@@ -3,5 +3,9 @@
 .RData
 .Ruserdata
 *.Rproj
-inst/doc
-docs
+inst/
+inst/*.html
+inst/*.pdf
+inst/purgatorio/
+inst/*.bib
+inst/*.csl
