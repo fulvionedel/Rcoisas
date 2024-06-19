@@ -1,11 +1,11 @@
 ---
 title: "Curva de Nelson de Moraes"
 date: '`r format(Sys.Date(), "%d %b %Y")`'
-# output: 
-#   bookdown::html_document2:
-#     number_sections: false
-# pkgdown:
-#   as_is: true
+output:
+  bookdown::html_document2:
+    number_sections: false
+pkgdown:
+  as_is: true
 ---
 
 ```{r, include = FALSE}
