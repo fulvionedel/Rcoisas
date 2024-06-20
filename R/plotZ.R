@@ -13,21 +13,21 @@
 #' @param cex.main tamanho da fonte do título
 #' @param cex.sub  tamanho da fonte do subtítulo
 #' @param cex.axis tamanho da fonte do eixo
-#' @param ... Permite o uso de outros parâmetros gráficos (ver o uso de `density`, nos exemplos)
+#' @param ... Permite o uso de outros parâmetros gráficos 
 #' 
 #' @returns O gráfico (objeto de classe \code{NULL}) com a área de probabilidade achurada.
 #' 
 #' @examples 
 #' plotZ(p = .975)
 #' plotZ(p = .025)
-#' plotZ(z = 1.96, density = 20)
-#' plotZ(z = -1.96, density = 40)
+#' plotZ(z = 1.96)
+#' plotZ(z = -1.96)
+#' plotZ(p = .975, area = "acima")
+#' plotZ(p = .025, area = "acima")
+#' plotZ(z = 1.96, area = "acima")
+#' plotZ(z = -1.96, area = "acima")
 #' plotZ(x = 10, mu = 4.7, dp = 2.7, cor = "yellow")
 #' plotZ(x = 10, mu = 4.7, dp = 2.7, area = "acima")
-#' plotZ(p =  .975, area = "acima")
-#' plotZ(p =  .025, area = "acima")
-#' plotZ(z =  1.96, area = "acima")
-#' plotZ(z = -1.96, area = "acima")
 #' # plotZ(x = c(8, 10), mu = 4.7, dp = 2.7)
 #' 
 #' @export
