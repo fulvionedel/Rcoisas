@@ -1,6 +1,6 @@
 ---
 title: "Tomar amostras de bancos de dados"
-date: '`r format(Sys.Date(), "%d %b %Y")`'
+date: '22 Jun 2024'#`r format(Sys.Date(), "%d %b %Y")`'
 output:
   bookdown::html_document2:
     number_sections: false
