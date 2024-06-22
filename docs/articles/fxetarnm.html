@@ -43,6 +43,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown-artigos">
     <a class="dropdown-item" href="../articles/fxetarnm.html">Curva de Nelson de Moraes</a>
     <a class="dropdown-item" href="../articles/ggplot_pir.html">Pirâmides populacionais</a>
+    <a class="dropdown-item" href="../articles/sacamostras.html">Tomar amostras de bancos de dados</a>
   </div>
 </li>
       </ul>
@@ -58,13 +59,11 @@
 </nav><div class="container template-article">
 
 
-
-<script src="fxetarnm_files/kePrint-0.0.1/kePrint.js"></script><link href="fxetarnm_files/lightable-0.0.1/lightable.css" rel="stylesheet">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>Curva de Nelson de Moraes</h1>
             
-            <h4 data-toc-skip class="date">19 jun 2024</h4>
+            <h4 data-toc-skip class="date">22 jun 2024</h4>
       
       
       <div class="d-none name"><code>fxetarnm.Rmd</code></div>
@@ -75,64 +74,24 @@
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://fulvionedel.github.io/Rcoisas/">Rcoisas</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></code></pre></div>
-<p>A <em>Curva de Nelson de Moraes</em> é o desenho da distribuição
-proporcional da idade da morte em cinco faixas etárias, a saber: &lt; 1,
-1-4, 5-19, 20-49 e 50 e + anos de idade. Leva o nome do sanitarista
-brasileiro que a idealizou, em 1959, para avaliar o grau de
-desenvolvimento de uma população. Uma curva em <span class="math inline">\(J\)</span>, com baixa mortalidade em menores de um
-ano e a grande maioria da população morrendo após os 50 anos de idade,
-indica o maior grau de desenvolvimento entre os quatro níveis de
-classificação (Figura @ref(fig:niveis)).</p>
-<p>Esse indicador tem grande capacidade descritiva em estágios menos
-avançados das transições demográfica e epidemiológica e é muito
-interessante acompanhar, por exemplo, sua evolução no Brasil desde a era
-Vargas, ou de cidades brasileiras nos registros de mortalidade.
-Entretanto, tem menor capacidade de identificar diferenças onde elas
-acontecem após os 50 anos de idade. E convenhamos que considerar 50 anos
-como limite de idade para a morte em populações com nível de saúde
-“elevado” é, no mínimo, anacrônico.</p>
-<p>Outra característica que pode ser apontada como fortaleza é que, ao
-ser um indicador de mortalidade proporcional, não exige o conhecimento
-de estimativas populacionais, apenas o Sistema de Informação de
-Mortalidade. Novamente aqui vê-se a pátina da anacronia, entrado o
-século XXI não se pode mais pensar numa sociedade democrática que não
-realize censos. Assim, deve-se lembrar que isso é também uma limitação
-do indicador, pois não mede o risco de morte a cada idade, apenas a
-carga da morte em cada faixa etária considerada. Além disso –
-logicamente, por ser a proporção sobre o total de mortes – o valor
-alcançado em cada faixa etária depende também da quantidade de mortes em
-cada uma das demais faixas etárias.</p>
+<p>A <em>Curva de Nelson de Moraes</em> é o desenho da distribuição proporcional da idade da morte em cinco faixas etárias, a saber: &lt; 1, 1-4, 5-19, 20-49 e 50 e + anos de idade. Leva o nome do sanitarista brasileiro que a idealizou, em 1959, para avaliar o grau de desenvolvimento de uma população. Uma curva em <span class="math inline">\(J\)</span>, com baixa mortalidade em menores de um ano e a grande maioria da população morrendo após os 50 anos de idade, indica o maior grau de desenvolvimento entre os quatro níveis de classificação (Figura <a href="#fig:niveis">1</a>).</p>
+<p>Esse indicador tem grande capacidade descritiva em estágios menos avançados das transições demográfica e epidemiológica e é muito interessante acompanhar, por exemplo, sua evolução no Brasil desde a era Vargas, ou de cidades brasileiras nos registros de mortalidade. Entretanto, tem menor capacidade de identificar diferenças onde elas acontecem após os 50 anos de idade. E convenhamos que considerar 50 anos como limite de idade para a morte em populações com nível de saúde “elevado” é, no mínimo, anacrônico.</p>
+<p>Outra característica que pode ser apontada como fortaleza é que, ao ser um indicador de mortalidade proporcional, não exige o conhecimento de estimativas populacionais, apenas o Sistema de Informação de Mortalidade. Novamente aqui vê-se a pátina da anacronia, entrado o século XXI não se pode mais pensar numa sociedade democrática que não realize censos.<a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content="&lt;p&gt;Infelizmente é no entanto bastante fácil pensar em experiências não democráticas nas sociedades do século XXI.&lt;/p&gt;"><sup>1</sup></a> Assim, deve-se lembrar que isso é também uma limitação do indicador, pois não mede o risco de morte a cada idade, apenas a carga da morte em cada faixa etária considerada. Além disso – logicamente, por ser a proporção sobre o total de mortes – o valor alcançado em cada faixa etária depende também da quantidade de mortes em cada uma das demais faixas etárias.</p>
 <div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:niveis"></span>
 <img src="fxetarnm_files/figure-html/niveis-1.png" alt="Níveis de saúde de uma população segundo a Curva de Nelson de Moraes." width="100%"><p class="caption">
-Níveis de saúde de uma população segundo a Curva de Nelson de Moraes.
+Figura 1: Níveis de saúde de uma população segundo a Curva de Nelson de Moraes.
 </p>
 </div>
 <div class="section level2">
 <h2 id="a-função-fxetarnm">A função <code>fxetarNM()</code><a class="anchor" aria-label="anchor" href="#a-fun%C3%A7%C3%A3o-fxetarnm"></a>
 </h2>
-<p><code><a href="../reference/fxetarNM.html">fxetarNM()</a></code> classifica a idade segundo as faixas de
-Nelson de Moraes e devolve um fator com cada registro classificado.
-Assim, esse vetor pode ser incluído como variável em um banco de dados
-ou manejado e apresentado em tabelas e gráficos.</p>
-<p>Além disso, em seu uso mais simples, a função retorna as faixas
-etárias consideradas:</p>
+<p><code><a href="../reference/fxetarNM.html">fxetarNM()</a></code> classifica a idade segundo as faixas de Nelson de Moraes e devolve um fator com cada registro classificado. Assim, esse vetor pode ser incluído como variável em um banco de dados ou manejado e apresentado em tabelas e gráficos.</p>
+<p>Além disso, em seu uso mais simples, a função retorna as faixas etárias consideradas:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">fxetarNM</span>()</span>
 <span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>   [<span class="dv">1</span>] <span class="st">"&lt; 1"</span>    <span class="st">"1-4"</span>    <span class="st">"5-19"</span>   <span class="st">"20-49"</span>  <span class="st">"50 e +"</span></span></code></pre></div>
-<p>O objetivo desse comportamento é facilitar a construção de material
-didático e relatórios de análise. Mais acima, por exemplo, para citar as
-faixas etárias, dizendo que são “&lt; 1, 1-4, 5-19, 20-49 e 50 e +”, foi
-escrito “<code>'r fxetarNM()[1:4]'</code> e
-<code>'r fxetarNM()[5]'</code>”</p>
-<p>Ainda no sentido de facilitar a produção de material didático no R, é
-fácil desenhar a curva de acordo com níveis teóricos da distribuição.
-Por exemplo, a Figura @ref(fig:niveis) foi construída com o código
-abaixo, que gera para cada um dos quatro níveis de saúde (“muito baixo”
-a “elevado”), um vetor com 100 registros de valores fictícios de idade
-(0, 2, 10, 25, 55) que serão classificados nas faixas etárias. A
-distribuição proporcional se dá pelo número de repetições solicitadas
-(no nível “muito baixo”, 20% das mortes em &lt; 1 ano, 10% aos 2, 5% aos
-10, 35% aos 25 e 30% aos 55). Para desenhar o gráfico, usa-se o
-argumento <code>grafico = TRUE</code>.</p>
+<p>O objetivo desse comportamento é facilitar a construção de material didático e relatórios de análise. Mais acima, por exemplo, para citar as faixas etárias, dizendo que são “&lt; 1, 1-4, 5-19, 20-49 e 50 e +”, foi escrito “<code>'r fxetarNM()[1:4]'</code> e <code>'r fxetarNM()[5]'</code>”</p>
+<p>Ainda no sentido de facilitar a produção de material didático no R, é fácil desenhar a curva de acordo com níveis teóricos da distribuição. Por exemplo, a Figura <a href="#fig:niveis">1</a> foi construída com o código abaixo, que gera para cada um dos quatro níveis de saúde (“muito baixo” a “elevado”), um vetor com 100 registros de valores fictícios de idade (0, 2, 10, 25, 55) que serão classificados nas faixas etárias. A distribuição proporcional se dá pelo número de repetições solicitadas (no nível “muito baixo”, 20% das mortes em &lt; 1 ano, 10% aos 2, 5% aos 10, 35% aos 25 e 30% aos 55). Para desenhar o gráfico, usa-se o argumento <code>grafico = TRUE</code>.</p>
 <pre><code><span><span class="va">muitobaixo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">20</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">10</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">5</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">25</span>, <span class="fl">35</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">55</span>, <span class="fl">30</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">baixo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">50</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">15</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">7</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">25</span>, <span class="fl">10</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">55</span>, <span class="fl">18</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">regular</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">25</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">10</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">5</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">25</span>, <span class="fl">20</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">55</span>, <span class="fl">40</span><span class="op">)</span><span class="op">)</span></span>
@@ -146,19 +105,10 @@ argumento <code>grafico = TRUE</code>.</p>
 <div class="section level3">
 <h3 id="trabalhando-com-um-banco-de-dados">Trabalhando com um banco de dados<a class="anchor" aria-label="anchor" href="#trabalhando-com-um-banco-de-dados"></a>
 </h3>
-<p>Usaremos o banco de dados “obitosRS2019”, do próprio pacote Rcoisas.
-Esse banco é uma amostra aleatória dos registros de mortalidade do RS em
-2019, com um trabalho <em>post-hoc</em> de decodificação e rotulagem de
-variáveis (v. <code><a href="../reference/obitosRS2019.html">?obitosRS2019</a></code>) .</p>
+<p>Usaremos o banco de dados “obitosRS2019”, do próprio pacote Rcoisas. Esse banco é uma amostra aleatória dos registros de mortalidade do RS em 2019, com um trabalho <em>post-hoc</em> de decodificação e rotulagem de variáveis (v. <code><a href="../reference/obitosRS2019.html">?obitosRS2019</a></code>) .</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">obitosRS2019</span><span class="op">)</span></span></code></pre></div>
-<p>É bastante simples gerar um gráfico e tabela de frequências da curva
-com qualidade de publicação (Figura @ref(fig:grafuncao) e Tabela
-@ref(tab:grafuncao)). No exemplo abaixo, os resultados são salvos em um
-objeto (“tabela”, da classe <code>factor</code>) para depois serem
-impressos. Note que o gráfico é desenhado com as funções básicas do R
-para esse fim e, portanto, é de classe <code>NULL</code> e não pode ser
-salvo como objeto para reprodução.</p>
+<p>É bastante simples gerar um gráfico e tabela de frequências da curva com qualidade de publicação (Figura <a href="#fig:grafuncao">2</a> e Tabela <a href="#tab:grafuncao">1</a>). No exemplo abaixo, os resultados são salvos em um objeto (“tabela”, da classe <code>factor</code>) para depois serem impressos. Note que o gráfico é desenhado com as funções básicas do R para esse fim e, portanto, é de classe <code>NULL</code> e não pode ser salvo como objeto para reprodução.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/fxetarNM.html">fxetarNM</a></span><span class="op">(</span><span class="va">obitosRS2019</span><span class="op">$</span><span class="va">idade</span>, grafico <span class="op">=</span> <span class="cn">T</span>, </span>
 <span>         main <span class="op">=</span> <span class="st">"Curva de Nelson de Moreaes. RS, 2019.*"</span>,</span>
@@ -172,13 +122,14 @@ salvo como objeto para reprodução.</p>
 <span>                  format.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>big.mark <span class="op">=</span> <span class="st">"."</span>, decimal.mark <span class="op">=</span> <span class="st">","</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">kableExtra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/kable_classic.html" class="external-link">kable_classic</a></span><span class="op">(</span>full_width <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:grafuncao"></span>
 <img src="fxetarnm_files/figure-html/grafuncao-1.png" alt="Curva de Nelson de Moraes. Desenho com o argumento 'grafico' da função." width="60%"><p class="caption">
-Curva de Nelson de Moraes. Desenho com o argumento ‘grafico’ da função.
+Figura 2: Curva de Nelson de Moraes. Desenho com o argumento ‘grafico’ da função.
 </p>
 </div>
 <table class="table  lightable-classic" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; width: auto !important; margin-left: auto; margin-right: auto;'>
 <caption>
-Os resultados para apresentação.
+<span id="tab:grafuncao">Tabela 1: </span>Os resultados para apresentação.
 </caption>
 <thead><tr>
 <th style="text-align:left;">
@@ -301,16 +252,7 @@ Total
 </tr>
 </tbody>
 </table>
-<p>Para uma análise em mais dimensões, por exemplo a curva por sexo
-(Figura @ref(fig:detalhe) e Tabela @ref(tab:detalhe)), mantenha o
-argumento <code>grafico = FALSE</code> e use as funções do R para uma
-descrição condicionada por outras variáveis. Penso que o mais útil é
-incluir o fator resultante da função como uma variável no banco de dados
-em análise. O código a seguir faz isso através de
-<code>mutate(fxetarnm = fxetarNM(idade))</code>. Note que, uma vez que
-em nenhum dos dois momentos as ações realizadas sobre
-<code>obitosRS2019</code> são destinadas a um objeto, essas mudanças são
-temporárias.</p>
+<p>Para uma análise em mais dimensões, por exemplo a curva por sexo (Figura <a href="#fig:detalhe">3</a> e Tabela <a href="#tab:detalhe">2</a>), mantenha o argumento <code>grafico = FALSE</code> e use as funções do R para uma descrição condicionada por outras variáveis. Penso que o mais útil é incluir o fator resultante da função como uma variável no banco de dados em análise. O código a seguir faz isso através de <code>mutate(fxetarnm = fxetarNM(idade))</code>. Note que, uma vez que em nenhum dos dois momentos as ações realizadas sobre <code>obitosRS2019</code> são destinadas a um objeto, essas mudanças são temporárias.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">obitosRS2019</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>  </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">idade</span><span class="op">)</span>, <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">sexo</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
@@ -333,7 +275,7 @@ temporárias.</p>
 <span>  <span class="fu">kableExtra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/kable_classic.html" class="external-link">kable_classic</a></span><span class="op">(</span>full_width <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span></code></pre></div>
 <table class="table  lightable-classic" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; width: auto !important; margin-left: auto; margin-right: auto;'>
 <caption>
-Uma tabela mais detalhada: distribuição por sexo.
+<span id="tab:detalhe">Tabela 2: </span>Uma tabela mais detalhada: distribuição por sexo.
 </caption>
 <thead>
 <tr>
@@ -481,27 +423,23 @@ n
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ylab</a></span><span class="op">(</span><span class="st">"Proporção de mortes"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">ggthemes</span><span class="fu">::</span><span class="fu"><a href="http://jrnold.github.io/ggthemes/reference/theme_wsj.html" class="external-link">theme_wsj</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:detalhe"></span>
 <img src="fxetarnm_files/figure-html/detalhe-1.png" alt="Para uma análise com mais dimensões, mantenha o argumento 'grafico = FALSE' em `fxetarNM` e grafique o vetor com um pacote especializado, como  'ggplot2'." width="60%"><p class="caption">
-Para uma análise com mais dimensões, mantenha o argumento ‘grafico =
-FALSE’ em <code>fxetarNM</code> e grafique o vetor com um pacote
-especializado, como ‘ggplot2’.
+Figura 3: Para uma análise com mais dimensões, mantenha o argumento ‘grafico = FALSE’ em <code>fxetarNM</code> e grafique o vetor com um pacote especializado, como ‘ggplot2’.
 </p>
 </div>
 </div>
 <div class="section level3">
 <h3 id="trabalhando-com-tabelas">Trabalhando com tabelas<a class="anchor" aria-label="anchor" href="#trabalhando-com-tabelas"></a>
 </h3>
-<p>Se o objeto for uma tabela com faixas etárias que possam ser
-agrupadas segundo as categorias de Nelson de Moraes, como uma tabela com
-a “faixa etária detalhada” do DATASUS, por exemplo (Figura
-@ref(fig:datasus)), pode-se tabular com <code><a href="https://rdrr.io/r/stats/xtabs.html" class="external-link">xtabs()</a></code>.</p>
+<p>Se o objeto for uma tabela com faixas etárias que possam ser agrupadas segundo as categorias de Nelson de Moraes, como uma tabela com a “faixa etária detalhada” do DATASUS, por exemplo (Figura <a href="#fig:datasus">4</a>), pode-se tabular com <code><a href="https://rdrr.io/r/stats/xtabs.html" class="external-link">xtabs()</a></code>.</p>
 <div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:datasus"></span>
 <img src="tabela2.png" alt="Uma tabela com a 'faixa etária detalhada'." width="50%"><p class="caption">
-Uma tabela com a ‘faixa etária detalhada’.
+Figura 4: Uma tabela com a ‘faixa etária detalhada’.
 </p>
 </div>
-<p>A tabela da Figura @ref(fig:datasus) poderia ser salva num arquivo
-csv e então lida no R da seguinte maneira (entre outras):</p>
+<p>A tabela da Figura <a href="#fig:datasus">4</a> poderia ser salva num arquivo csv e então lida no R da seguinte maneira (entre outras):</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>tabela <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">"../../data-raw/obitosRS1996.csv"</span>, <span class="at">skip =</span> <span class="dv">3</span>, <span class="at">nrows =</span> <span class="dv">20</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>tabela</span>
 <span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>      Faixa.Etaria.det Masc  Fem Total</span>
@@ -525,9 +463,7 @@ csv e então lida no R da seguinte maneira (entre outras):</p>
 <span id="cb8-21"><a href="#cb8-21" tabindex="-1"></a>   <span class="dv">18</span>     <span class="dv">70</span> a <span class="dv">74</span> anos <span class="dv">4234</span> <span class="dv">3134</span>  <span class="dv">7368</span></span>
 <span id="cb8-22"><a href="#cb8-22" tabindex="-1"></a>   <span class="dv">19</span>     <span class="dv">75</span> a <span class="dv">79</span> anos <span class="dv">3752</span> <span class="dv">3593</span>  <span class="dv">7345</span></span>
 <span id="cb8-23"><a href="#cb8-23" tabindex="-1"></a>   <span class="dv">20</span>   <span class="dv">80</span> anos e mais <span class="dv">5517</span> <span class="dv">8314</span> <span class="dv">13831</span></span></code></pre></div>
-<p>Um gráfico com a Curva de Nelson de Moraes por sexo pode então ser
-conseguido da seguinte forma (para maior clareza das etapas, as
-porcentagens calculadas foram previamente guardadas em vetores):</p>
+<p>Um gráfico com a Curva de Nelson de Moraes por sexo pode então ser conseguido da seguinte forma (para maior clareza das etapas, as porcentagens calculadas foram previamente guardadas em vetores):</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pnmfem</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/xtabs.html" class="external-link">xtabs</a></span><span class="op">(</span><span class="va">Fem</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">Fem</span><span class="op">)</span><span class="op">*</span><span class="fl">100</span> <span class="op">~</span> <span class="fu"><a href="../reference/fxetarNM.html">fxetarNM</a></span><span class="op">(</span>fxetardet <span class="op">=</span> <span class="va">tabela</span><span class="op">$</span><span class="va">Faixa.Etaria.det</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">tabela</span><span class="op">)</span></span>
 <span><span class="va">pnmmasc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/xtabs.html" class="external-link">xtabs</a></span><span class="op">(</span><span class="va">Masc</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">Masc</span><span class="op">)</span><span class="op">*</span><span class="fl">100</span> <span class="op">~</span> <span class="fu"><a href="../reference/fxetarNM.html">fxetarNM</a></span><span class="op">(</span>fxetardet <span class="op">=</span> <span class="va">tabela</span><span class="op">$</span><span class="va">Faixa.Etaria.det</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">tabela</span><span class="op">)</span></span>
@@ -538,12 +474,14 @@ porcentagens calculadas foram previamente guardadas em vetores):</p>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">pnmmasc</span>, type <span class="op">=</span> <span class="st">'l'</span>, ylab <span class="op">=</span> <span class="st">""</span>, xlab <span class="op">=</span> <span class="st">""</span>, col <span class="op">=</span> <span class="fl">4</span>, axes <span class="op">=</span> <span class="cn">F</span>, ylim <span class="op">=</span> <span class="va">limys</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/legend.html" class="external-link">legend</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">80</span>, legend <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Masculino"</span>, <span class="st">"Feminino"</span><span class="op">)</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>,<span class="fl">2</span><span class="op">)</span>, lty <span class="op">=</span> <span class="fl">1</span>, bty <span class="op">=</span> <span class="st">"n"</span><span class="op">)</span></span></code></pre></div>
 <div class="figure" style="text-align: center">
-<img src="fxetarnm_files/figure-html/unnamed-chunk-5-1.png" alt='O gráfico a partir de uma tabela com a "faixa etária detalhada".' width="700"><p class="caption">
-O gráfico a partir de uma tabela com a “faixa etária detalhada”.
+<span style="display:block;" id="fig:unnamed-chunk-5"></span>
+<img src="fxetarnm_files/figure-html/unnamed-chunk-5-1.png" alt='O gráfico a partir de uma tabela com a "faixa etária detalhada".' width="672"><p class="caption">
+Figura 5: O gráfico a partir de uma tabela com a “faixa etária detalhada”.
 </p>
 </div>
 </div>
 </div>
+
   </main><aside class="col-md-3"><nav id="toc"><h2>Nesta página</h2>
     </nav></aside>
 </div>

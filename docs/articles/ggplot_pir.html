@@ -43,6 +43,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown-artigos">
     <a class="dropdown-item" href="../articles/fxetarnm.html">Curva de Nelson de Moraes</a>
     <a class="dropdown-item" href="../articles/ggplot_pir.html">Pirâmides populacionais</a>
+    <a class="dropdown-item" href="../articles/sacamostras.html">Tomar amostras de bancos de dados</a>
   </div>
 </li>
       </ul>
@@ -58,13 +59,11 @@
 </nav><div class="container template-article">
 
 
-
-
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>Pirâmides populacionais</h1>
             
-            <h4 data-toc-skip class="date">19 jun 2024</h4>
+            <h4 data-toc-skip class="date">22 jun 2024</h4>
       
       
       <div class="d-none name"><code>ggplot_pir.Rmd</code></div>
@@ -77,167 +76,65 @@
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://fulvionedel.github.io/Rcoisas/">Rcoisas</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span></code></pre></div>
-<p>O gráfico da estrutura demográfica de uma população, isto é, da
-distribuição proporcional dos habitantes por faixa etária e sexo, é
-chamado <em>pirâmide populacional</em> ou <em>pirâmide etária</em>,
-porque em seus primeiros desenhos – em fases primitivas da Transição
-Demográfica – as sociedades apresentam um desenho similar a uma
-pirâmide, de base larga e estreitando-se a cada faixa etária até um
-ápice adelgaçado. O gráfico é uma oposição de dois gráficos de barras
-horizontais, um para cada sexo, da frequência relativa de cada faixa
-etária e sexo específicos sobre o total da população. Na transição
-demográfica, com a diminuição dos nascimentos e aumento da expectativa
-de vida da população, a figura vai mudando sua forma de pirâmide para um
-barril, tendendo a uma pirâmide de base invertida.</p>
-<p>Assim, a pirâmide nos dá muito rapidamente uma noção da fase da
-transição demográfica em que se encontra uma população. Gráficos de base
-larga representam populuações “jovens”, com alta natalidade e baixa
-expectativa de vida, e gráficos de base estreita e ápice alargado
-representam populações em fase avançada da transição demográfica, com
-baixa natalidade e alta expectativa de vida. A Figura @ref(fig:palegre)
-mostra a estrutura etária de Porto Alegre, capital do RS, quando eu
-fazia o ensino secundário, um ano depois de terminar o doutorado e
-agora. De outro modo, mas junto com a gente, a cidade também
-envelhece.</p>
+<p>O gráfico da estrutura demográfica de uma população, isto é, da distribuição proporcional dos habitantes por faixa etária e sexo, é chamado <em>pirâmide populacional</em> ou <em>pirâmide etária</em>, porque em seus primeiros desenhos – em fases primitivas da Transição Demográfica – as sociedades apresentam um desenho similar a uma pirâmide, de base larga e estreitando-se a cada faixa etária até um ápice adelgaçado.
+O gráfico é uma oposição de dois gráficos de barras horizontais, um para cada sexo, da frequência relativa de cada faixa etária e sexo específicos sobre o total da população. Na transição demográfica, com a diminuição dos nascimentos e aumento da expectativa de vida da população, a figura vai mudando sua forma de pirâmide para um barril, tendendo a uma pirâmide de base invertida.</p>
+<p>Assim, a pirâmide nos dá muito rapidamente uma noção da fase da transição demográfica em que se encontra uma população. Gráficos de base larga representam populuações “jovens”, com alta natalidade e baixa expectativa de vida, e gráficos de base estreita e ápice alargado representam populações em fase avançada da transição demográfica, com baixa natalidade e alta expectativa de vida. A Figura <a href="#fig:palegre">1</a> mostra a estrutura etária de Porto Alegre, capital do RS, quando eu fazia o ensino secundário, um ano depois de terminar o doutorado e agora. De outro modo, mas junto com a gente, a cidade também envelhece.</p>
 <div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:palegre"></span>
 <img src="ggplot_pir_files/figure-html/palegre-1.png" alt="Pirâmide populacional de Porto Alegre, RS, em 1980, 2010 e 2020." width="100%"><p class="caption">
-Pirâmide populacional de Porto Alegre, RS, em 1980, 2010 e 2020.
+Figura 1: Pirâmide populacional de Porto Alegre, RS, em 1980, 2010 e 2020.
 </p>
 </div>
 <div class="section level2">
-<h2 id="censos-estimativas-e-a-necessidade-de-cadastramento-da-população-residente">Censos, estimativas e a necessidade de cadastramento da população
-residente<a class="anchor" aria-label="anchor" href="#censos-estimativas-e-a-necessidade-de-cadastramento-da-popula%C3%A7%C3%A3o-residente"></a>
+<h2 id="censos-estimativas-e-a-necessidade-de-cadastramento-da-população-residente">Censos, estimativas e a necessidade de cadastramento da população residente<a class="anchor" aria-label="anchor" href="#censos-estimativas-e-a-necessidade-de-cadastramento-da-popula%C3%A7%C3%A3o-residente"></a>
 </h2>
-<p>Não é objetivo deste breve artigo focado no uso do pacote Rcoisas
-para desenhar pirâmides populacionais, discorrer sobre a realização de
-censos e cadastramentos populacionais, menos ainda sobre o cálculo de
-estimativas intercensitárias. Mas, mormente quando esse uso é
-particularmente voltado aos arquivos de dados voltado às informações
-disponibilizadas pelo DATASUS, é importante lembrar algumas coisas:</p>
+<p>Não é objetivo deste breve artigo focado no uso do pacote Rcoisas para desenhar pirâmides populacionais, discorrer sobre a realização de censos e cadastramentos populacionais, menos ainda sobre o cálculo de estimativas intercensitárias. Mas, mormente quando esse uso é particularmente voltado aos arquivos de dados voltado às informações disponibilizadas pelo DATASUS, é importante lembrar algumas coisas:</p>
 <ul>
-<li><p>Desde antes do Estado Moderno (e de Graunt, “pai” da demografia)
-sabemos da importância da contagem populacional e o conhecimento de suas
-características para o planejamento de ações públicas. Atualmente,
-espera-se que um país faça um censo a cada década, com uma contagem
-populacional cinco anos após o censo, de modo que tenha dados empíricos
-e atualização de estimativas a cada cinco anos.</p></li>
-<li><p>Não é fácil estimar o número de habitantes de uma população
-pequena ou muito dinâmica e agradecer muito ao DATASUS e sexs
-trabalhadorxs pela realização desses cálculos e disponibilização das
-estimativas por sexo e faixa etária para os municípios brasileiros. Na
-grande maioria dos casos, estamos falando de populações muito pequenas,
-cuja quantidade se pretende estimar para dois sexos e 17 faixas etárias
-diferentes.</p></li>
-<li><p>O que, por sua vez, coloca à mesa a utilidade do cadastramento
-populacional da população, como o que <strong>se espera e pode</strong>
-ser feito na Estratégia Saúde da Família do SUS<a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content="&lt;p&gt;Nosso &lt;em&gt;Sistema Único de Saúde&lt;/em&gt;, se o leitor não
-conhece a sigla.&lt;/p&gt;"><sup>1</sup></a>.</p></li>
+<li><p>Desde antes do Estado Moderno (e de Graunt, “pai” da demografia) sabemos da importância da contagem populacional e o conhecimento de suas características para o planejamento de ações públicas. Atualmente, espera-se que um país faça um censo a cada década, com uma contagem populacional cinco anos após o censo, de modo que tenha dados empíricos e atualização de estimativas a cada cinco anos.</p></li>
+<li><p>Não é fácil estimar o número de habitantes de uma população pequena ou muito dinâmica e agradecer muito ao DATASUS e sexs trabalhadorxs pela realização desses cálculos e disponibilização das estimativas por sexo e faixa etária para os municípios brasileiros. Na grande maioria dos casos, estamos falando de populações muito pequenas, cuja quantidade se pretende estimar para dois sexos e 17 faixas etárias diferentes.</p></li>
+<li><p>O que, por sua vez, coloca à mesa a utilidade do cadastramento populacional da população, como o que <strong>se espera e pode</strong> ser feito na Estratégia Saúde da Família do SUS<a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content="&lt;p&gt;Nosso &lt;em&gt;Sistema Único de Saúde&lt;/em&gt;, se o leitor não conhece a sigla.&lt;/p&gt;"><sup>1</sup></a>.</p></li>
 </ul>
 </div>
 <div class="section level2">
 <h2 id="o-tabnet-e-os-arquivos-de-população-do-datasus">O TABNET e os arquivos de população do DATASUS<a class="anchor" aria-label="anchor" href="#o-tabnet-e-os-arquivos-de-popula%C3%A7%C3%A3o-do-datasus"></a>
 </h2>
-<p>O <a href="https://datasus.saude.gov.br/informacoes-de-saude-tabnet/" class="external-link">TABNET</a>
-é um aplicativo de tabulação de dados de diferentes Sistemas de
-Informação em Saúde brasileiros e outras informações relacionadas, como
-contagens e projeções intercensitárias por sexo e faixa etária da
-população residente nos municípios. No item sobre informações <a href="https://datasus.saude.gov.br/populacao-residente" class="external-link">“Demográficas e
-Socioeconômicas”</a> (Figura @ref(fig:tabnet)) podem-se tabular
-informações de censos, contagens e estimativas populacionais para os
-municípios desde 1980 até 2021. No entanto, em função de diferenças
-metodológias nas estimativas, a informação é disponíbilizada para dois
-períodos diferentes: <em>1980 a 2012</em> e <em>2000 a 2021</em> (a
-primeira e a última opções da Figura @ref(fig:datasus)).</p>
+<p>O <a href="https://datasus.saude.gov.br/informacoes-de-saude-tabnet/" class="external-link">TABNET</a> é um aplicativo de tabulação de dados de diferentes Sistemas de Informação em Saúde brasileiros e outras informações relacionadas, como contagens e projeções intercensitárias por sexo e faixa etária da população residente nos municípios. No item sobre informações <a href="https://datasus.saude.gov.br/populacao-residente" class="external-link">“Demográficas e Socioeconômicas”</a> (Figura <a href="#fig:tabnet">2</a>) podem-se tabular informações de censos, contagens e estimativas populacionais para os municípios desde 1980 até 2021. No entanto, em função de diferenças metodológias nas estimativas, a informação é disponíbilizada para dois períodos diferentes: <em>1980 a 2012</em> e <em>2000 a 2021</em> (a primeira e a última opções da Figura <a href="#fig:datasus">3</a>).</p>
 <div class="figure" style="text-align: center">
-<img src="tabnet.png" alt="Informações disponíveis no TABNET." width="50%"><p class="caption">
-Informações disponíveis no TABNET.
+<span style="display:block;" id="fig:tabnet"></span>
+<img src="tabnet.png" alt="Informações disponíveis no TABNET." width="60%"><p class="caption">
+Figura 2: Informações disponíveis no TABNET.
 </p>
 </div>
-<p>Mais importante neste caso em que se quer uma função que automatize a
-construção do gráfico, é a forma com que se distribui a informação:</p>
+<p>Mais importante neste caso em que se quer uma função que automatize a construção do gráfico, é a forma com que se distribui a informação:</p>
 <ul>
 <li>
-<em>1980 a 2012</em>: além das tabulações possíveis no TABNET (e
-download das tabelas resultantes), há, para cada ano, arquivos em
-formato .dbf e csv com a população por sexo e faixa etária por município
-para todo o país, distribuídos pelo DATASUS em arquivos zipados; os
-arquivos podem ser obtidos através da página de download de <a href="https://datasus.saude.gov.br/transferencia-de-arquivos/" class="external-link">arquivos
-do DATASUS</a> ou pelo endereço do site FTP: <a href="ftp://ftp.datasus.gov.br/dissemin/publicos/IBGE/POP/" class="uri">ftp://ftp.datasus.gov.br/dissemin/publicos/IBGE/POP/</a>
+<em>1980 a 2012</em>: além das tabulações possíveis no TABNET (e download das tabelas resultantes), há, para cada ano, arquivos em formato .dbf e csv com a população por sexo e faixa etária por município para todo o país, distribuídos pelo DATASUS em arquivos zipados; os arquivos podem ser obtidos através da página de download de <a href="https://datasus.saude.gov.br/transferencia-de-arquivos/" class="external-link">arquivos do DATASUS</a> ou pelo endereço do site FTP: <a href="ftp://ftp.datasus.gov.br/dissemin/publicos/IBGE/POP/" class="uri">ftp://ftp.datasus.gov.br/dissemin/publicos/IBGE/POP/</a>
 </li>
 <li>
-<em>2000 a 2021</em>: só a tabulação e download da tabela resultante
-é possível, os arquivos-fonte não estão disponíveis.</li>
+<em>2000 a 2021</em>: só a tabulação e download da tabela resultante é possível, os arquivos-fonte não estão disponíveis.</li>
 </ul>
 <div class="figure" style="text-align: center">
-<img src="DATASUS_populacao_residente.png" alt="As opções de tabulação de população no TABNET/DATASUS." width="50%"><p class="caption">
-As opções de tabulação de população no TABNET/DATASUS.
+<span style="display:block;" id="fig:datasus"></span>
+<img src="DATASUS_populacao_residente.png" alt="As opções de tabulação de população no TABNET/DATASUS." width="60%"><p class="caption">
+Figura 3: As opções de tabulação de população no TABNET/DATASUS.
 </p>
 </div>
-<p>Em sua página de <a href="https://datasus.saude.gov.br/transferencia-de-arquivos/" class="external-link">transferência
-de arquivos</a>, o DATASUS disponibiliza os arquivos de população
-(contagens e estimativas) por sexo e faixa etária para os municípios
-brasileiros para os anos 1980 a 2012. Nessa página estão disponíveis a
-maioria dos arquivos-fonte das tabulações disponíveis no <a href="https://datasus.saude.gov.br/populacao-residente" class="external-link">TABNET</a> e
-nesse sentido as contagens e estimativas populacionais eram tratadas
-como as informações de internação hospitalar ou óbito, em que os
-arquivos-fonte são disponbilizados para download ao estarem disponíveis
-no TABNET as opções de tabulação.</p>
-<p>Depois experimentamos um período em que já tínhamos dados dos
-Sistemas de Informação em Saúde mas nos faltavam estimativas
-populacionais adequadas para os denominadores. Uma alternativa foi usar
-as estimativas populacionais calculadas para o Tribunal de Contas da
-União – que podiam então ser tabuladas no TABNET por sexo e faixa
-etária, o que não é mais o caso –, apesar dos avisos de sua inadequação
-para o cálculo de indicadores de saúde. Felizmente, em seguida foi
-possível utilizar os dados do <a href="http://tabnet.datasus.gov.br/cgi/deftohtm.exe?ibge/cnv/popsvsbr.def" class="external-link">Estudo
-de Estimativas Populacionais por Município, sexo e idade -
-2000-2021</a>. Atualmente, a <a href="http://tabnet.datasus.gov.br/cgi/IBGE/SEI_MS-0034745983-Nota_Tecnica_final.pdf" class="external-link">Nota
-Técnica</a> da <a href="http://tabnet.datasus.gov.br/cgi/deftohtm.exe?ibge/cnv/popsvsbr.def" class="external-link">página
-de tabulação</a> avisa que ao ver os dados do censo de 2022, percebeu-se
-uma superestimação dos números absolutos nessas estimativas, mas não dá
-informação sobre variação relativa entre as faixas etárias.</p>
-<p>De qualquer forma, <em>no momento isso é passado</em> :D. Logo
-teremos os dados do Censo 2022 e projeções atualizadas
-<code>=^.^=</code></p>
+<p>Em sua página de <a href="https://datasus.saude.gov.br/transferencia-de-arquivos/" class="external-link">transferência de arquivos</a>, o DATASUS disponibiliza os arquivos de população (contagens e estimativas) por sexo e faixa etária para os municípios brasileiros para os anos 1980 a 2012. Nessa página estão disponíveis a maioria dos arquivos-fonte das tabulações disponíveis no <a href="https://datasus.saude.gov.br/populacao-residente" class="external-link">TABNET</a> e nesse sentido as contagens e estimativas populacionais eram tratadas como as informações de internação hospitalar ou óbito, em que os arquivos-fonte são disponbilizados para download ao estarem disponíveis no TABNET as opções de tabulação.</p>
+<p>Depois experimentamos um período em que já tínhamos dados dos Sistemas de Informação em Saúde mas nos faltavam estimativas populacionais adequadas para os denominadores. Uma alternativa foi usar as estimativas populacionais calculadas para o Tribunal de Contas da União – que podiam então ser tabuladas no TABNET por sexo e faixa etária, o que não é mais o caso –, apesar dos avisos de sua inadequação para o cálculo de indicadores de saúde. Felizmente, em seguida foi possível utilizar os dados do <a href="http://tabnet.datasus.gov.br/cgi/deftohtm.exe?ibge/cnv/popsvsbr.def" class="external-link">Estudo de Estimativas Populacionais por Município, sexo e idade - 2000-2021</a>. Atualmente, a <a href="http://tabnet.datasus.gov.br/cgi/IBGE/SEI_MS-0034745983-Nota_Tecnica_final.pdf" class="external-link">Nota Técnica</a> da <a href="http://tabnet.datasus.gov.br/cgi/deftohtm.exe?ibge/cnv/popsvsbr.def" class="external-link">página de tabulação</a> avisa que ao ver os dados do censo de 2022, percebeu-se uma superestimação dos números absolutos nessas estimativas, mas não dá informação sobre variação relativa entre as faixas etárias.</p>
+<p>De qualquer forma, <em>no momento isso é passado</em> :D. Logo teremos os dados do Censo 2022 e projeções atualizadas <code>=^.^=</code></p>
 </div>
 <div class="section level2">
-<h2 id="funções-em-rcoisas-plot_pir-e-ggplot_pir">Funções em Rcoisas: <code>plot_pir</code> e
-<code>ggplot_pir</code><a class="anchor" aria-label="anchor" href="#fun%C3%A7%C3%B5es-em-rcoisas-plot_pir-e-ggplot_pir"></a>
+<h2 id="funções-em-rcoisas-plot_pir-e-ggplot_pir">Funções em Rcoisas: <code>plot_pir</code> e <code>ggplot_pir</code><a class="anchor" aria-label="anchor" href="#fun%C3%A7%C3%B5es-em-rcoisas-plot_pir-e-ggplot_pir"></a>
 </h2>
-<p>O desenho da pirâmide etária é útil para a descrição de uma
-população. Se geralmente não há espaço para a sua publicação nos artigos
-limitados em cinco elementos gráficos (tabelas e figuras), é por outro
-lado fácil inseri-lo em diapositivos de apresentação de trabalhos,
-posters, relatórios de pesquisa e documentos como os Planos Municipais
-de Saúde do SUS. Mas a construção do gráfico é bastante trabalhosa, o
-que motivou o desenvolvimento de uma função que automatizasse a leitura
-de dados e produção do gráfico, já que então não encontrei pacotes ou
-funções do R voltadas a esse fim. Atualmente há alguns pacotes
-especializados que merecem ser vistos, como <a href="https://github.com/musajajorge/popPyramid" class="external-link">popPyramid</a>, <a href="https://cran.r-project.org/web/packages/pyramid/index.html" class="external-link">pyramid</a>
-e <a href="https://cran.r-project.org/web/packages/apyramid/vignettes/intro.html" class="external-link">apyramid</a>.</p>
-<pre><code><span><span class="fu"><a href="../reference/plot_pir.html">plot_pir</a></span><span class="op">(</span><span class="va">pop</span>, tabela <span class="op">=</span> <span class="cn">FALSE</span>, ano <span class="op">=</span> <span class="cn">NULL</span>, local <span class="op">=</span> <span class="st">"população"</span>,</span>
-<span>    title <span class="op">=</span> <span class="cn">NULL</span>, npop <span class="op">=</span> <span class="cn">NULL</span>, fontsize <span class="op">=</span> <span class="fl">1.1</span>, axes <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>    fonte <span class="op">=</span> <span class="cn">NULL</span>, x.lim <span class="op">=</span> <span class="cn">NULL</span>, colmasc <span class="op">=</span> <span class="st">"mediumblue"</span>,</span>
-<span>    colfem <span class="op">=</span> <span class="st">"red2"</span>, colfxetar <span class="op">=</span> <span class="st">"white"</span>, border <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"fg"</span><span class="op">)</span>,</span>
-<span>    inside <span class="op">=</span> <span class="cn">T</span>, drop.unused.levels <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></span></code></pre>
-<pre><code><span><span class="fu"><a href="../reference/ggplot_pir.html">ggplot_pir</a></span><span class="op">(</span><span class="va">banco</span>, <span class="va">idade</span>, <span class="va">sexo</span>, populacao <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    catsexo <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"masc"</span>, <span class="st">"fem"</span><span class="op">)</span>,</span>
-<span>    cores <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"steelblue"</span>, <span class="st">"hotpink"</span><span class="op">)</span>, nsize <span class="op">=</span> <span class="fl">3.5</span><span class="op">)</span></span></code></pre>
-<p>As funções <code><a href="../reference/plot_pir.html">plot_pir()</a></code> e <code><a href="../reference/ggplot_pir.html">ggplot_pir()</a></code> de
-<code>Rcoisas</code> geram gráficos de pirâmide populacional. O pacote
-tem duas funções para um mesmo fim, em alguns aspectos bastante
-diferentes entre si, porque foram construídas de acordo com os dados
-disponíveis para tabulação. <code><a href="../reference/plot_pir.html">plot_pir()</a></code> foi criada para ler
-os arquivos de população do DATASUS e gerar um gráfico pronto para
-publicação, com facilidades para gerar o título e mínimas necessidades
-de editoração (e de possibilidades de ajuste).<a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;Foi usada para um &lt;a href="https://fulvionedel.shinyapps.io/teste-piramide/" class="external-link"&gt;aplicativo
-&lt;em&gt;shiny&lt;/em&gt;&lt;/a&gt;, com alguns anos de exemplo.&lt;/p&gt;'><sup>2</sup></a> A interrupção da
-publicação desses arquivos revelou a necessidade de uma função mais
-flexível na entrada de dados. <code><a href="../reference/ggplot_pir.html">ggplot_pir()</a></code> atende a essa
-necessidade; além disso, é construída com <code>ggplot2</code>, o que
-permite a reutilização do gráfico e o uso das demais funções do pacote,
-além de facilitar o salvamento da figura. Em compensação, exige sempre
-alguma editoração antes de publicar o gráfico.</p>
+<p>O desenho da pirâmide etária é útil para a descrição de uma população. Se geralmente não há espaço para a sua publicação nos artigos limitados em cinco elementos gráficos (tabelas e figuras), é por outro lado fácil inseri-lo em diapositivos de apresentação de trabalhos, posters, relatórios de pesquisa e documentos como os Planos Municipais de Saúde do SUS.
+Mas a construção do gráfico é bastante trabalhosa, o que motivou o desenvolvimento de uma função que automatizasse a leitura de dados e produção do gráfico, já que então não encontrei pacotes ou funções do R voltadas a esse fim. Atualmente há alguns pacotes especializados que merecem ser vistos, como <a href="https://github.com/musajajorge/popPyramid" class="external-link">popPyramid</a>, <a href="https://cran.r-project.org/web/packages/pyramid/index.html" class="external-link">pyramid</a> e <a href="https://cran.r-project.org/web/packages/apyramid/vignettes/intro.html" class="external-link">apyramid</a>.</p>
+<pre><code><span><span class="fu"><a href="../reference/plot_pir.html">plot_pir</a></span><span class="op">(</span><span class="va">pop</span>, tabela <span class="op">=</span> <span class="cn">FALSE</span>, ano <span class="op">=</span> <span class="cn">NULL</span>, local <span class="op">=</span> <span class="st">"população"</span>, title <span class="op">=</span> <span class="cn">NULL</span>, </span>
+<span>         npop <span class="op">=</span> <span class="cn">NULL</span>, fontsize <span class="op">=</span> <span class="fl">1.1</span>, axes <span class="op">=</span> <span class="cn">FALSE</span>, fonte <span class="op">=</span> <span class="cn">NULL</span>, x.lim <span class="op">=</span> <span class="cn">NULL</span>, </span>
+<span>         colmasc <span class="op">=</span> <span class="st">"mediumblue"</span>, colfem <span class="op">=</span> <span class="st">"red2"</span>, colfxetar <span class="op">=</span> <span class="st">"white"</span>, </span>
+<span>         border <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"fg"</span><span class="op">)</span>, inside <span class="op">=</span> <span class="cn">T</span>, drop.unused.levels <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></span></code></pre>
+<pre><code><span><span class="fu"><a href="../reference/ggplot_pir.html">ggplot_pir</a></span><span class="op">(</span><span class="va">banco</span>, <span class="va">idade</span>, <span class="va">sexo</span>, populacao <span class="op">=</span> <span class="cn">NULL</span>, catsexo <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"masc"</span>, <span class="st">"fem"</span><span class="op">)</span>,</span>
+<span>           cores <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"steelblue"</span>, <span class="st">"hotpink"</span><span class="op">)</span>, nsize <span class="op">=</span> <span class="fl">3.5</span><span class="op">)</span></span></code></pre>
+<p>As funções <code><a href="../reference/plot_pir.html">plot_pir()</a></code> e <code><a href="../reference/ggplot_pir.html">ggplot_pir()</a></code> de <code>Rcoisas</code> geram gráficos de pirâmide populacional. O pacote tem duas funções para um mesmo fim, em alguns aspectos bastante diferentes entre si, porque foram construídas de acordo com os dados disponíveis para tabulação. <code><a href="../reference/plot_pir.html">plot_pir()</a></code> foi criada para ler os arquivos de população do DATASUS e gerar um gráfico pronto para publicação, com facilidades para gerar o título e mínimas necessidades de editoração (e de possibilidades de ajuste).<a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;Foi usada para um &lt;a href="https://fulvionedel.shinyapps.io/teste-piramide/" class="external-link"&gt;aplicativo &lt;em&gt;shiny&lt;/em&gt;&lt;/a&gt;, com alguns anos de exemplo.&lt;/p&gt;'><sup>2</sup></a> A interrupção da publicação desses arquivos revelou a necessidade de uma função mais flexível na entrada de dados. <code><a href="../reference/ggplot_pir.html">ggplot_pir()</a></code> atende a essa necessidade; além disso, é construída com <code>ggplot2</code>, o que permite a reutilização do gráfico e o uso das demais funções do pacote, além de facilitar o salvamento da figura. Em compensação, exige sempre alguma editoração antes de publicar o gráfico.</p>
 </div>
 <div class="section level2">
 <h2 id="exemplos">Exemplos<a class="anchor" aria-label="anchor" href="#exemplos"></a>
@@ -245,12 +142,7 @@ alguma editoração antes de publicar o gráfico.</p>
 <div class="section level3">
 <h3 id="arquivos-de-população-do-datasus-de-1980-a-2012-">Arquivos de população do DATASUS, de 1980 a 2012.<a class="anchor" aria-label="anchor" href="#arquivos-de-popula%C3%A7%C3%A3o-do-datasus-de-1980-a-2012-"></a>
 </h3>
-<p>O pacote Rcoisas tem incorporado o banco de dados “POPBR12”
-(<code><a href="../reference/POPBR12.html">?POPBR12</a></code>) com as estimativas populacionais por sexo e
-faixa etária para os municípios brasileiros em 2012, armazenado no
-arquivo <a href="ftp://ftp.datasus.gov.br/dissemin/publicos/IBGE/POP/POPBR12.zip">“POPBR12.zip”</a>,
-que pode ser baixado na página de <a href="https://datasus.saude.gov.br/transferencia-de-arquivos/" class="external-link">“transferência
-de arquivos”</a> do DATASUS.</p>
+<p>O pacote Rcoisas tem incorporado o banco de dados “POPBR12” (<code><a href="../reference/POPBR12.html">?POPBR12</a></code>) com as estimativas populacionais por sexo e faixa etária para os municípios brasileiros em 2012, armazenado no arquivo <a href="ftp://ftp.datasus.gov.br/dissemin/publicos/IBGE/POP/POPBR12.zip">“POPBR12.zip”</a>, que pode ser baixado na página de <a href="https://datasus.saude.gov.br/transferencia-de-arquivos/" class="external-link">“transferência de arquivos”</a> do DATASUS.</p>
 <p>Vamos usá-lo, sua estrutura é a seguinte:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"POPBR12"</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="fu">str</span>(POPBR12)</span>
@@ -261,20 +153,13 @@ de arquivos”</a> do DATASUS.</p>
 <span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a>   <span class="sc">$</span> SITUACAO <span class="sc">:</span> int  <span class="dv">3</span> <span class="dv">3</span> <span class="dv">3</span> <span class="dv">3</span> <span class="dv">3</span> <span class="dv">3</span> <span class="dv">3</span> <span class="dv">3</span> <span class="dv">3</span> <span class="dv">3</span> ...</span>
 <span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a>   <span class="sc">$</span> FXETARIA <span class="sc">:</span> int  <span class="dv">0</span> <span class="dv">101</span> <span class="dv">202</span> <span class="dv">303</span> <span class="dv">404</span> <span class="dv">505</span> <span class="dv">606</span> <span class="dv">707</span> <span class="dv">808</span> <span class="dv">909</span> ...</span>
 <span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>   <span class="sc">$</span> POPULACAO<span class="sc">:</span> int  <span class="dv">187</span> <span class="dv">186</span> <span class="dv">187</span> <span class="dv">190</span> <span class="dv">193</span> <span class="dv">198</span> <span class="dv">204</span> <span class="dv">211</span> <span class="dv">219</span> <span class="dv">226</span> ...</span></code></pre></div>
-<p>Note que todas as variáveis estão em formato numérico, e a faixa
-etária está categorizada segundo a “faixa etária detalhada” do DATASUS,
-isto, é, faixas anuais até os 19 anos, quinquenais dos 20 a 79 anos e
-aberta a partir de então (80 e mais anos de idade).</p>
+<p>Note que todas as variáveis estão em formato numérico, e a faixa etária está categorizada segundo a “faixa etária detalhada” do DATASUS, isto, é, faixas anuais até os 19 anos, quinquenais dos 20 a 79 anos e aberta a partir de então (80 e mais anos de idade).</p>
 <p>Essa estrutura é esperada por <code><a href="../reference/plot_pir.html">plot_pir()</a></code>:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>graf_base <span class="ot">&lt;-</span> <span class="fu">plot_pir</span>(POPBR12, <span class="at">local =</span> <span class="st">"Brasil"</span>) </span>
 <span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>  Input object size<span class="sc">:</span>     <span class="dv">8816320</span> bytes;  <span class="dv">6</span> variables     <span class="dv">367290</span> observations</span>
 <span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>  New object size<span class="sc">:</span>  <span class="dv">8816320</span> bytes;  <span class="dv">6</span> variables <span class="dv">367290</span> observations</span></code></pre></div>
 <p><img src="ggplot_pir_files/figure-html/unnamed-chunk-3-1.png" width="50%" style="display: block; margin: auto;"></p>
-<p>Mas não por <code><a href="../reference/ggplot_pir.html">ggplot_pir()</a></code>, que espera a faixa etária em
-17 categorias (quinquenais até 79 anos, 80 e mais) e o sexo como um
-fator, exigindo portanto a modificação prévia do banco de dados. Além
-disso os títulos e rótulos devem ser criados ou formatados em comandos
-adicionais:</p>
+<p>Mas não por <code><a href="../reference/ggplot_pir.html">ggplot_pir()</a></code>, que espera a faixa etária em 17 categorias (quinquenais até 79 anos, 80 e mais) e o sexo como um fator, exigindo portanto a modificação prévia do banco de dados. Além disso os títulos e rótulos devem ser criados ou formatados em comandos adicionais:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">graf_gg</span> <span class="op">&lt;-</span> <span class="va">POPBR12</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>SEXO <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">SEXO</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"masc"</span>, <span class="st">"fem"</span><span class="op">)</span><span class="op">)</span>,</span>
@@ -286,19 +171,7 @@ adicionais:</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">xlab</a></span><span class="op">(</span><span class="st">"Faixa etária"</span><span class="op">)</span></span>
 <span><span class="va">graf_gg</span></span></code></pre></div>
 <p><img src="ggplot_pir_files/figure-html/unnamed-chunk-4-1.png" width="50%" style="display: block; margin: auto;"></p>
-<p>Note ainda que direcionamos o resultado de <code>plot_pir</code> a um
-objeto (de nome <code>graf_base</code>), mas mesmo assim o output foi
-apresentado em tela, sem comando adicional, diferente de
-<code>ggplot_pir</code>, cujo output só é apresentado depois de
-chamarmos <code>graf_gg</code>. Por outro lado, ao chamarmos
-<code>graf_base</code>, vemos que ele contém apenas a tabela com os
-dados (um <em>data frame</em> com as variáveis “masculino” e “feminino”
-e 17 registros em linhas com os nomes das faixas etárias, sem o
-gráfico). Logicamente, a tabela pode ser representada em gráfico, como
-vemos abaixo, mas exige algum trabalho. Utilizando <code>ggplot2</code>
-os gráficos podem ser criados como objetos, podendo ser reaproveitados,
-além de uma grande capacidade de editoração da figura. Essa é uma
-vantagem de <code><a href="../reference/ggplot_pir.html">ggplot_pir()</a></code>.</p>
+<p>Note ainda que direcionamos o resultado de <code>plot_pir</code> a um objeto (de nome <code>graf_base</code>), mas mesmo assim o output foi apresentado em tela, sem comando adicional, diferente de <code>ggplot_pir</code>, cujo output só é apresentado depois de chamarmos <code>graf_gg</code>. Por outro lado, ao chamarmos <code>graf_base</code>, vemos que ele contém apenas a tabela com os dados (um <em>data frame</em> com as variáveis “masculino” e “feminino” e 17 registros em linhas com os nomes das faixas etárias, sem o gráfico). Logicamente, a tabela pode ser representada em gráfico, como vemos abaixo, mas exige algum trabalho. Utilizando <code>ggplot2</code> os gráficos podem ser criados como objetos, podendo ser reaproveitados, além de uma grande capacidade de editoração da figura. Essa é uma vantagem de <code><a href="../reference/ggplot_pir.html">ggplot_pir()</a></code>.</p>
 <p>O objeto resultante de <code><a href="../reference/plot_pir.html">plot_pir()</a></code>:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">str</span>(graf_base)</span>
 <span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>  <span class="st">'data.frame'</span><span class="sc">:</span> <span class="dv">17</span> obs. of  <span class="dv">2</span> variables<span class="sc">:</span></span>
@@ -326,9 +199,7 @@ vantagem de <code><a href="../reference/ggplot_pir.html">ggplot_pir()</a></code>
 <span id="cb9-17"><a href="#cb9-17" tabindex="-1"></a>  <span class="dv">70-74</span>   <span class="dv">1691406</span>  <span class="dv">2103802</span></span>
 <span id="cb9-18"><a href="#cb9-18" tabindex="-1"></a>  <span class="dv">75-79</span>   <span class="dv">1105881</span>  <span class="dv">1493580</span></span>
 <span id="cb9-19"><a href="#cb9-19" tabindex="-1"></a>  <span class="dv">80</span> <span class="sc">+</span>    <span class="dv">1148647</span>  <span class="dv">1827317</span></span></code></pre></div>
-<p>As porcentagens podem ser facilmente calculadas, enquanto o gráfico
-exige algum trabalho. O que <code><a href="../reference/plot_pir.html">plot_pir()</a></code> faz é basicamente o
-seguinte:</p>
+<p>As porcentagens podem ser facilmente calculadas, enquanto o gráfico exige algum trabalho. O que <code><a href="../reference/plot_pir.html">plot_pir()</a></code> faz é basicamente o seguinte:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># porcentagens no sexo masculino</span></span>
 <span><span class="va">pm</span> <span class="op">&lt;-</span> <span class="va">graf_base</span><span class="op">$</span><span class="va">masculino</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">graf_base</span><span class="op">$</span><span class="va">masculino</span> <span class="op">+</span> <span class="va">graf_base</span><span class="op">$</span><span class="va">feminino</span><span class="op">)</span><span class="op">*</span><span class="fl">100</span></span>
@@ -341,9 +212,7 @@ seguinte:</p>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/axis.html" class="external-link">axis</a></span><span class="op">(</span>side <span class="op">=</span> <span class="fl">1</span>, at <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">6</span>, <span class="fl">6</span>, by<span class="op">=</span><span class="fl">3</span><span class="op">)</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span>, <span class="fl">3</span>, <span class="fl">0</span>, <span class="fl">3</span>, <span class="fl">6</span><span class="op">)</span>, <span class="st">"%"</span>, sep<span class="op">=</span><span class="st">""</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html" class="external-link">text</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">17</span><span class="op">)</span>, labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/row.names.html" class="external-link">row.names</a></span><span class="op">(</span><span class="va">graf_base</span><span class="op">)</span>, adj<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>,<span class="fl">1</span><span class="op">)</span>, cex <span class="op">=</span><span class="fl">.7</span>, col <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="ggplot_pir_files/figure-html/unnamed-chunk-6-1.png" width="50%" style="display: block; margin: auto;"></p>
-<p>Claro que o banco pode ser trabalhado com <code>dplyr</code> e o
-gráfico pode ser desenhado com <code>ggplot2</code>, como os de
-<code><a href="../reference/ggplot_pir.html">ggplot_pir()</a></code>:</p>
+<p>Claro que o banco pode ser trabalhado com <code>dplyr</code> e o gráfico pode ser desenhado com <code>ggplot2</code>, como os de <code><a href="../reference/ggplot_pir.html">ggplot_pir()</a></code>:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">graf_ggbase</span> <span class="op">&lt;-</span> <span class="va">graf_base</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>fxetar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">rownames</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span>levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">rownames</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
@@ -373,15 +242,8 @@ gráfico pode ser desenhado com <code>ggplot2</code>, como os de
 <div class="section level3">
 <h3 id="outros-dados-de-população">Outros dados de população<a class="anchor" aria-label="anchor" href="#outros-dados-de-popula%C3%A7%C3%A3o"></a>
 </h3>
-<p>O pacote <code>Rcoisas</code> tem também um banco de dados com as
-estimativas populacionais dos municípios gaúchos para 2019. Vemos abaixo
-sua estrutura, a população aparece como uma variável de contagem.</p>
-<p>Como a variável indicadora do sexo é um fator com as categorias
-<code>masc</code> e <code>fem</code>, é muito fácil desenhar a pirâmide
-com <code><a href="../reference/ggplot_pir.html">ggplot_pir()</a></code>, devemos apenas indicar os nomes das
-variáveis com a faixa etária, o sexo e a população. Se as categorias
-forem outras, como “masculino” e “feminino”, basta usar o argumento
-<code>catsexo = c("masculino", "feminino")</code>.</p>
+<p>O pacote <code>Rcoisas</code> tem também um banco de dados com as estimativas populacionais dos municípios gaúchos para 2019. Vemos abaixo sua estrutura, a população aparece como uma variável de contagem.</p>
+<p>Como a variável indicadora do sexo é um fator com as categorias <code>masc</code> e <code>fem</code>, é muito fácil desenhar a pirâmide com <code><a href="../reference/ggplot_pir.html">ggplot_pir()</a></code>, devemos apenas indicar os nomes das variáveis com a faixa etária, o sexo e a população. Se as categorias forem outras, como “masculino” e “feminino”, basta usar o argumento <code>catsexo = c("masculino", "feminino")</code>.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"POPRS2019"</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="fu">str</span>(POPRS2019)</span>
 <span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>  <span class="st">'data.frame'</span><span class="sc">:</span> <span class="dv">16898</span> obs. of  <span class="dv">8</span> variables<span class="sc">:</span></span>
@@ -396,11 +258,7 @@ forem outras, como “masculino” e “feminino”, basta usar o argumento
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ggplot_pir.html">ggplot_pir</a></span><span class="op">(</span><span class="va">POPRS2019</span>, idade <span class="op">=</span> <span class="st">'fxetar5'</span>, sexo <span class="op">=</span> <span class="st">'sexo'</span>, populacao <span class="op">=</span> <span class="st">'pop'</span><span class="op">)</span></span></code></pre></div>
 <p><img src="ggplot_pir_files/figure-html/unnamed-chunk-8-1.png" width="50%" style="display: block; margin: auto;"></p>
-<p>Já <code><a href="../reference/plot_pir.html">plot_pir()</a></code> agora exige manejo prévio dos dados, pois
-não consegue ler o “data frame” em outro formato que o trabalhado
-anteriormente. Nesse caso pode-se criar uma tabela com a faixa etária
-nas linhas e o sexo em duas colunas e usar o argumento
-<code>tabela = TRUE</code>:</p>
+<p>Já <code><a href="../reference/plot_pir.html">plot_pir()</a></code> agora exige manejo prévio dos dados, pois não consegue ler o “data frame” em outro formato que o trabalhado anteriormente. Nesse caso pode-se criar uma tabela com a faixa etária nas linhas e o sexo em duas colunas e usar o argumento <code>tabela = TRUE</code>:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="co"># Cria uma tabela com o nº de habitantes por sexo e faixa etária</span></span>
 <span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>tabpop <span class="ot">&lt;-</span> POPRS2019 <span class="sc">%&gt;%</span> </span>
 <span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">pop =</span> <span class="fu">sum</span>(pop), <span class="at">.by =</span> <span class="fu">c</span>(sexo, fxetar5)) <span class="sc">%&gt;%</span> </span>
@@ -413,15 +271,7 @@ nas linhas e o sexo em duas colunas e usar o argumento
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/plot_pir.html">plot_pir</a></span><span class="op">(</span><span class="va">tabpop</span>, tabela <span class="op">=</span> <span class="cn">T</span>, local <span class="op">=</span> <span class="st">"RS"</span>, ano <span class="op">=</span> <span class="fl">2019</span><span class="op">)</span> </span></code></pre></div>
 <p><img src="ggplot_pir_files/figure-html/unnamed-chunk-10-1.png" width="50%" style="display: block; margin: auto;"></p>
-<p>Para o (eventual) caso de se tabular uma tabela com as proporções ou
-porcentagens, deve-se modificar o argumento <code>npop</code> (que
-imprime um subtítulo com a soma da população), pois automaticamente
-somará 1 ou 100, respectivamente. Se o número total da população é
-conhecido, pode-se colocar ali a informação, através de texto ou uma
-função. Se a informação é desconhecida, pode-se definir
-<code>npop = FALSE</code> para suprimir o texto. O mesmo pode ser feito
-com a nota ao pé do gráfico, que responde ao argumento
-<code>fonte</code>. Vemos aqui um exemplo:</p>
+<p>Para o (eventual) caso de se tabular uma tabela com as proporções ou porcentagens, deve-se modificar o argumento <code>npop</code> (que imprime um subtítulo com a soma da população), pois automaticamente somará 1 ou 100, respectivamente. Se o número total da população é conhecido, pode-se colocar ali a informação, através de texto ou uma função. Se a informação é desconhecida, pode-se definir <code>npop = FALSE</code> para suprimir o texto. O mesmo pode ser feito com a nota ao pé do gráfico, que responde ao argumento <code>fonte</code>. Vemos aqui um exemplo:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="co"># Cria uma tabela com a porcentagem de habitantes por sexo e faixa etária</span></span>
 <span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a>tabprop <span class="ot">&lt;-</span> POPRS2019 <span class="sc">%&gt;%</span> </span>
 <span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">pop =</span> <span class="fu">sum</span>(pop), <span class="at">.by =</span> <span class="fu">c</span>(sexo, fxetar5)) <span class="sc">%&gt;%</span> </span>
@@ -450,15 +300,10 @@ com a nota ao pé do gráfico, que responde ao argumento
 <code>plot_pir</code>
 <ul>
 <li>produz um gráfico mais elaborado e pronto para impressão;</li>
-<li>está construída para os arquivos de população do DATASUS do período
-1980-2012, mas trabalhando em estrutura de tabela funciona com qualquer
-ano ou local;</li>
-<li>o gráfico é produzido com as funções básicas do R e portanto não é
-salvo ao ser destinado a um objeto; é salva apenas uma tabela (na classe
-<code>data.frame</code>) com os valores por sexo e faixa etária;
+<li>está construída para os arquivos de população do DATASUS do período 1980-2012, mas trabalhando em estrutura de tabela funciona com qualquer ano ou local;</li>
+<li>o gráfico é produzido com as funções básicas do R e portanto não é salvo ao ser destinado a um objeto; é salva apenas uma tabela (na classe <code>data.frame</code>) com os valores por sexo e faixa etária;
 <ul>
-<li>logicamente, isso é suficiente para gerar um gráfico com qualidade
-de apresentação.</li>
+<li>logicamente, isso é suficiente para gerar um gráfico com qualidade de apresentação.</li>
 </ul>
 </li>
 </ul>
@@ -466,26 +311,21 @@ de apresentação.</li>
 <li>
 <code>ggplot_pir</code>
 <ul>
-<li>o gráfico pode ser produzido sobre qualquer conjunto de informações
-de sexo e faixa etária;
+<li>o gráfico pode ser produzido sobre qualquer conjunto de informações de sexo e faixa etária;
 <ul>
-<li>pode assim ser usado para a representação de faixas etárias por sexo
-em dados de mortalidade, hospitalização e outros;</li>
+<li>pode assim ser usado para a representação de faixas etárias por sexo em dados de mortalidade, hospitalização e outros;</li>
 </ul>
 </li>
-<li>gera um gráfico de classe <code>ggplot</code>, que pode ser
-destinado a um objeto e reutilizado;</li>
+<li>gera um gráfico de classe <code>ggplot</code>, que pode ser destinado a um objeto e reutilizado;</li>
 <li>a publicação exige alguma personalização prévia;</li>
 <li>é facilmente personalizável.</li>
 </ul>
 </li>
 <li>em ambas funções
 <ul>
-<li>o gráfico é de porcentagens, sem possibilidade de que apresente
-números absolutos;</li>
+<li>o gráfico é de porcentagens, sem possibilidade de que apresente números absolutos;</li>
 <li>o sexo masculino vai à esquerda e o sexo feminino à direita;</li>
-<li>as cores das barras são livremente configuráveis: meninas e meninos
-vestem-se como bem entenderem.</li>
+<li>as cores das barras são livremente configuráveis: meninas e meninos vestem-se como bem entenderem.</li>
 </ul>
 </li>
 </ul>
@@ -497,29 +337,19 @@ vestem-se como bem entenderem.</li>
 <div class="section level3">
 <h3 id="um-aplicativo-shiny-com-plot_pir">Um aplicativo <em>shiny</em> com <code>plot_pir()</code><a class="anchor" aria-label="anchor" href="#um-aplicativo-shiny-com-plot_pir"></a>
 </h3>
-<p>A função foi utilizada na em um aplicativo shiny para a construção
-on-line de pirâmides de municípios, unidades da federação e todo o
-Brasil em anos selecionados, acessível em <a href="https://fulvionedel.shinyapps.io/teste-piramide/" class="external-link uri">https://fulvionedel.shinyapps.io/teste-piramide/</a>.</p>
+<p>A função foi utilizada na em um aplicativo shiny para a construção on-line de pirâmides de municípios, unidades da federação e todo o Brasil em anos selecionados, acessível em <a href="https://fulvionedel.shinyapps.io/teste-piramide/" class="external-link uri">https://fulvionedel.shinyapps.io/teste-piramide/</a>.</p>
 </div>
 <div class="section level3">
 <h3 id="uma-função-para-a-faixa-etária-detalhada">Uma função para a “faixa etária detalhada”<a class="anchor" aria-label="anchor" href="#uma-fun%C3%A7%C3%A3o-para-a-faixa-et%C3%A1ria-detalhada"></a>
 </h3>
 <p><code>fxetar.det_pra_fxetar5(x, tipo = "POPBR")</code></p>
-<p>Quem trabalha bastante com o TabWin ou TABNET seguido tem arquivos
-(em formato .csv, .tab ou .xls, .xlsx) com tabelas da população ou
-outras com os casos classificados em “faixa etária detalhada”. A função
-<code><a href="../reference/fxetar.det_pra_fxetar5.html">fxetar.det_pra_fxetar5()</a></code> reclassifica as idades &lt; 20
-anos em faixas etárias quinquenais, criando uma variável com faixas
-etárias quinquenais (0-4, … 75-79, 80+).</p>
+<p>Quem trabalha bastante com o TabWin ou TABNET seguido tem arquivos (em formato .csv, .tab ou .xls, .xlsx) com tabelas da população ou outras com os casos classificados em “faixa etária detalhada”. A função <code><a href="../reference/fxetar.det_pra_fxetar5.html">fxetar.det_pra_fxetar5()</a></code> reclassifica as idades &lt; 20 anos em faixas etárias quinquenais, criando uma variável com faixas etárias quinquenais (0-4, … 75-79, 80+).</p>
 </div>
 </div>
 <div class="section level2">
 <h2 id="agradecimentos">Agradecimentos<a class="anchor" aria-label="anchor" href="#agradecimentos"></a>
 </h2>
-<p>A todes que publicam tutoriais, artigos e funções no <a href="https://rpubs.com/" class="external-link">Rpubs</a> e <a href="https://www.r-bloggers.com/" class="external-link">R-bloggers</a>, que fazem e respondem
-perguntas no <a href="https://stackoverflow.com/" class="external-link">stackoverflow</a>,
-desenvolvedores do RStudio, <code>tidyverse</code>, etc. Enfim, a toda a
-comunidade do R.</p>
+<p>A todes que publicam tutoriais, artigos e funções no <a href="https://rpubs.com/" class="external-link">Rpubs</a> e <a href="https://www.r-bloggers.com/" class="external-link">R-bloggers</a>, que fazem e respondem perguntas no <a href="https://stackoverflow.com/" class="external-link">stackoverflow</a>, desenvolvedores do RStudio, <code>tidyverse</code>, etc. Enfim, a toda a comunidade do R.</p>
 </div>
 
   </main><aside class="col-md-3"><nav id="toc"><h2>Nesta página</h2>
