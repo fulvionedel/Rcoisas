@@ -21,11 +21,11 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(Rcoisas)
 ```
-
-A função `sacamostras()` automatiza o processo de toma de múltiplas amostras aleatórias (sem reposição) de um banco de dados, gravando um arquivo .csv para cada amostra criada e um arquivo .RData com os bancos de dados (da classe `data.frame`). Foi motivada pela necessidade de organizar exercícios de bioestatística e epidemiologia em diferentes grupos de trabalho, de modo que um mesmo processo de manejo e análise de dados gere resultados diferentes. Resulta ainda em exemplo prático para discutir a variabilidade estocástica. 
 ```
 sacamostras(data, size, prefix, suffixes, tipo = 2, seed = NULL)
 ```
+
+A função `sacamostras()` automatiza o processo de toma de múltiplas amostras aleatórias (sem reposição) de um banco de dados, gravando um arquivo .csv para cada amostra criada e um arquivo .RData com os bancos de dados (da classe `data.frame`). Foi motivada pela necessidade de organizar exercícios de bioestatística e epidemiologia em diferentes grupos de trabalho, de modo que um mesmo processo de manejo e análise de dados gere resultados diferentes. Resulta ainda em exemplo prático para discutir a variabilidade estocástica. 
 
 O usuário pode definir:
 
@@ -37,7 +37,7 @@ O usuário pode definir:
 
 ## Exemplo
 
-O pacote `Rcoisas` tem um banco de dados Autorizações de Internação Hospitalar (AIHs) do SUS, com registros das internações hospitalares realizadas pelo SUS no Rio Grande do Sul (RS) em 2019.^[Veja em `?RDRS2019` que não são todas as internações mas uma amostra aleatória de dez mil registros.] Pode ser usado para um exercício em que se pretenda saber como a ocorrência de morte intrahospitalar nas internações pelo SUS no RS em 2019 varia em função do tempo de internação e do sexo, idade e cor da pele do paciente. Imaginemos que o exercício será aplicado a uma turma dividida em três grupos e cada grupo trabalhará com uma amostra de 100 registros.
+O pacote `Rcoisas` tem um banco de dados de Autorizações de Internação Hospitalar (AIHs) do SUS, com registros das internações hospitalares realizadas pelo SUS no Rio Grande do Sul (RS) em 2019.^[Veja em `?RDRS2019` que não são todas as internações mas uma amostra aleatória de dez mil registros.] Pode ser usado para um exercício em que se pretenda saber como a ocorrência de morte intrahospitalar nas internações pelo SUS no RS em 2019 varia em função do tempo de internação e do sexo, idade e cor da pele do paciente. Imaginemos que o exercício será aplicado a uma turma dividida em três grupos e cada grupo trabalhará com uma amostra de 100 registros.
 
 Se o exercício focar na análise, podemos entregar o banco já trabalhado antes de tirar as amostras. Assim, o _script_ abaixo executa os seguintes passos:  
 

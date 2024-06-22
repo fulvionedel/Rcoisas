@@ -63,7 +63,7 @@
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>Tomar amostras de bancos de dados</h1>
             
-            <h4 data-toc-skip class="date">22 jun 2024</h4>
+            <h4 data-toc-skip class="date">22 Jun 2024</h4>
       
       
       <div class="d-none name"><code>sacamostras.Rmd</code></div>
@@ -73,8 +73,8 @@
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://fulvionedel.github.io/Rcoisas/">Rcoisas</a></span><span class="op">)</span></span></code></pre></div>
-<p>A função <code><a href="../reference/sacamostras.html">sacamostras()</a></code> automatiza o processo de toma de múltiplas amostras aleatórias (sem reposição) de um banco de dados, gravando um arquivo .csv para cada amostra criada e um arquivo .RData com os bancos de dados (da classe <code>data.frame</code>). Foi motivada pela necessidade de organizar exercícios de bioestatística e epidemiologia em diferentes grupos de trabalho, de modo que um mesmo processo de manejo e análise de dados gere resultados diferentes. Resulta ainda em exemplo prático para discutir a variabilidade estocástica.</p>
 <pre><code><span><span class="fu"><a href="../reference/sacamostras.html">sacamostras</a></span><span class="op">(</span><span class="va">data</span>, <span class="va">size</span>, <span class="va">prefix</span>, <span class="va">suffixes</span>, tipo <span class="op">=</span> <span class="fl">2</span>, seed <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre>
+<p>A função <code><a href="../reference/sacamostras.html">sacamostras()</a></code> automatiza o processo de toma de múltiplas amostras aleatórias (sem reposição) de um banco de dados, gravando um arquivo .csv para cada amostra criada e um arquivo .RData com os bancos de dados (da classe <code>data.frame</code>). Foi motivada pela necessidade de organizar exercícios de bioestatística e epidemiologia em diferentes grupos de trabalho, de modo que um mesmo processo de manejo e análise de dados gere resultados diferentes. Resulta ainda em exemplo prático para discutir a variabilidade estocástica.</p>
 <p>O usuário pode definir:</p>
 <ul>
 <li>o número e tamanho das amostras;<br>
@@ -88,7 +88,7 @@
 <div class="section level2">
 <h2 id="exemplo">Exemplo<a class="anchor" aria-label="anchor" href="#exemplo"></a>
 </h2>
-<p>O pacote <code>Rcoisas</code> tem um banco de dados Autorizações de Internação Hospitalar (AIHs) do SUS, com registros das internações hospitalares realizadas pelo SUS no Rio Grande do Sul (RS) em 2019.<a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;Veja em &lt;code&gt;&lt;a href="../reference/RDRS2019.html"&gt;?RDRS2019&lt;/a&gt;&lt;/code&gt; que não são todas as internações mas uma amostra aleatória de dez mil registros.&lt;/p&gt;'><sup>1</sup></a> Pode ser usado para um exercício em que se pretenda saber como a ocorrência de morte intrahospitalar nas internações pelo SUS no RS em 2019 varia em função do tempo de internação e do sexo, idade e cor da pele do paciente. Imaginemos que o exercício será aplicado a uma turma dividida em três grupos e cada grupo trabalhará com uma amostra de 100 registros.</p>
+<p>O pacote <code>Rcoisas</code> tem um banco de dados de Autorizações de Internação Hospitalar (AIHs) do SUS, com registros das internações hospitalares realizadas pelo SUS no Rio Grande do Sul (RS) em 2019.<a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;Veja em &lt;code&gt;&lt;a href="../reference/RDRS2019.html"&gt;?RDRS2019&lt;/a&gt;&lt;/code&gt; que não são todas as internações mas uma amostra aleatória de dez mil registros.&lt;/p&gt;'><sup>1</sup></a> Pode ser usado para um exercício em que se pretenda saber como a ocorrência de morte intrahospitalar nas internações pelo SUS no RS em 2019 varia em função do tempo de internação e do sexo, idade e cor da pele do paciente. Imaginemos que o exercício será aplicado a uma turma dividida em três grupos e cada grupo trabalhará com uma amostra de 100 registros.</p>
 <p>Se o exercício focar na análise, podemos entregar o banco já trabalhado antes de tirar as amostras. Assim, o <em>script</em> abaixo executa os seguintes passos:</p>
 <ul>
 <li>transforma as variáveis <code>SEXO</code>, <code>RACA_COR</code> e <code>MORTE</code> em fator, decodificando as categorias; e</li>
