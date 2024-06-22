@@ -4,7 +4,8 @@ pkgdown_sha: ~
 articles:
   fxetarnm: fxetarnm.html
   ggplot_pir: ggplot_pir.html
-last_built: 2024-06-19T22:25Z
+  sacamostras: sacamostras.html
+last_built: 2024-06-22T20:23Z
 urls:
   reference: https://fulvionedel.github.io/Rcoisas/reference
   article: https://fulvionedel.github.io/Rcoisas/articles
