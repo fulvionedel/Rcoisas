@@ -132,7 +132,6 @@ obitosRS2019 %>%
 ```
 
 
-
 ### Trabalhando com tabelas
 
 Se o objeto for uma tabela com faixas etárias que possam ser agrupadas segundo as categorias de Nelson de Moraes, como uma tabela com a "faixa etária detalhada" do DATASUS, por exemplo (Figura \@ref(fig:datasus)), pode-se tabular com `xtabs()`.

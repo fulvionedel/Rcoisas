@@ -100,7 +100,7 @@ Não é objetivo deste breve artigo focado no uso do pacote Rcoisas para desenha
 
 O [TABNET](https://datasus.saude.gov.br/informacoes-de-saude-tabnet/) é um aplicativo de tabulação de dados de diferentes Sistemas de Informação em Saúde brasileiros e outras informações relacionadas, como contagens e projeções intercensitárias por sexo e faixa etária da população residente nos municípios. No item sobre informações ["Demográficas e Socioeconômicas"](https://datasus.saude.gov.br/populacao-residente) (Figura \@ref(fig:tabnet)) podem-se tabular informações de censos, contagens e estimativas populacionais para os municípios desde 1980 até 2021. No entanto, em função de diferenças metodológias nas estimativas, a informação é disponíbilizada para dois períodos diferentes: _1980 a 2012_ e _2000 a 2021_ (a primeira e a última opções da Figura \@ref(fig:datasus)). 
 
-```{r tabnet, out.width="50%", fig.cap="Informações disponíveis no TABNET.", echo=FALSE}
+```{r tabnet, out.width="60%", fig.cap="Informações disponíveis no TABNET.", echo=FALSE}
 knitr::include_graphics("tabnet.png")
 ```
 
@@ -109,7 +109,7 @@ Mais importante neste caso em que se quer uma função que automatize a constru�
   - *1980 a 2012*: além das tabulações possíveis no TABNET (e download das tabelas resultantes), há, para cada ano, arquivos em formato .dbf e csv com a população por sexo e faixa etária por município para todo o país, distribuídos pelo DATASUS em arquivos zipados; os arquivos podem ser obtidos através da página de download de [arquivos do DATASUS](https://datasus.saude.gov.br/transferencia-de-arquivos/) ou pelo endereço do site FTP: ftp://ftp.datasus.gov.br/dissemin/publicos/IBGE/POP/ 
   - *2000 a 2021*: só a tabulação e download da tabela resultante é possível, os arquivos-fonte não estão disponíveis.
 
-```{r datasus, out.width="50%", fig.cap="As opções de tabulação de população no TABNET/DATASUS.", echo=FALSE}
+```{r datasus, out.width="60%", fig.cap="As opções de tabulação de população no TABNET/DATASUS.", echo=FALSE}
 knitr::include_graphics('DATASUS_populacao_residente.png')
 ```
 
@@ -127,17 +127,15 @@ Mas a construção do gráfico é bastante trabalhosa, o que motivou o desenvolv
 
 
 ```
-plot_pir(pop, tabela = FALSE, ano = NULL, local = "população",
-    title = NULL, npop = NULL, fontsize = 1.1, axes = FALSE,
-    fonte = NULL, x.lim = NULL, colmasc = "mediumblue",
-    colfem = "red2", colfxetar = "white", border = par("fg"),
-    inside = T, drop.unused.levels = FALSE, ...)
+plot_pir(pop, tabela = FALSE, ano = NULL, local = "população", title = NULL, 
+         npop = NULL, fontsize = 1.1, axes = FALSE, fonte = NULL, x.lim = NULL, 
+         colmasc = "mediumblue", colfem = "red2", colfxetar = "white", 
+         border = par("fg"), inside = T, drop.unused.levels = FALSE, ...)
 ```
 
 ```
-ggplot_pir(banco, idade, sexo, populacao = NULL,
-    catsexo = c("masc", "fem"),
-    cores = c("steelblue", "hotpink"), nsize = 3.5)
+ggplot_pir(banco, idade, sexo, populacao = NULL, catsexo = c("masc", "fem"),
+           cores = c("steelblue", "hotpink"), nsize = 3.5)
 ```
 
 As funções `plot_pir()` e `ggplot_pir()` de `Rcoisas` geram gráficos de pirâmide populacional. O pacote tem duas funções para um mesmo fim, em alguns aspectos bastante diferentes entre si, porque foram construídas de acordo com os dados disponíveis para tabulação. `plot_pir()` foi criada para ler os arquivos de população do DATASUS e gerar um gráfico pronto para publicação, com facilidades para gerar o título e mínimas necessidades de editoração (e de possibilidades de ajuste).^[Foi usada para um [aplicativo _shiny_](https://fulvionedel.shinyapps.io/teste-piramide/), com alguns anos de exemplo.] A interrupção da publicação desses arquivos revelou a necessidade de uma função mais flexível na entrada de dados. `ggplot_pir()` atende a essa necessidade; além disso, é construída com `ggplot2`, o que permite a reutilização do gráfico e o uso das demais funções do pacote, além de facilitar o salvamento da figura. Em compensação, exige sempre alguma editoração antes de publicar o gráfico.
