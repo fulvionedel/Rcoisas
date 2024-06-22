@@ -43,6 +43,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown-artigos">
     <a class="dropdown-item" href="../articles/fxetarnm.html">Curva de Nelson de Moraes</a>
     <a class="dropdown-item" href="../articles/ggplot_pir.html">Pirâmides populacionais</a>
+    <a class="dropdown-item" href="../articles/sacamostras.html">Tomar amostras de bancos de dados</a>
   </div>
 </li>
       </ul>
@@ -62,7 +63,7 @@
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>Pirâmides populacionais</h1>
             
-            <h4 data-toc-skip class="date">20 Jun 2024</h4>
+            <h4 data-toc-skip class="date">22 Jun 2024</h4>
       
       
       <div class="d-none name"><code>ggplot_pir.Rmd</code></div>
@@ -100,7 +101,7 @@ Figura 1: Pirâmide populacional de Porto Alegre, RS, em 1980, 2010 e 2020.
 <p>O <a href="https://datasus.saude.gov.br/informacoes-de-saude-tabnet/" class="external-link">TABNET</a> é um aplicativo de tabulação de dados de diferentes Sistemas de Informação em Saúde brasileiros e outras informações relacionadas, como contagens e projeções intercensitárias por sexo e faixa etária da população residente nos municípios. No item sobre informações <a href="https://datasus.saude.gov.br/populacao-residente" class="external-link">“Demográficas e Socioeconômicas”</a> (Figura <a href="#fig:tabnet">2</a>) podem-se tabular informações de censos, contagens e estimativas populacionais para os municípios desde 1980 até 2021. No entanto, em função de diferenças metodológias nas estimativas, a informação é disponíbilizada para dois períodos diferentes: <em>1980 a 2012</em> e <em>2000 a 2021</em> (a primeira e a última opções da Figura <a href="#fig:datasus">3</a>).</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:tabnet"></span>
-<img src="tabnet.png" alt="Informações disponíveis no TABNET." width="50%"><p class="caption">
+<img src="tabnet.png" alt="Informações disponíveis no TABNET." width="60%"><p class="caption">
 Figura 2: Informações disponíveis no TABNET.
 </p>
 </div>
@@ -114,7 +115,7 @@ Figura 2: Informações disponíveis no TABNET.
 </ul>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:datasus"></span>
-<img src="DATASUS_populacao_residente.png" alt="As opções de tabulação de população no TABNET/DATASUS." width="50%"><p class="caption">
+<img src="DATASUS_populacao_residente.png" alt="As opções de tabulação de população no TABNET/DATASUS." width="60%"><p class="caption">
 Figura 3: As opções de tabulação de população no TABNET/DATASUS.
 </p>
 </div>
@@ -127,14 +128,12 @@ Figura 3: As opções de tabulação de população no TABNET/DATASUS.
 </h2>
 <p>O desenho da pirâmide etária é útil para a descrição de uma população. Se geralmente não há espaço para a sua publicação nos artigos limitados em cinco elementos gráficos (tabelas e figuras), é por outro lado fácil inseri-lo em diapositivos de apresentação de trabalhos, posters, relatórios de pesquisa e documentos como os Planos Municipais de Saúde do SUS.
 Mas a construção do gráfico é bastante trabalhosa, o que motivou o desenvolvimento de uma função que automatizasse a leitura de dados e produção do gráfico, já que então não encontrei pacotes ou funções do R voltadas a esse fim. Atualmente há alguns pacotes especializados que merecem ser vistos, como <a href="https://github.com/musajajorge/popPyramid" class="external-link">popPyramid</a>, <a href="https://cran.r-project.org/web/packages/pyramid/index.html" class="external-link">pyramid</a> e <a href="https://cran.r-project.org/web/packages/apyramid/vignettes/intro.html" class="external-link">apyramid</a>.</p>
-<pre><code><span><span class="fu"><a href="../reference/plot_pir.html">plot_pir</a></span><span class="op">(</span><span class="va">pop</span>, tabela <span class="op">=</span> <span class="cn">FALSE</span>, ano <span class="op">=</span> <span class="cn">NULL</span>, local <span class="op">=</span> <span class="st">"população"</span>,</span>
-<span>    title <span class="op">=</span> <span class="cn">NULL</span>, npop <span class="op">=</span> <span class="cn">NULL</span>, fontsize <span class="op">=</span> <span class="fl">1.1</span>, axes <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>    fonte <span class="op">=</span> <span class="cn">NULL</span>, x.lim <span class="op">=</span> <span class="cn">NULL</span>, colmasc <span class="op">=</span> <span class="st">"mediumblue"</span>,</span>
-<span>    colfem <span class="op">=</span> <span class="st">"red2"</span>, colfxetar <span class="op">=</span> <span class="st">"white"</span>, border <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"fg"</span><span class="op">)</span>,</span>
-<span>    inside <span class="op">=</span> <span class="cn">T</span>, drop.unused.levels <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></span></code></pre>
-<pre><code><span><span class="fu"><a href="../reference/ggplot_pir.html">ggplot_pir</a></span><span class="op">(</span><span class="va">banco</span>, <span class="va">idade</span>, <span class="va">sexo</span>, populacao <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>    catsexo <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"masc"</span>, <span class="st">"fem"</span><span class="op">)</span>,</span>
-<span>    cores <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"steelblue"</span>, <span class="st">"hotpink"</span><span class="op">)</span>, nsize <span class="op">=</span> <span class="fl">3.5</span><span class="op">)</span></span></code></pre>
+<pre><code><span><span class="fu"><a href="../reference/plot_pir.html">plot_pir</a></span><span class="op">(</span><span class="va">pop</span>, tabela <span class="op">=</span> <span class="cn">FALSE</span>, ano <span class="op">=</span> <span class="cn">NULL</span>, local <span class="op">=</span> <span class="st">"população"</span>, title <span class="op">=</span> <span class="cn">NULL</span>, </span>
+<span>         npop <span class="op">=</span> <span class="cn">NULL</span>, fontsize <span class="op">=</span> <span class="fl">1.1</span>, axes <span class="op">=</span> <span class="cn">FALSE</span>, fonte <span class="op">=</span> <span class="cn">NULL</span>, x.lim <span class="op">=</span> <span class="cn">NULL</span>, </span>
+<span>         colmasc <span class="op">=</span> <span class="st">"mediumblue"</span>, colfem <span class="op">=</span> <span class="st">"red2"</span>, colfxetar <span class="op">=</span> <span class="st">"white"</span>, </span>
+<span>         border <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"fg"</span><span class="op">)</span>, inside <span class="op">=</span> <span class="cn">T</span>, drop.unused.levels <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></span></code></pre>
+<pre><code><span><span class="fu"><a href="../reference/ggplot_pir.html">ggplot_pir</a></span><span class="op">(</span><span class="va">banco</span>, <span class="va">idade</span>, <span class="va">sexo</span>, populacao <span class="op">=</span> <span class="cn">NULL</span>, catsexo <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"masc"</span>, <span class="st">"fem"</span><span class="op">)</span>,</span>
+<span>           cores <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"steelblue"</span>, <span class="st">"hotpink"</span><span class="op">)</span>, nsize <span class="op">=</span> <span class="fl">3.5</span><span class="op">)</span></span></code></pre>
 <p>As funções <code><a href="../reference/plot_pir.html">plot_pir()</a></code> e <code><a href="../reference/ggplot_pir.html">ggplot_pir()</a></code> de <code>Rcoisas</code> geram gráficos de pirâmide populacional. O pacote tem duas funções para um mesmo fim, em alguns aspectos bastante diferentes entre si, porque foram construídas de acordo com os dados disponíveis para tabulação. <code><a href="../reference/plot_pir.html">plot_pir()</a></code> foi criada para ler os arquivos de população do DATASUS e gerar um gráfico pronto para publicação, com facilidades para gerar o título e mínimas necessidades de editoração (e de possibilidades de ajuste).<a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;Foi usada para um &lt;a href="https://fulvionedel.shinyapps.io/teste-piramide/" class="external-link"&gt;aplicativo &lt;em&gt;shiny&lt;/em&gt;&lt;/a&gt;, com alguns anos de exemplo.&lt;/p&gt;'><sup>2</sup></a> A interrupção da publicação desses arquivos revelou a necessidade de uma função mais flexível na entrada de dados. <code><a href="../reference/ggplot_pir.html">ggplot_pir()</a></code> atende a essa necessidade; além disso, é construída com <code>ggplot2</code>, o que permite a reutilização do gráfico e o uso das demais funções do pacote, além de facilitar o salvamento da figura. Em compensação, exige sempre alguma editoração antes de publicar o gráfico.</p>
 </div>
 <div class="section level2">
