@@ -5,14 +5,14 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="Funções para criação de pirâmides populacionais, descrição e gráficos de variáveis, etc., com outputs em português.">
+<meta name="description" content="Funções em R para criação de pirâmides populacionais, descrição e gráficos de variáveis, etc., com outputs em português.">
 <title>Minhas Facilidades • Rcoisas</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js" integrity="sha512-7O5pXpc0oCRrxk8RUfDYFgn0nO1t+jLuIOQdOMRp4APB7uZ4vSjspzp5y6YDtDs4VzUSTbWzBFZ/LKJhnyFOKw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Minhas Facilidades">
-<meta property="og:description" content="Funções para criação de pirâmides populacionais, descrição e gráficos de variáveis, etc., com outputs em português.">
+<meta property="og:description" content="Funções em R para criação de pirâmides populacionais, descrição e gráficos de variáveis, etc., com outputs em português.">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -79,7 +79,7 @@
 </li>
 </ul>
 <!-- README.md is generated from README.Rmd. Please edit that file --><!-- badges: start --><!-- badges: end --><blockquote>
-<p><strong>Funções para aulas e apresentação de resultados em português.</strong></p>
+<p><strong>Funções em R para aulas e apresentação de resultados em português.</strong></p>
 </blockquote>
 <p>O pacote contém funções com <em>outputs</em> em português e bancos de dados úteis para a produção de gráficos e tabelas para aulas, como a descrição “completa” de uma variável numérica, uma tabela de frequências, a análise de uma tabela 2 x 2 ou a construção de indicadores de saúde, como a curva de Nelson de Moraes. <!-- Algumas funções são importadas do pacote [`csapAIH`](https://github.com/fulvionedel/csapAIH) (`fxetar_quinq`, `fxetar3g`, `ufbr`, `ler_popbr` e `popbr2000_2021`).  --> Veja a ajuda para a lista completa e detalhamento das funções e bancos de dados no pacote.</p>
 </div>
@@ -119,72 +119,72 @@
 <span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>Quantis<span class="sc">:</span></span>
 <span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a> <span class="fl">2.5</span><span class="sc">%    5%</span>   <span class="dv">25</span><span class="sc">%   50%</span>   <span class="dv">75</span><span class="sc">%   95%</span> <span class="fl">97.5</span>% </span>
 <span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="sc">-</span><span class="fl">2.13</span> <span class="sc">-</span><span class="fl">1.73</span> <span class="sc">-</span><span class="fl">0.70</span> <span class="sc">-</span><span class="fl">0.04</span>  <span class="fl">0.69</span>  <span class="fl">1.74</span>  <span class="fl">2.01</span> </span>
-<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a>          IIQ<span class="sc">:</span> <span class="fl">1.39</span> </span>
-<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a></span>
-<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a><span class="fu">descreve</span>(varnum, <span class="at">histograma =</span> <span class="cn">FALSE</span>, <span class="at">print =</span> <span class="st">"tabela"</span>)</span>
-<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a>            varnum</span>
-<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a>n          <span class="fl">1000.00</span></span>
-<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a>Válidos    <span class="fl">1000.00</span></span>
-<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a>Missings      <span class="fl">0.00</span></span>
-<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a>Menor        <span class="sc">-</span><span class="fl">3.01</span></span>
-<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a>Maior         <span class="fl">3.81</span></span>
-<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a>Amplitude     <span class="fl">6.82</span></span>
-<span id="cb5-20"><a href="#cb5-20" tabindex="-1"></a>Média        <span class="sc">-</span><span class="fl">0.01</span></span>
-<span id="cb5-21"><a href="#cb5-21" tabindex="-1"></a>Variância     <span class="fl">1.07</span></span>
-<span id="cb5-22"><a href="#cb5-22" tabindex="-1"></a>DP            <span class="fl">1.03</span></span>
-<span id="cb5-23"><a href="#cb5-23" tabindex="-1"></a><span class="fu">CV</span>(%)      <span class="fl">8884.81</span></span>
-<span id="cb5-24"><a href="#cb5-24" tabindex="-1"></a>Assimetria   <span class="sc">-</span><span class="fl">0.02</span></span>
-<span id="cb5-25"><a href="#cb5-25" tabindex="-1"></a>Curtose       <span class="fl">2.99</span></span>
-<span id="cb5-26"><a href="#cb5-26" tabindex="-1"></a>P2<span class="fl">.5</span>         <span class="sc">-</span><span class="fl">2.13</span></span>
-<span id="cb5-27"><a href="#cb5-27" tabindex="-1"></a>P5           <span class="sc">-</span><span class="fl">1.73</span></span>
-<span id="cb5-28"><a href="#cb5-28" tabindex="-1"></a>P25          <span class="sc">-</span><span class="fl">0.70</span></span>
-<span id="cb5-29"><a href="#cb5-29" tabindex="-1"></a>P50          <span class="sc">-</span><span class="fl">0.04</span></span>
-<span id="cb5-30"><a href="#cb5-30" tabindex="-1"></a>P75           <span class="fl">0.69</span></span>
-<span id="cb5-31"><a href="#cb5-31" tabindex="-1"></a>P95           <span class="fl">1.74</span></span>
-<span id="cb5-32"><a href="#cb5-32" tabindex="-1"></a>P97<span class="fl">.5</span>         <span class="fl">2.01</span></span>
-<span id="cb5-33"><a href="#cb5-33" tabindex="-1"></a>IIQ           <span class="fl">1.39</span></span></code></pre></div>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a>          IIQ<span class="sc">:</span> <span class="fl">1.39</span> </span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="fu">descreve</span>(varnum, <span class="at">histograma =</span> <span class="cn">FALSE</span>, <span class="at">print =</span> <span class="st">"tabela"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>            varnum</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>n          <span class="fl">1000.00</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>Válidos    <span class="fl">1000.00</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>Missings      <span class="fl">0.00</span></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>Menor        <span class="sc">-</span><span class="fl">3.01</span></span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>Maior         <span class="fl">3.81</span></span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>Amplitude     <span class="fl">6.82</span></span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>Média        <span class="sc">-</span><span class="fl">0.01</span></span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a>Variância     <span class="fl">1.07</span></span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a>DP            <span class="fl">1.03</span></span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a><span class="fu">CV</span>(%)      <span class="fl">8884.81</span></span>
+<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a>Assimetria   <span class="sc">-</span><span class="fl">0.02</span></span>
+<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a>Curtose       <span class="fl">2.99</span></span>
+<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a>P2<span class="fl">.5</span>         <span class="sc">-</span><span class="fl">2.13</span></span>
+<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a>P5           <span class="sc">-</span><span class="fl">1.73</span></span>
+<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a>P25          <span class="sc">-</span><span class="fl">0.70</span></span>
+<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a>P50          <span class="sc">-</span><span class="fl">0.04</span></span>
+<span id="cb6-20"><a href="#cb6-20" tabindex="-1"></a>P75           <span class="fl">0.69</span></span>
+<span id="cb6-21"><a href="#cb6-21" tabindex="-1"></a>P95           <span class="fl">1.74</span></span>
+<span id="cb6-22"><a href="#cb6-22" tabindex="-1"></a>P97<span class="fl">.5</span>         <span class="fl">2.01</span></span>
+<span id="cb6-23"><a href="#cb6-23" tabindex="-1"></a>IIQ           <span class="fl">1.39</span></span></code></pre></div>
 <p>O output pode ser guardado em um objeto e depois impresso como lista ou como tabela (de classe <code>data.frame</code>) e usado para captar em texto cada parâmetro isoladamente.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">descreve</span>(varnum, <span class="at">histograma =</span> <span class="cn">FALSE</span>, <span class="at">print =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>Rcoisas<span class="sc">:::</span><span class="fu">print.descreve</span>(x)</span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a> varnum <span class="sc">:</span>  <span class="dv">1000</span>  observações </span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>Válidos<span class="sc">:</span> <span class="dv">1000</span>    Missings<span class="sc">:</span> <span class="dv">0</span> </span>
-<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>Menor<span class="sc">:</span> <span class="sc">-</span><span class="fl">3.01</span>     Maior<span class="sc">:</span> <span class="fl">3.81</span>     Amplitude<span class="sc">:</span> <span class="fl">6.82</span></span>
-<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>Média<span class="sc">:</span> <span class="sc">-</span><span class="fl">0.01</span>     DP<span class="sc">:</span> <span class="fl">1.03</span>    <span class="fu">CV</span>(%)<span class="sc">:</span> <span class="fl">8884.81</span></span>
-<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>Assimetria<span class="sc">:</span> <span class="sc">-</span><span class="fl">0.02</span>    <span class="fu">Curtose</span>(real)<span class="sc">:</span> <span class="fl">2.99</span></span>
-<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>Quantis<span class="sc">:</span></span>
-<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a> <span class="fl">2.5</span><span class="sc">%    5%</span>   <span class="dv">25</span><span class="sc">%   50%</span>   <span class="dv">75</span><span class="sc">%   95%</span> <span class="fl">97.5</span>% </span>
-<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a><span class="sc">-</span><span class="fl">2.13</span> <span class="sc">-</span><span class="fl">1.73</span> <span class="sc">-</span><span class="fl">0.70</span> <span class="sc">-</span><span class="fl">0.04</span>  <span class="fl">0.69</span>  <span class="fl">1.74</span>  <span class="fl">2.01</span> </span>
-<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a>          IIQ<span class="sc">:</span> <span class="fl">1.39</span> </span>
-<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a></span>
-<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a>Rcoisas<span class="sc">:::</span><span class="fu">print.descreve</span>(x, <span class="at">print =</span> <span class="st">"tabela"</span>)</span>
-<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a>            varnum</span>
-<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a>n          <span class="fl">1000.00</span></span>
-<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a>Válidos    <span class="fl">1000.00</span></span>
-<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a>Missings      <span class="fl">0.00</span></span>
-<span id="cb6-20"><a href="#cb6-20" tabindex="-1"></a>Menor        <span class="sc">-</span><span class="fl">3.01</span></span>
-<span id="cb6-21"><a href="#cb6-21" tabindex="-1"></a>Maior         <span class="fl">3.81</span></span>
-<span id="cb6-22"><a href="#cb6-22" tabindex="-1"></a>Amplitude     <span class="fl">6.82</span></span>
-<span id="cb6-23"><a href="#cb6-23" tabindex="-1"></a>Média        <span class="sc">-</span><span class="fl">0.01</span></span>
-<span id="cb6-24"><a href="#cb6-24" tabindex="-1"></a>Variância     <span class="fl">1.07</span></span>
-<span id="cb6-25"><a href="#cb6-25" tabindex="-1"></a>DP            <span class="fl">1.03</span></span>
-<span id="cb6-26"><a href="#cb6-26" tabindex="-1"></a><span class="fu">CV</span>(%)      <span class="fl">8884.81</span></span>
-<span id="cb6-27"><a href="#cb6-27" tabindex="-1"></a>Assimetria   <span class="sc">-</span><span class="fl">0.02</span></span>
-<span id="cb6-28"><a href="#cb6-28" tabindex="-1"></a>Curtose       <span class="fl">2.99</span></span>
-<span id="cb6-29"><a href="#cb6-29" tabindex="-1"></a>P2<span class="fl">.5</span>         <span class="sc">-</span><span class="fl">2.13</span></span>
-<span id="cb6-30"><a href="#cb6-30" tabindex="-1"></a>P5           <span class="sc">-</span><span class="fl">1.73</span></span>
-<span id="cb6-31"><a href="#cb6-31" tabindex="-1"></a>P25          <span class="sc">-</span><span class="fl">0.70</span></span>
-<span id="cb6-32"><a href="#cb6-32" tabindex="-1"></a>P50          <span class="sc">-</span><span class="fl">0.04</span></span>
-<span id="cb6-33"><a href="#cb6-33" tabindex="-1"></a>P75           <span class="fl">0.69</span></span>
-<span id="cb6-34"><a href="#cb6-34" tabindex="-1"></a>P95           <span class="fl">1.74</span></span>
-<span id="cb6-35"><a href="#cb6-35" tabindex="-1"></a>P97<span class="fl">.5</span>         <span class="fl">2.01</span></span>
-<span id="cb6-36"><a href="#cb6-36" tabindex="-1"></a>IIQ           <span class="fl">1.39</span></span>
-<span id="cb6-37"><a href="#cb6-37" tabindex="-1"></a></span>
-<span id="cb6-38"><a href="#cb6-38" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">"Média de"</span>, x<span class="sc">$</span>media, <span class="st">"e desvio-padrão de"</span>, x<span class="sc">$</span>dp, <span class="st">"unidades, configurando um coeficiente de variação de"</span>, x<span class="sc">$</span>cv, <span class="st">"%."</span>)</span>
-<span id="cb6-39"><a href="#cb6-39" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"Média de -0.01 e desvio-padrão de 1.03 unidades, configurando um coeficiente de variação de 8884.81 %."</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">descreve</span>(varnum, <span class="at">histograma =</span> <span class="cn">FALSE</span>, <span class="at">print =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>Rcoisas<span class="sc">:::</span><span class="fu">print.descreve</span>(x)</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a> varnum <span class="sc">:</span>  <span class="dv">1000</span>  observações </span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>Válidos<span class="sc">:</span> <span class="dv">1000</span>    Missings<span class="sc">:</span> <span class="dv">0</span> </span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>Menor<span class="sc">:</span> <span class="sc">-</span><span class="fl">3.01</span>     Maior<span class="sc">:</span> <span class="fl">3.81</span>     Amplitude<span class="sc">:</span> <span class="fl">6.82</span></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>Média<span class="sc">:</span> <span class="sc">-</span><span class="fl">0.01</span>     DP<span class="sc">:</span> <span class="fl">1.03</span>    <span class="fu">CV</span>(%)<span class="sc">:</span> <span class="fl">8884.81</span></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a>Assimetria<span class="sc">:</span> <span class="sc">-</span><span class="fl">0.02</span>    <span class="fu">Curtose</span>(real)<span class="sc">:</span> <span class="fl">2.99</span></span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a>Quantis<span class="sc">:</span></span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a> <span class="fl">2.5</span><span class="sc">%    5%</span>   <span class="dv">25</span><span class="sc">%   50%</span>   <span class="dv">75</span><span class="sc">%   95%</span> <span class="fl">97.5</span>% </span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a><span class="sc">-</span><span class="fl">2.13</span> <span class="sc">-</span><span class="fl">1.73</span> <span class="sc">-</span><span class="fl">0.70</span> <span class="sc">-</span><span class="fl">0.04</span>  <span class="fl">0.69</span>  <span class="fl">1.74</span>  <span class="fl">2.01</span> </span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a>          IIQ<span class="sc">:</span> <span class="fl">1.39</span> </span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>Rcoisas<span class="sc">:::</span><span class="fu">print.descreve</span>(x, <span class="at">print =</span> <span class="st">"tabela"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>            varnum</span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>n          <span class="fl">1000.00</span></span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>Válidos    <span class="fl">1000.00</span></span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>Missings      <span class="fl">0.00</span></span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>Menor        <span class="sc">-</span><span class="fl">3.01</span></span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a>Maior         <span class="fl">3.81</span></span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a>Amplitude     <span class="fl">6.82</span></span>
+<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a>Média        <span class="sc">-</span><span class="fl">0.01</span></span>
+<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a>Variância     <span class="fl">1.07</span></span>
+<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a>DP            <span class="fl">1.03</span></span>
+<span id="cb8-13"><a href="#cb8-13" tabindex="-1"></a><span class="fu">CV</span>(%)      <span class="fl">8884.81</span></span>
+<span id="cb8-14"><a href="#cb8-14" tabindex="-1"></a>Assimetria   <span class="sc">-</span><span class="fl">0.02</span></span>
+<span id="cb8-15"><a href="#cb8-15" tabindex="-1"></a>Curtose       <span class="fl">2.99</span></span>
+<span id="cb8-16"><a href="#cb8-16" tabindex="-1"></a>P2<span class="fl">.5</span>         <span class="sc">-</span><span class="fl">2.13</span></span>
+<span id="cb8-17"><a href="#cb8-17" tabindex="-1"></a>P5           <span class="sc">-</span><span class="fl">1.73</span></span>
+<span id="cb8-18"><a href="#cb8-18" tabindex="-1"></a>P25          <span class="sc">-</span><span class="fl">0.70</span></span>
+<span id="cb8-19"><a href="#cb8-19" tabindex="-1"></a>P50          <span class="sc">-</span><span class="fl">0.04</span></span>
+<span id="cb8-20"><a href="#cb8-20" tabindex="-1"></a>P75           <span class="fl">0.69</span></span>
+<span id="cb8-21"><a href="#cb8-21" tabindex="-1"></a>P95           <span class="fl">1.74</span></span>
+<span id="cb8-22"><a href="#cb8-22" tabindex="-1"></a>P97<span class="fl">.5</span>         <span class="fl">2.01</span></span>
+<span id="cb8-23"><a href="#cb8-23" tabindex="-1"></a>IIQ           <span class="fl">1.39</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">"Média de"</span>, x<span class="sc">$</span>media, <span class="st">"e desvio-padrão de"</span>, x<span class="sc">$</span>dp, <span class="st">"unidades, configurando um coeficiente de variação de"</span>, x<span class="sc">$</span>cv, <span class="st">"%."</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"Média de -0.01 e desvio-padrão de 1.03 unidades, configurando um coeficiente de variação de 8884.81 %."</span></span></code></pre></div>
 <p>O objeto pode ser modificado para sua impressão. O exemplo a seguir usa outra função do pacote, <code><a href="reference/formatL.html">formatL()</a></code>, para apresentar os valores em formato latino.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">Rcoisas</span><span class="fu">:::</span><span class="fu"><a href="reference/print.descreve.html">print.descreve</a></span><span class="op">(</span><span class="va">x</span>, print <span class="op">=</span> <span class="st">"tabela"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span>rownames <span class="op">=</span> <span class="st">"parametro"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>varnum <span class="op">=</span> <span class="fu"><a href="reference/formatL.html">formatL</a></span><span class="op">(</span><span class="va">varnum</span>, format <span class="op">=</span> <span class="st">"fg"</span>, digits <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -278,7 +278,7 @@
 </tbody>
 </table>
 <p>O formato em tabela é pensado para uma análise estratificada por categorias de um fator. Um argumento <code>by</code> está em desenvolvimento e ainda não funciona adequadamente. 😕 A alternativa é juntar “manualmente” a descrição de cada estrato:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span></span>
 <span>  <span class="fu"><a href="reference/descreve.html">descreve</a></span><span class="op">(</span><span class="va">idade</span>, data <span class="op">=</span> <span class="va">obitosRS2019</span><span class="op">[</span><span class="va">obitosRS2019</span><span class="op">$</span><span class="va">sexo</span> <span class="op">==</span> <span class="st">"masc"</span>, <span class="op">]</span>, main <span class="op">=</span> <span class="st">"masc"</span>, legenda <span class="op">=</span> <span class="cn">FALSE</span>, print <span class="op">=</span> <span class="st">'tabela'</span><span class="op">)</span>,</span>
@@ -301,26 +301,26 @@
 <tbody>
 <tr class="odd">
 <td align="left">n</td>
-<td align="right">5.355</td>
-<td align="right">4.646</td>
+<td align="right">5.228</td>
+<td align="right">4.774</td>
 <td align="right">10.000</td>
 </tr>
 <tr class="even">
 <td align="left">Válidos</td>
-<td align="right">5.348</td>
-<td align="right">4.645</td>
+<td align="right">5.220</td>
+<td align="right">4.772</td>
 <td align="right">9.993</td>
 </tr>
 <tr class="odd">
 <td align="left">Missings</td>
-<td align="right">7</td>
-<td align="right">1</td>
+<td align="right">8</td>
+<td align="right">2</td>
 <td align="right">7</td>
 </tr>
 <tr class="even">
 <td align="left">% missings</td>
-<td align="right">0,13</td>
-<td align="right">0,02</td>
+<td align="right">0,15</td>
+<td align="right">0,04</td>
 <td align="right">0,07</td>
 </tr>
 <tr class="odd">
@@ -332,73 +332,73 @@
 <tr class="even">
 <td align="left">Maior</td>
 <td align="right">103</td>
-<td align="right">108</td>
-<td align="right">108</td>
+<td align="right">112</td>
+<td align="right">112</td>
 </tr>
 <tr class="odd">
 <td align="left">Amplitude</td>
 <td align="right">103</td>
-<td align="right">108</td>
-<td align="right">108</td>
+<td align="right">112</td>
+<td align="right">112</td>
 </tr>
 <tr class="even">
 <td align="left">Média</td>
-<td align="right">65,41</td>
-<td align="right">71,94</td>
-<td align="right">68,44</td>
+<td align="right">65,25</td>
+<td align="right">72,65</td>
+<td align="right">68,78</td>
 </tr>
 <tr class="odd">
 <td align="left">Variância</td>
-<td align="right">382,5</td>
-<td align="right">382,9</td>
-<td align="right">393,3</td>
+<td align="right">388,3</td>
+<td align="right">355,3</td>
+<td align="right">386,6</td>
 </tr>
 <tr class="even">
 <td align="left">DP</td>
-<td align="right">19,56</td>
-<td align="right">19,57</td>
-<td align="right">19,83</td>
+<td align="right">19,71</td>
+<td align="right">18,85</td>
+<td align="right">19,66</td>
 </tr>
 <tr class="odd">
 <td align="left">CV(%)</td>
-<td align="right">29,9</td>
-<td align="right">27,2</td>
-<td align="right">28,98</td>
+<td align="right">30,2</td>
+<td align="right">25,95</td>
+<td align="right">28,59</td>
 </tr>
 <tr class="even">
 <td align="left">Assimetria</td>
-<td align="right">-1,11</td>
-<td align="right">-1,47</td>
-<td align="right">-1,23</td>
+<td align="right">-1,17</td>
+<td align="right">-1,49</td>
+<td align="right">-1,27</td>
 </tr>
 <tr class="odd">
 <td align="left">Curtose</td>
-<td align="right">4,24</td>
-<td align="right">5,73</td>
-<td align="right">4,71</td>
+<td align="right">4,46</td>
+<td align="right">5,93</td>
+<td align="right">4,91</td>
 </tr>
 <tr class="even">
 <td align="left">P2.5</td>
+<td align="right">13,47</td>
+<td align="right">21</td>
 <td align="right">17</td>
-<td align="right">15</td>
-<td align="right">16,8</td>
 </tr>
 <tr class="odd">
 <td align="left">P5</td>
-<td align="right">24</td>
-<td align="right">35</td>
-<td align="right">27</td>
+<td align="right">23</td>
+<td align="right">37</td>
+<td align="right">29</td>
 </tr>
 <tr class="even">
 <td align="left">P25</td>
 <td align="right">57</td>
-<td align="right">63</td>
-<td align="right">59</td>
+<td align="right">64</td>
+<td align="right">60</td>
 </tr>
 <tr class="odd">
 <td align="left">P50</td>
 <td align="right">69</td>
-<td align="right">76</td>
+<td align="right">77</td>
 <td align="right">72</td>
 </tr>
 <tr class="even">
@@ -411,24 +411,24 @@
 <td align="left">P95</td>
 <td align="right">90</td>
 <td align="right">94</td>
-<td align="right">93</td>
+<td align="right">92</td>
 </tr>
 <tr class="even">
 <td align="left">P97.5</td>
-<td align="right">93</td>
-<td align="right">97</td>
+<td align="right">92</td>
+<td align="right">96,72</td>
 <td align="right">95</td>
 </tr>
 <tr class="odd">
 <td align="left">IIQ</td>
 <td align="right">22</td>
+<td align="right">22</td>
 <td align="right">23</td>
-<td align="right">24</td>
 </tr>
 </tbody>
 </table>
 <p><strong>A função <code>histobox</code></strong> desenha um histograma com um diagrama de caixas (“<em>box-plot</em>”) horizontal acima do gráfico.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/histobox.html">histobox</a></span><span class="op">(</span><span class="va">varnum</span>, col.h <span class="op">=</span> <span class="st">"tomato"</span>, col.bx <span class="op">=</span> <span class="st">"yellow"</span>, xlab <span class="op">=</span> <span class="st">"Medida"</span>, ylab <span class="op">=</span> <span class="st">"Frequência"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-8-1.png" width="48%" style="display: block; margin: auto;"></p>
 </div>
@@ -436,18 +436,18 @@
 <h3 id="variáveis-categóricas">Variáveis categóricas<a class="anchor" aria-label="anchor" href="#vari%C3%A1veis-categ%C3%B3ricas"></a>
 </h3>
 <p><strong>As funções <code>tabuleiro</code> e <code>tabuleiro2</code></strong> apresentam uma tabela univariada com frequências absolutas e relativas (%) simples e acumuladas.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">tabuleiro</span>(x, <span class="at">digits =</span> <span class="dv">1</span>, <span class="at">total =</span> <span class="cn">TRUE</span>, <span class="at">cum =</span> <span class="cn">TRUE</span>, <span class="at">format =</span> <span class="st">"en"</span>, <span class="at">data =</span> <span class="cn">NULL</span>, ...)</span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="fu">tabuleiro2</span>(varcat, <span class="at">digits =</span> <span class="dv">1</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">tabuleiro</span>(RACACOR, <span class="at">data =</span> obitosRS2019)</span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>         Freq     <span class="sc">% Freq.acum %</span>acum</span>
-<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>Amarela    <span class="dv">15</span>   <span class="fl">0.2</span>        <span class="dv">15</span>   <span class="fl">0.2</span></span>
-<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>Branca   <span class="dv">8517</span>  <span class="fl">88.0</span>      <span class="dv">8532</span>  <span class="fl">88.2</span></span>
-<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a>Indígena   <span class="dv">17</span>   <span class="fl">0.2</span>      <span class="dv">8549</span>  <span class="fl">88.4</span></span>
-<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a>Parda     <span class="dv">570</span>   <span class="fl">5.9</span>      <span class="dv">9119</span>  <span class="fl">94.3</span></span>
-<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a>Preta     <span class="dv">554</span>   <span class="fl">5.7</span>      <span class="dv">9673</span> <span class="fl">100.0</span></span>
-<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a>Total    <span class="dv">9673</span> <span class="fl">100.0</span>      <span class="dv">9673</span> <span class="fl">100.0</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">tabuleiro</span>(x, <span class="at">digits =</span> <span class="dv">1</span>, <span class="at">total =</span> <span class="cn">TRUE</span>, <span class="at">cum =</span> <span class="cn">TRUE</span>, <span class="at">format =</span> <span class="st">"en"</span>, <span class="at">data =</span> <span class="cn">NULL</span>, ...)</span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="fu">tabuleiro2</span>(varcat, <span class="at">digits =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="fu">tabuleiro</span>(RACACOR, <span class="at">data =</span> obitosRS2019)</span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>      Freq     <span class="sc">% Freq.acum %</span>acum</span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a><span class="dv">1</span>     <span class="dv">8514</span>  <span class="fl">88.3</span>      <span class="dv">8514</span>  <span class="fl">88.3</span></span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a><span class="dv">2</span>      <span class="dv">567</span>   <span class="fl">5.9</span>      <span class="dv">9081</span>  <span class="fl">94.2</span></span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a><span class="dv">3</span>       <span class="dv">10</span>   <span class="fl">0.1</span>      <span class="dv">9091</span>  <span class="fl">94.3</span></span>
+<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a><span class="dv">4</span>      <span class="dv">534</span>   <span class="fl">5.5</span>      <span class="dv">9625</span>  <span class="fl">99.8</span></span>
+<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a><span class="dv">5</span>       <span class="dv">17</span>   <span class="fl">0.2</span>      <span class="dv">9642</span> <span class="fl">100.0</span></span>
+<span id="cb14-8"><a href="#cb14-8" tabindex="-1"></a>Total <span class="dv">9642</span> <span class="fl">100.0</span>      <span class="dv">9642</span> <span class="fl">100.0</span></span></code></pre></div>
 <p>Uma tabela para apresentação pode ser feita com a função <code>kable{knitr}</code>. Esta função tem argumentos para apresentar resultados em formato latino, mas o trabalho pode ser abreviado com a função <code>formatL{Rcoisas}</code> – enquanto o argumento <code>format</code> não é implementado. Além disso, a frequência acumulada aqui não faz muito sentido.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tab1</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/tabuleiro.html">tabuleiro</a></span><span class="op">(</span><span class="va">RACACOR</span>, data <span class="op">=</span> <span class="va">obitosRS2019</span>, cum <span class="op">=</span> <span class="cn">FALSE</span>, digits <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">tab1</span> <span class="op">|&gt;</span> <span class="fu"><a href="reference/formatL.html">formatL</a></span><span class="op">(</span>format <span class="op">=</span> <span class="st">"fg"</span><span class="op">)</span>, align <span class="op">=</span> <span class="st">'r'</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
@@ -458,29 +458,29 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">Amarela</td>
-<td align="right">15</td>
-<td align="right">0,2</td>
-</tr>
-<tr class="even">
-<td align="left">Branca</td>
-<td align="right">8.517</td>
+<td align="left">1</td>
+<td align="right">8.514</td>
 <td align="right">88</td>
 </tr>
+<tr class="even">
+<td align="left">2</td>
+<td align="right">567</td>
+<td align="right">6</td>
+</tr>
 <tr class="odd">
-<td align="left">Indígena</td>
-<td align="right">17</td>
-<td align="right">0,2</td>
+<td align="left">3</td>
+<td align="right">10</td>
+<td align="right">0,1</td>
 </tr>
 <tr class="even">
-<td align="left">Parda</td>
-<td align="right">570</td>
+<td align="left">4</td>
+<td align="right">534</td>
 <td align="right">6</td>
 </tr>
 <tr class="odd">
-<td align="left">Preta</td>
-<td align="right">554</td>
-<td align="right">6</td>
+<td align="left">5</td>
+<td align="right">17</td>
+<td align="right">0,2</td>
 </tr>
 <tr class="even">
 <td align="left">Total</td>
@@ -490,18 +490,18 @@
 </tbody>
 </table>
 <p>A função foi criada para oferecer axs estudantes um modo fácil de criar no R uma tabela com essas características e valores em formato latino. Na sua primeira versão os valores eram pré-formatados, oferecendo a seguinte tabela:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>(tab2 <span class="ot">&lt;-</span> <span class="fu">tabuleiro2</span>(obitosRS2019<span class="sc">$</span>RACACOR))</span>
-<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>              Freq     <span class="sc">%(+NA) %</span> válido % acum</span>
-<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a>Amarela       <span class="st">"    15"</span> <span class="st">"0,1"</span>  <span class="st">"0,2"</span>    <span class="st">"0,2"</span> </span>
-<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a>Branca        <span class="st">" 8.517"</span> <span class="st">"85,2"</span> <span class="st">"88,0"</span>   <span class="st">"88,2"</span></span>
-<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a>Indígena      <span class="st">"    17"</span> <span class="st">"0,2"</span>  <span class="st">"0,2"</span>    <span class="st">"88,4"</span></span>
-<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a>Parda         <span class="st">"   570"</span> <span class="st">"5,7"</span>  <span class="st">"5,9"</span>    <span class="st">"94,3"</span></span>
-<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a>Preta         <span class="st">"   554"</span> <span class="st">"5,5"</span>  <span class="st">"5,7"</span>    <span class="st">"100"</span> </span>
-<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a>Total válidos <span class="st">" 9.673"</span> <span class="st">"96,7"</span> <span class="st">"100"</span>    <span class="st">"˗"</span>   </span>
-<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a>Missing       <span class="st">"   327"</span> <span class="st">"3,3"</span>  <span class="st">"˗"</span>      <span class="st">"˗"</span>   </span>
-<span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a>Total         <span class="st">"10.000"</span> <span class="st">"100"</span>  <span class="st">"˗"</span>      <span class="st">"˗"</span>   </span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a>(tab2 <span class="ot">&lt;-</span> <span class="fu">tabuleiro2</span>(obitosRS2019<span class="sc">$</span>RACACOR))</span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a>              Freq     <span class="sc">%(+NA) %</span> válido % acum</span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a><span class="dv">1</span>             <span class="st">" 8.514"</span> <span class="st">"85,1"</span> <span class="st">"88,3"</span>   <span class="st">"88,3"</span></span>
+<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a><span class="dv">2</span>             <span class="st">"   567"</span> <span class="st">"5,7"</span>  <span class="st">"5,9"</span>    <span class="st">"94,2"</span></span>
+<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a><span class="dv">3</span>             <span class="st">"    10"</span> <span class="st">"0,1"</span>  <span class="st">"0,1"</span>    <span class="st">"94,3"</span></span>
+<span id="cb16-6"><a href="#cb16-6" tabindex="-1"></a><span class="dv">4</span>             <span class="st">"   534"</span> <span class="st">"5,3"</span>  <span class="st">"5,5"</span>    <span class="st">"99,8"</span></span>
+<span id="cb16-7"><a href="#cb16-7" tabindex="-1"></a><span class="dv">5</span>             <span class="st">"    17"</span> <span class="st">"0,2"</span>  <span class="st">"0,2"</span>    <span class="st">"100"</span> </span>
+<span id="cb16-8"><a href="#cb16-8" tabindex="-1"></a>Total válidos <span class="st">" 9.642"</span> <span class="st">"96,4"</span> <span class="st">"100"</span>    <span class="st">"˗"</span>   </span>
+<span id="cb16-9"><a href="#cb16-9" tabindex="-1"></a>Missing       <span class="st">"   358"</span> <span class="st">"3,6"</span>  <span class="st">"˗"</span>      <span class="st">"˗"</span>   </span>
+<span id="cb16-10"><a href="#cb16-10" tabindex="-1"></a>Total         <span class="st">"10.000"</span> <span class="st">"100"</span>  <span class="st">"˗"</span>      <span class="st">"˗"</span>   </span></code></pre></div>
 <p>que facilmente pode ser formatada com <code>kable</code>.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">tab2</span>, align <span class="op">=</span> <span class="st">'r'</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <thead><tr class="header">
@@ -513,51 +513,51 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">Amarela</td>
-<td align="right">15</td>
-<td align="right">0,1</td>
-<td align="right">0,2</td>
-<td align="right">0,2</td>
+<td align="left">1</td>
+<td align="right">8.514</td>
+<td align="right">85,1</td>
+<td align="right">88,3</td>
+<td align="right">88,3</td>
 </tr>
 <tr class="even">
-<td align="left">Branca</td>
-<td align="right">8.517</td>
-<td align="right">85,2</td>
-<td align="right">88,0</td>
-<td align="right">88,2</td>
+<td align="left">2</td>
+<td align="right">567</td>
+<td align="right">5,7</td>
+<td align="right">5,9</td>
+<td align="right">94,2</td>
 </tr>
 <tr class="odd">
-<td align="left">Indígena</td>
+<td align="left">3</td>
+<td align="right">10</td>
+<td align="right">0,1</td>
+<td align="right">0,1</td>
+<td align="right">94,3</td>
+</tr>
+<tr class="even">
+<td align="left">4</td>
+<td align="right">534</td>
+<td align="right">5,3</td>
+<td align="right">5,5</td>
+<td align="right">99,8</td>
+</tr>
+<tr class="odd">
+<td align="left">5</td>
 <td align="right">17</td>
 <td align="right">0,2</td>
 <td align="right">0,2</td>
-<td align="right">88,4</td>
-</tr>
-<tr class="even">
-<td align="left">Parda</td>
-<td align="right">570</td>
-<td align="right">5,7</td>
-<td align="right">5,9</td>
-<td align="right">94,3</td>
-</tr>
-<tr class="odd">
-<td align="left">Preta</td>
-<td align="right">554</td>
-<td align="right">5,5</td>
-<td align="right">5,7</td>
 <td align="right">100</td>
 </tr>
 <tr class="even">
 <td align="left">Total válidos</td>
-<td align="right">9.673</td>
-<td align="right">96,7</td>
+<td align="right">9.642</td>
+<td align="right">96,4</td>
 <td align="right">100</td>
 <td align="right">˗</td>
 </tr>
 <tr class="odd">
 <td align="left">Missing</td>
-<td align="right">327</td>
-<td align="right">3,3</td>
+<td align="right">358</td>
+<td align="right">3,6</td>
 <td align="right">˗</td>
 <td align="right">˗</td>
 </tr>
@@ -576,16 +576,16 @@
 <div class="section level2">
 <h2 id="curva-de-nelson-de-moraes">Curva de Nelson de Moraes<a class="anchor" aria-label="anchor" href="#curva-de-nelson-de-moraes"></a>
 </h2>
-<div class="sourceCode" id="cb15"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="fu">fxetarNM</span>(<span class="at">idade =</span> <span class="cn">NULL</span>, <span class="at">fxetardet =</span> <span class="cn">NULL</span>, <span class="at">grafico =</span> <span class="cn">FALSE</span>, ...)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="fu">fxetarNM</span>(<span class="at">idade =</span> <span class="cn">NULL</span>, <span class="at">fxetardet =</span> <span class="cn">NULL</span>, <span class="at">grafico =</span> <span class="cn">FALSE</span>, ...)</span></code></pre></div>
 <p><strong>A função <code>fxetarNM</code></strong> agrega um vetor com a idade ou com a “faixa etária detalhada” (classificação do DATASUS) segundo as categorias da Curva de Nelson de Moraes (&lt; 1, 1-4, 5-19, 20-49, 50 e +). O argumento <code>grafico = TRUE</code> desenha o gráfico da curva.</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/fxetarNM.html">fxetarNM</a></span><span class="op">(</span><span class="va">obitosRS2019</span><span class="op">$</span><span class="va">idade</span>, grafico <span class="op">=</span> <span class="cn">TRUE</span>, </span>
 <span>         col.sub <span class="op">=</span> <span class="fl">2</span>, font.sub <span class="op">=</span> <span class="fl">3</span>, cex.sub <span class="op">=</span> <span class="fl">.8</span>, </span>
 <span>         main <span class="op">=</span> <span class="st">"Curva de Nelson de Moraes. RS, 2019."</span>, </span>
 <span>         sub <span class="op">=</span> <span class="st">"\nAmostra aleatória de 10.000 óbitos."</span><span class="op">)</span> </span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-15-1.png" width="48%" style="display: block; margin: auto;"></p>
 <p>Neste caso interessam as frequências acumuladas:</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">obitosRS2019</span><span class="op">$</span><span class="va">idade</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="reference/fxetarNM.html">fxetarNM</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="reference/tabuleiro.html">tabuleiro</a></span><span class="op">(</span>total <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -602,170 +602,170 @@
 <tbody>
 <tr class="odd">
 <td align="left">&lt; 1</td>
-<td align="right">156</td>
-<td align="right">1,6</td>
-<td align="right">156</td>
-<td align="right">1,6</td>
+<td align="right">168</td>
+<td align="right">1,7</td>
+<td align="right">168</td>
+<td align="right">1,7</td>
 </tr>
 <tr class="even">
 <td align="left">1-4</td>
-<td align="right">29</td>
+<td align="right">25</td>
 <td align="right">0,3</td>
-<td align="right">185</td>
+<td align="right">193</td>
 <td align="right">1,9</td>
 </tr>
 <tr class="odd">
 <td align="left">5-19</td>
-<td align="right">130</td>
-<td align="right">1,3</td>
-<td align="right">315</td>
-<td align="right">3,2</td>
+<td align="right">114</td>
+<td align="right">1,1</td>
+<td align="right">307</td>
+<td align="right">3,1</td>
 </tr>
 <tr class="even">
 <td align="left">20-49</td>
-<td align="right">1.090</td>
-<td align="right">11</td>
-<td align="right">1.405</td>
-<td align="right">14</td>
+<td align="right">1.021</td>
+<td align="right">10</td>
+<td align="right">1.328</td>
+<td align="right">13</td>
 </tr>
 <tr class="odd">
 <td align="left">50 e +</td>
-<td align="right">8.588</td>
-<td align="right">86</td>
+<td align="right">8.665</td>
+<td align="right">87</td>
 <td align="right">10.000</td>
 <td align="right">100</td>
 </tr>
 </tbody>
 </table>
+<p>Veja detalhes sobre a função em <a href="https://fulvionedel.github.io/Rcoisas/articles/fxetarnm.html" class="uri">https://fulvionedel.github.io/Rcoisas/articles/fxetarnm.html</a></p>
 </div>
 <div class="section level2">
 <h2 id="tabelas-2-x-2">Tabelas 2 x 2<a class="anchor" aria-label="anchor" href="#tabelas-2-x-2"></a>
 </h2>
 <p><strong>A função <code>bolero</code></strong> analisa a tabela de contingências de duas variáveis dicotômicas. O exemplo a seguir usa um banco de dados do pacote Rcoisas, com uma amostra aleatória de dez mil registros de óbitos do RS para comparar a probabilidade de um diagnóstico de causa cardiovascular e de causa externa segundo o sexo, entre os óbitos. As causas são classificadas com a função <code>cid10cap()</code>, do pacote <a href="https://github.com/fulvionedel/csapAIH" class="external-link"><code>csapAIH</code></a>.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a>obitos <span class="ot">&lt;-</span> obitosRS2019[<span class="fu">c</span>(<span class="st">"sexo"</span>, <span class="st">"idade"</span>, <span class="st">"RACACOR"</span>, <span class="st">"CAUSABAS"</span>)]</span>
-<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a>cardio <span class="ot">&lt;-</span> <span class="fu">grepl</span>(<span class="st">"circulatório"</span>, csapAIH<span class="sc">::</span><span class="fu">cid10cap</span>(obitos<span class="sc">$</span>CAUSABAS)) <span class="sc">|&gt;</span></span>
-<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a>  <span class="fu">factor</span>(<span class="at">levels =</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"sim"</span>, <span class="st">"não"</span>))</span>
-<span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a>externas <span class="ot">&lt;-</span> <span class="fu">grepl</span>(<span class="st">"externas"</span>, csapAIH<span class="sc">::</span><span class="fu">cid10cap</span>(obitos<span class="sc">$</span>CAUSABAS)) <span class="sc">|&gt;</span></span>
-<span id="cb18-5"><a href="#cb18-5" tabindex="-1"></a>  <span class="fu">factor</span>(<span class="at">levels =</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"sim"</span>, <span class="st">"não"</span>))</span>
-<span id="cb18-6"><a href="#cb18-6" tabindex="-1"></a></span>
-<span id="cb18-7"><a href="#cb18-7" tabindex="-1"></a>tabolero <span class="ot">&lt;-</span> <span class="fu">bolero</span>(obitos<span class="sc">$</span>sexo, cardio)</span>
-<span id="cb18-8"><a href="#cb18-8" tabindex="-1"></a><span class="sc">==</span><span class="er">=============================================================</span></span>
-<span id="cb18-9"><a href="#cb18-9" tabindex="-1"></a>                  Tabela <span class="dv">2</span> por <span class="dv">2</span> </span>
-<span id="cb18-10"><a href="#cb18-10" tabindex="-1"></a>        <span class="fu">bolero</span>(independente, dependente, <span class="at">dec=</span><span class="dv">2</span>, dnn) </span>
-<span id="cb18-11"><a href="#cb18-11" tabindex="-1"></a><span class="sc">---------------------------------------------------------------</span> </span>
-<span id="cb18-12"><a href="#cb18-12" tabindex="-1"></a>Var. dependente <span class="sc">:</span> cardio <span class="ot">=</span> sim </span>
-<span id="cb18-13"><a href="#cb18-13" tabindex="-1"></a>Var. independente<span class="sc">:</span> obitos.sexo <span class="ot">=</span> fem </span>
-<span id="cb18-14"><a href="#cb18-14" tabindex="-1"></a>Missings<span class="sc">:</span> <span class="dv">1</span> (<span class="dv">0</span>,<span class="dv">0</span>%)</span>
-<span id="cb18-15"><a href="#cb18-15" tabindex="-1"></a></span>
-<span id="cb18-16"><a href="#cb18-16" tabindex="-1"></a>           cardio</span>
-<span id="cb18-17"><a href="#cb18-17" tabindex="-1"></a>obitos<span class="sc">$</span>sexo  sim  não  Sum</span>
-<span id="cb18-18"><a href="#cb18-18" tabindex="-1"></a>       fem  <span class="dv">1197</span> <span class="dv">3448</span> <span class="dv">4645</span></span>
-<span id="cb18-19"><a href="#cb18-19" tabindex="-1"></a>       masc <span class="dv">1259</span> <span class="dv">4095</span> <span class="dv">5354</span></span>
-<span id="cb18-20"><a href="#cb18-20" tabindex="-1"></a>       Sum  <span class="dv">2456</span> <span class="dv">7543</span> <span class="dv">9999</span></span>
-<span id="cb18-21"><a href="#cb18-21" tabindex="-1"></a></span>
-<span id="cb18-22"><a href="#cb18-22" tabindex="-1"></a>Proporções (%)</span>
-<span id="cb18-23"><a href="#cb18-23" tabindex="-1"></a>           cardio</span>
-<span id="cb18-24"><a href="#cb18-24" tabindex="-1"></a>obitos<span class="sc">$</span>sexo  sim  não</span>
-<span id="cb18-25"><a href="#cb18-25" tabindex="-1"></a>       fem  <span class="fl">25.8</span> <span class="fl">74.2</span></span>
-<span id="cb18-26"><a href="#cb18-26" tabindex="-1"></a>       masc <span class="fl">23.5</span> <span class="fl">76.5</span></span>
-<span id="cb18-27"><a href="#cb18-27" tabindex="-1"></a></span>
-<span id="cb18-28"><a href="#cb18-28" tabindex="-1"></a>Razão de Probabilidades<span class="sc">:</span> <span class="fl">1.10</span> ; IC95% (assintótico)<span class="sc">:</span> <span class="fl">1.02</span> <span class="fl">1.17</span> </span>
-<span id="cb18-29"><a href="#cb18-29" tabindex="-1"></a>                                 IC95% (exato)      <span class="sc">:</span> <span class="fl">1.02</span> <span class="fl">1.17</span></span>
-<span id="cb18-30"><a href="#cb18-30" tabindex="-1"></a>Razão de Odds          <span class="sc">:</span> <span class="fl">1.13</span> ; IC95% (exato)      <span class="sc">:</span> <span class="fl">1.03</span> <span class="fl">1.24</span></span>
-<span id="cb18-31"><a href="#cb18-31" tabindex="-1"></a>Valor<span class="sc">-</span>p<span class="sc">:</span> Pearson, Yates<span class="sc">:</span> <span class="fl">0.01</span> ; Fisher<span class="sc">:</span> <span class="fl">0.009</span> </span>
-<span id="cb18-32"><a href="#cb18-32" tabindex="-1"></a><span class="sc">==</span><span class="er">=============================================================</span></span></code></pre></div>
-<p>Para mudar a categoria de referência mudam-se antes os níveis da variável. Os rótulos dos nomes das variáveis podem ser modificados com o argumento <code>dnn</code>.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="fu">bolero</span>(<span class="fu">factor</span>(obitos<span class="sc">$</span>sexo, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"masc"</span>, <span class="st">"fem"</span>)), externas, </span>
-<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a>       <span class="at">dnn =</span> <span class="fu">c</span>(<span class="st">"sexo"</span>, <span class="st">"causas externas"</span>))</span>
-<span id="cb19-3"><a href="#cb19-3" tabindex="-1"></a><span class="sc">==</span><span class="er">=============================================================</span></span>
-<span id="cb19-4"><a href="#cb19-4" tabindex="-1"></a>                  Tabela <span class="dv">2</span> por <span class="dv">2</span> </span>
-<span id="cb19-5"><a href="#cb19-5" tabindex="-1"></a>        <span class="fu">bolero</span>(independente, dependente, <span class="at">dec=</span><span class="dv">2</span>, dnn) </span>
-<span id="cb19-6"><a href="#cb19-6" tabindex="-1"></a><span class="sc">---------------------------------------------------------------</span> </span>
-<span id="cb19-7"><a href="#cb19-7" tabindex="-1"></a>Var. dependente <span class="sc">:</span> causas.externas <span class="ot">=</span> sim </span>
-<span id="cb19-8"><a href="#cb19-8" tabindex="-1"></a>Var. independente<span class="sc">:</span> sexo <span class="ot">=</span> masc </span>
-<span id="cb19-9"><a href="#cb19-9" tabindex="-1"></a>Missings<span class="sc">:</span> <span class="dv">1</span> (<span class="dv">0</span>,<span class="dv">0</span>%)</span>
-<span id="cb19-10"><a href="#cb19-10" tabindex="-1"></a></span>
-<span id="cb19-11"><a href="#cb19-11" tabindex="-1"></a>      causas externas</span>
-<span id="cb19-12"><a href="#cb19-12" tabindex="-1"></a>sexo    sim  não  Sum</span>
-<span id="cb19-13"><a href="#cb19-13" tabindex="-1"></a>  masc  <span class="dv">683</span> <span class="dv">4671</span> <span class="dv">5354</span></span>
-<span id="cb19-14"><a href="#cb19-14" tabindex="-1"></a>  fem   <span class="dv">206</span> <span class="dv">4439</span> <span class="dv">4645</span></span>
-<span id="cb19-15"><a href="#cb19-15" tabindex="-1"></a>  Sum   <span class="dv">889</span> <span class="dv">9110</span> <span class="dv">9999</span></span>
-<span id="cb19-16"><a href="#cb19-16" tabindex="-1"></a></span>
-<span id="cb19-17"><a href="#cb19-17" tabindex="-1"></a>Proporções (%)</span>
-<span id="cb19-18"><a href="#cb19-18" tabindex="-1"></a>      causas externas</span>
-<span id="cb19-19"><a href="#cb19-19" tabindex="-1"></a>sexo    sim  não</span>
-<span id="cb19-20"><a href="#cb19-20" tabindex="-1"></a>  masc <span class="fl">12.8</span> <span class="fl">87.2</span></span>
-<span id="cb19-21"><a href="#cb19-21" tabindex="-1"></a>  fem   <span class="fl">4.4</span> <span class="fl">95.6</span></span>
-<span id="cb19-22"><a href="#cb19-22" tabindex="-1"></a></span>
-<span id="cb19-23"><a href="#cb19-23" tabindex="-1"></a>Razão de Probabilidades<span class="sc">:</span> <span class="fl">2.88</span> ; IC95% (assintótico)<span class="sc">:</span> <span class="fl">2.47</span> <span class="fl">3.34</span> </span>
-<span id="cb19-24"><a href="#cb19-24" tabindex="-1"></a>                                 IC95% (exato)      <span class="sc">:</span> <span class="fl">2.49</span> <span class="fl">3.32</span></span>
-<span id="cb19-25"><a href="#cb19-25" tabindex="-1"></a>Razão de Odds          <span class="sc">:</span> <span class="fl">3.15</span> ; IC95% (exato)      <span class="sc">:</span> <span class="fl">2.68</span> <span class="fl">3.72</span></span>
-<span id="cb19-26"><a href="#cb19-26" tabindex="-1"></a>Valor<span class="sc">-</span>p<span class="sc">:</span> Pearson, Yates<span class="sc">:</span> <span class="er">&lt;</span><span class="dv">0</span>,<span class="dv">001</span> ; Fisher<span class="sc">:</span> <span class="er">&lt;</span><span class="dv">0</span>,<span class="dv">001</span> </span>
-<span id="cb19-27"><a href="#cb19-27" tabindex="-1"></a><span class="sc">==</span><span class="er">=============================================================</span></span></code></pre></div>
-<p><code>bolero</code> foi escrita há mais de 20 anos e não pode ser impressa com <code>kable</code>, mas os elementos de seu output podem ser recuperados. Veja a estrutura de seu resultado:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="co"># Note que acima foi criado o objeto 'tabolero' </span></span>
-<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a><span class="fu">str</span>(tabolero)</span>
-<span id="cb20-3"><a href="#cb20-3" tabindex="-1"></a>List of <span class="dv">14</span></span>
-<span id="cb20-4"><a href="#cb20-4" tabindex="-1"></a> <span class="sc">$</span> tab     <span class="sc">:</span> <span class="st">'table'</span> int [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="dv">1197</span> <span class="dv">1259</span> <span class="dv">3448</span> <span class="dv">4095</span></span>
-<span id="cb20-5"><a href="#cb20-5" tabindex="-1"></a>  ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"dimnames"</span>)<span class="ot">=</span>List of <span class="dv">2</span></span>
-<span id="cb20-6"><a href="#cb20-6" tabindex="-1"></a>  .. ..<span class="sc">$</span> obitos<span class="sc">$</span>sexo<span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="st">"fem"</span> <span class="st">"masc"</span></span>
-<span id="cb20-7"><a href="#cb20-7" tabindex="-1"></a>  .. ..<span class="sc">$</span> cardio     <span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="st">"sim"</span> <span class="st">"não"</span></span>
-<span id="cb20-8"><a href="#cb20-8" tabindex="-1"></a> <span class="sc">$</span> proptab <span class="sc">:</span> <span class="st">'table'</span> num [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="fl">25.8</span> <span class="fl">23.5</span> <span class="fl">74.2</span> <span class="fl">76.5</span></span>
-<span id="cb20-9"><a href="#cb20-9" tabindex="-1"></a>  ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"dimnames"</span>)<span class="ot">=</span>List of <span class="dv">2</span></span>
-<span id="cb20-10"><a href="#cb20-10" tabindex="-1"></a>  .. ..<span class="sc">$</span> obitos<span class="sc">$</span>sexo<span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="st">"fem"</span> <span class="st">"masc"</span></span>
-<span id="cb20-11"><a href="#cb20-11" tabindex="-1"></a>  .. ..<span class="sc">$</span> cardio     <span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="st">"sim"</span> <span class="st">"não"</span></span>
-<span id="cb20-12"><a href="#cb20-12" tabindex="-1"></a> <span class="sc">$</span> RP      <span class="sc">:</span> num <span class="fl">1.1</span></span>
-<span id="cb20-13"><a href="#cb20-13" tabindex="-1"></a> <span class="sc">$</span> lci.rp  <span class="sc">:</span> num <span class="fl">1.02</span></span>
-<span id="cb20-14"><a href="#cb20-14" tabindex="-1"></a> <span class="sc">$</span> uci.rp  <span class="sc">:</span> num <span class="fl">1.17</span></span>
-<span id="cb20-15"><a href="#cb20-15" tabindex="-1"></a> <span class="sc">$</span> OR      <span class="sc">:</span> num <span class="fl">1.13</span></span>
-<span id="cb20-16"><a href="#cb20-16" tabindex="-1"></a> <span class="sc">$</span> or.ic   <span class="sc">:</span> num [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="fl">1.03</span> <span class="fl">1.24</span></span>
-<span id="cb20-17"><a href="#cb20-17" tabindex="-1"></a>  ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"conf.level"</span>)<span class="ot">=</span> num <span class="fl">0.95</span></span>
-<span id="cb20-18"><a href="#cb20-18" tabindex="-1"></a> <span class="sc">$</span> lci.or  <span class="sc">:</span> num <span class="fl">1.03</span></span>
-<span id="cb20-19"><a href="#cb20-19" tabindex="-1"></a> <span class="sc">$</span> uci.or  <span class="sc">:</span> num <span class="fl">1.24</span></span>
-<span id="cb20-20"><a href="#cb20-20" tabindex="-1"></a> <span class="sc">$</span> ft      <span class="sc">:</span>List of <span class="dv">7</span></span>
-<span id="cb20-21"><a href="#cb20-21" tabindex="-1"></a>  ..<span class="sc">$</span> p.value    <span class="sc">:</span> num <span class="fl">0.0091</span></span>
-<span id="cb20-22"><a href="#cb20-22" tabindex="-1"></a>  ..<span class="sc">$</span> conf.int   <span class="sc">:</span> num [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="fl">1.03</span> <span class="fl">1.24</span></span>
-<span id="cb20-23"><a href="#cb20-23" tabindex="-1"></a>  .. ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"conf.level"</span>)<span class="ot">=</span> num <span class="fl">0.95</span></span>
-<span id="cb20-24"><a href="#cb20-24" tabindex="-1"></a>  ..<span class="sc">$</span> estimate   <span class="sc">:</span> Named num <span class="fl">1.13</span></span>
-<span id="cb20-25"><a href="#cb20-25" tabindex="-1"></a>  .. ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"names"</span>)<span class="ot">=</span> chr <span class="st">"odds ratio"</span></span>
-<span id="cb20-26"><a href="#cb20-26" tabindex="-1"></a>  ..<span class="sc">$</span> null.value <span class="sc">:</span> Named num <span class="dv">1</span></span>
-<span id="cb20-27"><a href="#cb20-27" tabindex="-1"></a>  .. ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"names"</span>)<span class="ot">=</span> chr <span class="st">"odds ratio"</span></span>
-<span id="cb20-28"><a href="#cb20-28" tabindex="-1"></a>  ..<span class="sc">$</span> alternative<span class="sc">:</span> chr <span class="st">"two.sided"</span></span>
-<span id="cb20-29"><a href="#cb20-29" tabindex="-1"></a>  ..<span class="sc">$</span> method     <span class="sc">:</span> chr <span class="st">"Fisher's Exact Test for Count Data"</span></span>
-<span id="cb20-30"><a href="#cb20-30" tabindex="-1"></a>  ..<span class="sc">$</span> data.name  <span class="sc">:</span> chr <span class="st">"tab"</span></span>
-<span id="cb20-31"><a href="#cb20-31" tabindex="-1"></a>  ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"class"</span>)<span class="ot">=</span> chr <span class="st">"htest"</span></span>
-<span id="cb20-32"><a href="#cb20-32" tabindex="-1"></a> <span class="sc">$</span> qui2    <span class="sc">:</span>List of <span class="dv">9</span></span>
-<span id="cb20-33"><a href="#cb20-33" tabindex="-1"></a>  ..<span class="sc">$</span> statistic<span class="sc">:</span> Named num <span class="fl">6.7</span></span>
-<span id="cb20-34"><a href="#cb20-34" tabindex="-1"></a>  .. ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"names"</span>)<span class="ot">=</span> chr <span class="st">"X-squared"</span></span>
-<span id="cb20-35"><a href="#cb20-35" tabindex="-1"></a>  ..<span class="sc">$</span> parameter<span class="sc">:</span> Named int <span class="dv">1</span></span>
-<span id="cb20-36"><a href="#cb20-36" tabindex="-1"></a>  .. ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"names"</span>)<span class="ot">=</span> chr <span class="st">"df"</span></span>
-<span id="cb20-37"><a href="#cb20-37" tabindex="-1"></a>  ..<span class="sc">$</span> p.value  <span class="sc">:</span> num <span class="fl">0.00963</span></span>
-<span id="cb20-38"><a href="#cb20-38" tabindex="-1"></a>  ..<span class="sc">$</span> method   <span class="sc">:</span> chr <span class="st">"Pearson's Chi-squared test with Yates' continuity correction"</span></span>
-<span id="cb20-39"><a href="#cb20-39" tabindex="-1"></a>  ..<span class="sc">$</span> data.name<span class="sc">:</span> chr <span class="st">"tab"</span></span>
-<span id="cb20-40"><a href="#cb20-40" tabindex="-1"></a>  ..<span class="sc">$</span> observed <span class="sc">:</span> <span class="st">'table'</span> int [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="dv">1197</span> <span class="dv">1259</span> <span class="dv">3448</span> <span class="dv">4095</span></span>
-<span id="cb20-41"><a href="#cb20-41" tabindex="-1"></a>  .. ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"dimnames"</span>)<span class="ot">=</span>List of <span class="dv">2</span></span>
-<span id="cb20-42"><a href="#cb20-42" tabindex="-1"></a>  .. .. ..<span class="sc">$</span> obitos<span class="sc">$</span>sexo<span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="st">"fem"</span> <span class="st">"masc"</span></span>
-<span id="cb20-43"><a href="#cb20-43" tabindex="-1"></a>  .. .. ..<span class="sc">$</span> cardio     <span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="st">"sim"</span> <span class="st">"não"</span></span>
-<span id="cb20-44"><a href="#cb20-44" tabindex="-1"></a>  ..<span class="sc">$</span> expected <span class="sc">:</span> num [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="dv">1141</span> <span class="dv">1315</span> <span class="dv">3504</span> <span class="dv">4039</span></span>
-<span id="cb20-45"><a href="#cb20-45" tabindex="-1"></a>  .. ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"dimnames"</span>)<span class="ot">=</span>List of <span class="dv">2</span></span>
-<span id="cb20-46"><a href="#cb20-46" tabindex="-1"></a>  .. .. ..<span class="sc">$</span> obitos<span class="sc">$</span>sexo<span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="st">"fem"</span> <span class="st">"masc"</span></span>
-<span id="cb20-47"><a href="#cb20-47" tabindex="-1"></a>  .. .. ..<span class="sc">$</span> cardio     <span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="st">"sim"</span> <span class="st">"não"</span></span>
-<span id="cb20-48"><a href="#cb20-48" tabindex="-1"></a>  ..<span class="sc">$</span> residuals<span class="sc">:</span> <span class="st">'table'</span> num [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="fl">1.66</span> <span class="sc">-</span><span class="fl">1.546</span> <span class="sc">-</span><span class="fl">0.947</span> <span class="fl">0.882</span></span>
-<span id="cb20-49"><a href="#cb20-49" tabindex="-1"></a>  .. ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"dimnames"</span>)<span class="ot">=</span>List of <span class="dv">2</span></span>
-<span id="cb20-50"><a href="#cb20-50" tabindex="-1"></a>  .. .. ..<span class="sc">$</span> obitos<span class="sc">$</span>sexo<span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="st">"fem"</span> <span class="st">"masc"</span></span>
-<span id="cb20-51"><a href="#cb20-51" tabindex="-1"></a>  .. .. ..<span class="sc">$</span> cardio     <span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="st">"sim"</span> <span class="st">"não"</span></span>
-<span id="cb20-52"><a href="#cb20-52" tabindex="-1"></a>  ..<span class="sc">$</span> stdres   <span class="sc">:</span> <span class="st">'table'</span> num [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="fl">2.61</span> <span class="sc">-</span><span class="fl">2.61</span> <span class="sc">-</span><span class="fl">2.61</span> <span class="fl">2.61</span></span>
-<span id="cb20-53"><a href="#cb20-53" tabindex="-1"></a>  .. ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"dimnames"</span>)<span class="ot">=</span>List of <span class="dv">2</span></span>
-<span id="cb20-54"><a href="#cb20-54" tabindex="-1"></a>  .. .. ..<span class="sc">$</span> obitos<span class="sc">$</span>sexo<span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="st">"fem"</span> <span class="st">"masc"</span></span>
-<span id="cb20-55"><a href="#cb20-55" tabindex="-1"></a>  .. .. ..<span class="sc">$</span> cardio     <span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="st">"sim"</span> <span class="st">"não"</span></span>
-<span id="cb20-56"><a href="#cb20-56" tabindex="-1"></a>  ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"class"</span>)<span class="ot">=</span> chr <span class="st">"htest"</span></span>
-<span id="cb20-57"><a href="#cb20-57" tabindex="-1"></a> <span class="sc">$</span> p.qui2  <span class="sc">:</span> num <span class="fl">0.00963</span></span>
-<span id="cb20-58"><a href="#cb20-58" tabindex="-1"></a> <span class="sc">$</span> p.Fisher<span class="sc">:</span> num <span class="fl">0.0091</span></span>
-<span id="cb20-59"><a href="#cb20-59" tabindex="-1"></a> <span class="sc">$</span> resumo  <span class="sc">:</span> <span class="st">'table'</span> num [<span class="dv">1</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>] <span class="fl">1.096</span> <span class="fl">1.023</span> <span class="fl">1.174</span> <span class="fl">0.009</span></span>
-<span id="cb20-60"><a href="#cb20-60" tabindex="-1"></a>  ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"dimnames"</span>)<span class="ot">=</span>List of <span class="dv">2</span></span>
-<span id="cb20-61"><a href="#cb20-61" tabindex="-1"></a>  .. ..<span class="sc">$</span> <span class="er">:</span> chr <span class="st">"cardio"</span></span>
-<span id="cb20-62"><a href="#cb20-62" tabindex="-1"></a>  .. ..<span class="sc">$</span> <span class="er">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>] <span class="st">"RP"</span> <span class="st">"IC95inf"</span> <span class="st">"IC95sup"</span> <span class="st">"p"</span></span></code></pre></div>
-<p>Assim podemos dizer, por exemplo, que a probabilidade de que a causa básica de óbito seja cardiovascular é 10% maior no sexo feminino que no masculino (RP = 1,10; IC<sub>95</sub> 1,02 a 1,17). Veja abaixo o código utilizado:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a>obitos <span class="ot">&lt;-</span> obitosRS2019[<span class="fu">c</span>(<span class="st">"sexo"</span>, <span class="st">"CAUSABAS"</span>)]</span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a><span class="fu">str</span>(obitos)</span>
+<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a><span class="st">'data.frame'</span><span class="sc">:</span>   <span class="dv">10000</span> obs. of  <span class="dv">2</span> variables<span class="sc">:</span></span>
+<span id="cb21-4"><a href="#cb21-4" tabindex="-1"></a> <span class="er">$</span> sexo    <span class="sc">:</span> Factor w<span class="sc">/</span> <span class="dv">2</span> levels <span class="st">"masc"</span>,<span class="st">"fem"</span><span class="sc">:</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">1</span> ...</span>
+<span id="cb21-5"><a href="#cb21-5" tabindex="-1"></a> <span class="sc">$</span> CAUSABAS<span class="sc">:</span> chr  <span class="st">"C349"</span> <span class="st">"I499"</span> <span class="st">"X958"</span> <span class="st">"E142"</span> ...</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a>cardio <span class="ot">&lt;-</span> <span class="fu">grepl</span>(<span class="st">"circulatório"</span>, csapAIH<span class="sc">::</span><span class="fu">cid10cap</span>(obitos<span class="sc">$</span>CAUSABAS)) <span class="sc">|&gt;</span></span>
+<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a>  <span class="fu">factor</span>(<span class="at">levels =</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"sim"</span>, <span class="st">"não"</span>))</span>
+<span id="cb22-3"><a href="#cb22-3" tabindex="-1"></a><span class="fu">bolero</span>(obitos<span class="sc">$</span>sexo, cardio)</span>
+<span id="cb22-4"><a href="#cb22-4" tabindex="-1"></a><span class="sc">==</span><span class="er">=============================================================</span></span>
+<span id="cb22-5"><a href="#cb22-5" tabindex="-1"></a>                  Tabela <span class="dv">2</span> por <span class="dv">2</span> </span>
+<span id="cb22-6"><a href="#cb22-6" tabindex="-1"></a>        <span class="fu">bolero</span>(independente, dependente, <span class="at">dec=</span><span class="dv">2</span>, dnn) </span>
+<span id="cb22-7"><a href="#cb22-7" tabindex="-1"></a><span class="sc">---------------------------------------------------------------</span> </span>
+<span id="cb22-8"><a href="#cb22-8" tabindex="-1"></a>Var. dependente <span class="sc">:</span> cardio <span class="ot">=</span> sim </span>
+<span id="cb22-9"><a href="#cb22-9" tabindex="-1"></a>Var. independente<span class="sc">:</span> obitos.sexo <span class="ot">=</span> masc </span>
+<span id="cb22-10"><a href="#cb22-10" tabindex="-1"></a>Missings<span class="sc">:</span> <span class="dv">2</span> (<span class="dv">0</span>,<span class="dv">0</span>%)</span>
+<span id="cb22-11"><a href="#cb22-11" tabindex="-1"></a></span>
+<span id="cb22-12"><a href="#cb22-12" tabindex="-1"></a>           cardio</span>
+<span id="cb22-13"><a href="#cb22-13" tabindex="-1"></a>obitos<span class="sc">$</span>sexo  sim  não  Sum</span>
+<span id="cb22-14"><a href="#cb22-14" tabindex="-1"></a>       masc <span class="dv">1259</span> <span class="dv">3967</span> <span class="dv">5226</span></span>
+<span id="cb22-15"><a href="#cb22-15" tabindex="-1"></a>       fem  <span class="dv">1311</span> <span class="dv">3461</span> <span class="dv">4772</span></span>
+<span id="cb22-16"><a href="#cb22-16" tabindex="-1"></a>       Sum  <span class="dv">2570</span> <span class="dv">7428</span> <span class="dv">9998</span></span>
+<span id="cb22-17"><a href="#cb22-17" tabindex="-1"></a></span>
+<span id="cb22-18"><a href="#cb22-18" tabindex="-1"></a>Proporções (%)</span>
+<span id="cb22-19"><a href="#cb22-19" tabindex="-1"></a>           cardio</span>
+<span id="cb22-20"><a href="#cb22-20" tabindex="-1"></a>obitos<span class="sc">$</span>sexo  sim  não</span>
+<span id="cb22-21"><a href="#cb22-21" tabindex="-1"></a>       masc <span class="fl">24.1</span> <span class="fl">75.9</span></span>
+<span id="cb22-22"><a href="#cb22-22" tabindex="-1"></a>       fem  <span class="fl">27.5</span> <span class="fl">72.5</span></span>
+<span id="cb22-23"><a href="#cb22-23" tabindex="-1"></a></span>
+<span id="cb22-24"><a href="#cb22-24" tabindex="-1"></a>Razão de Probabilidades<span class="sc">:</span> <span class="fl">0.88</span> ; IC95% (assintótico)<span class="sc">:</span> <span class="fl">0.82</span> <span class="fl">0.94</span> </span>
+<span id="cb22-25"><a href="#cb22-25" tabindex="-1"></a>                                 IC95% (exato)      <span class="sc">:</span> <span class="fl">0.82</span> <span class="fl">0.94</span></span>
+<span id="cb22-26"><a href="#cb22-26" tabindex="-1"></a>Razão de Odds          <span class="sc">:</span> <span class="fl">0.84</span> ; IC95% (exato)      <span class="sc">:</span> <span class="fl">0.77</span> <span class="fl">0.92</span></span>
+<span id="cb22-27"><a href="#cb22-27" tabindex="-1"></a>Valor<span class="sc">-</span>p<span class="sc">:</span> Pearson, Yates<span class="sc">:</span> <span class="er">&lt;</span><span class="dv">0</span>,<span class="dv">001</span> ; Fisher<span class="sc">:</span> <span class="er">&lt;</span><span class="dv">0</span>,<span class="dv">001</span> </span>
+<span id="cb22-28"><a href="#cb22-28" tabindex="-1"></a><span class="sc">==</span><span class="er">=============================================================</span></span></code></pre></div>
+<p>Para mudar a categoria de referência mudam-se antes os níveis da variável. Os rótulos dos nomes das variáveis podem ser modificados com o argumento <code>dnn</code>. Vamos guardar o resultado (num objeto chamdo “tabolero”) para poder usá-lo em texto automatizado.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a>tabolero <span class="ot">&lt;-</span> <span class="fu">bolero</span>(<span class="fu">factor</span>(obitos<span class="sc">$</span>sexo, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"fem"</span>, <span class="st">"masc"</span>)), cardio, </span>
+<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a>       <span class="at">dnn =</span> <span class="fu">c</span>(<span class="st">"sexo"</span>, <span class="st">"aparelho circulatório"</span>))</span>
+<span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a><span class="sc">==</span><span class="er">=============================================================</span></span>
+<span id="cb23-4"><a href="#cb23-4" tabindex="-1"></a>                  Tabela <span class="dv">2</span> por <span class="dv">2</span> </span>
+<span id="cb23-5"><a href="#cb23-5" tabindex="-1"></a>        <span class="fu">bolero</span>(independente, dependente, <span class="at">dec=</span><span class="dv">2</span>, dnn) </span>
+<span id="cb23-6"><a href="#cb23-6" tabindex="-1"></a><span class="sc">---------------------------------------------------------------</span> </span>
+<span id="cb23-7"><a href="#cb23-7" tabindex="-1"></a>Var. dependente <span class="sc">:</span> aparelho.circulatório <span class="ot">=</span> sim </span>
+<span id="cb23-8"><a href="#cb23-8" tabindex="-1"></a>Var. independente<span class="sc">:</span> sexo <span class="ot">=</span> fem </span>
+<span id="cb23-9"><a href="#cb23-9" tabindex="-1"></a>Missings<span class="sc">:</span> <span class="dv">2</span> (<span class="dv">0</span>,<span class="dv">0</span>%)</span>
+<span id="cb23-10"><a href="#cb23-10" tabindex="-1"></a></span>
+<span id="cb23-11"><a href="#cb23-11" tabindex="-1"></a>      aparelho circulatório</span>
+<span id="cb23-12"><a href="#cb23-12" tabindex="-1"></a>sexo    sim  não  Sum</span>
+<span id="cb23-13"><a href="#cb23-13" tabindex="-1"></a>  fem  <span class="dv">1311</span> <span class="dv">3461</span> <span class="dv">4772</span></span>
+<span id="cb23-14"><a href="#cb23-14" tabindex="-1"></a>  masc <span class="dv">1259</span> <span class="dv">3967</span> <span class="dv">5226</span></span>
+<span id="cb23-15"><a href="#cb23-15" tabindex="-1"></a>  Sum  <span class="dv">2570</span> <span class="dv">7428</span> <span class="dv">9998</span></span>
+<span id="cb23-16"><a href="#cb23-16" tabindex="-1"></a></span>
+<span id="cb23-17"><a href="#cb23-17" tabindex="-1"></a>Proporções (%)</span>
+<span id="cb23-18"><a href="#cb23-18" tabindex="-1"></a>      aparelho circulatório</span>
+<span id="cb23-19"><a href="#cb23-19" tabindex="-1"></a>sexo    sim  não</span>
+<span id="cb23-20"><a href="#cb23-20" tabindex="-1"></a>  fem  <span class="fl">27.5</span> <span class="fl">72.5</span></span>
+<span id="cb23-21"><a href="#cb23-21" tabindex="-1"></a>  masc <span class="fl">24.1</span> <span class="fl">75.9</span></span>
+<span id="cb23-22"><a href="#cb23-22" tabindex="-1"></a></span>
+<span id="cb23-23"><a href="#cb23-23" tabindex="-1"></a>Razão de Probabilidades<span class="sc">:</span> <span class="fl">1.14</span> ; IC95% (assintótico)<span class="sc">:</span> <span class="fl">1.07</span> <span class="fl">1.22</span> </span>
+<span id="cb23-24"><a href="#cb23-24" tabindex="-1"></a>                                 IC95% (exato)      <span class="sc">:</span> <span class="fl">1.07</span> <span class="fl">1.22</span></span>
+<span id="cb23-25"><a href="#cb23-25" tabindex="-1"></a>Razão de Odds          <span class="sc">:</span> <span class="fl">1.19</span> ; IC95% (exato)      <span class="sc">:</span> <span class="fl">1.09</span> <span class="fl">1.31</span></span>
+<span id="cb23-26"><a href="#cb23-26" tabindex="-1"></a>Valor<span class="sc">-</span>p<span class="sc">:</span> Pearson, Yates<span class="sc">:</span> <span class="er">&lt;</span><span class="dv">0</span>,<span class="dv">001</span> ; Fisher<span class="sc">:</span> <span class="er">&lt;</span><span class="dv">0</span>,<span class="dv">001</span> </span>
+<span id="cb23-27"><a href="#cb23-27" tabindex="-1"></a><span class="sc">==</span><span class="er">=============================================================</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="fu">str</span>(tabolero)</span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a>List of <span class="dv">14</span></span>
+<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a> <span class="sc">$</span> tab     <span class="sc">:</span> <span class="st">'table'</span> int [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="dv">1311</span> <span class="dv">1259</span> <span class="dv">3461</span> <span class="dv">3967</span></span>
+<span id="cb24-4"><a href="#cb24-4" tabindex="-1"></a>  ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"dimnames"</span>)<span class="ot">=</span>List of <span class="dv">2</span></span>
+<span id="cb24-5"><a href="#cb24-5" tabindex="-1"></a>  .. ..<span class="sc">$</span> sexo                 <span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="st">"fem"</span> <span class="st">"masc"</span></span>
+<span id="cb24-6"><a href="#cb24-6" tabindex="-1"></a>  .. ..<span class="sc">$</span> aparelho circulatório<span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="st">"sim"</span> <span class="st">"não"</span></span>
+<span id="cb24-7"><a href="#cb24-7" tabindex="-1"></a> <span class="sc">$</span> proptab <span class="sc">:</span> <span class="st">'table'</span> num [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="fl">27.5</span> <span class="fl">24.1</span> <span class="fl">72.5</span> <span class="fl">75.9</span></span>
+<span id="cb24-8"><a href="#cb24-8" tabindex="-1"></a>  ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"dimnames"</span>)<span class="ot">=</span>List of <span class="dv">2</span></span>
+<span id="cb24-9"><a href="#cb24-9" tabindex="-1"></a>  .. ..<span class="sc">$</span> sexo                 <span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="st">"fem"</span> <span class="st">"masc"</span></span>
+<span id="cb24-10"><a href="#cb24-10" tabindex="-1"></a>  .. ..<span class="sc">$</span> aparelho circulatório<span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="st">"sim"</span> <span class="st">"não"</span></span>
+<span id="cb24-11"><a href="#cb24-11" tabindex="-1"></a> <span class="sc">$</span> RP      <span class="sc">:</span> num <span class="fl">1.14</span></span>
+<span id="cb24-12"><a href="#cb24-12" tabindex="-1"></a> <span class="sc">$</span> lci.rp  <span class="sc">:</span> num <span class="fl">1.07</span></span>
+<span id="cb24-13"><a href="#cb24-13" tabindex="-1"></a> <span class="sc">$</span> uci.rp  <span class="sc">:</span> num <span class="fl">1.22</span></span>
+<span id="cb24-14"><a href="#cb24-14" tabindex="-1"></a> <span class="sc">$</span> OR      <span class="sc">:</span> num <span class="fl">1.19</span></span>
+<span id="cb24-15"><a href="#cb24-15" tabindex="-1"></a> <span class="sc">$</span> or.ic   <span class="sc">:</span> num [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="fl">1.09</span> <span class="fl">1.31</span></span>
+<span id="cb24-16"><a href="#cb24-16" tabindex="-1"></a>  ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"conf.level"</span>)<span class="ot">=</span> num <span class="fl">0.95</span></span>
+<span id="cb24-17"><a href="#cb24-17" tabindex="-1"></a> <span class="sc">$</span> lci.or  <span class="sc">:</span> num <span class="fl">1.09</span></span>
+<span id="cb24-18"><a href="#cb24-18" tabindex="-1"></a> <span class="sc">$</span> uci.or  <span class="sc">:</span> num <span class="fl">1.31</span></span>
+<span id="cb24-19"><a href="#cb24-19" tabindex="-1"></a> <span class="sc">$</span> ft      <span class="sc">:</span>List of <span class="dv">7</span></span>
+<span id="cb24-20"><a href="#cb24-20" tabindex="-1"></a>  ..<span class="sc">$</span> p.value    <span class="sc">:</span> num <span class="fl">0.000118</span></span>
+<span id="cb24-21"><a href="#cb24-21" tabindex="-1"></a>  ..<span class="sc">$</span> conf.int   <span class="sc">:</span> num [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="fl">1.09</span> <span class="fl">1.31</span></span>
+<span id="cb24-22"><a href="#cb24-22" tabindex="-1"></a>  .. ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"conf.level"</span>)<span class="ot">=</span> num <span class="fl">0.95</span></span>
+<span id="cb24-23"><a href="#cb24-23" tabindex="-1"></a>  ..<span class="sc">$</span> estimate   <span class="sc">:</span> Named num <span class="fl">1.19</span></span>
+<span id="cb24-24"><a href="#cb24-24" tabindex="-1"></a>  .. ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"names"</span>)<span class="ot">=</span> chr <span class="st">"odds ratio"</span></span>
+<span id="cb24-25"><a href="#cb24-25" tabindex="-1"></a>  ..<span class="sc">$</span> null.value <span class="sc">:</span> Named num <span class="dv">1</span></span>
+<span id="cb24-26"><a href="#cb24-26" tabindex="-1"></a>  .. ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"names"</span>)<span class="ot">=</span> chr <span class="st">"odds ratio"</span></span>
+<span id="cb24-27"><a href="#cb24-27" tabindex="-1"></a>  ..<span class="sc">$</span> alternative<span class="sc">:</span> chr <span class="st">"two.sided"</span></span>
+<span id="cb24-28"><a href="#cb24-28" tabindex="-1"></a>  ..<span class="sc">$</span> method     <span class="sc">:</span> chr <span class="st">"Fisher's Exact Test for Count Data"</span></span>
+<span id="cb24-29"><a href="#cb24-29" tabindex="-1"></a>  ..<span class="sc">$</span> data.name  <span class="sc">:</span> chr <span class="st">"tab"</span></span>
+<span id="cb24-30"><a href="#cb24-30" tabindex="-1"></a>  ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"class"</span>)<span class="ot">=</span> chr <span class="st">"htest"</span></span>
+<span id="cb24-31"><a href="#cb24-31" tabindex="-1"></a> <span class="sc">$</span> qui2    <span class="sc">:</span>List of <span class="dv">9</span></span>
+<span id="cb24-32"><a href="#cb24-32" tabindex="-1"></a>  ..<span class="sc">$</span> statistic<span class="sc">:</span> Named num <span class="fl">14.8</span></span>
+<span id="cb24-33"><a href="#cb24-33" tabindex="-1"></a>  .. ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"names"</span>)<span class="ot">=</span> chr <span class="st">"X-squared"</span></span>
+<span id="cb24-34"><a href="#cb24-34" tabindex="-1"></a>  ..<span class="sc">$</span> parameter<span class="sc">:</span> Named int <span class="dv">1</span></span>
+<span id="cb24-35"><a href="#cb24-35" tabindex="-1"></a>  .. ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"names"</span>)<span class="ot">=</span> chr <span class="st">"df"</span></span>
+<span id="cb24-36"><a href="#cb24-36" tabindex="-1"></a>  ..<span class="sc">$</span> p.value  <span class="sc">:</span> num <span class="fl">0.000122</span></span>
+<span id="cb24-37"><a href="#cb24-37" tabindex="-1"></a>  ..<span class="sc">$</span> method   <span class="sc">:</span> chr <span class="st">"Pearson's Chi-squared test with Yates' continuity correction"</span></span>
+<span id="cb24-38"><a href="#cb24-38" tabindex="-1"></a>  ..<span class="sc">$</span> data.name<span class="sc">:</span> chr <span class="st">"tab"</span></span>
+<span id="cb24-39"><a href="#cb24-39" tabindex="-1"></a>  ..<span class="sc">$</span> observed <span class="sc">:</span> <span class="st">'table'</span> int [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="dv">1311</span> <span class="dv">1259</span> <span class="dv">3461</span> <span class="dv">3967</span></span>
+<span id="cb24-40"><a href="#cb24-40" tabindex="-1"></a>  .. ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"dimnames"</span>)<span class="ot">=</span>List of <span class="dv">2</span></span>
+<span id="cb24-41"><a href="#cb24-41" tabindex="-1"></a>  .. .. ..<span class="sc">$</span> sexo                 <span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="st">"fem"</span> <span class="st">"masc"</span></span>
+<span id="cb24-42"><a href="#cb24-42" tabindex="-1"></a>  .. .. ..<span class="sc">$</span> aparelho circulatório<span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="st">"sim"</span> <span class="st">"não"</span></span>
+<span id="cb24-43"><a href="#cb24-43" tabindex="-1"></a>  ..<span class="sc">$</span> expected <span class="sc">:</span> num [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="dv">1227</span> <span class="dv">1343</span> <span class="dv">3545</span> <span class="dv">3883</span></span>
+<span id="cb24-44"><a href="#cb24-44" tabindex="-1"></a>  .. ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"dimnames"</span>)<span class="ot">=</span>List of <span class="dv">2</span></span>
+<span id="cb24-45"><a href="#cb24-45" tabindex="-1"></a>  .. .. ..<span class="sc">$</span> sexo                 <span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="st">"fem"</span> <span class="st">"masc"</span></span>
+<span id="cb24-46"><a href="#cb24-46" tabindex="-1"></a>  .. .. ..<span class="sc">$</span> aparelho circulatório<span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="st">"sim"</span> <span class="st">"não"</span></span>
+<span id="cb24-47"><a href="#cb24-47" tabindex="-1"></a>  ..<span class="sc">$</span> residuals<span class="sc">:</span> <span class="st">'table'</span> num [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="fl">2.41</span> <span class="sc">-</span><span class="fl">2.3</span> <span class="sc">-</span><span class="fl">1.42</span> <span class="fl">1.35</span></span>
+<span id="cb24-48"><a href="#cb24-48" tabindex="-1"></a>  .. ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"dimnames"</span>)<span class="ot">=</span>List of <span class="dv">2</span></span>
+<span id="cb24-49"><a href="#cb24-49" tabindex="-1"></a>  .. .. ..<span class="sc">$</span> sexo                 <span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="st">"fem"</span> <span class="st">"masc"</span></span>
+<span id="cb24-50"><a href="#cb24-50" tabindex="-1"></a>  .. .. ..<span class="sc">$</span> aparelho circulatório<span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="st">"sim"</span> <span class="st">"não"</span></span>
+<span id="cb24-51"><a href="#cb24-51" tabindex="-1"></a>  ..<span class="sc">$</span> stdres   <span class="sc">:</span> <span class="st">'table'</span> num [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="fl">3.86</span> <span class="sc">-</span><span class="fl">3.86</span> <span class="sc">-</span><span class="fl">3.86</span> <span class="fl">3.86</span></span>
+<span id="cb24-52"><a href="#cb24-52" tabindex="-1"></a>  .. ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"dimnames"</span>)<span class="ot">=</span>List of <span class="dv">2</span></span>
+<span id="cb24-53"><a href="#cb24-53" tabindex="-1"></a>  .. .. ..<span class="sc">$</span> sexo                 <span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="st">"fem"</span> <span class="st">"masc"</span></span>
+<span id="cb24-54"><a href="#cb24-54" tabindex="-1"></a>  .. .. ..<span class="sc">$</span> aparelho circulatório<span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="st">"sim"</span> <span class="st">"não"</span></span>
+<span id="cb24-55"><a href="#cb24-55" tabindex="-1"></a>  ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"class"</span>)<span class="ot">=</span> chr <span class="st">"htest"</span></span>
+<span id="cb24-56"><a href="#cb24-56" tabindex="-1"></a> <span class="sc">$</span> p.qui2  <span class="sc">:</span> num <span class="fl">0.000122</span></span>
+<span id="cb24-57"><a href="#cb24-57" tabindex="-1"></a> <span class="sc">$</span> p.Fisher<span class="sc">:</span> num <span class="fl">0.000118</span></span>
+<span id="cb24-58"><a href="#cb24-58" tabindex="-1"></a> <span class="sc">$</span> resumo  <span class="sc">:</span> <span class="st">'table'</span> num [<span class="dv">1</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>] <span class="fl">1.14</span> <span class="fl">1.07</span> <span class="fl">1.22</span> <span class="dv">0</span></span>
+<span id="cb24-59"><a href="#cb24-59" tabindex="-1"></a>  ..<span class="sc">-</span> <span class="fu">attr</span>(<span class="sc">*</span>, <span class="st">"dimnames"</span>)<span class="ot">=</span>List of <span class="dv">2</span></span>
+<span id="cb24-60"><a href="#cb24-60" tabindex="-1"></a>  .. ..<span class="sc">$</span> <span class="er">:</span> chr <span class="st">"aparelho.circulatório"</span></span>
+<span id="cb24-61"><a href="#cb24-61" tabindex="-1"></a>  .. ..<span class="sc">$</span> <span class="er">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>] <span class="st">"RP"</span> <span class="st">"IC95inf"</span> <span class="st">"IC95sup"</span> <span class="st">"p"</span></span></code></pre></div>
+<p>Assim podemos dizer, por exemplo, que a probabilidade de que a causa básica de óbito seja cardiovascular é 14% maior no sexo feminino que no masculino (RP = 1,14; IC<sub>95</sub> 1,07 a 1,22). Veja abaixo o código utilizado:</p>
 <blockquote>
 <p>[…] a probabilidade de que a causa básica de óbito seja cardiovascular é <code>`r formatL((tabolero$RP-1)*100, digits = 0)`</code>% maior no sexo feminino que no masculino (RP = <code>`r formatL(tabolero$RP, 2)`</code>; IC<sub>95</sub><code>`r formatL(tabolero$lci.rp, 2)`</code> a <code>`r formatL(tabolero$uci.rp, 2)`</code>).</p>
 </blockquote>
