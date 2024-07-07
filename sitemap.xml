@@ -1,99 +1,35 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://fulvionedel.github.io/Rcoisas/404.html</loc>
-  </url>
-  <url>
-    <loc>https://fulvionedel.github.io/Rcoisas/articles/fxetarnm.html</loc>
-  </url>
-  <url>
-    <loc>https://fulvionedel.github.io/Rcoisas/articles/ggplot_pir.html</loc>
-  </url>
-  <url>
-    <loc>https://fulvionedel.github.io/Rcoisas/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://fulvionedel.github.io/Rcoisas/articles/sacamostras.html</loc>
-  </url>
-  <url>
-    <loc>https://fulvionedel.github.io/Rcoisas/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://fulvionedel.github.io/Rcoisas/index.html</loc>
-  </url>
-  <url>
-    <loc>https://fulvionedel.github.io/Rcoisas/reference/POPBR12.html</loc>
-  </url>
-  <url>
-    <loc>https://fulvionedel.github.io/Rcoisas/reference/POPRS2019.html</loc>
-  </url>
-  <url>
-    <loc>https://fulvionedel.github.io/Rcoisas/reference/RDRS2019.html</loc>
-  </url>
-  <url>
-    <loc>https://fulvionedel.github.io/Rcoisas/reference/adissoma.html</loc>
-  </url>
-  <url>
-    <loc>https://fulvionedel.github.io/Rcoisas/reference/bolero.html</loc>
-  </url>
-  <url>
-    <loc>https://fulvionedel.github.io/Rcoisas/reference/descreve.html</loc>
-  </url>
-  <url>
-    <loc>https://fulvionedel.github.io/Rcoisas/reference/ed.html</loc>
-  </url>
-  <url>
-    <loc>https://fulvionedel.github.io/Rcoisas/reference/folhinha.html</loc>
-  </url>
-  <url>
-    <loc>https://fulvionedel.github.io/Rcoisas/reference/formatL.html</loc>
-  </url>
-  <url>
-    <loc>https://fulvionedel.github.io/Rcoisas/reference/fxetar.det_pra_fxetar5.html</loc>
-  </url>
-  <url>
-    <loc>https://fulvionedel.github.io/Rcoisas/reference/fxetarNM.html</loc>
-  </url>
-  <url>
-    <loc>https://fulvionedel.github.io/Rcoisas/reference/ggplot_pir.html</loc>
-  </url>
-  <url>
-    <loc>https://fulvionedel.github.io/Rcoisas/reference/histobox.html</loc>
-  </url>
-  <url>
-    <loc>https://fulvionedel.github.io/Rcoisas/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://fulvionedel.github.io/Rcoisas/reference/numescrito.html</loc>
-  </url>
-  <url>
-    <loc>https://fulvionedel.github.io/Rcoisas/reference/obitosRS2019.html</loc>
-  </url>
-  <url>
-    <loc>https://fulvionedel.github.io/Rcoisas/reference/plot.histobox.html</loc>
-  </url>
-  <url>
-    <loc>https://fulvionedel.github.io/Rcoisas/reference/plotZ.html</loc>
-  </url>
-  <url>
-    <loc>https://fulvionedel.github.io/Rcoisas/reference/plot_pir.html</loc>
-  </url>
-  <url>
-    <loc>https://fulvionedel.github.io/Rcoisas/reference/poprs.html</loc>
-  </url>
-  <url>
-    <loc>https://fulvionedel.github.io/Rcoisas/reference/print.descreve.html</loc>
-  </url>
-  <url>
-    <loc>https://fulvionedel.github.io/Rcoisas/reference/sacamostras.html</loc>
-  </url>
-  <url>
-    <loc>https://fulvionedel.github.io/Rcoisas/reference/tabuleiro.html</loc>
-  </url>
-  <url>
-    <loc>https://fulvionedel.github.io/Rcoisas/reference/tabuleiro2.html</loc>
-  </url>
-  <url>
-    <loc>https://fulvionedel.github.io/Rcoisas/reference/zeroesq.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://fulvionedel.github.io/Rcoisas/404.html</loc></url>
+<url><loc>https://fulvionedel.github.io/Rcoisas/articles/fxetarnm.html</loc></url>
+<url><loc>https://fulvionedel.github.io/Rcoisas/articles/ggplot_pir.html</loc></url>
+<url><loc>https://fulvionedel.github.io/Rcoisas/articles/index.html</loc></url>
+<url><loc>https://fulvionedel.github.io/Rcoisas/articles/sacamostras.html</loc></url>
+<url><loc>https://fulvionedel.github.io/Rcoisas/authors.html</loc></url>
+<url><loc>https://fulvionedel.github.io/Rcoisas/index.html</loc></url>
+<url><loc>https://fulvionedel.github.io/Rcoisas/reference/POPBR12.html</loc></url>
+<url><loc>https://fulvionedel.github.io/Rcoisas/reference/POPRS2019.html</loc></url>
+<url><loc>https://fulvionedel.github.io/Rcoisas/reference/RDRS2019.html</loc></url>
+<url><loc>https://fulvionedel.github.io/Rcoisas/reference/adissoma.html</loc></url>
+<url><loc>https://fulvionedel.github.io/Rcoisas/reference/bolero.html</loc></url>
+<url><loc>https://fulvionedel.github.io/Rcoisas/reference/descreve.html</loc></url>
+<url><loc>https://fulvionedel.github.io/Rcoisas/reference/ed.html</loc></url>
+<url><loc>https://fulvionedel.github.io/Rcoisas/reference/folhinha.html</loc></url>
+<url><loc>https://fulvionedel.github.io/Rcoisas/reference/formatL.html</loc></url>
+<url><loc>https://fulvionedel.github.io/Rcoisas/reference/fxetar.det_pra_fxetar5.html</loc></url>
+<url><loc>https://fulvionedel.github.io/Rcoisas/reference/fxetarNM.html</loc></url>
+<url><loc>https://fulvionedel.github.io/Rcoisas/reference/ggplot_pir.html</loc></url>
+<url><loc>https://fulvionedel.github.io/Rcoisas/reference/histobox.html</loc></url>
+<url><loc>https://fulvionedel.github.io/Rcoisas/reference/index.html</loc></url>
+<url><loc>https://fulvionedel.github.io/Rcoisas/reference/numescrito.html</loc></url>
+<url><loc>https://fulvionedel.github.io/Rcoisas/reference/obitosRS2019.html</loc></url>
+<url><loc>https://fulvionedel.github.io/Rcoisas/reference/plot.histobox.html</loc></url>
+<url><loc>https://fulvionedel.github.io/Rcoisas/reference/plotZ.html</loc></url>
+<url><loc>https://fulvionedel.github.io/Rcoisas/reference/plot_pir.html</loc></url>
+<url><loc>https://fulvionedel.github.io/Rcoisas/reference/poprs.html</loc></url>
+<url><loc>https://fulvionedel.github.io/Rcoisas/reference/print.descreve.html</loc></url>
+<url><loc>https://fulvionedel.github.io/Rcoisas/reference/sacamostras.html</loc></url>
+<url><loc>https://fulvionedel.github.io/Rcoisas/reference/tabuleiro.html</loc></url>
+<url><loc>https://fulvionedel.github.io/Rcoisas/reference/tabuleiro2.html</loc></url>
+<url><loc>https://fulvionedel.github.io/Rcoisas/reference/zeroesq.html</loc></url>
 </urlset>
+
