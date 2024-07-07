@@ -5,7 +5,7 @@ Version: 0.0.0.909
 Date: 2024-06-05
 Author: Fúlvio B. Nedel
 Maintainer: Fúlvio B. Nedel <fulvionedel@gmail.com>
-Description: Funções para criação de pirâmides populacionais, descrição e 
+Description: Funções em R para criação de pirâmides populacionais, descrição e 
              gráficos de variáveis, etc., com 'outputs' em português.
 License: GPL-3
 Imports: 
@@ -30,7 +30,7 @@ Suggests:
 Encoding: UTF-8
 Language: pt-br
 LazyData: true
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 Depends: 
     R (>= 2.10)
 Remotes: 
