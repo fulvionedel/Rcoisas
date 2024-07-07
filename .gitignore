@@ -5,7 +5,7 @@
 *.Rproj
 inst/futurasvinhetas/
 inst/purgatorio/
-inst/prextensao
+inst/prextensao.*
 inst/*.html
 inst/*.pdf
 inst/*.bib
