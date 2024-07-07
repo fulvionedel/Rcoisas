@@ -3,10 +3,10 @@
 .RData
 .Ruserdata
 *.Rproj
-inst/
+inst/futurasvinhetas/
+inst/purgatorio/
 inst/*.html
 inst/*.pdf
-inst/purgatorio/
 inst/*.bib
 inst/*.csl
 docs/
