@@ -5,8 +5,8 @@
 *.Rproj
 inst/futurasvinhetas/
 inst/purgatorio/
-inst/*.html$
-inst/*.pdf$
-inst/*.bib$
-inst/*.csl$
+inst/*.html
+inst/*.pdf
+inst/*.bib
+inst/*.csl
 docs/
