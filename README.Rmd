@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-> **Funções para aulas e apresentação de resultados em português.**
+> **Funções em R para aulas e apresentação de resultados em português.**
 
 O pacote contém funções com _outputs_ em português e bancos de dados úteis para a produção de gráficos e tabelas para aulas, como a descrição "completa" de uma variável numérica, uma tabela de frequências, a análise de uma tabela 2 x 2 ou a construção de indicadores de saúde, como a curva de Nelson de Moraes. 
 <!-- Algumas funções são importadas do pacote [`csapAIH`](https://github.com/fulvionedel/csapAIH) (`fxetar_quinq`, `fxetar3g`, `ufbr`, `ler_popbr` e `popbr2000_2021`).  -->
@@ -186,32 +186,25 @@ plot(nm[1:5,2], type = 'l')
 plot(nm2[,c('fxetar', '%')], type = 'l')
 ```
 
+Veja detalhes sobre a função em https://fulvionedel.github.io/Rcoisas/articles/fxetarnm.html  
 
 ## Tabelas 2 x 2 
 
 **A função `bolero`** analisa a tabela de contingências de duas variáveis dicotômicas. O exemplo a seguir usa um banco de dados do pacote Rcoisas, com uma amostra aleatória de dez mil registros de óbitos do RS para comparar a probabilidade de um diagnóstico de causa cardiovascular e de causa externa segundo o sexo, entre os óbitos. As causas são classificadas com a função `cid10cap()`, do pacote [`csapAIH`](https://github.com/fulvionedel/csapAIH).
 
 ```{r}
-obitos <- obitosRS2019[c("sexo", "idade", "RACACOR", "CAUSABAS")]
+obitos <- obitosRS2019[c("sexo", "CAUSABAS")]
+str(obitos)
 cardio <- grepl("circulatório", csapAIH::cid10cap(obitos$CAUSABAS)) |>
   factor(levels = c(TRUE, FALSE), labels = c("sim", "não"))
-externas <- grepl("externas", csapAIH::cid10cap(obitos$CAUSABAS)) |>
-  factor(levels = c(TRUE, FALSE), labels = c("sim", "não"))
-
-tabolero <- bolero(obitos$sexo, cardio)
+bolero(obitos$sexo, cardio)
 ```
 
-Para mudar a categoria de referência mudam-se antes os níveis da variável. Os rótulos dos nomes das variáveis podem ser modificados com o argumento `dnn`.
+Para mudar a categoria de referência mudam-se antes os níveis da variável. Os rótulos dos nomes das variáveis podem ser modificados com o argumento `dnn`. Vamos guardar o resultado (num objeto chamdo "tabolero") para poder usá-lo em texto automatizado.
 
 ```{r}
-bolero(factor(obitos$sexo, levels = c("masc", "fem")), externas, 
-       dnn = c("sexo", "causas externas"))
-```
-
-`bolero` foi escrita há mais de 20 anos e não pode ser impressa com `kable`, mas os elementos de seu output podem ser recuperados. Veja a estrutura de seu resultado:
-
-```{r}
-# Note que acima foi criado o objeto 'tabolero' 
+tabolero <- bolero(factor(obitos$sexo, levels = c("fem", "masc")), cardio, 
+       dnn = c("sexo", "aparelho circulatório"))
 str(tabolero)
 ```
 

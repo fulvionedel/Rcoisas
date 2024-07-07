@@ -13,7 +13,7 @@ Rcoisas
 <!-- badges: start -->
 <!-- badges: end -->
 
-> **Funções para aulas e apresentação de resultados em português.**
+> **Funções em R para aulas e apresentação de resultados em português.**
 
 O pacote contém funções com *outputs* em português e bancos de dados
 úteis para a produção de gráficos e tabelas para aulas, como a descrição
@@ -71,28 +71,31 @@ descreve(varnum <- rnorm(1000))
     -2.13 -1.73 -0.70 -0.04  0.69  1.74  2.01 
               IIQ: 1.39 
 
-    descreve(varnum, histograma = FALSE, print = "tabela")
-                varnum
-    n          1000.00
-    Válidos    1000.00
-    Missings      0.00
-    Menor        -3.01
-    Maior         3.81
-    Amplitude     6.82
-    Média        -0.01
-    Variância     1.07
-    DP            1.03
-    CV(%)      8884.81
-    Assimetria   -0.02
-    Curtose       2.99
-    P2.5         -2.13
-    P5           -1.73
-    P25          -0.70
-    P50          -0.04
-    P75           0.69
-    P95           1.74
-    P97.5         2.01
-    IIQ           1.39
+``` r
+
+descreve(varnum, histograma = FALSE, print = "tabela")
+            varnum
+n          1000.00
+Válidos    1000.00
+Missings      0.00
+Menor        -3.01
+Maior         3.81
+Amplitude     6.82
+Média        -0.01
+Variância     1.07
+DP            1.03
+CV(%)      8884.81
+Assimetria   -0.02
+Curtose       2.99
+P2.5         -2.13
+P5           -1.73
+P25          -0.70
+P50          -0.04
+P75           0.69
+P95           1.74
+P97.5         2.01
+IIQ           1.39
+```
 
 O output pode ser guardado em um objeto e depois impresso como lista ou
 como tabela (de classe `data.frame`) e usado para captar em texto cada
@@ -112,6 +115,9 @@ Quantis:
  2.5%    5%   25%   50%   75%   95% 97.5% 
 -2.13 -1.73 -0.70 -0.04  0.69  1.74  2.01 
           IIQ: 1.39 
+```
+
+``` r
 
 Rcoisas:::print.descreve(x, print = "tabela")
             varnum
@@ -135,6 +141,9 @@ P75           0.69
 P95           1.74
 P97.5         2.01
 IIQ           1.39
+```
+
+``` r
 
 paste("Média de", x$media, "e desvio-padrão de", x$dp, "unidades, configurando um coeficiente de variação de", x$cv, "%.")
 [1] "Média de -0.01 e desvio-padrão de 1.03 unidades, configurando um coeficiente de variação de 8884.81 %."
@@ -197,27 +206,27 @@ cbind(
 
 |            | Masculino | Feminino | Ambos sexos |
 |:-----------|----------:|---------:|------------:|
-| n          |     5.355 |    4.646 |      10.000 |
-| Válidos    |     5.348 |    4.645 |       9.993 |
-| Missings   |         7 |        1 |           7 |
-| % missings |      0,13 |     0,02 |        0,07 |
+| n          |     5.228 |    4.774 |      10.000 |
+| Válidos    |     5.220 |    4.772 |       9.993 |
+| Missings   |         8 |        2 |           7 |
+| % missings |      0,15 |     0,04 |        0,07 |
 | Menor      |         0 |        0 |           0 |
-| Maior      |       103 |      108 |         108 |
-| Amplitude  |       103 |      108 |         108 |
-| Média      |     65,41 |    71,94 |       68,44 |
-| Variância  |     382,5 |    382,9 |       393,3 |
-| DP         |     19,56 |    19,57 |       19,83 |
-| CV(%)      |      29,9 |     27,2 |       28,98 |
-| Assimetria |     -1,11 |    -1,47 |       -1,23 |
-| Curtose    |      4,24 |     5,73 |        4,71 |
-| P2.5       |        17 |       15 |        16,8 |
-| P5         |        24 |       35 |          27 |
-| P25        |        57 |       63 |          59 |
-| P50        |        69 |       76 |          72 |
+| Maior      |       103 |      112 |         112 |
+| Amplitude  |       103 |      112 |         112 |
+| Média      |     65,25 |    72,65 |       68,78 |
+| Variância  |     388,3 |    355,3 |       386,6 |
+| DP         |     19,71 |    18,85 |       19,66 |
+| CV(%)      |      30,2 |    25,95 |       28,59 |
+| Assimetria |     -1,17 |    -1,49 |       -1,27 |
+| Curtose    |      4,46 |     5,93 |        4,91 |
+| P2.5       |     13,47 |       21 |          17 |
+| P5         |        23 |       37 |          29 |
+| P25        |        57 |       64 |          60 |
+| P50        |        69 |       77 |          72 |
 | P75        |        79 |       86 |          83 |
-| P95        |        90 |       94 |          93 |
-| P97.5      |        93 |       97 |          95 |
-| IIQ        |        22 |       23 |          24 |
+| P95        |        90 |       94 |          92 |
+| P97.5      |        92 |    96,72 |          95 |
+| IIQ        |        22 |       22 |          23 |
 
 **A função `histobox`** desenha um histograma com um diagrama de caixas
 (“*box-plot*”) horizontal acima do gráfico.
@@ -239,13 +248,13 @@ acumuladas.
 
 ``` r
 tabuleiro(RACACOR, data = obitosRS2019)
-         Freq     % Freq.acum %acum
-Amarela    15   0.2        15   0.2
-Branca   8517  88.0      8532  88.2
-Indígena   17   0.2      8549  88.4
-Parda     570   5.9      9119  94.3
-Preta     554   5.7      9673 100.0
-Total    9673 100.0      9673 100.0
+      Freq     % Freq.acum %acum
+1     8514  88.3      8514  88.3
+2      567   5.9      9081  94.2
+3       10   0.1      9091  94.3
+4      534   5.5      9625  99.8
+5       17   0.2      9642 100.0
+Total 9642 100.0      9642 100.0
 ```
 
 Uma tabela para apresentação pode ser feita com a função `kable{knitr}`.
@@ -259,14 +268,14 @@ tab1 <- tabuleiro(RACACOR, data = obitosRS2019, cum = FALSE, digits = 3)
 knitr::kable(tab1 |> formatL(format = "fg"), align = 'r')
 ```
 
-|          |   Freq |   % |
-|:---------|-------:|----:|
-| Amarela  |     15 | 0,2 |
-| Branca   |  8.517 |  88 |
-| Indígena |     17 | 0,2 |
-| Parda    |    570 |   6 |
-| Preta    |    554 |   6 |
-| Total    | 10.000 | 100 |
+|       |   Freq |   % |
+|:------|-------:|----:|
+| 1     |  8.514 |  88 |
+| 2     |    567 |   6 |
+| 3     |     10 | 0,1 |
+| 4     |    534 |   6 |
+| 5     |     17 | 0,2 |
+| Total | 10.000 | 100 |
 
 A função foi criada para oferecer axs estudantes um modo fácil de criar
 no R uma tabela com essas características e valores em formato latino.
@@ -276,13 +285,13 @@ seguinte tabela:
 ``` r
 (tab2 <- tabuleiro2(obitosRS2019$RACACOR))
               Freq     %(+NA) % válido % acum
-Amarela       "    15" "0,1"  "0,2"    "0,2" 
-Branca        " 8.517" "85,2" "88,0"   "88,2"
-Indígena      "    17" "0,2"  "0,2"    "88,4"
-Parda         "   570" "5,7"  "5,9"    "94,3"
-Preta         "   554" "5,5"  "5,7"    "100" 
-Total válidos " 9.673" "96,7" "100"    "˗"   
-Missing       "   327" "3,3"  "˗"      "˗"   
+1             " 8.514" "85,1" "88,3"   "88,3"
+2             "   567" "5,7"  "5,9"    "94,2"
+3             "    10" "0,1"  "0,1"    "94,3"
+4             "   534" "5,3"  "5,5"    "99,8"
+5             "    17" "0,2"  "0,2"    "100" 
+Total válidos " 9.642" "96,4" "100"    "˗"   
+Missing       "   358" "3,6"  "˗"      "˗"   
 Total         "10.000" "100"  "˗"      "˗"   
 ```
 
@@ -294,13 +303,13 @@ knitr::kable(tab2, align = 'r')
 
 |               |   Freq | %(+NA) | % válido | % acum |
 |:--------------|-------:|-------:|---------:|-------:|
-| Amarela       |     15 |    0,1 |      0,2 |    0,2 |
-| Branca        |  8.517 |   85,2 |     88,0 |   88,2 |
-| Indígena      |     17 |    0,2 |      0,2 |   88,4 |
-| Parda         |    570 |    5,7 |      5,9 |   94,3 |
-| Preta         |    554 |    5,5 |      5,7 |    100 |
-| Total válidos |  9.673 |   96,7 |      100 |      ˗ |
-| Missing       |    327 |    3,3 |        ˗ |      ˗ |
+| 1             |  8.514 |   85,1 |     88,3 |   88,3 |
+| 2             |    567 |    5,7 |      5,9 |   94,2 |
+| 3             |     10 |    0,1 |      0,1 |   94,3 |
+| 4             |    534 |    5,3 |      5,5 |   99,8 |
+| 5             |     17 |    0,2 |      0,2 |    100 |
+| Total válidos |  9.642 |   96,4 |      100 |      ˗ |
+| Missing       |    358 |    3,6 |        ˗ |      ˗ |
 | Total         | 10.000 |    100 |        ˗ |      ˗ |
 
 Mas os valores da tabela estão em formato caractere e não numérico, o
@@ -339,11 +348,14 @@ obitosRS2019$idade |>
 
 |        |  Freq |   % | Freq.acum | %acum |
 |:-------|------:|----:|----------:|------:|
-| \< 1   |   156 | 1,6 |       156 |   1,6 |
-| 1-4    |    29 | 0,3 |       185 |   1,9 |
-| 5-19   |   130 | 1,3 |       315 |   3,2 |
-| 20-49  | 1.090 |  11 |     1.405 |    14 |
-| 50 e + | 8.588 |  86 |    10.000 |   100 |
+| \< 1   |   168 | 1,7 |       168 |   1,7 |
+| 1-4    |    25 | 0,3 |       193 |   1,9 |
+| 5-19   |   114 | 1,1 |       307 |   3,1 |
+| 20-49  | 1.021 |  10 |     1.328 |    13 |
+| 50 e + | 8.665 |  87 |    10.000 |   100 |
+
+Veja detalhes sobre a função em
+<https://fulvionedel.github.io/Rcoisas/articles/fxetarnm.html>
 
 ## Tabelas 2 x 2
 
@@ -356,103 +368,103 @@ causas são classificadas com a função `cid10cap()`, do pacote
 [`csapAIH`](https://github.com/fulvionedel/csapAIH).
 
 ``` r
-obitos <- obitosRS2019[c("sexo", "idade", "RACACOR", "CAUSABAS")]
+obitos <- obitosRS2019[c("sexo", "CAUSABAS")]
+str(obitos)
+'data.frame':   10000 obs. of  2 variables:
+ $ sexo    : Factor w/ 2 levels "masc","fem": 1 1 1 2 1 2 2 1 2 1 ...
+ $ CAUSABAS: chr  "C349" "I499" "X958" "E142" ...
+```
+
+``` r
 cardio <- grepl("circulatório", csapAIH::cid10cap(obitos$CAUSABAS)) |>
   factor(levels = c(TRUE, FALSE), labels = c("sim", "não"))
-externas <- grepl("externas", csapAIH::cid10cap(obitos$CAUSABAS)) |>
-  factor(levels = c(TRUE, FALSE), labels = c("sim", "não"))
-
-tabolero <- bolero(obitos$sexo, cardio)
+bolero(obitos$sexo, cardio)
 ===============================================================
                   Tabela 2 por 2 
         bolero(independente, dependente, dec=2, dnn) 
 --------------------------------------------------------------- 
 Var. dependente : cardio = sim 
-Var. independente: obitos.sexo = fem 
-Missings: 1 (0,0%)
+Var. independente: obitos.sexo = masc 
+Missings: 2 (0,0%)
 
            cardio
 obitos$sexo  sim  não  Sum
-       fem  1197 3448 4645
-       masc 1259 4095 5354
-       Sum  2456 7543 9999
+       masc 1259 3967 5226
+       fem  1311 3461 4772
+       Sum  2570 7428 9998
 
 Proporções (%)
            cardio
 obitos$sexo  sim  não
-       fem  25.8 74.2
-       masc 23.5 76.5
+       masc 24.1 75.9
+       fem  27.5 72.5
 
-Razão de Probabilidades: 1.10 ; IC95% (assintótico): 1.02 1.17 
-                                 IC95% (exato)      : 1.02 1.17
-Razão de Odds          : 1.13 ; IC95% (exato)      : 1.03 1.24
-Valor-p: Pearson, Yates: 0.01 ; Fisher: 0.009 
+Razão de Probabilidades: 0.88 ; IC95% (assintótico): 0.82 0.94 
+                                 IC95% (exato)      : 0.82 0.94
+Razão de Odds          : 0.84 ; IC95% (exato)      : 0.77 0.92
+Valor-p: Pearson, Yates: <0,001 ; Fisher: <0,001 
 ===============================================================
 ```
 
 Para mudar a categoria de referência mudam-se antes os níveis da
 variável. Os rótulos dos nomes das variáveis podem ser modificados com o
-argumento `dnn`.
+argumento `dnn`. Vamos guardar o resultado (num objeto chamdo
+“tabolero”) para poder usá-lo em texto automatizado.
 
 ``` r
-bolero(factor(obitos$sexo, levels = c("masc", "fem")), externas, 
-       dnn = c("sexo", "causas externas"))
+tabolero <- bolero(factor(obitos$sexo, levels = c("fem", "masc")), cardio, 
+       dnn = c("sexo", "aparelho circulatório"))
 ===============================================================
                   Tabela 2 por 2 
         bolero(independente, dependente, dec=2, dnn) 
 --------------------------------------------------------------- 
-Var. dependente : causas.externas = sim 
-Var. independente: sexo = masc 
-Missings: 1 (0,0%)
+Var. dependente : aparelho.circulatório = sim 
+Var. independente: sexo = fem 
+Missings: 2 (0,0%)
 
-      causas externas
+      aparelho circulatório
 sexo    sim  não  Sum
-  masc  683 4671 5354
-  fem   206 4439 4645
-  Sum   889 9110 9999
+  fem  1311 3461 4772
+  masc 1259 3967 5226
+  Sum  2570 7428 9998
 
 Proporções (%)
-      causas externas
+      aparelho circulatório
 sexo    sim  não
-  masc 12.8 87.2
-  fem   4.4 95.6
+  fem  27.5 72.5
+  masc 24.1 75.9
 
-Razão de Probabilidades: 2.88 ; IC95% (assintótico): 2.47 3.34 
-                                 IC95% (exato)      : 2.49 3.32
-Razão de Odds          : 3.15 ; IC95% (exato)      : 2.68 3.72
+Razão de Probabilidades: 1.14 ; IC95% (assintótico): 1.07 1.22 
+                                 IC95% (exato)      : 1.07 1.22
+Razão de Odds          : 1.19 ; IC95% (exato)      : 1.09 1.31
 Valor-p: Pearson, Yates: <0,001 ; Fisher: <0,001 
 ===============================================================
 ```
 
-`bolero` foi escrita há mais de 20 anos e não pode ser impressa com
-`kable`, mas os elementos de seu output podem ser recuperados. Veja a
-estrutura de seu resultado:
-
 ``` r
-# Note que acima foi criado o objeto 'tabolero' 
 str(tabolero)
 List of 14
- $ tab     : 'table' int [1:2, 1:2] 1197 1259 3448 4095
+ $ tab     : 'table' int [1:2, 1:2] 1311 1259 3461 3967
   ..- attr(*, "dimnames")=List of 2
-  .. ..$ obitos$sexo: chr [1:2] "fem" "masc"
-  .. ..$ cardio     : chr [1:2] "sim" "não"
- $ proptab : 'table' num [1:2, 1:2] 25.8 23.5 74.2 76.5
+  .. ..$ sexo                 : chr [1:2] "fem" "masc"
+  .. ..$ aparelho circulatório: chr [1:2] "sim" "não"
+ $ proptab : 'table' num [1:2, 1:2] 27.5 24.1 72.5 75.9
   ..- attr(*, "dimnames")=List of 2
-  .. ..$ obitos$sexo: chr [1:2] "fem" "masc"
-  .. ..$ cardio     : chr [1:2] "sim" "não"
- $ RP      : num 1.1
- $ lci.rp  : num 1.02
- $ uci.rp  : num 1.17
- $ OR      : num 1.13
- $ or.ic   : num [1:2] 1.03 1.24
+  .. ..$ sexo                 : chr [1:2] "fem" "masc"
+  .. ..$ aparelho circulatório: chr [1:2] "sim" "não"
+ $ RP      : num 1.14
+ $ lci.rp  : num 1.07
+ $ uci.rp  : num 1.22
+ $ OR      : num 1.19
+ $ or.ic   : num [1:2] 1.09 1.31
   ..- attr(*, "conf.level")= num 0.95
- $ lci.or  : num 1.03
- $ uci.or  : num 1.24
+ $ lci.or  : num 1.09
+ $ uci.or  : num 1.31
  $ ft      :List of 7
-  ..$ p.value    : num 0.0091
-  ..$ conf.int   : num [1:2] 1.03 1.24
+  ..$ p.value    : num 0.000118
+  ..$ conf.int   : num [1:2] 1.09 1.31
   .. ..- attr(*, "conf.level")= num 0.95
-  ..$ estimate   : Named num 1.13
+  ..$ estimate   : Named num 1.19
   .. ..- attr(*, "names")= chr "odds ratio"
   ..$ null.value : Named num 1
   .. ..- attr(*, "names")= chr "odds ratio"
@@ -461,41 +473,41 @@ List of 14
   ..$ data.name  : chr "tab"
   ..- attr(*, "class")= chr "htest"
  $ qui2    :List of 9
-  ..$ statistic: Named num 6.7
+  ..$ statistic: Named num 14.8
   .. ..- attr(*, "names")= chr "X-squared"
   ..$ parameter: Named int 1
   .. ..- attr(*, "names")= chr "df"
-  ..$ p.value  : num 0.00963
+  ..$ p.value  : num 0.000122
   ..$ method   : chr "Pearson's Chi-squared test with Yates' continuity correction"
   ..$ data.name: chr "tab"
-  ..$ observed : 'table' int [1:2, 1:2] 1197 1259 3448 4095
+  ..$ observed : 'table' int [1:2, 1:2] 1311 1259 3461 3967
   .. ..- attr(*, "dimnames")=List of 2
-  .. .. ..$ obitos$sexo: chr [1:2] "fem" "masc"
-  .. .. ..$ cardio     : chr [1:2] "sim" "não"
-  ..$ expected : num [1:2, 1:2] 1141 1315 3504 4039
+  .. .. ..$ sexo                 : chr [1:2] "fem" "masc"
+  .. .. ..$ aparelho circulatório: chr [1:2] "sim" "não"
+  ..$ expected : num [1:2, 1:2] 1227 1343 3545 3883
   .. ..- attr(*, "dimnames")=List of 2
-  .. .. ..$ obitos$sexo: chr [1:2] "fem" "masc"
-  .. .. ..$ cardio     : chr [1:2] "sim" "não"
-  ..$ residuals: 'table' num [1:2, 1:2] 1.66 -1.546 -0.947 0.882
+  .. .. ..$ sexo                 : chr [1:2] "fem" "masc"
+  .. .. ..$ aparelho circulatório: chr [1:2] "sim" "não"
+  ..$ residuals: 'table' num [1:2, 1:2] 2.41 -2.3 -1.42 1.35
   .. ..- attr(*, "dimnames")=List of 2
-  .. .. ..$ obitos$sexo: chr [1:2] "fem" "masc"
-  .. .. ..$ cardio     : chr [1:2] "sim" "não"
-  ..$ stdres   : 'table' num [1:2, 1:2] 2.61 -2.61 -2.61 2.61
+  .. .. ..$ sexo                 : chr [1:2] "fem" "masc"
+  .. .. ..$ aparelho circulatório: chr [1:2] "sim" "não"
+  ..$ stdres   : 'table' num [1:2, 1:2] 3.86 -3.86 -3.86 3.86
   .. ..- attr(*, "dimnames")=List of 2
-  .. .. ..$ obitos$sexo: chr [1:2] "fem" "masc"
-  .. .. ..$ cardio     : chr [1:2] "sim" "não"
+  .. .. ..$ sexo                 : chr [1:2] "fem" "masc"
+  .. .. ..$ aparelho circulatório: chr [1:2] "sim" "não"
   ..- attr(*, "class")= chr "htest"
- $ p.qui2  : num 0.00963
- $ p.Fisher: num 0.0091
- $ resumo  : 'table' num [1, 1:4] 1.096 1.023 1.174 0.009
+ $ p.qui2  : num 0.000122
+ $ p.Fisher: num 0.000118
+ $ resumo  : 'table' num [1, 1:4] 1.14 1.07 1.22 0
   ..- attr(*, "dimnames")=List of 2
-  .. ..$ : chr "cardio"
+  .. ..$ : chr "aparelho.circulatório"
   .. ..$ : chr [1:4] "RP" "IC95inf" "IC95sup" "p"
 ```
 
 Assim podemos dizer, por exemplo, que a probabilidade de que a causa
-básica de óbito seja cardiovascular é 10% maior no sexo feminino que no
-masculino (RP = 1,10; IC<sub>95</sub> 1,02 a 1,17). Veja abaixo o código
+básica de óbito seja cardiovascular é 14% maior no sexo feminino que no
+masculino (RP = 1,14; IC<sub>95</sub> 1,07 a 1,22). Veja abaixo o código
 utilizado:
 
 > \[…\] a probabilidade de que a causa básica de óbito seja
