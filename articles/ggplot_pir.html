@@ -13,7 +13,7 @@
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Pirâmides populacionais">
 </head>
 <body>
-    <a href="#main" class="visually-hidden-focusable">Avance para o conteúdo</a>
+    <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
     <nav class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" aria-label="Site navigation"><div class="container">
@@ -23,16 +23,16 @@
     <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.909</small>
 
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Alternar de navegação">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item"><a class="nav-link" href="../reference/index.html">Referência</a></li>
+<li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="active nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-artigos" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Artigos</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-artigos">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="../articles/fxetarnm.html">Curva de Nelson de Moraes</a></li>
     <li><a class="dropdown-item" href="../articles/ggplot_pir.html">Pirâmides populacionais</a></li>
     <li><a class="dropdown-item" href="../articles/sacamostras.html">Tomar amostras de bancos de dados</a></li>
@@ -41,7 +41,7 @@
       </ul>
 <ul class="navbar-nav">
 <li class="nav-item"><form class="form-inline" role="search">
- <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Procurar" data-search-index="../search.json">
+ <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
 </form></li>
       </ul>
 </div>
@@ -169,31 +169,31 @@ Mas a construção do gráfico é bastante trabalhosa, o que motivou o desenvolv
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">str</span>(graf_base)</span>
 <span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>  <span class="st">'data.frame'</span><span class="sc">:</span> <span class="dv">17</span> obs. of  <span class="dv">2</span> variables<span class="sc">:</span></span>
 <span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>   <span class="er">$</span> masculino<span class="sc">:</span> int  <span class="dv">7143389</span> <span class="dv">7758474</span> <span class="dv">8875967</span> <span class="dv">8704999</span> <span class="dv">8782606</span> <span class="dv">8610952</span> <span class="dv">7853458</span> <span class="dv">6883541</span> <span class="dv">6427350</span> <span class="dv">5785459</span> ...</span>
-<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>   <span class="sc">$</span> feminino <span class="sc">:</span> int  <span class="dv">6901204</span> <span class="dv">7474673</span> <span class="dv">8587202</span> <span class="dv">8577046</span> <span class="dv">8766636</span> <span class="dv">8795610</span> <span class="dv">8166586</span> <span class="dv">7243527</span> <span class="dv">6800153</span> <span class="dv">6240934</span> ...</span></code></pre></div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">rownames</span>(graf_base)</span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>   [<span class="dv">1</span>] <span class="st">"0-4"</span>   <span class="st">"5-9"</span>   <span class="st">"10-14"</span> <span class="st">"15-19"</span> <span class="st">"20-24"</span> <span class="st">"25-29"</span> <span class="st">"30-34"</span> <span class="st">"35-39"</span> <span class="st">"40-44"</span></span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>  [<span class="dv">10</span>] <span class="st">"45-49"</span> <span class="st">"50-54"</span> <span class="st">"55-59"</span> <span class="st">"60-64"</span> <span class="st">"65-69"</span> <span class="st">"70-74"</span> <span class="st">"75-79"</span> <span class="st">"80 +"</span></span></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>graf_base</span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>        masculino feminino</span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>  <span class="dv">0-4</span>     <span class="dv">7143389</span>  <span class="dv">6901204</span></span>
-<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>  <span class="dv">5-9</span>     <span class="dv">7758474</span>  <span class="dv">7474673</span></span>
-<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>  <span class="dv">10-14</span>   <span class="dv">8875967</span>  <span class="dv">8587202</span></span>
-<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>  <span class="dv">15-19</span>   <span class="dv">8704999</span>  <span class="dv">8577046</span></span>
-<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>  <span class="dv">20-24</span>   <span class="dv">8782606</span>  <span class="dv">8766636</span></span>
-<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a>  <span class="dv">25-29</span>   <span class="dv">8610952</span>  <span class="dv">8795610</span></span>
-<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a>  <span class="dv">30-34</span>   <span class="dv">7853458</span>  <span class="dv">8166586</span></span>
-<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a>  <span class="dv">35-39</span>   <span class="dv">6883541</span>  <span class="dv">7243527</span></span>
-<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a>  <span class="dv">40-44</span>   <span class="dv">6427350</span>  <span class="dv">6800153</span></span>
-<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a>  <span class="dv">45-49</span>   <span class="dv">5785459</span>  <span class="dv">6240934</span></span>
-<span id="cb9-13"><a href="#cb9-13" tabindex="-1"></a>  <span class="dv">50-54</span>   <span class="dv">4912910</span>  <span class="dv">5389329</span></span>
-<span id="cb9-14"><a href="#cb9-14" tabindex="-1"></a>  <span class="dv">55-59</span>   <span class="dv">3963556</span>  <span class="dv">4441120</span></span>
-<span id="cb9-15"><a href="#cb9-15" tabindex="-1"></a>  <span class="dv">60-64</span>   <span class="dv">3087312</span>  <span class="dv">3520063</span></span>
-<span id="cb9-16"><a href="#cb9-16" tabindex="-1"></a>  <span class="dv">65-69</span>   <span class="dv">2256975</span>  <span class="dv">2654866</span></span>
-<span id="cb9-17"><a href="#cb9-17" tabindex="-1"></a>  <span class="dv">70-74</span>   <span class="dv">1691406</span>  <span class="dv">2103802</span></span>
-<span id="cb9-18"><a href="#cb9-18" tabindex="-1"></a>  <span class="dv">75-79</span>   <span class="dv">1105881</span>  <span class="dv">1493580</span></span>
-<span id="cb9-19"><a href="#cb9-19" tabindex="-1"></a>  <span class="dv">80</span> <span class="sc">+</span>    <span class="dv">1148647</span>  <span class="dv">1827317</span></span></code></pre></div>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>   <span class="sc">$</span> feminino <span class="sc">:</span> int  <span class="dv">6901204</span> <span class="dv">7474673</span> <span class="dv">8587202</span> <span class="dv">8577046</span> <span class="dv">8766636</span> <span class="dv">8795610</span> <span class="dv">8166586</span> <span class="dv">7243527</span> <span class="dv">6800153</span> <span class="dv">6240934</span> ...</span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="fu">rownames</span>(graf_base)</span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>   [<span class="dv">1</span>] <span class="st">"0-4"</span>   <span class="st">"5-9"</span>   <span class="st">"10-14"</span> <span class="st">"15-19"</span> <span class="st">"20-24"</span> <span class="st">"25-29"</span> <span class="st">"30-34"</span> <span class="st">"35-39"</span> <span class="st">"40-44"</span></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>  [<span class="dv">10</span>] <span class="st">"45-49"</span> <span class="st">"50-54"</span> <span class="st">"55-59"</span> <span class="st">"60-64"</span> <span class="st">"65-69"</span> <span class="st">"70-74"</span> <span class="st">"75-79"</span> <span class="st">"80 +"</span></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>graf_base</span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a>        masculino feminino</span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a>  <span class="dv">0-4</span>     <span class="dv">7143389</span>  <span class="dv">6901204</span></span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a>  <span class="dv">5-9</span>     <span class="dv">7758474</span>  <span class="dv">7474673</span></span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a>  <span class="dv">10-14</span>   <span class="dv">8875967</span>  <span class="dv">8587202</span></span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a>  <span class="dv">15-19</span>   <span class="dv">8704999</span>  <span class="dv">8577046</span></span>
+<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a>  <span class="dv">20-24</span>   <span class="dv">8782606</span>  <span class="dv">8766636</span></span>
+<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a>  <span class="dv">25-29</span>   <span class="dv">8610952</span>  <span class="dv">8795610</span></span>
+<span id="cb7-16"><a href="#cb7-16" tabindex="-1"></a>  <span class="dv">30-34</span>   <span class="dv">7853458</span>  <span class="dv">8166586</span></span>
+<span id="cb7-17"><a href="#cb7-17" tabindex="-1"></a>  <span class="dv">35-39</span>   <span class="dv">6883541</span>  <span class="dv">7243527</span></span>
+<span id="cb7-18"><a href="#cb7-18" tabindex="-1"></a>  <span class="dv">40-44</span>   <span class="dv">6427350</span>  <span class="dv">6800153</span></span>
+<span id="cb7-19"><a href="#cb7-19" tabindex="-1"></a>  <span class="dv">45-49</span>   <span class="dv">5785459</span>  <span class="dv">6240934</span></span>
+<span id="cb7-20"><a href="#cb7-20" tabindex="-1"></a>  <span class="dv">50-54</span>   <span class="dv">4912910</span>  <span class="dv">5389329</span></span>
+<span id="cb7-21"><a href="#cb7-21" tabindex="-1"></a>  <span class="dv">55-59</span>   <span class="dv">3963556</span>  <span class="dv">4441120</span></span>
+<span id="cb7-22"><a href="#cb7-22" tabindex="-1"></a>  <span class="dv">60-64</span>   <span class="dv">3087312</span>  <span class="dv">3520063</span></span>
+<span id="cb7-23"><a href="#cb7-23" tabindex="-1"></a>  <span class="dv">65-69</span>   <span class="dv">2256975</span>  <span class="dv">2654866</span></span>
+<span id="cb7-24"><a href="#cb7-24" tabindex="-1"></a>  <span class="dv">70-74</span>   <span class="dv">1691406</span>  <span class="dv">2103802</span></span>
+<span id="cb7-25"><a href="#cb7-25" tabindex="-1"></a>  <span class="dv">75-79</span>   <span class="dv">1105881</span>  <span class="dv">1493580</span></span>
+<span id="cb7-26"><a href="#cb7-26" tabindex="-1"></a>  <span class="dv">80</span> <span class="sc">+</span>    <span class="dv">1148647</span>  <span class="dv">1827317</span></span></code></pre></div>
 <p>As porcentagens podem ser facilmente calculadas, enquanto o gráfico exige algum trabalho. O que <code><a href="../reference/plot_pir.html">plot_pir()</a></code> faz é basicamente o seguinte:</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># porcentagens no sexo masculino</span></span>
 <span><span class="va">pm</span> <span class="op">&lt;-</span> <span class="va">graf_base</span><span class="op">$</span><span class="va">masculino</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">graf_base</span><span class="op">$</span><span class="va">masculino</span> <span class="op">+</span> <span class="va">graf_base</span><span class="op">$</span><span class="va">feminino</span><span class="op">)</span><span class="op">*</span><span class="fl">100</span></span>
 <span><span class="co"># porcentagens no sexo feminino</span></span>
@@ -206,7 +206,7 @@ Mas a construção do gráfico é bastante trabalhosa, o que motivou o desenvolv
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html" class="external-link">text</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">17</span><span class="op">)</span>, labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/row.names.html" class="external-link">row.names</a></span><span class="op">(</span><span class="va">graf_base</span><span class="op">)</span>, adj<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>,<span class="fl">1</span><span class="op">)</span>, cex <span class="op">=</span><span class="fl">.7</span>, col <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="ggplot_pir_files/figure-html/unnamed-chunk-6-1.png" width="50%" style="display: block; margin: auto;"></p>
 <p>Claro que o banco pode ser trabalhado com <code>dplyr</code> e o gráfico pode ser desenhado com <code>ggplot2</code>, como os de <code><a href="../reference/ggplot_pir.html">ggplot_pir()</a></code>:</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">graf_ggbase</span> <span class="op">&lt;-</span> <span class="va">graf_base</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>fxetar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">rownames</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span>levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">rownames</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">pivot_longer</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, names_to <span class="op">=</span> <span class="st">'sexo'</span>, values_to <span class="op">=</span> <span class="st">'n'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
@@ -237,45 +237,44 @@ Mas a construção do gráfico é bastante trabalhosa, o que motivou o desenvolv
 </h3>
 <p>O pacote <code>Rcoisas</code> tem também um banco de dados com as estimativas populacionais dos municípios gaúchos para 2019. Vemos abaixo sua estrutura, a população aparece como uma variável de contagem.</p>
 <p>Como a variável indicadora do sexo é um fator com as categorias <code>masc</code> e <code>fem</code>, é muito fácil desenhar a pirâmide com <code><a href="../reference/ggplot_pir.html">ggplot_pir()</a></code>, devemos apenas indicar os nomes das variáveis com a faixa etária, o sexo e a população. Se as categorias forem outras, como “masculino” e “feminino”, basta usar o argumento <code>catsexo = c("masculino", "feminino")</code>.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"POPRS2019"</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="fu">str</span>(POPRS2019)</span>
-<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>  <span class="st">'data.frame'</span><span class="sc">:</span> <span class="dv">16898</span> obs. of  <span class="dv">8</span> variables<span class="sc">:</span></span>
-<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a>   <span class="er">$</span> CO_UF   <span class="sc">:</span> chr  <span class="st">"43"</span> <span class="st">"43"</span> <span class="st">"43"</span> <span class="st">"43"</span> ...</span>
-<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a>   <span class="sc">$</span> UF_SIGLA<span class="sc">:</span> Factor w<span class="sc">/</span> <span class="dv">1</span> level <span class="st">"RS"</span><span class="sc">:</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> ...</span>
-<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a>   <span class="sc">$</span> REGIAO  <span class="sc">:</span> Factor w<span class="sc">/</span> <span class="dv">1</span> level <span class="st">"S"</span><span class="sc">:</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> ...</span>
-<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a>   <span class="sc">$</span> ano     <span class="sc">:</span> num  <span class="dv">2019</span> <span class="dv">2019</span> <span class="dv">2019</span> <span class="dv">2019</span> <span class="dv">2019</span> ...</span>
-<span id="cb12-8"><a href="#cb12-8" tabindex="-1"></a>   <span class="sc">$</span> mun     <span class="sc">:</span> chr  <span class="st">"430003"</span> <span class="st">"430003"</span> <span class="st">"430003"</span> <span class="st">"430003"</span> ...</span>
-<span id="cb12-9"><a href="#cb12-9" tabindex="-1"></a>   <span class="sc">$</span> sexo    <span class="sc">:</span> Factor w<span class="sc">/</span> <span class="dv">2</span> levels <span class="st">"masc"</span>,<span class="st">"fem"</span><span class="sc">:</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> ...</span>
-<span id="cb12-10"><a href="#cb12-10" tabindex="-1"></a>   <span class="sc">$</span> fxetar5 <span class="sc">:</span> Factor w<span class="sc">/</span> <span class="dv">17</span> levels <span class="st">"0-4"</span>,<span class="st">"5-9"</span>,<span class="st">"10-14"</span>,..<span class="sc">:</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span> <span class="dv">4</span> <span class="dv">5</span> <span class="dv">6</span> <span class="dv">7</span> <span class="dv">8</span> <span class="dv">9</span> <span class="dv">10</span> ...</span>
-<span id="cb12-11"><a href="#cb12-11" tabindex="-1"></a>   <span class="sc">$</span> pop     <span class="sc">:</span> int  <span class="dv">174</span> <span class="dv">160</span> <span class="dv">138</span> <span class="dv">169</span> <span class="dv">206</span> <span class="dv">193</span> <span class="dv">179</span> <span class="dv">191</span> <span class="dv">181</span> <span class="dv">204</span> ...</span></code></pre></div>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/ggplot_pir.html">ggplot_pir</a></span><span class="op">(</span><span class="va">POPRS2019</span>, idade <span class="op">=</span> <span class="st">'fxetar5'</span>, sexo <span class="op">=</span> <span class="st">'sexo'</span>, populacao <span class="op">=</span> <span class="st">'pop'</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"POPRS2019"</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="fu">str</span>(POPRS2019)</span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>  <span class="st">'data.frame'</span><span class="sc">:</span> <span class="dv">16898</span> obs. of  <span class="dv">8</span> variables<span class="sc">:</span></span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>   <span class="er">$</span> CO_UF   <span class="sc">:</span> chr  <span class="st">"43"</span> <span class="st">"43"</span> <span class="st">"43"</span> <span class="st">"43"</span> ...</span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>   <span class="sc">$</span> UF_SIGLA<span class="sc">:</span> Factor w<span class="sc">/</span> <span class="dv">1</span> level <span class="st">"RS"</span><span class="sc">:</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> ...</span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>   <span class="sc">$</span> REGIAO  <span class="sc">:</span> Factor w<span class="sc">/</span> <span class="dv">1</span> level <span class="st">"S"</span><span class="sc">:</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> ...</span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>   <span class="sc">$</span> ano     <span class="sc">:</span> num  <span class="dv">2019</span> <span class="dv">2019</span> <span class="dv">2019</span> <span class="dv">2019</span> <span class="dv">2019</span> ...</span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a>   <span class="sc">$</span> mun     <span class="sc">:</span> chr  <span class="st">"430003"</span> <span class="st">"430003"</span> <span class="st">"430003"</span> <span class="st">"430003"</span> ...</span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a>   <span class="sc">$</span> sexo    <span class="sc">:</span> Factor w<span class="sc">/</span> <span class="dv">2</span> levels <span class="st">"masc"</span>,<span class="st">"fem"</span><span class="sc">:</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> ...</span>
+<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a>   <span class="sc">$</span> fxetar5 <span class="sc">:</span> Factor w<span class="sc">/</span> <span class="dv">17</span> levels <span class="st">"0-4"</span>,<span class="st">"5-9"</span>,<span class="st">"10-14"</span>,..<span class="sc">:</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span> <span class="dv">4</span> <span class="dv">5</span> <span class="dv">6</span> <span class="dv">7</span> <span class="dv">8</span> <span class="dv">9</span> <span class="dv">10</span> ...</span>
+<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a>   <span class="sc">$</span> pop     <span class="sc">:</span> int  <span class="dv">174</span> <span class="dv">160</span> <span class="dv">138</span> <span class="dv">169</span> <span class="dv">206</span> <span class="dv">193</span> <span class="dv">179</span> <span class="dv">191</span> <span class="dv">181</span> <span class="dv">204</span> ...</span>
+<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a><span class="fu">ggplot_pir</span>(POPRS2019, <span class="at">idade =</span> <span class="st">'fxetar5'</span>, <span class="at">sexo =</span> <span class="st">'sexo'</span>, <span class="at">populacao =</span> <span class="st">'pop'</span>)</span></code></pre></div>
 <p><img src="ggplot_pir_files/figure-html/unnamed-chunk-8-1.png" width="50%" style="display: block; margin: auto;"></p>
 <p>Já <code><a href="../reference/plot_pir.html">plot_pir()</a></code> agora exige manejo prévio dos dados, pois não consegue ler o “data frame” em outro formato que o trabalhado anteriormente. Nesse caso pode-se criar uma tabela com a faixa etária nas linhas e o sexo em duas colunas e usar o argumento <code>tabela = TRUE</code>:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="co"># Cria uma tabela com o nº de habitantes por sexo e faixa etária</span></span>
-<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>tabpop <span class="ot">&lt;-</span> POPRS2019 <span class="sc">%&gt;%</span> </span>
-<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">pop =</span> <span class="fu">sum</span>(pop), <span class="at">.by =</span> <span class="fu">c</span>(sexo, fxetar5)) <span class="sc">%&gt;%</span> </span>
-<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> <span class="st">'fxetar5'</span>, <span class="at">names_from =</span> sexo, <span class="at">values_from =</span> pop) <span class="sc">%&gt;%</span> </span>
-<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">row.names =</span> <span class="st">'fxetar5'</span>)</span>
-<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a><span class="fu">str</span>(tabpop)</span>
-<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a>  <span class="st">'data.frame'</span><span class="sc">:</span> <span class="dv">17</span> obs. of  <span class="dv">2</span> variables<span class="sc">:</span></span>
-<span id="cb14-8"><a href="#cb14-8" tabindex="-1"></a>   <span class="er">$</span> masc<span class="sc">:</span> int  <span class="dv">365227</span> <span class="dv">349212</span> <span class="dv">353453</span> <span class="dv">401011</span> <span class="dv">439741</span> <span class="dv">433799</span> <span class="dv">429164</span> <span class="dv">429006</span> <span class="dv">379716</span> <span class="dv">352646</span> ...</span>
-<span id="cb14-9"><a href="#cb14-9" tabindex="-1"></a>   <span class="sc">$</span> fem <span class="sc">:</span> int  <span class="dv">348273</span> <span class="dv">333116</span> <span class="dv">337222</span> <span class="dv">383527</span> <span class="dv">427864</span> <span class="dv">429768</span> <span class="dv">429868</span> <span class="dv">439625</span> <span class="dv">397617</span> <span class="dv">374416</span> ...</span></code></pre></div>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="co"># Cria uma tabela com o nº de habitantes por sexo e faixa etária</span></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>tabpop <span class="ot">&lt;-</span> POPRS2019 <span class="sc">%&gt;%</span> </span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">pop =</span> <span class="fu">sum</span>(pop), <span class="at">.by =</span> <span class="fu">c</span>(sexo, fxetar5)) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> <span class="st">'fxetar5'</span>, <span class="at">names_from =</span> sexo, <span class="at">values_from =</span> pop) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">row.names =</span> <span class="st">'fxetar5'</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a><span class="fu">str</span>(tabpop)</span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a>  <span class="st">'data.frame'</span><span class="sc">:</span> <span class="dv">17</span> obs. of  <span class="dv">2</span> variables<span class="sc">:</span></span>
+<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a>   <span class="er">$</span> masc<span class="sc">:</span> int  <span class="dv">365227</span> <span class="dv">349212</span> <span class="dv">353453</span> <span class="dv">401011</span> <span class="dv">439741</span> <span class="dv">433799</span> <span class="dv">429164</span> <span class="dv">429006</span> <span class="dv">379716</span> <span class="dv">352646</span> ...</span>
+<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a>   <span class="sc">$</span> fem <span class="sc">:</span> int  <span class="dv">348273</span> <span class="dv">333116</span> <span class="dv">337222</span> <span class="dv">383527</span> <span class="dv">427864</span> <span class="dv">429768</span> <span class="dv">429868</span> <span class="dv">439625</span> <span class="dv">397617</span> <span class="dv">374416</span> ...</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/plot_pir.html">plot_pir</a></span><span class="op">(</span><span class="va">tabpop</span>, tabela <span class="op">=</span> <span class="cn">T</span>, local <span class="op">=</span> <span class="st">"RS"</span>, ano <span class="op">=</span> <span class="fl">2019</span><span class="op">)</span> </span></code></pre></div>
 <p><img src="ggplot_pir_files/figure-html/unnamed-chunk-10-1.png" width="50%" style="display: block; margin: auto;"></p>
 <p>Para o (eventual) caso de se tabular uma tabela com as proporções ou porcentagens, deve-se modificar o argumento <code>npop</code> (que imprime um subtítulo com a soma da população), pois automaticamente somará 1 ou 100, respectivamente. Se o número total da população é conhecido, pode-se colocar ali a informação, através de texto ou uma função. Se a informação é desconhecida, pode-se definir <code>npop = FALSE</code> para suprimir o texto. O mesmo pode ser feito com a nota ao pé do gráfico, que responde ao argumento <code>fonte</code>. Vemos aqui um exemplo:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="co"># Cria uma tabela com a porcentagem de habitantes por sexo e faixa etária</span></span>
-<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a>tabprop <span class="ot">&lt;-</span> POPRS2019 <span class="sc">%&gt;%</span> </span>
-<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">pop =</span> <span class="fu">sum</span>(pop), <span class="at">.by =</span> <span class="fu">c</span>(sexo, fxetar5)) <span class="sc">%&gt;%</span> </span>
-<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">perc =</span> pop<span class="sc">/</span><span class="fu">sum</span>(pop)<span class="sc">*</span><span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> <span class="st">'fxetar5'</span>, <span class="at">names_from =</span> sexo, <span class="at">values_from =</span> perc) <span class="sc">%&gt;%</span> </span>
-<span id="cb16-6"><a href="#cb16-6" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">row.names =</span> <span class="st">'fxetar5'</span>)</span>
-<span id="cb16-7"><a href="#cb16-7" tabindex="-1"></a><span class="fu">str</span>(tabprop)</span>
-<span id="cb16-8"><a href="#cb16-8" tabindex="-1"></a>  <span class="st">'data.frame'</span><span class="sc">:</span> <span class="dv">17</span> obs. of  <span class="dv">2</span> variables<span class="sc">:</span></span>
-<span id="cb16-9"><a href="#cb16-9" tabindex="-1"></a>   <span class="er">$</span> masc<span class="sc">:</span> num  <span class="fl">3.21</span> <span class="fl">3.07</span> <span class="fl">3.11</span> <span class="fl">3.52</span> <span class="fl">3.87</span> ...</span>
-<span id="cb16-10"><a href="#cb16-10" tabindex="-1"></a>   <span class="sc">$</span> fem <span class="sc">:</span> num  <span class="fl">3.06</span> <span class="fl">2.93</span> <span class="fl">2.96</span> <span class="fl">3.37</span> <span class="fl">3.76</span> ...</span></code></pre></div>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="co"># Cria uma tabela com a porcentagem de habitantes por sexo e faixa etária</span></span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>tabprop <span class="ot">&lt;-</span> POPRS2019 <span class="sc">%&gt;%</span> </span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">pop =</span> <span class="fu">sum</span>(pop), <span class="at">.by =</span> <span class="fu">c</span>(sexo, fxetar5)) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">perc =</span> pop<span class="sc">/</span><span class="fu">sum</span>(pop)<span class="sc">*</span><span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> <span class="st">'fxetar5'</span>, <span class="at">names_from =</span> sexo, <span class="at">values_from =</span> perc) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">row.names =</span> <span class="st">'fxetar5'</span>)</span>
+<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a><span class="fu">str</span>(tabprop)</span>
+<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a>  <span class="st">'data.frame'</span><span class="sc">:</span> <span class="dv">17</span> obs. of  <span class="dv">2</span> variables<span class="sc">:</span></span>
+<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a>   <span class="er">$</span> masc<span class="sc">:</span> num  <span class="fl">3.21</span> <span class="fl">3.07</span> <span class="fl">3.11</span> <span class="fl">3.52</span> <span class="fl">3.87</span> ...</span>
+<span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a>   <span class="sc">$</span> fem <span class="sc">:</span> num  <span class="fl">3.06</span> <span class="fl">2.93</span> <span class="fl">2.96</span> <span class="fl">3.37</span> <span class="fl">3.76</span> ...</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/plot_pir.html">plot_pir</a></span><span class="op">(</span><span class="va">tabprop</span>, tabela <span class="op">=</span> <span class="cn">T</span>, local <span class="op">=</span> <span class="st">"RS"</span>, ano <span class="op">=</span> <span class="fl">2019</span><span class="op">)</span> </span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/mtext.html" class="external-link">mtext</a></span><span class="op">(</span><span class="st">"O Nº DE HABITANTES ESTÁ ERRADO"</span>, line <span class="op">=</span> <span class="fl">.5</span>, col <span class="op">=</span> <span class="fl">2</span>, font <span class="op">=</span> <span class="fl">2</span>, type <span class="op">=</span> <span class="fl">4</span>, cex <span class="op">=</span> <span class="fl">.8</span><span class="op">)</span>  </span>
@@ -345,18 +344,18 @@ Mas a construção do gráfico é bastante trabalhosa, o que motivou o desenvolv
 <p>A todes que publicam tutoriais, artigos e funções no <a href="https://rpubs.com/" class="external-link">Rpubs</a> e <a href="https://www.r-bloggers.com/" class="external-link">R-bloggers</a>, que fazem e respondem perguntas no <a href="https://stackoverflow.com/" class="external-link">stackoverflow</a>, desenvolvedores do RStudio, <code>tidyverse</code>, etc. Enfim, a toda a comunidade do R.</p>
 </div>
 
-  </main><aside class="col-md-3"><nav id="toc" aria-label="Índice"><h2>Nesta página</h2>
+  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
 </div>
 
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Desenvolvido por Fúlvio B. Nedel.</p>
+  <p>Developed by Fúlvio B. Nedel.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site criado com <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
     </footer>
