@@ -29,18 +29,18 @@ e cria novos "data frames" em um número definido de amostras aleatórias de tam
 semente = 1:3
 # Amostras de 100 registros:
 sacamostras(data = RDRS2019, size = 100, prefix = "amostra_", suffixes = semente) 
-# Amostras de 10\\% dos registros:
+# Amostras de 1\\% dos registros:
 sacamostras(data = RDRS2019, size = .01, prefix = "amostra_", suffixes = semente) 
-# Amostras de 10\\% dos registros, com outra semente:
+# Amostras de 1\\% dos registros, com outra semente:
 sacamostras(data = RDRS2019, size = .01, prefix = "s", suffixes = semente, seed = 11:13)
 
-# Amostras de 10\\% dos registros, com outros nomes, mas mesma "semente":
+# Amostras de 1\\% dos registros, com outros nomes, mas mesma "semente":
 sacamostras(data = RDRS2019, size = .01, 
             prefix = "amostra", suffixes = paste0("0", 1:3), 
             seed = semente)
 all.equal(amostra01_1, amostra_1) 
 
-# Amostra de 10\\% dos registros, com mesmos nomes mas outra "semente":
+# Amostra de 1\\% dos registros, com mesmos nomes mas outra "semente":
 sacamostras(data = RDRS2019, size = .01, prefix = "amostra", suffixes = semente, seed = 11:13)
 all.equal(amostra1_11, s1_11) 
 
@@ -49,7 +49,7 @@ all.equal(amostra1_11, s1_11)
 \dontrun{
 sacamostras(data = RDRS2019, size = .01, prefix = "amostra_", suffixes = "bis", seed = semente) 
 }
-# Amostra de 10\\% dos registros:
+# Amostra de 1\\% dos registros:
 sacamostras(data = RDRS2019, size = .01, prefix = "amostra_", 
             suffixes = rep("bis", length(semente)), seed = semente) 
 all.equal(amostra_bis_1, amostra_1) 
