@@ -59,7 +59,7 @@ function(independente, dependente = NULL, dec = 2, dnn = NULL) {
   #    "\n  valor-p(Fisher)        :", ifelse(ft$p.value>=.001, round(ft$p.value, 3), "<0,001"), "\n")
   cat("\nRaz\U00E3o de Probabilidades:", formatC(rp, format="f", digits=dec), 
       "; IC95% (assint\U00F3tico):", formatC(c(lci.rp, uci.rp), format="f", digits=dec),
-      "\n                                 IC95\U0025 (exato)      :", formatC(rp.conf.int, format="f", digits=dec))
+      "\n                                IC95\U0025 (exato)      :", formatC(rp.conf.int, format="f", digits=dec))
   cat("\nRaz\U00E3o de Odds          :", formatC(or, format="f", digits=dec), 
       "; IC95\U0025 (exato)      :", formatC(ft$conf.int, format="f", digits = dec))
   cat("\nValor-p: Pearson, Yates:", ifelse(qui$p.value>=.001, round(qui$p.value, 3), "<0,001"),
