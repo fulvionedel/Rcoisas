@@ -41,11 +41,11 @@ plotZ <- function(x = NULL, mu = 0, dp = 1, p = NULL, z = NULL,
   #   cat("ERRO:\tA probabilidade deve estar entre 0 e 1.")
   #   return()
   #   }
-  titulo.abaixo <- bquote(P(X <= .(x), 
+  titulo.abaixo <- bquote(P(X <= .(formatL(x, 2)), 
                          italic(N(bar(x)==.(formatC(mu, decimal.mark = ",")), 
                          s==.(formatC(dp, decimal.mark = ",")))))
                          )
-  titulo.acima <- bquote(P(X > .(x), 
+  titulo.acima <- bquote(P(X > .(formatL(x, 2)), 
                          italic(N(bar(x)==.(formatC(mu, decimal.mark = ",")), 
                          s==.(formatC(dp, decimal.mark = ",")))))
                          )
@@ -75,25 +75,31 @@ plotZ <- function(x = NULL, mu = 0, dp = 1, p = NULL, z = NULL,
   if(is.null(sub)) {
     if(area == 'abaixo') {
       if(!is.null(p)) { 
-        prob <- bquote(P(X <= .(formatC(qnorm(p), 3, format = "fg", decimal.mark = ","))) == .(formatC(p, 3, format = "f", decimal.mark = ",")))
-        # prob <- bquote(P(X <= .(p)) == .(round(qnorm(p), 3)))
+        prob <- p
+        x <- qnorm(p)
+        prob.form <- bquote(P(X <= .(formatC(x, 3, format = "fg", decimal.mark = ","))) == .(formatC(p, 3, format = "f", decimal.mark = ",")))
+        # prob.form <- bquote(P(X <= .(p)) == .(round(qnorm(p), 3)))
       } else if(!is.null(z)) {
-        prob <- bquote(P(Z <= 
+        prob <- pnorm(z)
+        prob.form <- bquote(P(Z <= 
                          .(formatC(z, 2, format = "f", decimal.mark = ","))) ==
-                         .(formatC(pnorm(z), 3, format = "fg", decimal.mark = ",")))
+                         .(formatC(prob, 3, format = "fg", decimal.mark = ",")))
         }
       } else if (area == 'acima') {
           if(!is.null(p)) {
-            # prob <- bquote(P(X > .(formatC(1-qnorm(p), 3, format = "f", decimal.mark = ","))) == .(p))
-            prob <- bquote(P(X > .(formatL(qnorm(p), 3, format = "fg"))) == .(formatL(1-pnorm(qnorm(p)), digits = 3, format = 'fg')))
+            prob <- p
+            x <- qnorm(p)
+            # prob.form <- bquote(P(X > .(formatC(1-pprob, 3, format = "f", decimal.mark = ","))) == .(p))
+            prob.form <- bquote(P(X > .(formatL(x, 3, format = "fg"))) == .(formatL(1-pnorm(x), digits = 3, format = 'fg')))
           } else if(!is.null(z)) {
-            prob <- bquote(P(Z > .(formatC(z, 2, format = "f", decimal.mark = ","))) == .(formatC(1-pnorm(z), 3, format = "f", decimal.mark = ",")))
+            prob <- pnorm(z)
+            prob.form <- bquote(P(Z > .(formatC(z, 2, format = "f", decimal.mark = ","))) == .(formatC(1-prob, 3, format = "f", decimal.mark = ",")))
           }
       } else if (area == "intervalo"){
-          prob <- paste("falta isso")
+          prob.form <- paste("falta isso")
         }
   } else 
-    prob <- sub
+    prob.form <- sub
 
   d <- rnorm(1000000)
   plot(density(d), lwd=2, xlim = c(-3.5,3.5),
@@ -102,7 +108,7 @@ plotZ <- function(x = NULL, mu = 0, dp = 1, p = NULL, z = NULL,
        main = main,
        cex.main = cex.main)
   axis(1, -4:4, cex.axis = cex.axis)
-  mtext(prob, 3, -.5, cex = cex.sub)
+  mtext(prob.form, 3, -.5, cex = cex.sub)
   # polygon(c(-4, seq(-4,4, .1), 4), c(0, dnorm(seq(-4, 4, .1)), 0), col = 0)
   if (area == "intervalo") {
     # return(zp)
@@ -124,4 +130,6 @@ plotZ <- function(x = NULL, mu = 0, dp = 1, p = NULL, z = NULL,
     y.val <- c(0, dnorm(seq(zp, 4, 0.01)), 0)
   } 
   polygon(x.val, y.val, col = cor, border = NA)#, ...)
+  
+  list(prob.form, x = x, media = mu, dp = dp, p = prob, z = z)
 }
