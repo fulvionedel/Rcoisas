@@ -10,6 +10,7 @@ Description: Funções em R para criação de pirâmides populacionais, descriç
 License: GPL-3
 Imports: 
     e1071,
+    forcats,
     ggplot2,
     graphics,
     stats,
@@ -33,7 +34,5 @@ LazyData: true
 RoxygenNote: 7.3.2
 Depends: 
     R (>= 2.10)
-Remotes: 
-    tidyverse/lubridate
 VignetteBuilder: knitr
 URL: https://fulvionedel.github.io/Rcoisas/

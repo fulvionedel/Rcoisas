@@ -66,6 +66,7 @@ calendas <- function(banco, tarefa = tarefa, inicio = inicio, fim = fim, paleta 
   fim <- ensym(fim)
   
   # Cria coluna auxiliar para ordenação no eixo Y
+  .tarefa_color <- .tarefa_eixo <- NULL
   banco <- banco %>%
     mutate(
       .tarefa_color = as.factor({{tarefa}}),  # fixa as cores
