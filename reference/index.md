@@ -1,0 +1,83 @@
+# Package index
+
+## All functions
+
+- [`POPBR12`](https://fulvionedel.github.io/Rcoisas/reference/POPBR12.md)
+  : População brasileira, 2012
+
+- [`POPRS2019`](https://fulvionedel.github.io/Rcoisas/reference/POPRS2019.md)
+  : População por sexo e faixa etária. Municípios gaúchos, 2019.
+
+- [`RDRS2019`](https://fulvionedel.github.io/Rcoisas/reference/RDRS2019.md)
+  : Arquivo da AIH - RS, 2019
+
+- [`adissoma()`](https://fulvionedel.github.io/Rcoisas/reference/adissoma.md)
+  : Totais de colunas em uma tabela
+
+- [`bolero()`](https://fulvionedel.github.io/Rcoisas/reference/bolero.md)
+  : Bolero: tabelas 2x2
+
+- [`calendas()`](https://fulvionedel.github.io/Rcoisas/reference/calendas.md)
+  : Cronograma
+
+- [`descreve()`](https://fulvionedel.github.io/Rcoisas/reference/descreve.md)
+  : Descreve uma variável numérica
+
+- [`ed()`](https://fulvionedel.github.io/Rcoisas/reference/ed.md) :
+  Seleciona as últimas colunas de um banco de dados
+
+- [`folhinha()`](https://fulvionedel.github.io/Rcoisas/reference/folhinha.md)
+  : Desenha um calendário
+
+- [`formatL()`](https://fulvionedel.github.io/Rcoisas/reference/formatL.md)
+  : Números em formato latino
+
+- [`fxetar.det_pra_fxetar5()`](https://fulvionedel.github.io/Rcoisas/reference/fxetar.det_pra_fxetar5.md)
+  : Transforma a "faixa etária detalhada" (DATASUS) em 17 faixas
+  quinquenais.
+
+- [`fxetarNM()`](https://fulvionedel.github.io/Rcoisas/reference/fxetarNM.md)
+  : Faixa etária nas categorias de Nelson de Moraes
+
+- [`ggplot_pir()`](https://fulvionedel.github.io/Rcoisas/reference/ggplot_pir.md)
+  : Pirâmides populacionais
+
+- [`histobox()`](https://fulvionedel.github.io/Rcoisas/reference/histobox.md)
+  : Histograma com boxplot
+
+- [`numescrito()`](https://fulvionedel.github.io/Rcoisas/reference/numescrito.md)
+  : Escreve números em texto, em português
+
+- [`obitosRS2019`](https://fulvionedel.github.io/Rcoisas/reference/obitosRS2019.md)
+  : Registros de óbito
+
+- [`plot(`*`<histobox>`*`)`](https://fulvionedel.github.io/Rcoisas/reference/plot.histobox.md)
+  : Método para histobox
+
+- [`plotZ()`](https://fulvionedel.github.io/Rcoisas/reference/plotZ.md)
+  : Gráfico da probabilidade de pertencer a uma área da curva Normal
+
+- [`plot_pir()`](https://fulvionedel.github.io/Rcoisas/reference/plot_pir.md)
+  : Pirâmides populacionais com os arquivos de população
+  disponibilizados pelo DATASUS
+
+- [`poprs`](https://fulvionedel.github.io/Rcoisas/reference/poprs.md) :
+  População por sexo e faixa etária. Municípios gaúchos, 1980, 2010,
+  2020.
+
+- [`print(`*`<descreve>`*`)`](https://fulvionedel.github.io/Rcoisas/reference/print.descreve.md)
+  :
+
+  Imprime o resultado da função `descreve`
+
+- [`sacamostras()`](https://fulvionedel.github.io/Rcoisas/reference/sacamostras.md)
+  : Toma múltiplas amostras aleatórias de um banco de dados.
+
+- [`tabuleiro()`](https://fulvionedel.github.io/Rcoisas/reference/tabuleiro.md)
+  : Tabela de frequências univariada
+
+- [`tabuleiro2()`](https://fulvionedel.github.io/Rcoisas/reference/tabuleiro2.md)
+  : Tabela de frequências univariada
+
+- [`zeroesq()`](https://fulvionedel.github.io/Rcoisas/reference/zeroesq.md)
+  : Zeros à esquerda
