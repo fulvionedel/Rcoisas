@@ -29,7 +29,7 @@ Suggests:
     bookdown,
     tidyr,
     kableExtra
-Remotes: fulvionedel/Rcoisas
+Remotes: fulvionedel/csapAIH
 Encoding: UTF-8
 Language: pt-br
 LazyData: true
