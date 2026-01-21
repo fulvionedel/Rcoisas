@@ -61,8 +61,7 @@ Rcoisas:::print.descreve(x, print = "tabela") |>
   knitr::kable(align = 'r')
 ```
 
-O formato em tabela é pensado para uma análise estratificada por categorias de um fator. Um argumento `by` está em desenvolvimento e ainda não funciona adequadamente. `r emo::ji("confused")`
-A alternativa é juntar "manualmente" a descrição de cada estrato:
+O formato em tabela é pensado para uma análise estratificada por categorias de um fator. Não há ainda um argumento `by`, a alternativa é juntar "manualmente" a descrição de cada estrato:
 
 ```{r out.width="98%", fig.width=10, fig.height=3, fig.align='center'}
 par(mfrow = c(1,3))
