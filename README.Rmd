@@ -1,5 +1,7 @@
 ---
-title: "Rcoisas: Funções em R para aulas de epidemiologia e bioestatística básica com resultados em português."
+title: | 
+  | Rcoisas: Funções em R para aulas de epidemiologia e bioestatística
+  | básica com resultados em português.
 output: 
   github_document:
     # toc: yes

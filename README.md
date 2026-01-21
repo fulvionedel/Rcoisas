@@ -1,5 +1,6 @@
-Rcoisas: Funções em R para aulas de epidemiologia e bioestatística
+Rcoisas: Funções em R para aulas de epidemiologia e bioestatística  
 básica com resultados em português.
+
 ================
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
