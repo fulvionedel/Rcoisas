@@ -1,0 +1,39 @@
+ Mortalidade - Brasil
+Óbitos p/Residênc por Faixa Etária det e Sexo
+Unidade da Federação: Rio Grande do Sul
+Período:2019
+"Faixa Etária det";"Masc";"Fem";"Ign";"Total"
+"0 a 6 dias";405;315;2;722
+"7 a 27 dias";168;135;1;304
+"28 a 364 dias";217;186;-;403
+"1 a 4 anos";114;83;-;197
+"5 a 9 anos";88;53;-;141
+"10 a 14 anos";101;81;-;182
+"15 a 19 anos";541;149;-;690
+"20 a 24 anos";817;198;-;1015
+"25 a 29 anos";807;252;-;1059
+"30 a 34 anos";888;350;-;1238
+"35 a 39 anos";1061;558;-;1619
+"40 a 44 anos";1233;753;-;1986
+"45 a 49 anos";1579;1004;-;2583
+"50 a 54 anos";2425;1492;-;3917
+"55 a 59 anos";3675;2165;-;5840
+"60 a 64 anos";4740;3026;-;7766
+"65 a 69 anos";5476;3723;-;9199
+"70 a 74 anos";5768;4318;-;10086
+"75 a 79 anos";5722;5022;-;10744
+"80 anos e mais";11377;18119;-;29496
+"Idade ignorada";34;7;10;51
+"Total";47236;41989;13;89238
+ Fonte: MS/SVSA/CGIAE - Sistema de Informações sobre Mortalidade - SIM
+ Notas:
+ 
+ Dados finais disponíveis até 2024 e atualizados em 02/12/2025.
+ Em 2011, houve uma mudança no conteúdo da Declaração de Óbito, com maior detalhamento das informações coletadas. Para este ano, foram
+ utilizados simultaneamente os dois formulários. Para mais detalhes sobre as mudanças ocorridas e os seus efeitos, veja o documento
+ "Sistema de Informações sobre Mortalidade - SIM. Consolidação da base de dados de 2011".
+ No dia 13/06/2019, os arquivos do SIM referentes ao ano de notificação 2017 foram atualizados, com alteração das causas básicas de 2 registros e exclusão de 1 registro.
+ No dia 01/04/2020, os arquivos do SIM referentes ao ano de notificação 2019 foram atualizados, com alteração das causas básicas de 4 registros e exclusão de 1 registro.
+ 
+url da tabulação: http://tabnet.datasus.gov.br/cgi/tabcgi.exe?sim/cnv/obt10uf.def
+Acesso em 20/01/2026

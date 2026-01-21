@@ -3,7 +3,8 @@
 #' @aliases plot.histobox
 #' @param x Uma variável numérica
 #' @param ... Permite a inclusão de argumentos para \code{\link{hist}}
-#' @export 
+#' 
+#' 
 plot.histobox <- function(x, ...) {
   UseMethod("plot.histobox")
 }
