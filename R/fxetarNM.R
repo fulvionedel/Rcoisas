@@ -9,7 +9,7 @@
 #' @param grafico Vetor lógico, FALSE por padrão. Se TRUE, desenha o gráfico da curva.
 #' @param ... Permite a definição de outros parâmetros gráficos.
 #'
-#' @returns _Se fornecida a idade_, devolve um fator com as frequências observada em cada faixa etária; _se fornecida a faixa etária_, devolve um vetor da classe caractere com as frequências de cada faixa etária; _se não são fornecidas nem a idade nem a faixa etária_ -- com `fxetarNM()` --, a função devolve um vetor com os nomes das faixas etárias.
+#' @returns \emph{Se fornecida a idade}, devolve um fator com as frequências observada em cada faixa etária; \emph{se fornecida a faixa etária}, devolve um vetor da classe caractere com as frequências de cada faixa etária; \emph{se não são fornecidas nem a idade nem a faixa etária} -- com `fxetarNM()` --, a função devolve um vetor com os nomes das faixas etárias.
 #'
 #' @examples
 #' # Apenas citar os grupos:
@@ -88,11 +88,12 @@ fxetarNM <- function(idade = NULL, fxetardet = NULL, grafico = FALSE, ...) {
       factor(levels = rotulos)
   }
   if(isTRUE(grafico)) {
-    plot(fxetarNM |> 
+    return(plot(fxetarNM |> 
            table() |> 
            prop.table()*100 ,
          type = 'l', ylab = "\u0025", xlab = "faixa et\u00e1ria", 
          ...) 
+    )
   }
   fxetarNM
 }

@@ -2,7 +2,7 @@
 #' @aliases fxetar.det_pra_fxetar5
 #' @keywords DATASUS
 #' 
-#' @description Reclassifica as idades < 20 anos em faixas etárias quinquenais.
+#' @description Reclassifica as idades < 20 anos em faixas etárias quinquenais, para ter um vetor com as mesmas categorias da "faixa etária detalhada" de algumas tabulações do DATASUS. \emph{Note} que não é a "faixa etária detalhada" dos arquivos das estimativas populacionais após o Censo de 2022.
 #' 
 #' @param x Um vetor com a idade categorizada segundo: (1) os arquivos de população "POPBR??.DBF" (até o ano 2012) disponibilizados pelo DATASUS, ou (2) um \code{data.frame} com o resultado de uma tabulação com a opção "Faixa etária detalhada" no TABNET ou TabWin (v. detalhes)
 #' @param tipo Argumento obrigatório indicando a origem dos dados, se um arquivo de população do DATASUS  ou uma tabulação do TABNET ou TabWin (\code{tipo = "tabela"}). O padrão é \code{tipo = "POPBR"}. V. detalhes.

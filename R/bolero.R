@@ -11,6 +11,7 @@
 #' 
 #' @examples
 #' with(RDRS2019, bolero(SEXO, MORTE))
+#' with(RDRS2019, bolero(SEXO, MORTE, dnn = c("Sexo", "Óbito")))
 #' 
 #' @export
 #' 

@@ -4,33 +4,23 @@
 \alias{tabuleiro}
 \title{Tabela de frequências univariada}
 \usage{
-tabuleiro(
-  x,
-  digits = 1,
-  total = TRUE,
-  cum = TRUE,
-  format = "en",
-  data = NULL,
-  ...
-)
+tabuleiro(x, digits = 1, total = TRUE, cum = TRUE, data = NULL, ...)
 }
 \arguments{
-\item{x}{O vetor a ser tabulado}
+\item{x}{O vetor a ser tabulado.}
 
-\item{digits}{nº de decimais na tabela}
+\item{digits}{nº de decimais na tabela. O padrão é 1.}
 
-\item{total}{TRUE (default) apresenta o total de categorias na tabela}
+\item{total}{TRUE (default) apresenta o total de categorias na tabela.}
 
-\item{cum}{TRUE (default) apresenta as frequências acumuladas das cateogrias}
+\item{cum}{TRUE (default) apresenta as frequências acumuladas das cateogrias.}
 
-\item{format}{Caráter indicando se o formato da tabela é anglo-saxão ("en", default) ou latino ("pt"); se "pt", os decimais serão apresentados depois de vírgula e os milhares separados por ponto # NÃO IMPLEMENTADO -- COLOCAR ISSO NUM MÉTODO PRINT.tabuleiro}
+\item{data}{Argumento opcional. Banco de dados contendo \code{x}. O padrão é NULL.}
 
-\item{data}{Optional argument. Data frame containing \code{x}. Defaults to NULL}
-
-\item{...}{permite o uso de argumentos da função \code{\link{table}}}
+\item{...}{permite o uso de argumentos da função \code{\link{table}}.}
 }
 \description{
-Constrói uma tabela com distribuição de frequências brutas, relativas e acumuladas, com rótulos em português
+Constrói uma tabela com distribuição de frequências brutas, relativas e acumuladas, com rótulos em português.
 }
 \examples{
 set.seed(1)

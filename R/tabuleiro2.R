@@ -1,5 +1,8 @@
-#' Tabela de frequências com separadores latinos
+#' @title Tabela de frequências univariada
 #' @aliases tabuleiro2
+#' 
+#' @description Constrói uma tabela com distribuição de frequências brutas, relativas e acumuladas, semelhante às do SPSS, com separadores latinos.
+#' 
 #' @param varcat Uma variável categórica
 #' @param digits No. de decimais
 #' 

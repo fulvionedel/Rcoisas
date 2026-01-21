@@ -15,7 +15,7 @@ fxetar.det_pra_fxetar5(x, tipo = "POPBR")
 Se \code{tipo = "POPBR"}, um vetor da classe \code{character} com a idade categorizada em 17 faixas etárias: quinquenais de 0 a 79 anos e 80 e + anos de idade. Se \code{tipo = "tabela"}, uma tabela (de classe \code{data.frame}) com a "faixa etária detalhada" agregada nessas 17 faixas etárias.
 }
 \description{
-Reclassifica as idades < 20 anos em faixas etárias quinquenais.
+Reclassifica as idades < 20 anos em faixas etárias quinquenais, para ter um vetor com as mesmas categorias da "faixa etária detalhada" de algumas tabulações do DATASUS. \emph{Note} que não é a "faixa etária detalhada" dos arquivos das estimativas populacionais após o Censo de 2022.
 }
 \details{
 Os arquivos "POPBR??.DBF" têm a idade em anos completos até 19 anos, faixas quinquenais de 20-24 até 75-79 anos e 80 e + anos.   

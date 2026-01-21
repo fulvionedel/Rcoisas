@@ -1,3 +1,4 @@
+.gitignore
 .Rproj.user
 .Rhistory
 .RData
@@ -8,4 +9,5 @@ inst/purgatorio/
 inst/projetos
 inst/*.bib
 inst/*.csl
+inst/museu
 docs/

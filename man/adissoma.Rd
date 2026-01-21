@@ -7,7 +7,7 @@
 adissoma(tabela, rotulo = "Total")
 }
 \arguments{
-\item{tabela}{Objeto de estrutura matricial de no mínimo duas linhas e duas colunas}
+\item{tabela}{Objeto de estrutura matricial com no mínimo duas linhas e duas colunas}
 
 \item{rotulo}{Rótulo para a linha da soma, o padrão é "Total".}
 }
@@ -15,10 +15,14 @@ adissoma(tabela, rotulo = "Total")
 A tabela (de classe \code{data.frame}) com a linha da soma ao final.
 }
 \description{
-Em uma tabela, acrescenta uma linha com o total das colunas, ou soma dos valores das colunas em linhas selecionadas.
+Em uma tabela, acrescenta uma linha com o total das colunas, ou a soma dos valores das colunas em linhas selecionadas.
+}
+\details{
+É análoga a \code{\link{colSums}}, mas identifica as colunas numéricas na tabela e trabalha apenas sobre elas, sempre com \code{na.rm = TRUE}, isto é, desconsiderando os missings na soma.
 }
 \examples{
-tabela <- "'Faixa Etária det'	Masc	 Fem Ign	Total
+# Reproduzir uma tabela da mortalidade por "faixa etária detalhada" do DATASUS:
+tabela <- "'Faixa Etária det'  Masc  Fem  Ign Total
                  '0 a 6 dias'   361   257   5   623
                 '7 a 27 dias'   156   111   -   267
               '28 a 364 dias'   155   148   1   304
@@ -41,10 +45,16 @@ tabela <- "'Faixa Etária det'	Masc	 Fem Ign	Total
              '80 anos e mais' 14444 21159   7 35610"
 tabela <- read.table(header = TRUE, na.strings = "-", text = tabela)
 adissoma(tabela)
+# Somar a faixa de 0-4 anos:
+tabela2 <- rbind(adissoma(tabela[1:4,], rotulo = "0 a 4 anos")[5,],
+                 tabela[-c(1:4),])
+adissoma(tabela2) 
+# Pode-se ter o mesmo resultado com 'colSums()', mas com mais trabalho: 
+cbind("Faixa etária" = c(tabela2[[1]], "Total"), 
+      rbind(tabela2[-1], colSums(tabela2[-1], na.rm = TRUE)))
 
-rbind(adissoma(tabela[1:4,], rotulo = "0 a 4 anos")[5,],
-      tabela[-c(1:4),]
-      ) |>
-  adissoma()
 
+}
+\seealso{
+\code{\link{colSums}}
 }

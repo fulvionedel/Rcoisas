@@ -2,7 +2,7 @@
 % Please edit documentation in R/tabuleiro2.R
 \name{tabuleiro2}
 \alias{tabuleiro2}
-\title{Tabela de frequências com separadores latinos}
+\title{Tabela de frequências univariada}
 \usage{
 tabuleiro2(varcat, digits = 1)
 }
@@ -12,7 +12,7 @@ tabuleiro2(varcat, digits = 1)
 \item{digits}{No. de decimais}
 }
 \description{
-Tabela de frequências com separadores latinos
+Constrói uma tabela com distribuição de frequências brutas, relativas e acumuladas, semelhante às do SPSS, com separadores latinos.
 }
 \examples{
 # criar uma variável politômica

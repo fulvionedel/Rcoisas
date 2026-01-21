@@ -1,15 +1,22 @@
 #' @title Totais de colunas em uma tabela
 #' @aliases adissoma
 #' 
-#' @description Em uma tabela, acrescenta uma linha com o total das colunas, ou soma dos valores das colunas em linhas selecionadas.
+#' @description
+#' Em uma tabela, acrescenta uma linha com o total das colunas, ou a soma dos valores das colunas em linhas selecionadas.
+#' @details
+#' É análoga a \code{\link{colSums}}, mas identifica as colunas numéricas na tabela e trabalha apenas sobre elas, sempre com \code{na.rm = TRUE}, isto é, desconsiderando os missings na soma. 
 #' 
-#' @param tabela Objeto de estrutura matricial de no mínimo duas linhas e duas colunas
+#' 
+#' @param tabela Objeto de estrutura matricial com no mínimo duas linhas e duas colunas
 #' @param rotulo Rótulo para a linha da soma, o padrão é "Total".
 #' 
 #' @returns A tabela (de classe \code{data.frame}) com a linha da soma ao final.
 #' 
+#' @seealso \code{\link{colSums}}
+#' 
 #' @examples
-#' tabela <- "'Faixa Etária det'	Masc	 Fem Ign	Total
+#' # Reproduzir uma tabela da mortalidade por "faixa etária detalhada" do DATASUS:
+#' tabela <- "'Faixa Etária det'  Masc  Fem  Ign Total
 #'                  '0 a 6 dias'   361   257   5   623
 #'                 '7 a 27 dias'   156   111   -   267
 #'               '28 a 364 dias'   155   148   1   304
@@ -32,13 +39,15 @@
 #'              '80 anos e mais' 14444 21159   7 35610"
 #' tabela <- read.table(header = TRUE, na.strings = "-", text = tabela)
 #' adissoma(tabela)
+#' # Somar a faixa de 0-4 anos:
+#' tabela2 <- rbind(adissoma(tabela[1:4,], rotulo = "0 a 4 anos")[5,],
+#'                  tabela[-c(1:4),])
+#' adissoma(tabela2) 
+#' # Pode-se ter o mesmo resultado com 'colSums()', mas com mais trabalho: 
+#' cbind("Faixa etária" = c(tabela2[[1]], "Total"), 
+#'       rbind(tabela2[-1], colSums(tabela2[-1], na.rm = TRUE)))
 #' 
-#' rbind(adissoma(tabela[1:4,], rotulo = "0 a 4 anos")[5,],
-#'       tabela[-c(1:4),]
-#'       ) |>
-#'   adissoma()
-# 
-# x <- xtabs(~ fxetar.det + sexo, obitosRS2019) 
+# x <- xtabs(~ fxetar.det + sexo, obitosRS2019)
 # x
 # x |>
 #   unclass() |>
@@ -61,12 +70,3 @@ adissoma <- function(tabela, rotulo = "Total") {
   x
 }
 
-fxetarinf <- function(x) {
-  # Dicionário de variáveis em  https://ccvisat.ufba.br/wp-content/uploads/2019/10/Estrutura-do-SIM-para-o-CD-ROM.pdf
-  tempo <- substr(x, 1, 1)
-  idade <- as.numeric(substr(x, 2, 3))
-  idade <- ifelse(as.numeric(x) <= 206, 1, 
-                  ifelse(tempo == 2 & idade < 28, 2,
-                         ifelse((tempo == 2 & idade >= 28) | tempo == 3, 3, NA))) |>
-    factor(labels = c("Neonatal precoce", "Neonatal tardia", "P\U00F3s neonatal"))
-}

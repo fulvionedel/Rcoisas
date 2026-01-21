@@ -23,5 +23,6 @@ Analisa uma tabela 2x2 e apresenta um output com rótulos em português
 }
 \examples{
 with(RDRS2019, bolero(SEXO, MORTE))
+with(RDRS2019, bolero(SEXO, MORTE, dnn = c("Sexo", "Óbito")))
 
 }
