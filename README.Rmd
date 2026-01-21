@@ -1,8 +1,9 @@
 ---
-title: "Rcoisas"
+title: "Rcoisas: Funções em R para aulas de epidemiologia e bioestatística básica com resultados em português."
 output: 
   github_document:
-    toc: yes
+    # toc: yes
+    # toc_depth: 3
 always_allow_html: true
 ---
 
@@ -19,198 +20,44 @@ knitr::opts_chunk$set(
 ```
 
 <!-- badges: start -->
+No [SourceForge](https://sourceforge.net/projects/Rcoisas/): 
+[![Download Rcoisas](https://img.shields.io/sourceforge/dt/Rcoisas.svg)](https://sourceforge.net/projects/csapaih/files/latest/download)
+[![Download Rcoisas](https://img.shields.io/sourceforge/dm/Rcoisas.svg)](https://sourceforge.net/projects/csapaih/files/latest/download)
 <!-- badges: end -->
 
-> **Funções em R para aulas e apresentação de resultados em português.**
 
-O pacote contém funções com _outputs_ em português e bancos de dados úteis para a produção de gráficos e tabelas para aulas, como a descrição "completa" de uma variável numérica, uma tabela de frequências, a análise de uma tabela 2 x 2 ou a construção de indicadores de saúde, como a curva de Nelson de Moraes. 
+O pacote contém funções com _outputs_ em português e bancos de dados úteis para a produção de gráficos e tabelas úteis para a construção de material didático e exercícios em aula, como a descrição de variáveis numéricas e tabela de frequências, a análise de uma tabela 2 x 2 ou a construção de indicadores de saúde, como a curva de Nelson de Moraes. 
 <!-- Algumas funções são importadas do pacote [`csapAIH`](https://github.com/fulvionedel/csapAIH) (`fxetar_quinq`, `fxetar3g`, `ufbr`, `ler_popbr` e `popbr2000_2021`).  -->
-Veja a ajuda para a lista completa e detalhamento das funções e bancos de dados no pacote.
 
 
-# Instalação 
+## Conteúdo
 
-O pacote ainda não tem uma primeira versão para ser lançada. A versão de desenvolvimento pode ser instalada a partir do [GitHub](https://github.com/) com o pacote `remotes`:
+Esta é a primeira "_release_" do pacote, com `r length(getNamespaceExports("Rcoisas"))` funções, listadas a seguir:
+
+```{r echo=FALSE}
+sort(getNamespaceExports("Rcoisas"))
+```
+Exemplos de uso de algumas funções podem ser vistos em https://fulvionedel.github.io/Rcoisas/
+
+Veja aqui o (manual do pacote)[https://github.com/fulvionedel/Rcoisas/blob/master/inst/manual/Rcoisas_0.0.1.0.pdf].
+
+
+## Instalação 
+
+A última versão do pacote pode ser instalada no **R**:
+
+  * baixando o arquivo de instalação no [SourceForge](https://sourceforge.net/projects/Rcoisas/) e depois instalando, com a IDE de preferência ou com o comando `install.packages("Rcoisas_<versão>.tar.gz")` (em Linux ou Mac) ou `install.packages("Rcoisas_<versão>.zip")` (em Windows); ou
+  
+  * com a função `install.packages()` endereçada  ao link da última versão no [SourceForge](https://sourceforge.net/projects/Rcoisas/files/):
+
+```{r eval=FALSE}
+install.packages("https://sourceforge.net/projects/Rcoisas/files/latest/download", type = "source", repos = NULL) 
+```
+
+A versão de desenvolvimento pode ser instalada a partir do [GitHub](https://github.com/) com o pacote `remotes`:
 
 ```
 # install.packages("remotes") # Se o pacote 'remotes' não estiver instalado
 remotes::install_github("fulvionedel/Rcoisas")
 ```
-
-# Exemplos
-
-```{r}
-library(Rcoisas)
-```
-
-## Descrição univariada 
-
-> Funções `descreve`, `histobox` e `tabuleiro`.
-
-```{r echo=FALSE}
-cat("descreve", stringr::str_sub(list(args(descreve)) |> as.character(), 10, 470), sep = "")
-```
-
-### Variáveis numéricas
-
-**A função `descreve`** realiza a descrição "completa" de uma variável numérica. Por padrão apresenta uma lista com os parâmetros descritos e um histograma com marcas da distribuição da variável. O histograma pode ser suprimido e a lista pode ser transformada em `data.frame`. 
-
-```{r }
-set.seed(1)
-descreve(varnum <- rnorm(1000))  
-
-descreve(varnum, histograma = FALSE, print = "tabela")
-```
-O output pode ser guardado em um objeto e depois impresso como lista ou como tabela (de classe `data.frame`) e usado para captar em texto cada parâmetro isoladamente.
-
-```{r }
-x <- descreve(varnum, histograma = FALSE, print = FALSE)
-Rcoisas:::print.descreve(x)
-
-Rcoisas:::print.descreve(x, print = "tabela")
-
-paste("Média de", x$media, "e desvio-padrão de", x$dp, "unidades, configurando um coeficiente de variação de", x$cv, "%.")
-```
-
-O objeto pode ser modificado para sua impressão. O exemplo a seguir usa outra função do pacote, `formatL()`, para apresentar os valores em formato latino.
-```{r }
-Rcoisas:::print.descreve(x, print = "tabela") |> 
-  tibble::as_tibble(rownames = "parametro") |>
-  dplyr::mutate(varnum = formatL(varnum, format = "fg", digits = 3)) |>
-  knitr::kable(align = 'r')
-```
-
-O formato em tabela é pensado para uma análise estratificada por categorias de um fator. Um argumento `by` está em desenvolvimento e ainda não funciona adequadamente. `r emo::ji("confused")`
-A alternativa é juntar "manualmente" a descrição de cada estrato:
-
-```{r out.width="98%", fig.width=10, fig.height=3, fig.align='center'}
-par(mfrow = c(1,3))
-cbind(
-  descreve(idade, data = obitosRS2019[obitosRS2019$sexo == "masc", ], main = "masc", legenda = FALSE, print = 'tabela'),
-  descreve(idade, data = obitosRS2019[obitosRS2019$sexo == "fem", ], main = "fem", legenda = FALSE, print = 'tabela'),
-  descreve(idade, data = obitosRS2019, main = "ambos sexos", print = 'tabela', lugar = 'topleft')
-      ) |>
-  dplyr::rename("Masculino" = 1, "Feminino" = 2, "Ambos sexos" = 3) |>
-  dplyr::mutate(Masculino = formatL(Masculino, format = "fg", digits = 4),
-                Feminino = formatL(Feminino, format = "fg", digits = 4),
-                "Ambos sexos" = formatL(`Ambos sexos`, format = "fg", digits = 4)) |>
-  knitr::kable(align = 'r') 
-```
-
-
-**A função `histobox`** desenha um histograma com um diagrama de caixas ("_box-plot_") horizontal acima do gráfico.
-
-```{r }
-histobox(varnum, col.h = "tomato", col.bx = "yellow", xlab = "Medida", ylab = "Frequência")
-```
-
-### Variáveis categóricas 
-
-**As funções `tabuleiro` e `tabuleiro2`** apresentam uma tabela univariada com frequências absolutas e relativas (%) simples e acumuladas.
-
-```{r echo=FALSE}
-cat("tabuleiro", stringr::str_sub(list(args(tabuleiro)) |> as.character(), 10, 83), sep = "")
-cat("tabuleiro2", stringr::str_sub(list(args(tabuleiro2)) |> as.character(), 10, 29), sep = "")
-```
-
-
-```{r }
-tabuleiro(RACACOR, data = obitosRS2019)
-```
-
-Uma tabela para apresentação pode ser feita com a função `kable{knitr}`. Esta função tem argumentos para apresentar resultados em formato latino, mas o trabalho pode ser abreviado com a função `formatL{Rcoisas}` -- enquanto o argumento `format` não é implementado. Além disso, a frequência acumulada aqui não faz muito sentido.
-
-```{r }
-tab1 <- tabuleiro(RACACOR, data = obitosRS2019, cum = FALSE, digits = 3)
-knitr::kable(tab1 |> formatL(format = "fg"), align = 'r')
-```
-
-A função foi criada para oferecer axs estudantes um modo fácil de criar no R uma tabela com essas características e valores em formato latino. Na sua primeira versão os valores eram pré-formatados, oferecendo a seguinte tabela:
-
-```{r }
-(tab2 <- tabuleiro2(obitosRS2019$RACACOR))
-```
-
-que facilmente pode ser formatada com `kable`.
-```{r }
-knitr::kable(tab2, align = 'r')
-```
-
-Mas os valores da tabela estão em formato caractere e não numérico, o que impede a execução de operações matemáticas. Por isso foi rebatizada de `tabuleiro2` e seu desenvolvimento descontinuado. Está no pacote porque ainda a tenho em várias aulas `r emo::ji("sleepy")`. É desaconselhável seu uso em novos scripts.
-
-
-## Curva de Nelson de Moraes 
-
-```{r echo=FALSE}
-cat("fxetarNM", stringr::str_sub(list(args(fxetarNM)) |> as.character(), 10, 63), sep = "")
-```
-
-**A função `fxetarNM`** agrega um vetor com a idade ou com a "faixa etária detalhada" (classificação do DATASUS) segundo as categorias da Curva de Nelson de Moraes (`r fxetarNM()`). O argumento `grafico = TRUE` desenha o gráfico da curva.
-
-```{r results='hide'}
-fxetarNM(obitosRS2019$idade, grafico = TRUE, 
-         col.sub = 2, font.sub = 3, cex.sub = .8, 
-         main = "Curva de Nelson de Moraes. RS, 2019.", 
-         sub = "\nAmostra aleatória de 10.000 óbitos.") 
-```
-
-Neste caso interessam as frequências acumuladas:
-```{r}
-obitosRS2019$idade |>
-  fxetarNM() |>
-  tabuleiro(total = FALSE) |>
-  formatL(format = "fg", digits = 2) |> 
-  knitr::kable(align = 'r')
-```
-
-
-```{r eval=FALSE,echo=FALSE,include=FALSE}
-nm <- obitosRS2019$idade |>
-  fxetarNM() |>
-  tabuleiro() 
-nm
-
-nm2 <- nm |>
-  as.data.frame() |>
-  dplyr::rename(perc = '%') |>
-  dplyr::slice(1:5) |> 
-  tibble::rownames_to_column("fxetar") #|>
-  # dplyr::mutate(fxetar = fxetarNM()) 
-nm2
-ggplot(nm2, aes(fxetar, perc, group = 1)) +
-  geom_point() +
-  geom_line()
-
-plot(nm[1:5,2], type = 'l')
-
-plot(nm2[,c('fxetar', '%')], type = 'l')
-```
-
-Veja detalhes sobre a função em https://fulvionedel.github.io/Rcoisas/articles/fxetarnm.html  
-
-## Tabelas 2 x 2 
-
-**A função `bolero`** analisa a tabela de contingências de duas variáveis dicotômicas. O exemplo a seguir usa um banco de dados do pacote Rcoisas, com uma amostra aleatória de dez mil registros de óbitos do RS para comparar a probabilidade de um diagnóstico de causa cardiovascular e de causa externa segundo o sexo, entre os óbitos. As causas são classificadas com a função `cid10cap()`, do pacote [`csapAIH`](https://github.com/fulvionedel/csapAIH).
-
-```{r}
-obitos <- obitosRS2019[c("sexo", "CAUSABAS")]
-str(obitos)
-cardio <- grepl("circulatório", csapAIH::cid10cap(obitos$CAUSABAS)) |>
-  factor(levels = c(TRUE, FALSE), labels = c("sim", "não"))
-bolero(obitos$sexo, cardio)
-```
-
-Para mudar a categoria de referência mudam-se antes os níveis da variável. Os rótulos dos nomes das variáveis podem ser modificados com o argumento `dnn`. Vamos guardar o resultado (num objeto chamdo "tabolero") para poder usá-lo em texto automatizado.
-
-```{r}
-tabolero <- bolero(factor(obitos$sexo, levels = c("fem", "masc")), cardio, 
-       dnn = c("sexo", "aparelho circulatório"))
-str(tabolero)
-```
-
-Assim podemos dizer, por exemplo, que a probabilidade de que a causa básica de óbito seja cardiovascular é `r formatL((tabolero$RP-1)*100, digits = 0)`% maior no sexo feminino que no masculino (RP = `r formatL(tabolero$RP, 2)`; IC~95~ `r formatL(tabolero$lci.rp, 2)` a `r formatL(tabolero$uci.rp, 2)`). Veja abaixo o código utilizado:
-
-> [...] a probabilidade de que a causa básica de óbito seja cardiovascular é `` `r knitr::inline_expr('formatL((tabolero$RP-1)*100, digits = 0)')` ``% maior no sexo feminino que no masculino (RP = `` `r knitr::inline_expr('formatL(tabolero$RP, 2)')` ``; IC~95~ `` `r knitr::inline_expr('formatL(tabolero$lci.rp, 2)')` `` a `` `r knitr::inline_expr('formatL(tabolero$uci.rp, 2)')` ``).
-
-<!-- You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/v1/examples>. -->
 
