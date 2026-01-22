@@ -1,5 +1,5 @@
 Rcoisas: Funções para aulas de epidemiologia e bioestatística em
-português.
+português
 ================
 <!-- | Em atualização -->
 
