@@ -1,20 +1,15 @@
 Rcoisas: Funções para aulas de epidemiologia e bioestatística
 ================
-<!-- | Em atualização -->
 
-21 de janeiro de 2026
+<!-- --- -->
 
-- [Conteúdo](#conteúdo)
-- [Instalação](#instalação)
+<!-- No [SourceForge](https://sourceforge.net/p/rcoisas/):  -->
 
-------------------------------------------------------------------------
+<!-- [![Download Rcoisas](https://img.shields.io/sourceforge/dt/rcoisas.svg)](https://sourceforge.net/p/rcoisas/files/latest/download) -->
 
-No [SourceForge](https://sourceforge.net/p/rcoisas/): [![Download
-Rcoisas](https://img.shields.io/sourceforge/dt/rcoisas.svg)](https://sourceforge.net/p/rcoisas/files/latest/download)
-[![Download
-Rcoisas](https://img.shields.io/sourceforge/dm/rcoisas.svg)](https://sourceforge.net/p/rcoisas/files/latest/download)
+<!-- [![Download Rcoisas](https://img.shields.io/sourceforge/dm/rcoisas.svg)](https://sourceforge.net/p/rcoisas/files/latest/download) -->
 
-------------------------------------------------------------------------
+<!-- --- -->
 
 O pacote contém funções com *outputs* em português e bancos de dados
 úteis para a produção de gráficos e tabelas úteis para a construção de
@@ -23,7 +18,7 @@ numéricas e tabela de frequências, a análise de uma tabela 2 x 2 ou a
 construção de indicadores de saúde, como a curva de Nelson de Moraes.
 <!-- Algumas funções são importadas do pacote [`csapAIH`](https://github.com/fulvionedel/csapAIH) (`fxetar_quinq`, `fxetar3g`, `ufbr`, `ler_popbr` e `popbr2000_2021`).  -->
 
-## Conteúdo
+<!-- ## Conteúdo -->
 
 Esta é a primeira “*release*” do pacote, com 18 funções, listadas a
 seguir:
@@ -62,5 +57,7 @@ install.packages("https://sourceforge.net/projects/Rcoisas/files/latest/download
 A versão de desenvolvimento pode ser instalada a partir do
 [GitHub](https://github.com/) com o pacote `remotes`:
 
-    # install.packages("remotes") # Se o pacote 'remotes' não estiver instalado
-    remotes::install_github("fulvionedel/Rcoisas")
+``` r
+# install.packages("remotes") # Se o pacote 'remotes' não estiver instalado
+remotes::install_github("fulvionedel/Rcoisas")
+```

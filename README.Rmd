@@ -1,12 +1,12 @@
 ---
 title: 'Rcoisas: Funções para aulas de epidemiologia e bioestatística'
-date: | 
-  <!-- | Em atualização -->
-  | `r format(Sys.Date(), c("%d de %B de %Y"))`
+# date: | 
+#   <!-- | Em atualização -->
+#   | `r format(Sys.Date(), c("%d de %B de %Y"))`
 output: 
   github_document:
-    toc: yes
-    toc_depth: 3
+    # toc: yes
+    # toc_depth: 3
 always_allow_html: true
 ---
 
@@ -21,20 +21,20 @@ knitr::opts_chunk$set(
 )
 ```
 
----
+<!-- --- -->
 
-No [SourceForge](https://sourceforge.net/p/rcoisas/): 
-[![Download Rcoisas](https://img.shields.io/sourceforge/dt/rcoisas.svg)](https://sourceforge.net/p/rcoisas/files/latest/download)
-[![Download Rcoisas](https://img.shields.io/sourceforge/dm/rcoisas.svg)](https://sourceforge.net/p/rcoisas/files/latest/download)
+<!-- No [SourceForge](https://sourceforge.net/p/rcoisas/):  -->
+<!-- [![Download Rcoisas](https://img.shields.io/sourceforge/dt/rcoisas.svg)](https://sourceforge.net/p/rcoisas/files/latest/download) -->
+<!-- [![Download Rcoisas](https://img.shields.io/sourceforge/dm/rcoisas.svg)](https://sourceforge.net/p/rcoisas/files/latest/download) -->
 
----
+<!-- --- -->
 
 
 O pacote contém funções com _outputs_ em português e bancos de dados úteis para a produção de gráficos e tabelas úteis para a construção de material didático e exercícios em aula, como a descrição de variáveis numéricas e tabela de frequências, a análise de uma tabela 2 x 2 ou a construção de indicadores de saúde, como a curva de Nelson de Moraes. 
 <!-- Algumas funções são importadas do pacote [`csapAIH`](https://github.com/fulvionedel/csapAIH) (`fxetar_quinq`, `fxetar3g`, `ufbr`, `ler_popbr` e `popbr2000_2021`).  -->
 
 
-## Conteúdo
+<!-- ## Conteúdo -->
 
 Esta é a primeira "_release_" do pacote, com `r length(getNamespaceExports("Rcoisas"))` funções, listadas a seguir:
 
@@ -61,7 +61,7 @@ install.packages("https://sourceforge.net/projects/Rcoisas/files/latest/download
 
 A versão de desenvolvimento pode ser instalada a partir do [GitHub](https://github.com/) com o pacote `remotes`:
 
-```
+```{r eval=FALSE}
 # install.packages("remotes") # Se o pacote 'remotes' não estiver instalado
 remotes::install_github("fulvionedel/Rcoisas")
 ```
