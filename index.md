@@ -1,5 +1,4 @@
-Rcoisas: Funções para aulas de epidemiologia e bioestatística em
-português ================
+# Rcoisas: Funções para aulas de epidemiologia em português.
 
 21 de janeiro de 2026
 
