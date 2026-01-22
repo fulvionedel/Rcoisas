@@ -1,17 +1,21 @@
-Rcoisas: Funções em R para aulas de epidemiologia e bioestatística
-básica em português.
+Rcoisas: Funções para aulas de epidemiologia e bioestatística em
+português.
 ================
+<!-- | Em atualização -->
+
+21 de janeiro de 2026
 
 - [Conteúdo](#conteúdo)
 - [Instalação](#instalação)
 
-<!-- badges: start -->
+------------------------------------------------------------------------
 
-No [SourceForge](https://sourceforge.net/projects/Rcoisas/): [![Download
-Rcoisas](https://img.shields.io/sourceforge/dt/Rcoisas.svg)](https://sourceforge.net/projects/csapaih/files/latest/download)
+No [SourceForge](https://sourceforge.net/p/rcoisas/): [![Download
+Rcoisas](https://img.shields.io/sourceforge/dt/rcoisas.svg)](https://sourceforge.net/p/rcoisas/files/latest/download)
 [![Download
-Rcoisas](https://img.shields.io/sourceforge/dm/Rcoisas.svg)](https://sourceforge.net/projects/csapaih/files/latest/download)
-<!-- badges: end -->
+Rcoisas](https://img.shields.io/sourceforge/dm/rcoisas.svg)](https://sourceforge.net/p/rcoisas/files/latest/download)
+
+------------------------------------------------------------------------
 
 O pacote contém funções com *outputs* em português e bancos de dados
 úteis para a produção de gráficos e tabelas úteis para a construção de
