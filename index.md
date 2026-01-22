@@ -1,5 +1,7 @@
-Rcoisas: Funções em R para aulas de epidemiologia e bioestatística
-básica com resultados em português. ================
+Rcoisas: Funções em R para aulas de epidemiologia e bioestatística  
+básica com resultados em português.
+
+================
 
 O pacote contém funções com *outputs* em português e bancos de dados
 úteis para a produção de gráficos e tabelas úteis para a construção de
