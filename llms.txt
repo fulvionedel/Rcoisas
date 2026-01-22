@@ -1,6 +1,9 @@
 Rcoisas: Funções em R para aulas de epidemiologia e bioestatística
 básica em português. ================
 
+- [Conteúdo](#conte%C3%BAdo)
+- [Instalação](#instala%C3%A7%C3%A3o)
+
 O pacote contém funções com *outputs* em português e bancos de dados
 úteis para a produção de gráficos e tabelas úteis para a construção de
 material didático e exercícios em aula, como a descrição de variáveis
@@ -24,8 +27,8 @@ seguir:
 Exemplos de uso de algumas funções podem ser vistos em
 <https://fulvionedel.github.io/Rcoisas/>
 
-Veja aqui o (manual do
-pacote)\[<https://github.com/fulvionedel/Rcoisas/blob/master/inst/manual/Rcoisas_0.0.1.0.pdf>\].
+Veja aqui o [manual do
+pacote](https://github.com/fulvionedel/Rcoisas/blob/master/inst/manual/Rcoisas_0.0.1.0.pdf).
 
 ## Instalação
 
