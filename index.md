@@ -4,6 +4,15 @@ básica em português. ================
 - [Conteúdo](#conte%C3%BAdo)
 - [Instalação](#instala%C3%A7%C3%A3o)
 
+------------------------------------------------------------------------
+
+No [SourceForge](https://sourceforge.net/p/rcoisas/): [![Download
+Rcoisas](https://img.shields.io/sourceforge/dt/rcoisas.svg)](https://sourceforge.net/p/rcoisas/files/latest/download)
+[![Download
+Rcoisas](https://img.shields.io/sourceforge/dm/rcoisas.svg)](https://sourceforge.net/p/rcoisas/files/latest/download)
+
+------------------------------------------------------------------------
+
 O pacote contém funções com *outputs* em português e bancos de dados
 úteis para a produção de gráficos e tabelas úteis para a construção de
 material didático e exercícios em aula, como a descrição de variáveis
