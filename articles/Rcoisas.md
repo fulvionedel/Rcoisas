@@ -296,17 +296,16 @@ Neste caso interessam as frequências acumuladas:
 obitosRS2019$idade |>
   fxetarNM() |>
   tabuleiro(total = FALSE) |>
-  formatL(format = "fg", digits = 2) |> 
-  knitr::kable(align = 'r')
+  knitr::kable(format.args = list(big.mark = ".", decimal.mark = ","))
 ```
 
-|        |  Freq |   % | Freq.acum | %acum |
-|:-------|------:|----:|----------:|------:|
-| \< 1   |   168 | 1,7 |       168 |   1,7 |
-| 1-4    |    25 | 0,3 |       193 |   1,9 |
-| 5-19   |   114 | 1,1 |       307 |   3,1 |
-| 20-49  | 1.021 |  10 |     1.328 |    13 |
-| 50 e + | 8.665 |  87 |    10.000 |   100 |
+|        |  Freq |    % | Freq.acum | %acum |
+|:-------|------:|-----:|----------:|------:|
+| \< 1   |   168 |  1,7 |       168 |   1,7 |
+| 1-4    |    25 |  0,3 |       193 |   1,9 |
+| 5-19   |   114 |  1,1 |       307 |   3,1 |
+| 20-49  | 1.021 | 10,2 |     1.328 |  13,3 |
+| 50 e + | 8.665 | 86,7 |     9.993 | 100,0 |
 
 Veja detalhes sobre a função em
 <https://fulvionedel.github.io/Rcoisas/articles/fxetarnm.html>
