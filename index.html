@@ -56,19 +56,13 @@
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header"><h1 id="rcoisas-funções-para-aulas-de-epidemiologia-e-bioestatística">Rcoisas: Funções para aulas de epidemiologia e bioestatística<a class="anchor" aria-label="anchor" href="#rcoisas-fun%C3%A7%C3%B5es-para-aulas-de-epidemiologia-e-bioestat%C3%ADstica"></a>
 </h1></div>
-<!-- | Em atualização -->
-<p>21 de janeiro de 2026</p>
-<ul>
-<li><a href="#conte%C3%BAdo">Conteúdo</a></li>
-<li><a href="#instala%C3%A7%C3%A3o">Instalação</a></li>
-</ul>
-<hr>
-<p>No <a href="https://sourceforge.net/p/rcoisas/" class="external-link">SourceForge</a>: <a href="https://sourceforge.net/p/rcoisas/files/latest/download" class="external-link"><img src="https://img.shields.io/sourceforge/dt/rcoisas.svg" alt="Download Rcoisas"></a> <a href="https://sourceforge.net/p/rcoisas/files/latest/download" class="external-link"><img src="https://img.shields.io/sourceforge/dm/rcoisas.svg" alt="Download Rcoisas"></a></p>
-<hr>
+<!-- --- -->
+<!-- No [SourceForge](https://sourceforge.net/p/rcoisas/):  -->
+<!-- [![Download Rcoisas](https://img.shields.io/sourceforge/dt/rcoisas.svg)](https://sourceforge.net/p/rcoisas/files/latest/download) -->
+<!-- [![Download Rcoisas](https://img.shields.io/sourceforge/dm/rcoisas.svg)](https://sourceforge.net/p/rcoisas/files/latest/download) -->
+<!-- --- -->
 <p>O pacote contém funções com <em>outputs</em> em português e bancos de dados úteis para a produção de gráficos e tabelas úteis para a construção de material didático e exercícios em aula, como a descrição de variáveis numéricas e tabela de frequências, a análise de uma tabela 2 x 2 ou a construção de indicadores de saúde, como a curva de Nelson de Moraes. <!-- Algumas funções são importadas do pacote [`csapAIH`](https://github.com/fulvionedel/csapAIH) (`fxetar_quinq`, `fxetar3g`, `ufbr`, `ler_popbr` e `popbr2000_2021`).  --></p>
-<div class="section level2">
-<h2 id="conteúdo">Conteúdo<a class="anchor" aria-label="anchor" href="#conte%C3%BAdo"></a>
-</h2>
+<!-- ## Conteúdo -->
 <p>Esta é a primeira “<em>release</em>” do pacote, com 18 funções, listadas a seguir:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a> [<span class="dv">1</span>] <span class="st">"adissoma"</span>               <span class="st">"bolero"</span>                 <span class="st">"calendas"</span>              </span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a> [<span class="dv">4</span>] <span class="st">"descreve"</span>               <span class="st">"ed"</span>                     <span class="st">"folhinha"</span>              </span>
@@ -78,7 +72,6 @@
 <span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>[<span class="dv">16</span>] <span class="st">"tabuleiro"</span>              <span class="st">"tabuleiro2"</span>             <span class="st">"zeroesq"</span>               </span></code></pre></div>
 <p>Exemplos de uso de algumas funções podem ser vistos em <a href="https://fulvionedel.github.io/Rcoisas/" class="uri">https://fulvionedel.github.io/Rcoisas/</a></p>
 <p>Veja aqui o <a href="https://github.com/fulvionedel/Rcoisas/blob/master/inst/manual/Rcoisas_0.0.1.0.pdf" class="external-link">manual do pacote</a>.</p>
-</div>
 <div class="section level2">
 <h2 id="instalação">Instalação<a class="anchor" aria-label="anchor" href="#instala%C3%A7%C3%A3o"></a>
 </h2>
@@ -91,8 +84,9 @@
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"https://sourceforge.net/projects/Rcoisas/files/latest/download"</span>, </span>
 <span>                 type <span class="op">=</span> <span class="st">"source"</span>, repos <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span> </span></code></pre></div>
 <p>A versão de desenvolvimento pode ser instalada a partir do <a href="https://github.com/" class="external-link">GitHub</a> com o pacote <code>remotes</code>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="co"># install.packages("remotes") # Se o pacote 'remotes' não estiver instalado</span></span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"fulvionedel/Rcoisas"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install.packages("remotes") # Se o pacote 'remotes' não estiver instalado</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"fulvionedel/Rcoisas"</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="license">
