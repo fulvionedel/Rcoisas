@@ -1,9 +1,9 @@
-Rcoisas: Funções em R para aulas de epidemiologia e bioestatística  
-básica com resultados em português.
-
+Rcoisas: Funções em R para aulas de epidemiologia e bioestatística
+básica em português.
 ================
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+- [Conteúdo](#conteúdo)
+- [Instalação](#instalação)
 
 <!-- badges: start -->
 
@@ -35,8 +35,8 @@ seguir:
 Exemplos de uso de algumas funções podem ser vistos em
 <https://fulvionedel.github.io/Rcoisas/>
 
-Veja aqui o (manual do
-pacote)\[<https://github.com/fulvionedel/Rcoisas/blob/master/inst/manual/Rcoisas_0.0.1.0.pdf>\].
+Veja aqui o [manual do
+pacote](https://github.com/fulvionedel/Rcoisas/blob/master/inst/manual/Rcoisas_0.0.1.0.pdf).
 
 ## Instalação
 
@@ -52,7 +52,8 @@ A última versão do pacote pode ser instalada no **R**:
   no [SourceForge](https://sourceforge.net/projects/Rcoisas/files/):
 
 ``` r
-install.packages("https://sourceforge.net/projects/Rcoisas/files/latest/download", type = "source", repos = NULL) 
+install.packages("https://sourceforge.net/projects/Rcoisas/files/latest/download", 
+                 type = "source", repos = NULL) 
 ```
 
 A versão de desenvolvimento pode ser instalada a partir do
