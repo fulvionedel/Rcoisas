@@ -107,7 +107,7 @@ reprodução.
 
 ``` r
 fxetarNM(obitosRS2019$idade, grafico = T, 
-         main = "Curva de Nelson de Moreaes. RS, 2019.*",
+         main = "Curva de Nelson de Moraes. RS, 2019.*",
          sub = paste("* Amostra aleatória de", 
                      formatL(nrow(obitosRS2019), format = "fg"), 
                      "casos."),
@@ -246,19 +246,19 @@ pnmfem <- xtabs(Fem/sum(Fem)*100 ~ fxetarNM(fxetardet = tabela$Faixa.Etaria.det)
 pnmmasc <- xtabs(Masc/sum(Masc)*100 ~ fxetarNM(fxetardet = tabela$Faixa.Etaria.det), data = tabela)
 
 limys <- c(0, 80)
-plot(pnmfem, type = 'l', ylim = limys, ylab = "% de óbitos", xlab = "Faixa etária", col = 2, main = "Curva de Nelson de Moraes, por sexo. RS, 1996.")
+plot(pnmfem, type = 'l', col = 2, ylim = limys, 
+     ylab = "% de óbitos", xlab = "Faixa etária", 
+     main = "Curva de Nelson de Moraes, por sexo. RS, 1996.")
 par(new = TRUE)
 plot(pnmmasc, type = 'l', ylab = "", xlab = "", col = 4, axes = F, ylim = limys)
 legend(1, 80, legend = c("Masculino", "Feminino"), col = c(4,2), lty = 1, bty = "n")
 ```
 
-\<img
-src=“/home/runner/work/Rcoisas/Rcoisas/docs/articles/fxetarnm_files/figure-html/unnamed-chunk-5-1.png”
-alt=“O gráfico a partir de uma tabela com a”faixa etária detalhada”.”
-width=“672” /\>
+![O gráfico a partir de uma tabela com a 'faixa etária
+detalhada'.](fxetarnm_files/figure-html/unnamed-chunk-5-1.png)
 
-Figura 5: O gráfico a partir de uma tabela com a “faixa etária
-detalhada”.
+Figura 5: O gráfico a partir de uma tabela com a ‘faixa etária
+detalhada’.
 
 ------------------------------------------------------------------------
 
