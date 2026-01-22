@@ -22,8 +22,10 @@ fxetarNM(idade = NULL, fxetardet = NULL, grafico = FALSE, ...)
   detalhada", e outras formas com detalhamento de \< 1 ano, 1 a 4 anos e
   faixas quinquenais ou decenais que permitem o cálculo ) representando
   17 faixas etárias quinquenais, rotuladas conforme o resultado da
-  função `csapAIH::fxetar_quinq` (números separados por hífen, sem
-  espaços: "0-4", ..., "75-79", "80 e +").
+  função
+  [`csapAIH::fxetar_quinq`](https://fulvionedel.github.io/csapAIH/reference/fxetar_quinq.html)
+  (números separados por hífen, sem espaços: "0-4", ..., "75-79", "80 e
+  +").
 
 - grafico:
 
