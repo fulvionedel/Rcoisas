@@ -125,14 +125,14 @@ função.](fxetarnm_files/figure-html/grafuncao-1.png)
 Figura 2: Curva de Nelson de Moraes. Desenho com o argumento ‘grafico’
 da função.
 
-|       | Freq |   % | Freq.acum | %acum |
-|:------|-----:|----:|----------:|------:|
-| 1     |    1 |  20 |         1 |    20 |
-| 2     |    1 |  20 |         2 |    40 |
-| 3     |    1 |  20 |         3 |    60 |
-| 4     |    1 |  20 |         4 |    80 |
-| 5     |    1 |  20 |         5 |   100 |
-| Total |    5 | 100 |         5 |   100 |
+|        |  Freq |     % | Freq.acum | %acum |
+|:-------|------:|------:|----------:|------:|
+| \< 1   |   168 |   1,7 |       168 |   1,7 |
+| 1-4    |    25 |   0,3 |       193 |   1,9 |
+| 5-19   |   114 |   1,1 |       307 |   3,1 |
+| 20-49  | 1.021 |  10,2 |     1.328 |  13,3 |
+| 50 e + | 8.665 |  86,7 |     9.993 | 100,0 |
+| Total  | 9.993 | 100,0 |     9.993 | 100,0 |
 
 Tabela 1: Os resultados para apresentação.
 
