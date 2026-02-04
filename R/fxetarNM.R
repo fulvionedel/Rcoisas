@@ -88,12 +88,9 @@ fxetarNM <- function(idade = NULL, fxetardet = NULL, grafico = FALSE, ...) {
       factor(levels = rotulos)
   }
   if(isTRUE(grafico)) {
-    return(plot(fxetarNM |> 
-           table() |> 
-           prop.table()*100 ,
+    plot(prop.table(table(fxetarNM))*100,
          type = 'l', ylab = "\u0025", xlab = "faixa et\u00e1ria", 
          ...) 
-    )
   }
   fxetarNM
 }
