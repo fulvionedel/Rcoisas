@@ -66,20 +66,18 @@ fxetar.det_pra_fxetar5 <- function(x, tipo = "POPBR") {
     # }
   } else if (tipo == "tabela"){
     vars <- names(x)
+    niveisdet <- x[-c(1:4),1]
     niveis <- c("0-4", "5-9", "10-14", "15-19", "20-24", "25-29", "30-34", "35-39", "40-44", "45-49", "50-54", "55-59", "60-64", "65-69", "70-74", "75-79", "80e+")
+    faixas <- x[[vars[1]]]
     fxetar5 <- NULL
-    x <- data.frame(x)
     x <- x %>%
-      dplyr::mutate(fxetar5 = case_when(stringr::str_detect(x[,1], "dias")
-                                        ~ "0-4",
-                                        x == "1 a 4 anos" ~ "0-4",
-                                        x == "5 a 9 anos" ~ "5-9",
-                                        x == "Idade ignorada" ~ NA,
-                                        TRUE ~ x[,1]) |> factor(labels = niveis)
-                    ) %>% 
-      dplyr::group_by(fxetar5) %>% 
+      dplyr::mutate(fxetar5 = ifelse(grepl("dias", faixas), "0-4", 
+                                ifelse(faixas == "1 a 4 anos", "0-4",
+                                  ifelse(faixas == "Idade ignorada", NA, 
+                                         faixas))) |>
+                      factor(levels = c(niveis[1], niveisdet), labels = niveis)) %>% 
+      dplyr::group_by(fxetar5) %>%
       summarise(dplyr::across(vars[-1], sum))
-    x <- x[1:17,]
   }
   x
 }

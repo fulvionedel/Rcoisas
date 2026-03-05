@@ -32,3 +32,8 @@ NULL
 #' 
 #' @format Banco de dados com estimativas populacionais por sexo e faixa etária para os municípios do Rio Grande do Sul em 1980, 2010 e 2020. Criado com as funções \code{\link[csapAIH]{ler_popbr}} \code{\link[csapAIH]{popbr2000_2021}}. 
 "poprs"
+
+#' Procedimentos Ambulatoriais do SUS
+#' 
+#' @format Banco de dados de exemplo de um arquivo "PA" do SIASUS. Contém uma amostra aleatória de 1.000 registros do arquivo "PASC2512.dbc" com os procedimentos do Acre no mês de competência 12/2025.
+"PASC2512"

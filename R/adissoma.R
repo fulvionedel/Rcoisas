@@ -64,8 +64,8 @@
 adissoma <- function(tabela, rotulo = "Total") {
   x <- bind_rows(tabela,
             summarise(tabela, across(where(is.numeric), sum, na.rm = TRUE),
-                      across(where(is.character), ~ rotulo),
-                      across(where(is.factor), ~ rotulo)))
+                      across(where(is.character), \(x) rotulo),
+                      across(where(is.factor),    \(x) rotulo)))
   row.names(x) <- NULL
   x
 }
