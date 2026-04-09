@@ -195,12 +195,12 @@ descreve(rnorm(100))
 #> 
 #> Válidos: 100      Missings: 0 
 #> Menor: -2.61  Maior: 2.76     Amplitude: 5.37
-#> Média: 0.08   DP: 1.02    CV(%): 1340.01
-#> Assimetria: -0.09     Curtose(real): 3.22
+#> Média: 0.07   DP: 1.05    CV(%): 1484.56
+#> Assimetria: -0.21     Curtose(real): 3.24
 #> Quantis:
 #>  2.5%    5%   25%   50%   75%   95% 97.5% 
-#> -1.91 -1.82 -0.38  0.06  0.62  1.68  2.00 
-#>        IIQ: 1.01 
+#> -2.10 -1.87 -0.36  0.09  0.62  1.68  2.00 
+#>        IIQ: 0.98 
 descreve(rnorm(100), breaks = 'Scott')
 
 #> 
@@ -208,12 +208,12 @@ descreve(rnorm(100), breaks = 'Scott')
 #> 
 #> Válidos: 100      Missings: 0 
 #> Menor: -1.9   Maior: 2.56     Amplitude: 4.46
-#> Média: 0.15   DP: 1.01    CV(%): 667.26
-#> Assimetria: 0.04  Curtose(real): 2.4
+#> Média: 0.11   DP: 1.01    CV(%): 883.08
+#> Assimetria: 0.1   Curtose(real): 2.35
 #> Quantis:
 #>  2.5%    5%   25%   50%   75%   95% 97.5% 
-#> -1.72 -1.52 -0.54  0.16  0.91  1.88  2.09 
-#>        IIQ: 1.45 
+#> -1.72 -1.52 -0.61  0.13  0.86  1.88  2.09 
+#>        IIQ: 1.47 
 descreve(rnorm(100), breaks = 'Scott', linhas = FALSE, densidade = TRUE, col = 'skyblue') 
 
 #> 
@@ -221,12 +221,12 @@ descreve(rnorm(100), breaks = 'Scott', linhas = FALSE, densidade = TRUE, col = '
 #> 
 #> Válidos: 100      Missings: 0 
 #> Menor: -2.45  Maior: 2.65     Amplitude: 5.1
-#> Média: -0.03  DP: 1.06    CV(%): 3845.49
-#> Assimetria: 0.05  Curtose(real): 2.53
+#> Média: -0.03  DP: 1.05    CV(%): 3498.15
+#> Assimetria: 0.06  Curtose(real): 2.6
 #> Quantis:
 #>  2.5%    5%   25%   50%   75%   95% 97.5% 
-#> -2.08 -1.57 -0.86  0.02  0.71  1.62  2.01 
-#>        IIQ: 1.57 
+#> -2.08 -1.57 -0.83  0.01  0.68  1.62  2.01 
+#>        IIQ: 1.52 
 descreve(rnorm(100), print = "tabela")
 
 #>            rnorm(100)
@@ -237,19 +237,19 @@ descreve(rnorm(100), print = "tabela")
 #> Maior            2.13
 #> Amplitude        4.11
 #> Média            0.19
-#> Variância        1.00
-#> DP               1.00
-#> CV(%)          527.92
-#> Assimetria       0.06
-#> Curtose          2.23
+#> Variância        0.98
+#> DP               0.99
+#> CV(%)          526.04
+#> Assimetria       0.05
+#> Curtose          2.27
 #> P2.5            -1.65
 #> P5              -1.40
-#> P25             -0.45
+#> P25             -0.42
 #> P50              0.06
-#> P75              0.99
+#> P75              1.00
 #> P95              1.84
 #> P97.5            2.01
-#> IIQ              1.44
+#> IIQ              1.42
 obitosRS2019$sexo <- factor(obitosRS2019$sexo)
 descreve(obitosRS2019$idade)
 

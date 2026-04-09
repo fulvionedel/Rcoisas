@@ -47,7 +47,7 @@ Um vetor de classe `character` com os valores formatados para impressão.
 formatL(1234.5678)
 #> [1] "1.234,6"
 formatL(rnorm(5), digits = 2)
-#> [1] "2,10"  "-0,61" "-1,63" "-0,01" "-0,66"
+#> [1] "1,74"  "-0,85" "-0,96" "1,02"  "-1,50"
 set.seed(1)
 x <- c(rnorm(5, 30, 10), rep(20, 2), 25)
 x

@@ -60,6 +60,19 @@ tabela <- "'Faixa Etária det'  Masc  Fem  Ign Total
              '80 anos e mais' 14444 21159   7 35610"
 tabela <- read.table(header = TRUE, na.strings = "-", text = tabela)
 adissoma(tabela)
+#> Warning: There was 1 warning in `summarise()`.
+#> ℹ In argument: `across(where(is.numeric), sum, na.rm = TRUE)`.
+#> Caused by warning:
+#> ! The `...` argument of `across()` is deprecated as of dplyr 1.1.0.
+#> Supply arguments directly to `.fns` through an anonymous function instead.
+#> 
+#>   # Previously
+#>   across(a:b, mean, na.rm = TRUE)
+#> 
+#>   # Now
+#>   across(a:b, \(x) mean(x, na.rm = TRUE))
+#> ℹ The deprecated feature was likely used in the Rcoisas package.
+#>   Please report the issue to the authors.
 #>    Faixa.Etária.det  Masc   Fem Ign  Total
 #> 1        0 a 6 dias   361   257   5    623
 #> 2       7 a 27 dias   156   111  NA    267

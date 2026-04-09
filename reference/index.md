@@ -2,6 +2,9 @@
 
 ## All functions
 
+- [`PASC2512`](https://fulvionedel.github.io/Rcoisas/reference/PASC2512.md)
+  : Procedimentos Ambulatoriais do SUS
+
 - [`POPBR12`](https://fulvionedel.github.io/Rcoisas/reference/POPBR12.md)
   : População brasileira, 2012
 
@@ -72,6 +75,10 @@
 
 - [`sacamostras()`](https://fulvionedel.github.io/Rcoisas/reference/sacamostras.md)
   : Toma múltiplas amostras aleatórias de um banco de dados.
+
+- [`sigtap()`](https://fulvionedel.github.io/Rcoisas/reference/sigtap.md)
+  : Classifica os procedimentos do SISAB em grandes grupos de
+  procedimentos da tabela SIGTAP.
 
 - [`tabuleiro()`](https://fulvionedel.github.io/Rcoisas/reference/tabuleiro.md)
   : Tabela de frequências univariada
