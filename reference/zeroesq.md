@@ -17,7 +17,7 @@ zeroesq(x, n = NULL)
 
 - n:
 
-  Limite do número de zeros a incluir; o padrão é \`NULL\`, sendo então
+  Limite do número de zeros a incluir; o padrão é `NULL`, sendo então
   definido pela função como o necessário até alcançar o número máximo de
   characteres do vetor; pode ser definido pelo usuário.
 
@@ -32,19 +32,22 @@ Muitas vezes temos, nos bancos de dados, uma variável registrada em
 algarismos com grande amplitude de valores mas que na verdade são
 códigos em vez de valores numéricos, como no caso do número de
 identificação do registro, ou da Equipe de Saúde da Família em um grande
-município. Se a variável é numérica (\`integer\`, \`numeric\` ou
-\`double/float\`), não é um problema grave, nesse caso costuma-se
-ignorar os resumos apresentados sobre a variável ou transformá-la em
-texto (\`character\`). Entretanto, em qualquer caso pode trazer alguns
-inconvenientes, como - se, num banco de dados com mais de mil registros
-uma variável "identificador" aparecer como 1, ..., em vez de 0001, ...,
-ela não pode estar inserida (sem trabalho prévio) em definições
-condicionais para múltiplas variáveis do tipo "em todos os fatores,
-transforme '9', '99' e '999' em NA", ou "em todas variáveis numéricas,
-transforme e '999' em NA"; - ordenação de numerais em formato de texto
-não segue as mesmas regras que em formato numérico (temos "1, 10, 11,
-..., 19, 2, 20, 21, ...), o que implica na definição dos níveis ao
-definir um fator.
+município. Se a variável é numérica (`integer`, `numeric` ou
+`double/float`), não é um problema grave, nesse caso costuma-se ignorar
+os resumos apresentados sobre a variável ou transformá-la em texto
+(`character`). Entretanto, em qualquer caso pode trazer alguns
+inconvenientes, como
+
+- se, num banco de dados com mais de mil registros uma variável
+  "identificador" aparecer como 1, ..., em vez de 0001, ..., ela não
+  pode estar inserida (sem trabalho prévio) em definições condicionais
+  para múltiplas variáveis do tipo "em todos os fatores, transforme '9',
+  '99' e '999' em NA", ou "em todas variáveis numéricas, transforme e
+  '999' em NA";
+
+- ordenação de numerais em formato de texto não segue as mesmas regras
+  que em formato numérico (temos "1, 10, 11, ..., 19, 2, 20, 21, ...), o
+  que implica na definição dos níveis ao definir um fator.
 
 ## Examples
 

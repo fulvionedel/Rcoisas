@@ -40,7 +40,7 @@ fxetarNM(idade = NULL, fxetardet = NULL, grafico = FALSE, ...)
 *Se fornecida a idade*, devolve um fator com as frequências observada em
 cada faixa etária; *se fornecida a faixa etária*, devolve um vetor da
 classe caractere com as frequências de cada faixa etária; *se não são
-fornecidas nem a idade nem a faixa etária* – com \`fxetarNM()\` –, a
+fornecidas nem a idade nem a faixa etária* – com `fxetarNM()` –, a
 função devolve um vetor com os nomes das faixas etárias.
 
 ## Examples

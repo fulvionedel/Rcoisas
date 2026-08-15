@@ -74,7 +74,7 @@ plot_pir(
 - axes:
 
   Não sei se vale a pena ir como opção ou já colocar direto o padrão
-  FALSE. \*\*Ver melhor\*\*
+  FALSE. **Ver melhor**
 
 - fonte:
 

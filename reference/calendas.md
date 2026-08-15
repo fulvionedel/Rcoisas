@@ -32,15 +32,15 @@ calendas(
 
 - tarefa:
 
-  Nome da variável com a tarefa. Deve ir sem aspas. Padrão é \`tarefa\`.
+  Nome da variável com a tarefa. Deve ir sem aspas. Padrão é `tarefa`.
 
 - inicio:
 
-  Nome da variável com a data de início da tarefa. Padrão é \`inicio\`.
+  Nome da variável com a data de início da tarefa. Padrão é `inicio`.
 
 - fim:
 
-  Nome da variável com a data de fim da tarefa.Padrão é \`fim\`.
+  Nome da variável com a data de fim da tarefa.Padrão é `fim`.
 
 - paleta:
 

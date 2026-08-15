@@ -28,7 +28,7 @@ bolero(independente, dependente = NULL, dec = 2, dnn = NULL)
 
 ## Value
 
-Um objeto da classe \`list\` com as tabelas de frequências absolutas e
+Um objeto da classe `list` com as tabelas de frequências absolutas e
 relativas, razão de probabilidades e de odds, com seus intervalos de
 confiança e valores-p.
 

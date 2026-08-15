@@ -1,13 +1,13 @@
 # Toma múltiplas amostras aleatórias de um banco de dados.
 
 Toma múltiplas amostras aleatórias sem reposição de um banco de dados.
-Cada amostra é salva em um objeto da classe \`data.frame\` e exportada
+Cada amostra é salva em um objeto da classe `data.frame` e exportada
 para um arquivo .csv, enquanto o conjunto dos objetos é salvo num
 arquivo de dados do R (.RData). Os arquivos são salvos no diretório de
 trabalho da sessão ativa. O nº de amostras a extrair é dado pelo
-comprimento de uma lista indicada no argumento \`suffixes\` e cria novos
+comprimento de uma lista indicada no argumento `suffixes` e cria novos
 "data frames" em um número definido de amostras aleatórias de tamanho n,
-criando com cada amostra um objeto da classe \`data.frame\`, que será
+criando com cada amostra um objeto da classe `data.frame`, que será
 salvo em um arquivo .csv e com os demais data frames, em um arquivo
 .RData. Criada com ajuda do chatGPT em 06/06/2023.
 
@@ -50,13 +50,13 @@ sacamostras(
 
 - tipo:
 
-  Formatação do arquivo csv; \`tipo = 1\` invoca a função
+  Formatação do arquivo csv; `tipo = 1` invoca a função
   [`write.csv`](https://rdrr.io/r/utils/write.table.html), com campos
-  separados por vírgula (\`,\`) e decimais separados por ponto (\`.\`),
-  enquanto \`tipo = 2\` (padrão) invoca a função
+  separados por vírgula (`,`) e decimais separados por ponto (`.`),
+  enquanto `tipo = 2` (padrão) invoca a função
   [`write.csv2`](https://rdrr.io/r/utils/write.table.html), criando
-  arquivos com campos separados por ponto-e-vírgula (\`;\`) e decimais
-  separados por vírgula (\`,\`).
+  arquivos com campos separados por ponto-e-vírgula (`;`) e decimais
+  separados por vírgula (`,`).
 
 - seed:
 

@@ -41,7 +41,8 @@ data("hasdm")
 enutri(hasdm) |> 
   tabuleiro()
 #>            Freq     % Freq.acum %acum
-#> Baixo peso    4   1.0         4   1.0
+#> Magreza       1   0.3         1   0.3
+#> Baixo peso    3   0.8         4   1.0
 #> Eutrófico   116  30.4       120  31.4
 #> Sobrepeso   154  40.3       274  71.7
 #> Obesidade   108  28.3       382 100.0
