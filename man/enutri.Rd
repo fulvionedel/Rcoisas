@@ -4,19 +4,28 @@
 \alias{enutri}
 \title{Classificação do estado nutricional de adultos}
 \usage{
-enutri(data = NULL, peso, altura, imc = NULL)
+enutri(data = NULL, peso, altura, imc = NULL, cortes = "MS", idoso = FALSE)
 }
 \arguments{
-\item{data}{Banco de dados com a(s) variável(is)}
+\item{data}{Banco de dados com a(s) variável(is). Argumento opcional.}
 
-\item{peso}{Peso em Kg}
+\item{peso}{Peso em Kg. Argumento obrigatório se não for informado o argumento \code{imc}.}
 
-\item{altura}{Altura em m}
+\item{altura}{Altura em metros (m). Argumento obrigatório se não for informado o argumento \code{imc}.}
 
-\item{imc}{Índice de Massa Corporal}
+\item{imc}{Índice de Massa Corporal. Argumento obrigatório se não forem informados os argumentos \code{peso} e \code{altura}.}
+
+\item{cortes}{Categorias (pontos de corte) do estado nutricional.
+\itemize{
+\item "\code{MS}" (padrão) utiliza as definidas pelo Ministério da Saúde brasileiro (Abaixo do peso", Eutrófico, Sobrepeso, Obesidade grau I, Obesidade grau II e Obesidade grau III);
+\item "\code{OMS}" utiliza as definidas pela Organização mundial da Saúde (Magreza, Baixo peso, Eutrófico, Sobrepeso e Obesidade);
+\item "\code{3cat}" agrupa o peso baixo e o eutrófico em peso normal e identifica o sobrepeso e obesidade.
+}}
+
+\item{idoso}{Argumento lógico. Adaptar a definição de eutrofia para idoso? O padrão é \code{FALSE}.}
 }
 \value{
-Um fator com as categorias "Baixo peso", "Eutrófico", "Sobrepeso" ou "Obesidade".
+Um fator com a classificação do IMC segundo as categorias definidas.
 }
 \description{
 Classifica o estado nutricional da pessoa segundo valores do Índice de Massa Corporal (IMC), usando os pontos de corte propostos pela Organização Mundial da Saúde. Pode ser informado um vetor com valores do IMC ou um vetor com o peso (Kg) e outro com altura (m^2).
@@ -25,5 +34,10 @@ Classifica o estado nutricional da pessoa segundo valores do Índice de Massa Co
 data("hasdm") 
 enutri(hasdm) |> 
   tabuleiro()
-
+hasdm |> 
+  enutri(cortes = "OMS") |> 
+   tabuleiro()
+enutri(hasdm, idoso = TRUE) |> 
+   tabuleiro()
+ 
 }
