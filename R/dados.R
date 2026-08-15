@@ -37,3 +37,10 @@ NULL
 #' 
 #' @format Banco de dados de exemplo de um arquivo "PA" do SIASUS. Contém uma amostra aleatória de 1.000 registros do arquivo "PASC2512.dbc" com os procedimentos do Acre no mês de competência 12/2025.
 "PASC2512"
+
+#' Usuários da APS com hipertensão ou diabete 
+#' 
+# Rcoisas::sacamostras(hasdm, 384, suffixes = 1)
+# hasdm <- hasdm_amostra1
+# usethis::use_data(hasdm)
+"hasdm"
