@@ -4,12 +4,18 @@
 \alias{adissoma}
 \title{Totais de colunas em uma tabela}
 \usage{
-adissoma(tabela, rotulo = "Total")
+adissoma(tabela, rotulo = "Total", funcao = "soma", dec = 0, exclui = NULL)
 }
 \arguments{
 \item{tabela}{Objeto de estrutura matricial com no mínimo duas linhas e duas colunas}
 
 \item{rotulo}{Rótulo para a linha da soma, o padrão é "Total".}
+
+\item{funcao}{Operação a ser realizada, o padrão é a soma (função \code{\link{sum}}), outras opções são a média (invoca a função \code{\link{mean}}) com o argumento \code{funcao = "mean"} ou \code{funcao = "media"}) e a mediana, que invoca a função \code{\link{median}} com o argumento \code{funcao = "mean"} ou \code{funcao = "media"}. Os missings ("NAs") são ignorados (com \code{na.rm = TRUE} ao invocar a função).}
+
+\item{dec}{Nº de decimais, padrão é 0.}
+
+\item{exclui}{Linhas a excluir da operação (v. exemplo).}
 }
 \value{
 A tabela (de classe \code{data.frame}) com a linha da soma ao final.
@@ -49,10 +55,22 @@ adissoma(tabela)
 tabela2 <- rbind(adissoma(tabela[1:4,], rotulo = "0 a 4 anos")[5,],
                  tabela[-c(1:4),])
 adissoma(tabela2) 
+
 # Pode-se ter o mesmo resultado com 'colSums()', mas com mais trabalho: 
 cbind("Faixa etária" = c(tabela2[[1]], "Total"), 
       rbind(tabela2[-1], colSums(tabela2[-1], na.rm = TRUE)))
 
+x <- xtabs(~ fxetar.det + sexo, obitosRS2019)
+x
+cbind(rownames(x),
+      x |>
+        unclass() |> 
+        data.frame()  ) |> 
+  adissoma() |>
+  adissoma(funcao = "media", exclui = 34) |> # Exclui a linha 34 com o total
+  adissoma(funcao = "mediana", exclui = 34:35)
+
+class(x)
 
 }
 \seealso{

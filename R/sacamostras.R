@@ -11,6 +11,9 @@
 #' @param suffixes Vetor numérico ou de caracteres, será usado como texto para o final do nome dos bancos de dados. Se for um vetor numérico e o argumento \code{seed} não for definido, será então usado para definir a "semente" das amostras (v. argumento \code{seed}). 
 #' @param tipo Formatação do arquivo csv; `tipo = 1` invoca a função \code{\link{write.csv}}, com campos separados por vírgula (`,`) e decimais separados por ponto (`.`), enquanto `tipo = 2` (padrão) invoca a função \code{\link{write.csv2}}, criando arquivos com campos separados por ponto-e-vírgula (`;`) e decimais separados por vírgula (`,`).
 #' @param seed Vetor de números inteiros do tamanho do número de amostras desejado. É usado como "semente" para os números (pseudo)aleatórios que geram as amostras, permitindo assim sua reprodução. Se \code{NULL} (padrão), é tomado de \code{suffixes}, caso este seja um vetor de números inteiros. Argumento obrigatório quando \code{suffixes} não for numérico.
+#' @param nomelongo Argumento lógico, FALSE por padrão. Se TRUE, acrescenta o número da semente ao nome do objeto e arquivo criados. 
+#' @param csv Argumento lógico, TRUE por padrão. Se FALSE, não cria o arquivo csv com a amostra . 
+#' @param rdata Argumento lógico, TRUE por padrão. Se FALSE, não cria o arquivo RData com a amostra . 
 #' 
 #' @examples
 #' # Perceba que a função não é enderaçada a nenhum objeto (como em `x <- sacamostras(...)`), 
@@ -27,11 +30,11 @@
 #' sacamostras(data = RDRS2019, size = .01, 
 #'             prefix = "amostra", suffixes = paste0("0", 1:3), 
 #'             seed = semente)
-#' all.equal(amostra01_1, amostra_1) 
+#' all.equal(amostra01, amostra_1) 
 #' 
 #' # Amostra de 1\% dos registros, com mesmos nomes mas outra "semente":
 #' sacamostras(data = RDRS2019, size = .01, prefix = "amostra", suffixes = semente, seed = 11:13)
-#' all.equal(amostra1_11, s1_11) 
+#' all.equal(amostra1, s1) 
 #' 
 #' # A função retorna um aviso de erro se o argumento 'suffixes' não tiver 
 #' # o mesmo comprimento do argumento 'seed':
@@ -41,9 +44,14 @@
 #' # Amostra de 1\% dos registros:
 #' sacamostras(data = RDRS2019, size = .01, prefix = "amostra_", 
 #'             suffixes = rep("bis", length(semente)), seed = semente) 
+#' all.equal(amostra_bis, amostra_1) 
+#' # Para repetir amostras sem sobreescrever os objetos e arquivos criados, 
+#' # usa-se o argumento 'nomelongo = TRUE'.
+#' sacamostras(data = RDRS2019, size = .01, prefix = "amostra_", 
+#'             suffixes = rep("bis", length(semente)), seed = semente, nomelongo = TRUE) 
 #' all.equal(amostra_bis_1, amostra_1) 
 #' sacamostras(data = RDRS2019, size = .01, prefix = "amostra", suffixes = semente, seed = 11:13)
-#' all.equal(amostra1_11, s1_11) 
+#' all.equal(amostra1, s1) 
 #' rm(list = ls(pattern = "amostra"))
 #' rm(list = ls(pattern = "s"))
 #' unlink(c("amostra*", "s*")) # apaga os arquivos criados
@@ -51,7 +59,11 @@
 #' @importFrom dplyr slice_sample
 #' @export
 #' 
-sacamostras <- function(data, size, prefix, suffixes, tipo = 2, seed = NULL) {
+sacamostras <- function(data, size, prefix = NULL, suffixes, tipo = 2, seed = NULL, nomelongo = FALSE, csv = TRUE, rdata = TRUE) {
+  
+  if(is.null(prefix)) {
+    prefix <- paste0(substitute(data), "_amostra")
+  }
   
   if(!is.null(seed) && length(suffixes) != length(seed)) {
     stop("Length of 'suffixes' is not the same of 'seed'")
@@ -78,18 +90,18 @@ sacamostras <- function(data, size, prefix, suffixes, tipo = 2, seed = NULL) {
 
     save_name <- paste0(prefix, suffixes[i])
 
-    if(is.null(seed)) {
-      save_name <- paste0(prefix, suffixes[i])
-    } else {
+    if(isTRUE(nomelongo)) {
       save_name <- paste0(prefix, suffixes, "_", seed)[i]# rep(suffixes, nsamples)[i])#, (1:nsamples)[i])
     }
     
     # Save as CSV file
-    csv_file <- paste0(save_name, ".csv")
-    if(tipo == 1) {
-      utils::write.csv(sample_data, file = csv_file, row.names = FALSE)
+    if(isTRUE(csv)) {
+      csv_file <- paste0(save_name, ".csv")
+      if(tipo == 1) {
+        utils::write.csv(sample_data, file = csv_file, row.names = FALSE)
       } else if(tipo == 2) utils::write.csv2(sample_data, file = csv_file, row.names = FALSE)
-    cat("Sample", i, "saved as", csv_file, "\n")
+      cat("Sample", i, "saved as", csv_file, "\n")
+    }
     
     # Save as an object in the workspace
     pos <- 1 #NULL
@@ -106,10 +118,12 @@ sacamostras <- function(data, size, prefix, suffixes, tipo = 2, seed = NULL) {
   }
 
   # Save the list of sample objects as an RData file
-  rdata_file <- paste0(prefix, "samples.RData")
-  save.image(#list = save_name, 
-             file = rdata_file)
-  cat("Samples saved as an RData file:", rdata_file, "\n")
-  
+  if(isTRUE(rdata)) {
+    rdata_file <- paste0(prefix, "samples.RData")
+    save.image(#list = save_name, 
+               file = rdata_file)
+    cat("Samples saved as an RData file:", rdata_file, "\n")
+  }
+
   # return(sample_objects) # Não tem porque devolver o objeto, acho que só polui o output
 }

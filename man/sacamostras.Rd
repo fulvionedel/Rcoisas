@@ -4,7 +4,17 @@
 \alias{sacamostras}
 \title{Toma múltiplas amostras aleatórias de um banco de dados.}
 \usage{
-sacamostras(data, size, prefix, suffixes, tipo = 2, seed = NULL)
+sacamostras(
+  data,
+  size,
+  prefix = NULL,
+  suffixes,
+  tipo = 2,
+  seed = NULL,
+  nomelongo = FALSE,
+  csv = TRUE,
+  rdata = TRUE
+)
 }
 \arguments{
 \item{data}{"Data frame" fonte das amostras.}
@@ -18,6 +28,12 @@ sacamostras(data, size, prefix, suffixes, tipo = 2, seed = NULL)
 \item{tipo}{Formatação do arquivo csv; `tipo = 1` invoca a função \code{\link{write.csv}}, com campos separados por vírgula (`,`) e decimais separados por ponto (`.`), enquanto `tipo = 2` (padrão) invoca a função \code{\link{write.csv2}}, criando arquivos com campos separados por ponto-e-vírgula (`;`) e decimais separados por vírgula (`,`).}
 
 \item{seed}{Vetor de números inteiros do tamanho do número de amostras desejado. É usado como "semente" para os números (pseudo)aleatórios que geram as amostras, permitindo assim sua reprodução. Se \code{NULL} (padrão), é tomado de \code{suffixes}, caso este seja um vetor de números inteiros. Argumento obrigatório quando \code{suffixes} não for numérico.}
+
+\item{nomelongo}{Argumento lógico, FALSE por padrão. Se TRUE, acrescenta o número da semente ao nome do objeto e arquivo criados.}
+
+\item{csv}{Argumento lógico, TRUE por padrão. Se FALSE, não cria o arquivo csv com a amostra .}
+
+\item{rdata}{Argumento lógico, TRUE por padrão. Se FALSE, não cria o arquivo RData com a amostra .}
 }
 \description{
 Toma múltiplas amostras aleatórias sem reposição de um banco de dados. Cada amostra é salva em um objeto da classe `data.frame` e exportada para um arquivo .csv, enquanto o conjunto dos objetos é salvo num arquivo de dados do R (.RData). Os arquivos são salvos no diretório de trabalho da sessão ativa. O nº de amostras a extrair é dado pelo comprimento de uma lista indicada no argumento `suffixes`
@@ -38,11 +54,11 @@ sacamostras(data = RDRS2019, size = .01, prefix = "s", suffixes = semente, seed 
 sacamostras(data = RDRS2019, size = .01, 
             prefix = "amostra", suffixes = paste0("0", 1:3), 
             seed = semente)
-all.equal(amostra01_1, amostra_1) 
+all.equal(amostra01, amostra_1) 
 
 # Amostra de 1\\% dos registros, com mesmos nomes mas outra "semente":
 sacamostras(data = RDRS2019, size = .01, prefix = "amostra", suffixes = semente, seed = 11:13)
-all.equal(amostra1_11, s1_11) 
+all.equal(amostra1, s1) 
 
 # A função retorna um aviso de erro se o argumento 'suffixes' não tiver 
 # o mesmo comprimento do argumento 'seed':
@@ -52,9 +68,14 @@ sacamostras(data = RDRS2019, size = .01, prefix = "amostra_", suffixes = "bis", 
 # Amostra de 1\\% dos registros:
 sacamostras(data = RDRS2019, size = .01, prefix = "amostra_", 
             suffixes = rep("bis", length(semente)), seed = semente) 
+all.equal(amostra_bis, amostra_1) 
+# Para repetir amostras sem sobreescrever os objetos e arquivos criados, 
+# usa-se o argumento 'nomelongo = TRUE'.
+sacamostras(data = RDRS2019, size = .01, prefix = "amostra_", 
+            suffixes = rep("bis", length(semente)), seed = semente, nomelongo = TRUE) 
 all.equal(amostra_bis_1, amostra_1) 
 sacamostras(data = RDRS2019, size = .01, prefix = "amostra", suffixes = semente, seed = 11:13)
-all.equal(amostra1_11, s1_11) 
+all.equal(amostra1, s1) 
 rm(list = ls(pattern = "amostra"))
 rm(list = ls(pattern = "s"))
 unlink(c("amostra*", "s*")) # apaga os arquivos criados

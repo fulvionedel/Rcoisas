@@ -6,9 +6,11 @@
 #' @details
 #' É análoga a \code{\link{colSums}}, mas identifica as colunas numéricas na tabela e trabalha apenas sobre elas, sempre com \code{na.rm = TRUE}, isto é, desconsiderando os missings na soma. 
 #' 
-#' 
 #' @param tabela Objeto de estrutura matricial com no mínimo duas linhas e duas colunas
 #' @param rotulo Rótulo para a linha da soma, o padrão é "Total".
+#' @param funcao Operação a ser realizada, o padrão é a soma (função \code{\link{sum}}), outras opções são a média (invoca a função \code{\link{mean}}) com o argumento \code{funcao = "mean"} ou \code{funcao = "media"}) e a mediana, que invoca a função \code{\link{median}} com o argumento \code{funcao = "mean"} ou \code{funcao = "media"}. Os missings ("NAs") são ignorados (com \code{na.rm = TRUE} ao invocar a função).
+#' @param dec Nº de decimais, padrão é 0.
+#' @param exclui Linhas a excluir da operação (v. exemplo). 
 #' 
 #' @returns A tabela (de classe \code{data.frame}) com a linha da soma ao final.
 #' 
@@ -43,27 +45,41 @@
 #' tabela2 <- rbind(adissoma(tabela[1:4,], rotulo = "0 a 4 anos")[5,],
 #'                  tabela[-c(1:4),])
 #' adissoma(tabela2) 
+#' 
 #' # Pode-se ter o mesmo resultado com 'colSums()', mas com mais trabalho: 
 #' cbind("Faixa etária" = c(tabela2[[1]], "Total"), 
 #'       rbind(tabela2[-1], colSums(tabela2[-1], na.rm = TRUE)))
 #' 
-# x <- xtabs(~ fxetar.det + sexo, obitosRS2019)
-# x
-# x |>
-#   unclass() |>
-#   # tidyr::as_tibble() |>
-#   data.frame() #|>
-#   adissoma()
-# 
-# class(x)
+#' x <- xtabs(~ fxetar.det + sexo, obitosRS2019)
+#' x
+#' cbind(rownames(x),
+#'       x |>
+#'         unclass() |> 
+#'         data.frame()  ) |> 
+#'   adissoma() |>
+#'   adissoma(funcao = "media", exclui = 34) |> # Exclui a linha 34 com o total
+#'   adissoma(funcao = "mediana", exclui = 34:35)
+#' 
+#' class(x)
 #' 
 #' @importFrom dplyr across bind_rows summarise where
 #' 
 #' @export
 #' 
-adissoma <- function(tabela, rotulo = "Total") {
+adissoma <- function(tabela, rotulo = "Total", funcao = 'soma', dec = 0, exclui = NULL) {
+  if(!is.null(exclui)) tabela2 <- tabela[-exclui, ] else tabela2 = tabela
+  if(funcao == "soma" | funcao == "sum") {
+    funcao <- sum
+    } else if(funcao == "mean" | funcao == "media") {
+      funcao <- mean
+      if(rotulo == "Total") rotulo <- "M\u00e9dia" else rotulo = rotulo
+    } else if(funcao == "median" | funcao == "mediana") {
+      funcao <- median 
+      if(rotulo == "Total") rotulo <- "Mediana" else rotulo = rotulo
+    }
   x <- bind_rows(tabela,
-            summarise(tabela, across(where(is.numeric), sum, na.rm = TRUE),
+            summarise(tabela2, across(where(is.numeric), \(x) funcao(x, na.rm = TRUE)),
+                      across(where(is.numeric), \(x) round(x, digits = dec)),
                       across(where(is.character), \(x) rotulo),
                       across(where(is.factor),    \(x) rotulo)))
   row.names(x) <- NULL
