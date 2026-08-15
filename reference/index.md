@@ -29,6 +29,9 @@
 - [`ed()`](https://fulvionedel.github.io/Rcoisas/reference/ed.md) :
   Seleciona as últimas colunas de um banco de dados
 
+- [`enutri()`](https://fulvionedel.github.io/Rcoisas/reference/enutri.md)
+  : Classificação do estado nutricional de adultos
+
 - [`folhinha()`](https://fulvionedel.github.io/Rcoisas/reference/folhinha.md)
   : Desenha um calendário
 
@@ -44,6 +47,9 @@
 
 - [`ggplot_pir()`](https://fulvionedel.github.io/Rcoisas/reference/ggplot_pir.md)
   : Pirâmides populacionais
+
+- [`hasdm`](https://fulvionedel.github.io/Rcoisas/reference/hasdm.md) :
+  Usuários da APS com hipertensão ou diabete
 
 - [`histobox()`](https://fulvionedel.github.io/Rcoisas/reference/histobox.md)
   : Histograma com boxplot

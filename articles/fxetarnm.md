@@ -1,6 +1,7 @@
 # Curva de Nelson de Moraes
 
 ``` r
+
 library(Rcoisas)
 library(dplyr)
 ```
@@ -28,7 +29,7 @@ um indicador de mortalidade proporcional, não exige o conhecimento de
 estimativas populacionais, apenas o Sistema de Informação de
 Mortalidade. Novamente aqui vê-se a pátina da anacronia, entrado o
 século XXI não se pode mais pensar numa sociedade democrática que não
-realize censos.[¹](#fn1) Assim, deve-se lembrar que isso é também uma
+realize censos.[^1] Assim, deve-se lembrar que isso é também uma
 limitação do indicador, pois não mede o risco de morte a cada idade,
 apenas a carga da morte em cada faixa etária considerada. Além disso –
 logicamente, por ser a proporção sobre o total de mortes – o valor
@@ -94,6 +95,7 @@ variáveis (v.
 .
 
 ``` r
+
 data(obitosRS2019)
 ```
 
@@ -106,6 +108,7 @@ portanto, é de classe `NULL` e não pode ser salvo como objeto para
 reprodução.
 
 ``` r
+
 fxetarNM(obitosRS2019$idade, grafico = T, 
          main = "Curva de Nelson de Moraes. RS, 2019.*",
          sub = paste("* Amostra aleatória de", 
@@ -134,7 +137,8 @@ da função.
 | 50 e + | 8.665 |  86,7 |     9.993 | 100,0 |
 | Total  | 9.993 | 100,0 |     9.993 | 100,0 |
 
-Tabela 1: Os resultados para apresentação.
+Tabela 1: Os resultados para apresentação. {.table .lightable-classic
+style="font-family: \"Arial Narrow\", \"Source Sans Pro\", sans-serif; width: auto !important; margin-left: auto; margin-right: auto;"}
 
 Para uma análise em mais dimensões, por exemplo a curva por sexo (Figura
 [3](#fig:detalhe) e Tabela [2](#tab:detalhe)), mantenha o argumento
@@ -147,6 +151,7 @@ que, uma vez que em nenhum dos dois momentos as ações realizadas sobre
 temporárias.
 
 ``` r
+
 obitosRS2019 %>%  
   filter(!is.na(idade), !is.na(sexo)) %>%
   mutate(fxetarnm = fxetarNM(idade)) %>% 
@@ -170,9 +175,12 @@ obitosRS2019 %>%
 
 [TABLE]
 
-Tabela 2: Uma tabela mais detalhada: distribuição por sexo.
+Tabela 2: Uma tabela mais detalhada: distribuição por sexo. {.table
+.lightable-classic
+style="font-family: \"Arial Narrow\", \"Source Sans Pro\", sans-serif; width: auto !important; margin-left: auto; margin-right: auto;"}
 
 ``` r
+
 
 library(ggplot2)
 obitosRS2019 %>% 
@@ -242,6 +250,7 @@ conseguido da seguinte forma (para maior clareza das etapas, as
 porcentagens calculadas foram previamente guardadas em vetores):
 
 ``` r
+
 pnmfem <- xtabs(Fem/sum(Fem)*100 ~ fxetarNM(fxetardet = tabela$Faixa.Etaria.det), data = tabela)
 pnmmasc <- xtabs(Masc/sum(Masc)*100 ~ fxetarNM(fxetardet = tabela$Faixa.Etaria.det), data = tabela)
 
@@ -260,7 +269,5 @@ detalhada'.](fxetarnm_files/figure-html/unnamed-chunk-5-1.png)
 Figura 5: O gráfico a partir de uma tabela com a ‘faixa etária
 detalhada’.
 
-------------------------------------------------------------------------
-
-1.  Infelizmente é no entanto bastante fácil pensar em experiências não
-    democráticas nas sociedades do século XXI.
+[^1]: Infelizmente é no entanto bastante fácil pensar em experiências
+    não democráticas nas sociedades do século XXI.

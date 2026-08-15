@@ -1,6 +1,7 @@
 # Tomar amostras de bancos de dados
 
 ``` r
+
 library(Rcoisas)
 ```
 
@@ -31,7 +32,7 @@ O usuário pode definir:
 
 O pacote `Rcoisas` tem um banco de dados de Autorizações de Internação
 Hospitalar (AIHs) do SUS, com registros das internações hospitalares
-realizadas pelo SUS no Rio Grande do Sul (RS) em 2019.[¹](#fn1) Pode ser
+realizadas pelo SUS no Rio Grande do Sul (RS) em 2019.[^1] Pode ser
 usado para um exercício em que se pretenda saber como a ocorrência de
 morte intrahospitalar nas internações pelo SUS no RS em 2019 varia em
 função do tempo de internação e do sexo, idade e cor da pele do
@@ -49,10 +50,11 @@ seguintes passos:
   `NASC`) dividida por 365,25 (para transformar o tempo, dado
   originalmente em dias, em anos, considerando os anos bissextos), para
   usar um método clássico e reprodutível em diferentes bancos de dados,
-  embora não seja o método preferível nos arquivos da AIH[²](#fn2); e  
+  embora não seja o método preferível nos arquivos da AIH[^2]; e  
 - seleciona apenas as variáveis de interesse.
 
 ``` r
+
 data("RDRS2019")
 RDRS2019 <- within(RDRS2019,  {
   SEXO <- factor(SEXO, labels = c("Masculino", "Feminino"))
@@ -90,6 +92,7 @@ em que vale notar o uso dos argumentos `prefix` e `suffixes`:
     que será usado como prefixo:
 
     ``` r
+
     dir(pattern = "^amostra")
        character(0)
     ```
@@ -98,11 +101,11 @@ em que vale notar o uso dos argumentos `prefix` e `suffixes`:
   forem definidos no argumento `semente`. Por padrão (nosso caso),
   `suffixes` é usado também para definir a semente de números aleatórios
   em cada amostra, pois pode ser conveniente identificar no nome do
-  objeto a semente que o gerou.[³](#fn3) Assim, ao identificar um
-  complemento no nome da amostra (um “sufixo”), o argumento `suffixes`
-  define ainda o número de amostras, pois para cada nome uma amostra.
-  Assim, como `suffixes = 1:3` gera um vetor de três elementos (1, 2 e
-  3), teremos três amostras.
+  objeto a semente que o gerou.[^3] Assim, ao identificar um complemento
+  no nome da amostra (um “sufixo”), o argumento `suffixes` define ainda
+  o número de amostras, pois para cada nome uma amostra. Assim, como
+  `suffixes = 1:3` gera um vetor de três elementos (1, 2 e 3), teremos
+  três amostras.
 
 ``` r
 sacamostras(data = RDRS2019, size = 100, prefix = "amostra_", suffixes = 1:3)
@@ -141,7 +144,7 @@ summary(amostra_1)
                    Median :49.50   Median : 3.00            Parda   : 3  
                    Mean   :47.07   Mean   : 6.01            Amarela : 0  
                    3rd Qu.:68.50   3rd Qu.: 8.00            Indígena: 0  
-                   Max.   :91.00   Max.   :32.00            NA's    :21
+                   Max.   :91.00   Max.   :32.00            NAs     :21
 summary(amostra_2)
            SEXO        IDADE         DIAS_PERM     MORTE        RACA_COR 
     Masculino:44   Min.   : 0.00   Min.   : 0.00   Sim: 4   Branca  :77  
@@ -149,7 +152,7 @@ summary(amostra_2)
                    Median :48.50   Median : 3.50            Parda   : 5  
                    Mean   :45.33   Mean   : 6.31            Amarela : 1  
                    3rd Qu.:67.00   3rd Qu.: 7.00            Indígena: 0  
-                   Max.   :88.00   Max.   :68.00            NA's    :12
+                   Max.   :88.00   Max.   :68.00            NAs     :12
 summary(amostra_3)
            SEXO        IDADE         DIAS_PERM     MORTE        RACA_COR 
     Masculino:49   Min.   : 0.00   Min.   : 0.00   Sim: 5   Branca  :66  
@@ -157,7 +160,7 @@ summary(amostra_3)
                    Median :51.00   Median : 4.00            Parda   : 8  
                    Mean   :46.57   Mean   : 7.33            Amarela : 0  
                    3rd Qu.:68.00   3rd Qu.: 7.00            Indígena: 1  
-                   Max.   :99.00   Max.   :49.00            NA's    :19
+                   Max.   :99.00   Max.   :49.00            NAs     :19
 ```
 
 Temos assim uma amostra para cada grupo, tanto em arquivos csv –
@@ -213,18 +216,17 @@ função [`rm()`](https://rdrr.io/r/base/rm.html) e os arquivos podem ser
 apagados com a função [`unlink()`](https://rdrr.io/r/base/unlink.html):
 
 ``` r
+
 rm(list = ls(pattern = "amostra"))
 unlink(c("amostra*", "*.html")) # apaga os arquivos criados
 ```
 
-------------------------------------------------------------------------
-
-1.  Veja em
+[^1]: Veja em
     [`?RDRS2019`](https://fulvionedel.github.io/Rcoisas/reference/RDRS2019.md)
     que não são todas as internações mas uma amostra aleatória de dez
     mil registros.
 
-2.  A computação da idade nos arquivos da AIH pode ser mais precisa.
+[^2]: A computação da idade nos arquivos da AIH pode ser mais precisa.
     Neles, o campo `IDADE` registra a idade do paciente em dias, meses,
     anos ou anos após a centena, enquanto o campo `COD_IDADE` identifica
     a unidade de medida; a função `idadeSUS` do pacote
@@ -233,4 +235,4 @@ unlink(c("amostra*", "*.html")) # apaga os arquivos criados
     Declaração de Óbito do Sistema de Informação sobre Mortalidade
     (SIM).
 
-3.  Veja a ajuda da função para mais detalhes nesse sentido.
+[^3]: Veja a ajuda da função para mais detalhes nesse sentido.

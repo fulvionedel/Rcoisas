@@ -1,6 +1,7 @@
 # Pirâmides populacionais
 
 ``` r
+
 # Para facilitar a construção deste artigo, alguns pacotes são carregados desde o início:
 library(Rcoisas)
 library(dplyr)
@@ -61,7 +62,7 @@ disponibilizadas pelo DATASUS, é importante lembrar algumas coisas:
 
 - O que, por sua vez, coloca à mesa a utilidade do cadastramento
   populacional da população, como o que **se espera e pode** ser feito
-  na Estratégia Saúde da Família do SUS[¹](#fn1).
+  na Estratégia Saúde da Família do SUS[^1].
 
 ## O TABNET e os arquivos de população do DATASUS
 
@@ -169,9 +170,9 @@ tabulação.
 [`plot_pir()`](https://fulvionedel.github.io/Rcoisas/reference/plot_pir.md)
 foi criada para ler os arquivos de população do DATASUS e gerar um
 gráfico pronto para publicação, com facilidades para gerar o título e
-mínimas necessidades de editoração (e de possibilidades de
-ajuste).[²](#fn2) A interrupção da publicação desses arquivos revelou a
-necessidade de uma função mais flexível na entrada de dados.
+mínimas necessidades de editoração (e de possibilidades de ajuste).[^2]
+A interrupção da publicação desses arquivos revelou a necessidade de uma
+função mais flexível na entrada de dados.
 [`ggplot_pir()`](https://fulvionedel.github.io/Rcoisas/reference/ggplot_pir.md)
 atende a essa necessidade; além disso, é construída com `ggplot2`, o que
 permite a reutilização do gráfico e o uso das demais funções do pacote,
@@ -229,6 +230,7 @@ do banco de dados. Além disso os títulos e rótulos devem ser criados ou
 formatados em comandos adicionais:
 
 ``` r
+
 graf_gg <- POPBR12 %>% 
   mutate(SEXO = factor(SEXO, labels = c("masc", "fem")),
          FXETAR5 = fxetar.det_pra_fxetar5(FXETARIA)) %>% 
@@ -293,6 +295,7 @@ exige algum trabalho. O que
 faz é basicamente o seguinte:
 
 ``` r
+
 # porcentagens no sexo masculino
 pm <- graf_base$masculino/sum(graf_base$masculino + graf_base$feminino)*100
 # porcentagens no sexo feminino
@@ -312,6 +315,7 @@ desenhado com `ggplot2`, como os de
 [`ggplot_pir()`](https://fulvionedel.github.io/Rcoisas/reference/ggplot_pir.md):
 
 ``` r
+
 graf_ggbase <- graf_base %>% 
   mutate(fxetar = rownames(.) |> factor(levels = rownames(.))) %>% 
   tidyr::pivot_longer(1:2, names_to = 'sexo', values_to = 'n') %>% 
@@ -390,6 +394,7 @@ str(tabpop)
 ```
 
 ``` r
+
 plot_pir(tabpop, tabela = T, local = "RS", ano = 2019) 
 ```
 
@@ -418,6 +423,7 @@ str(tabprop)
 ```
 
 ``` r
+
 par(mfrow = c(1,3))
 plot_pir(tabprop, tabela = T, local = "RS", ano = 2019) 
 mtext("O Nº DE HABITANTES ESTÁ ERRADO", line = .5, col = 2, font = 2, type = 4, cex = .8)  
@@ -484,10 +490,8 @@ que fazem e respondem perguntas no
 [stackoverflow](https://stackoverflow.com/), desenvolvedores do RStudio,
 `tidyverse`, etc. Enfim, a toda a comunidade do R.
 
-------------------------------------------------------------------------
+[^1]: Nosso *Sistema Único de Saúde*, se o leitor não conhece a sigla.
 
-1.  Nosso *Sistema Único de Saúde*, se o leitor não conhece a sigla.
-
-2.  Foi usada para um [aplicativo
+[^2]: Foi usada para um [aplicativo
     *shiny*](https://fulvionedel.shinyapps.io/teste-piramide/), com
     alguns anos de exemplo.

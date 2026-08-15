@@ -1,6 +1,7 @@
 # Pacote Rcoisas
 
 ``` r
+
 library(Rcoisas)
 ```
 
@@ -18,11 +19,13 @@ um histograma com marcas da distribuição da variável. O histograma pode
 ser suprimido e a lista pode ser transformada em `data.frame`.
 
 ``` r
+
 set.seed(1)
 descreve(varnum <- rnorm(1000))  
 ```
 
 ![](Rcoisas_files/figure-html/unnamed-chunk-4-1.png)
+
 
      varnum <- rnorm(1000) :  1000  observações 
 
@@ -110,6 +113,7 @@ outra função do pacote,
 para apresentar os valores em formato latino.
 
 ``` r
+
 Rcoisas:::print.descreve(x, print = "tabela") |> 
   tibble::as_tibble(rownames = "parametro") |>
   dplyr::mutate(varnum = formatL(varnum, format = "fg", digits = 3)) |>
@@ -144,6 +148,7 @@ categorias de um fator. Não há ainda um argumento `by`, a alternativa é
 juntar “manualmente” a descrição de cada estrato:
 
 ``` r
+
 par(mfrow = c(1,3))
 cbind(
   descreve(idade, data = obitosRS2019[obitosRS2019$sexo == "masc", ], main = "masc", legenda = FALSE, print = 'tabela'),
@@ -187,6 +192,7 @@ cbind(
 (“*box-plot*”) horizontal acima do gráfico.
 
 ``` r
+
 histobox(varnum, col.h = "tomato", col.bx = "yellow", xlab = "Medida", ylab = "Frequência")
 ```
 
@@ -220,6 +226,7 @@ enquanto o argumento `format` não é implementado. Além disso, a
 frequência acumulada aqui não faz muito sentido.
 
 ``` r
+
 tab1 <- tabuleiro(RACACOR, data = obitosRS2019, cum = FALSE, digits = 3)
 knitr::kable(tab1 |> formatL(format = "fg"), align = 'r')
 ```
@@ -254,6 +261,7 @@ Total         "10.000" "100"  "˗"      "˗"
 que facilmente pode ser formatada com `kable`.
 
 ``` r
+
 knitr::kable(tab2, align = 'r')
 ```
 
@@ -282,6 +290,7 @@ Curva de Nelson de Moraes (\< 1, 1-4, 5-19, 20-49, 50 e +). O argumento
 `grafico = TRUE` desenha o gráfico da curva.
 
 ``` r
+
 fxetarNM(obitosRS2019$idade, grafico = TRUE, 
          col.sub = 2, font.sub = 3, cex.sub = .8, 
          main = "Curva de Nelson de Moraes. RS, 2019.", 
@@ -293,6 +302,7 @@ fxetarNM(obitosRS2019$idade, grafico = TRUE,
 Neste caso interessam as frequências acumuladas:
 
 ``` r
+
 obitosRS2019$idade |>
   fxetarNM() |>
   tabuleiro(total = FALSE) |>

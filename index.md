@@ -40,6 +40,7 @@ A última versão do pacote pode ser instalada no **R**:
   [SourceForge](https://sourceforge.net/projects/Rcoisas/files/):
 
 ``` r
+
 install.packages("https://sourceforge.net/projects/Rcoisas/files/latest/download", 
                  type = "source", repos = NULL) 
 ```
@@ -48,6 +49,7 @@ A versão de desenvolvimento pode ser instalada a partir do
 [GitHub](https://github.com/) com o pacote `remotes`:
 
 ``` r
+
 # install.packages("remotes") # Se o pacote 'remotes' não estiver instalado
 remotes::install_github("fulvionedel/Rcoisas")
 ```

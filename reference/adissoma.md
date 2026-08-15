@@ -6,7 +6,7 @@ dos valores das colunas em linhas selecionadas.
 ## Usage
 
 ``` r
-adissoma(tabela, rotulo = "Total")
+adissoma(tabela, rotulo = "Total", funcao = "soma", dec = 0, exclui = NULL)
 ```
 
 ## Arguments
@@ -18,6 +18,24 @@ adissoma(tabela, rotulo = "Total")
 - rotulo:
 
   Rótulo para a linha da soma, o padrão é "Total".
+
+- funcao:
+
+  Operação a ser realizada, o padrão é a soma (função
+  [`sum`](https://rdrr.io/r/base/sum.html)), outras opções são a média
+  (invoca a função [`mean`](https://rdrr.io/r/base/mean.html)) com o
+  argumento `funcao = "mean"` ou `funcao = "media"`) e a mediana, que
+  invoca a função [`median`](https://rdrr.io/r/stats/median.html) com o
+  argumento `funcao = "mean"` ou `funcao = "media"`. Os missings ("NAs")
+  são ignorados (com `na.rm = TRUE` ao invocar a função).
+
+- dec:
+
+  Nº de decimais, padrão é 0.
+
+- exclui:
+
+  Linhas a excluir da operação (v. exemplo).
 
 ## Value
 
@@ -60,19 +78,6 @@ tabela <- "'Faixa Etária det'  Masc  Fem  Ign Total
              '80 anos e mais' 14444 21159   7 35610"
 tabela <- read.table(header = TRUE, na.strings = "-", text = tabela)
 adissoma(tabela)
-#> Warning: There was 1 warning in `summarise()`.
-#> ℹ In argument: `across(where(is.numeric), sum, na.rm = TRUE)`.
-#> Caused by warning:
-#> ! The `...` argument of `across()` is deprecated as of dplyr 1.1.0.
-#> Supply arguments directly to `.fns` through an anonymous function instead.
-#> 
-#>   # Previously
-#>   across(a:b, mean, na.rm = TRUE)
-#> 
-#>   # Now
-#>   across(a:b, \(x) mean(x, na.rm = TRUE))
-#> ℹ The deprecated feature was likely used in the Rcoisas package.
-#>   Please report the issue to the authors.
 #>    Faixa.Etária.det  Masc   Fem Ign  Total
 #> 1        0 a 6 dias   361   257   5    623
 #> 2       7 a 27 dias   156   111  NA    267
@@ -118,6 +123,7 @@ adissoma(tabela2)
 #> 16     75 a 79 anos  7438  6508   4  13950
 #> 17   80 anos e mais 14444 21159   7  35610
 #> 18            Total 62905 54723  28 117656
+
 # Pode-se ter o mesmo resultado com 'colSums()', mas com mais trabalho: 
 cbind("Faixa etária" = c(tabela2[[1]], "Total"), 
       rbind(tabela2[-1], colSums(tabela2[-1], na.rm = TRUE)))
@@ -141,4 +147,88 @@ cbind("Faixa etária" = c(tabela2[[1]], "Total"),
 #> 20  80 anos e mais 14444 21159   7  35610
 #> 181          Total 62905 54723  28 117656
 
+x <- xtabs(~ fxetar.det + sexo, obitosRS2019)
+x
+#>           sexo
+#> fxetar.det masc  fem
+#>      1ano     3    7
+#>      2anos    3    3
+#>      3anos    0    2
+#>      4anos    7    0
+#>      5anos    1    1
+#>      6anos    0    3
+#>      7anos    4    3
+#>      8anos    3    2
+#>      9anos    1    0
+#>     10anos    2    2
+#>     11anos    2    1
+#>     12anos    2    2
+#>     13anos    6    2
+#>     14anos    4    3
+#>     15anos    3    2
+#>     16anos    6    1
+#>     17anos   13    2
+#>     18anos   10    3
+#>     19anos   22    8
+#>     20-24    93   26
+#>     25-29    61   28
+#>     30-34   101   47
+#>     35-39   110   59
+#>     40-44   138   88
+#>     45-49   171   99
+#>     50-54   279  180
+#>     55-59   418  257
+#>     60-64   513  313
+#>     65-69   642  440
+#>     70-74   630  482
+#>     75-79   597  561
+#>     80 e + 1278 2075
+#>     <1ano    97   70
+cbind(rownames(x),
+      x |>
+        unclass() |> 
+        data.frame()  ) |> 
+  adissoma() |>
+  adissoma(funcao = "media", exclui = 34) |> # Exclui a linha 34 com o total
+  adissoma(funcao = "mediana", exclui = 34:35)
+#>    rownames(x) masc  fem
+#> 1         1ano    3    7
+#> 2        2anos    3    3
+#> 3        3anos    0    2
+#> 4        4anos    7    0
+#> 5        5anos    1    1
+#> 6        6anos    0    3
+#> 7        7anos    4    3
+#> 8        8anos    3    2
+#> 9        9anos    1    0
+#> 10      10anos    2    2
+#> 11      11anos    2    1
+#> 12      12anos    2    2
+#> 13      13anos    6    2
+#> 14      14anos    4    3
+#> 15      15anos    3    2
+#> 16      16anos    6    1
+#> 17      17anos   13    2
+#> 18      18anos   10    3
+#> 19      19anos   22    8
+#> 20       20-24   93   26
+#> 21       25-29   61   28
+#> 22       30-34  101   47
+#> 23       35-39  110   59
+#> 24       40-44  138   88
+#> 25       45-49  171   99
+#> 26       50-54  279  180
+#> 27       55-59  418  257
+#> 28       60-64  513  313
+#> 29       65-69  642  440
+#> 30       70-74  630  482
+#> 31       75-79  597  561
+#> 32      80 e + 1278 2075
+#> 33       <1ano   97   70
+#> 34       Total 5220 4772
+#> 35       Média  158  145
+#> 36     Mediana   10    3
+
+class(x)
+#> [1] "xtabs" "table"
 ```
