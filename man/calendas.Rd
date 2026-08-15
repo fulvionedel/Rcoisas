@@ -24,11 +24,11 @@ calendas(
 \arguments{
 \item{banco}{Banco de dados contendo as variáveis com informação sobre a tarefa, sua data de início e fim. Objeto da classe \code{data.frame} .}
 
-\item{tarefa}{Nome da variável com a tarefa. Deve ir sem aspas. Padrão é `tarefa`.}
+\item{tarefa}{Nome da variável com a tarefa. Deve ir sem aspas. Padrão é \code{tarefa}.}
 
-\item{inicio}{Nome da variável com a data de início da tarefa. Padrão é `inicio`.}
+\item{inicio}{Nome da variável com a data de início da tarefa. Padrão é \code{inicio}.}
 
-\item{fim}{Nome da variável com a data de fim da tarefa.Padrão é `fim`.}
+\item{fim}{Nome da variável com a data de fim da tarefa.Padrão é \code{fim}.}
 
 \item{paleta}{Paleta de cores para o gráfico. Pode ser "Set1", "Set2", "Set3", "Dark2", "Paired", "Pastel1", "Pastel2", "Accent".}
 

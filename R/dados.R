@@ -40,7 +40,17 @@ NULL
 
 #' Usuários da APS com hipertensão ou diabete 
 #' 
+#' @details
+#' ```{r}
+#'  Rcoisas::hasdm |> names()
+#'  ````
 # Rcoisas::sacamostras(hasdm, 384, suffixes = 1)
 # hasdm <- hasdm_amostra1
-# usethis::use_data(hasdm)
+# attr(hasdm$nquest, which = "label") <- "n\U00BA do question\U00E1rio"
+# attr(hasdm$peso, which = "label") <- "Peso informado"
+# attr(hasdm$altura, which = "label") <- "Altura informada"
+# attr(hasdm$has, which = "label") <- "O(A) Sr(a). usa rem\u00E9dio para press\U00E4o alta, ou algum m\u00E9dico j\U00E1 lhe disse que o(a) Sr(a). tem problema de press\U00E4o alta\U003F"
+# attr(hasdm$dm, which = "label") <- "O(A) Sr(a). usa rem\u00E9dio para diabete ou a\U00E7\u00FAcar alto no sangue, ou algum m\u00E9dico já lhe disse que o(a) Sr(a). tem problema de diabete ou a\U00E7\u00FAcar alto no sangue\U003F"
+# attr(hasdm$escola2, which = "label") <- "Nível de ensino"
+# usethis::use_data(hasdm, overwrite = TRUE)
 "hasdm"

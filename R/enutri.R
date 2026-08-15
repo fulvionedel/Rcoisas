@@ -29,8 +29,8 @@ enutri <- function(data = NULL, peso, altura, imc = NULL) {
   if(is.null(imc)) {
     imc <- peso/altura^2
   }
-  enutri <- cut(imc, breaks = c(-Inf, 18, 25, 30, Inf), right = FALSE,
-                labels = c("Baixo peso", "Eutr\u00f3fico", "Sobrepeso", "Obesidade")
+  enutri <- cut(imc, breaks = c(-Inf, 17, 18.5, 25, 30, Inf), right = FALSE,
+                labels = c("Magreza", "Baixo peso", "Eutr\u00f3fico", "Sobrepeso", "Obesidade")
                 )
   return(enutri)
 }

@@ -16,7 +16,7 @@ fxetarNM(idade = NULL, fxetardet = NULL, grafico = FALSE, ...)
 \item{...}{Permite a definição de outros parâmetros gráficos.}
 }
 \value{
-\emph{Se fornecida a idade}, devolve um fator com as frequências observada em cada faixa etária; \emph{se fornecida a faixa etária}, devolve um vetor da classe caractere com as frequências de cada faixa etária; \emph{se não são fornecidas nem a idade nem a faixa etária} -- com `fxetarNM()` --, a função devolve um vetor com os nomes das faixas etárias.
+\emph{Se fornecida a idade}, devolve um fator com as frequências observada em cada faixa etária; \emph{se fornecida a faixa etária}, devolve um vetor da classe caractere com as frequências de cada faixa etária; \emph{se não são fornecidas nem a idade nem a faixa etária} -- com \code{fxetarNM()} --, a função devolve um vetor com os nomes das faixas etárias.
 }
 \description{
 Recodifica vetores com a idade em números inteiros ou em faixas etárias quinquenais em três grandes faixas etárias: 0-14, 15-59 e 60 e + anos.

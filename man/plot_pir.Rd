@@ -40,7 +40,7 @@ plot_pir(
 
 \item{fontsize}{Tamanho de fonte do título do gráfico.}
 
-\item{axes}{Não sei se vale a pena ir como opção ou já colocar direto o padrão FALSE. **Ver melhor**}
+\item{axes}{Não sei se vale a pena ir como opção ou já colocar direto o padrão FALSE. \strong{Ver melhor}}
 
 \item{fonte}{Texto para citar a fonte ao pé do gráfico. O padrão é \code{NULL} e se não informado pelo usuário, é impresso no mapa o texto "\emph{Fonte: DATASUS (www.datasus.gov.br)}". Para não aparecer texto algum, informe \code{fonte = ""} ou \code{fonte = FALSE}.}
 

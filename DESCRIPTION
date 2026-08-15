@@ -31,11 +31,11 @@ Suggests:
     tidyr,
     kableExtra
 Remotes: fulvionedel/csapAIH
+Roxygen: list(markdown = TRUE)
 Encoding: UTF-8
 Language: pt-br
 LazyData: true
-RoxygenNote: 7.3.3
 Depends: 
-    R (>= 3.5)
-VignetteBuilder: knitr
+    R (>= 4.1.0)
 URL: https://fulvionedel.github.io/Rcoisas/
+Config/roxygen2/version: 8.0.0

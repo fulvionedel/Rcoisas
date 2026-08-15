@@ -16,7 +16,7 @@ bolero(independente, dependente = NULL, dec = 2, dnn = NULL)
 \item{dnn}{Nome das variáveis a ser impresso no 'output'}
 }
 \value{
-Um objeto da classe `list` com as tabelas de frequências absolutas e relativas, razão de probabilidades e de odds, com seus intervalos de confiança e valores-p.
+Um objeto da classe \code{list} com as tabelas de frequências absolutas e relativas, razão de probabilidades e de odds, com seus intervalos de confiança e valores-p.
 }
 \description{
 Analisa uma tabela 2x2 e apresenta um output com rótulos em português

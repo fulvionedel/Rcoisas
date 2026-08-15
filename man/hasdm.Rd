@@ -5,12 +5,20 @@
 \alias{hasdm}
 \title{Usuários da APS com hipertensão ou diabete}
 \format{
-An object of class \code{data.frame} with 384 rows and 22 columns.
+An object of class \code{data.frame} with 384 rows and 19 columns.
 }
 \usage{
 hasdm
 }
 \description{
 Usuários da APS com hipertensão ou diabete
+}
+\details{
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ Rcoisas::hasdm |> names()
+#>  [1] "nquest"   "sexo"     "idade"    "peso"     "altura"   "problema"
+#>  [7] "has"      "dm"       "cage"     "dieta2"   "dieta3"   "dietapts"
+#> [13] "taf"      "sedent"   "abep3"    "escola"   "escola1"  "escola2" 
+#> [19] "sitconj"
+}\if{html}{\out{</div>}}
 }
 \keyword{datasets}

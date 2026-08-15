@@ -18,7 +18,7 @@ Se \code{tipo = "POPBR"}, um vetor da classe \code{character} com a idade catego
 Reclassifica as idades < 20 anos em faixas etárias quinquenais, para ter um vetor com as mesmas categorias da "faixa etária detalhada" de algumas tabulações do DATASUS. \emph{Note} que não é a "faixa etária detalhada" dos arquivos das estimativas populacionais após o Censo de 2022.
 }
 \details{
-Os arquivos "POPBR??.DBF" têm a idade em anos completos até 19 anos, faixas quinquenais de 20-24 até 75-79 anos e 80 e + anos.   
+Os arquivos "POPBR??.DBF" têm a idade em anos completos até 19 anos, faixas quinquenais de 20-24 até 75-79 anos e 80 e + anos.
 A "faixa etária detalhada" é uma opção de tabulação dos dados de mortalidade nos aplicativos TABNET (https://datasus.saude.gov.br/informacoes-de-saude-tabnet/) e TabWin, do DATASUS. A idade é detalhada nos componentes da Taxa de Mortalidade Infantil, < 1 ano não especificado, 1-4 anos, faixas quinquenais dos 5 aos 79 anos e 80 e mais. Nas opções de tabulação on-line da "morbidade hospitalar", esses mesmos cortes são usados para a definição da "Faixa Etária 2".
 }
 \examples{
