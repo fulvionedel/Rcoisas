@@ -2,7 +2,7 @@
 #' @aliases enutri 
 #' 
 #' @description
-#' Classifica o estado nutricional da pessoa segundo valores do Índice de Massa Corporal (IMC), usando os pontos de corte propostos pela Organização Mundial da Saúde. Pode ser informado um vetor com valores do IMC ou um vetor com o peso (Kg) e outro com altura (m^2).
+#' Classifica o estado nutricional da pessoa segundo valores do Índice de Massa Corporal (IMC), usando os pontos de corte propostos pela Organização Mundial da Saúde. Pode ser informado um vetor com valores do IMC ou um vetor com o peso (Kg) e outro com altura (m\eqn{^2}).
 #' 
 #' @return Um fator com a classificação do IMC segundo as categorias definidas. 
 #' 
@@ -20,25 +20,52 @@
 #' data("hasdm") 
 #' enutri(hasdm) |> 
 #'   tabuleiro()
+#' enutri(hasdm, cortes = "OMS") |> 
+#'   tabuleiro()
+#'   
+#' # Ajustando a classificação para idosos: 
+#' require(dplyr)
+#' hasdm %>%
+#'    mutate(enutri = if_else(idade < 60, 
+#'                            enutri(., "peso", "altura"), 
+#'                            enutri(., "peso", "altura", idoso = TRUE))) |> 
+#'    select(enutri) |> 
+#'   tabuleiro()
+#' 
+#' # Outros nomes para as variáveis 
+#' names(hasdm)[4:5] <- c("weight", "height")
 #' hasdm |> 
-#'   enutri(cortes = "OMS") |> 
-#'    tabuleiro()
-#' enutri(hasdm, idoso = TRUE) |> 
-#'    tabuleiro()
+#'   enutri('weight', 'height') |> 
+#'   tabuleiro()
+#' 
+#' @references 
+#'  Brasil, MS. https://linhasdecuidado.saude.gov.br/portal/obesidade-no-adulto/definicao-obesidade-no-adulto/
+#'  WHO Consultation on Obesity. Obesity: preventeng and managing the global epidemic: report of a WHO consultation. WHO techical report series; 894. Geneva, 2000.
+#'  https://iris.who.int/bitstreams/72fe01f6-8c54-4a64-984e-7e20f4700b44/download 
 #'  
 #' @export 
 #' 
-enutri <- function(data = NULL, peso, altura, imc = NULL, cortes = "MS", idoso = FALSE) {
+enutri <- function(data, peso = 'peso', altura = 'altura', imc = NULL, cortes = "MS", idoso = FALSE) {
+  if(missing(data)) { data <- NULL }
   if(!is.null(data)) {
-    peso <- data$peso
-    altura <- data$altura
+    if(is.null(imc)) {
+      if(!exists(peso, data)) { 
+        stop(paste0(" '", peso, "' ", "n\u003o foi encontrado"))
+      }
+      if(!exists(altura, data)) {
+        stop(paste0(" '", altura, "' ", "n\u003o foi encontrada"))
+      }
+      imc <- data[[peso]] / data[[altura]]^2
+    } else {
+      if(!exists(imc, data)) { 
+        stop(paste0(" '", imc, "' ", "n\u003o foi encontrado"))
+      } 
+      imc <- data[[imc]]
+    }
   } else {
-    peso <- {{peso}}
-    altura <- {{altura}}
-  }
-  if(is.null(imc)) {
-    imc <- peso/altura^2
-  }
+    imc <- peso / altura^2
+    }
+
   if(cortes == "MS") {
     cortes <- c(-Inf, 18.5, 25, 30, 35, 40, Inf)
     if(isTRUE(idoso)) {

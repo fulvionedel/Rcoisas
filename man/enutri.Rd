@@ -4,7 +4,14 @@
 \alias{enutri}
 \title{Classificação do estado nutricional de adultos}
 \usage{
-enutri(data = NULL, peso, altura, imc = NULL, cortes = "MS", idoso = FALSE)
+enutri(
+  data,
+  peso = "peso",
+  altura = "altura",
+  imc = NULL,
+  cortes = "MS",
+  idoso = FALSE
+)
 }
 \arguments{
 \item{data}{Banco de dados com a(s) variável(is). Argumento opcional.}
@@ -28,16 +35,33 @@ enutri(data = NULL, peso, altura, imc = NULL, cortes = "MS", idoso = FALSE)
 Um fator com a classificação do IMC segundo as categorias definidas.
 }
 \description{
-Classifica o estado nutricional da pessoa segundo valores do Índice de Massa Corporal (IMC), usando os pontos de corte propostos pela Organização Mundial da Saúde. Pode ser informado um vetor com valores do IMC ou um vetor com o peso (Kg) e outro com altura (m^2).
+Classifica o estado nutricional da pessoa segundo valores do Índice de Massa Corporal (IMC), usando os pontos de corte propostos pela Organização Mundial da Saúde. Pode ser informado um vetor com valores do IMC ou um vetor com o peso (Kg) e outro com altura (m\eqn{^2}).
 }
 \examples{
 data("hasdm") 
 enutri(hasdm) |> 
   tabuleiro()
+enutri(hasdm, cortes = "OMS") |> 
+  tabuleiro()
+  
+# Ajustando a classificação para idosos: 
+require(dplyr)
+hasdm \%>\%
+   mutate(enutri = if_else(idade < 60, 
+                           enutri(., "peso", "altura"), 
+                           enutri(., "peso", "altura", idoso = TRUE))) |> 
+   select(enutri) |> 
+  tabuleiro()
+
+# Outros nomes para as variáveis 
+names(hasdm)[4:5] <- c("weight", "height")
 hasdm |> 
-  enutri(cortes = "OMS") |> 
-   tabuleiro()
-enutri(hasdm, idoso = TRUE) |> 
-   tabuleiro()
- 
+  enutri('weight', 'height') |> 
+  tabuleiro()
+
+}
+\references{
+Brasil, MS. https://linhasdecuidado.saude.gov.br/portal/obesidade-no-adulto/definicao-obesidade-no-adulto/
+WHO Consultation on Obesity. Obesity: preventeng and managing the global epidemic: report of a WHO consultation. WHO techical report series; 894. Geneva, 2000.
+https://iris.who.int/bitstreams/72fe01f6-8c54-4a64-984e-7e20f4700b44/download
 }
