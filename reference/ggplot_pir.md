@@ -77,15 +77,6 @@ ggplot_pir(POPBR12, "FXETARIA", "SEXO", "POPULACAO")
 
 # Transformando o sexo em fator e reclassificando a faixa etária:
 require(dplyr)
-#> Loading required package: dplyr
-#> 
-#> Attaching package: ‘dplyr’
-#> The following objects are masked from ‘package:stats’:
-#> 
-#>     filter, lag
-#> The following objects are masked from ‘package:base’:
-#> 
-#>     intersect, setdiff, setequal, union
 POPBR12 <- POPBR12 %>% 
   mutate(SEXO = factor(SEXO, labels = c("masc", "fem")),
          FXETAR5 = fxetar.det_pra_fxetar5(FXETARIA)) 
