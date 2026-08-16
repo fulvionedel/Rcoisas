@@ -41,6 +41,7 @@
 #'              '80 anos e mais' 14444 21159   7 35610"
 #' tabela <- read.table(header = TRUE, na.strings = "-", text = tabela)
 #' adissoma(tabela)
+#' 
 #' # Somar a faixa de 0-4 anos:
 #' tabela2 <- rbind(adissoma(tabela[1:4,], rotulo = "0 a 4 anos")[5,],
 #'                  tabela[-c(1:4),])
@@ -50,17 +51,13 @@
 #' cbind("Faixa etária" = c(tabela2[[1]], "Total"), 
 #'       rbind(tabela2[-1], colSums(tabela2[-1], na.rm = TRUE)))
 #' 
-#' x <- xtabs(~ fxetar.det + sexo, obitosRS2019)
-#' x
-#' cbind(rownames(x),
-#'       x |>
-#'         unclass() |> 
-#'         data.frame()  ) |> 
-#'   adissoma() |>
-#'   adissoma(funcao = "media", exclui = 34) |> # Exclui a linha 34 com o total
-#'   adissoma(funcao = "mediana", exclui = 34:35)
+#' # Uma tabela com subtotais 
+#' tabela3 <- rbind(adissoma(tabela[1:4,], rotulo = "0 a 4 anos"), 
+#'                  tabela[5:6,],
+#'                  adissoma(tabela[1:6,], rotulo = "< 15 anos")[7,],
+#'                  tabela[7:20, ])
+#' adissoma(tabela3, exclui = c(5,8)) 
 #' 
-#' class(x)
 #' 
 #' @importFrom dplyr across bind_rows summarise where
 #' 

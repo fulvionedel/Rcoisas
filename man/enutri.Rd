@@ -4,7 +4,15 @@
 \alias{enutri}
 \title{Classificação do estado nutricional de adultos}
 \usage{
-enutri(data = NULL, peso, altura, imc = NULL, cortes = "MS", idoso = FALSE)
+enutri(
+  data,
+  peso = "peso",
+  altura = "altura",
+  imc = NULL,
+  cortes = "MS",
+  idoso = FALSE,
+  idade = NULL
+)
 }
 \arguments{
 \item{data}{Banco de dados com a(s) variável(is). Argumento opcional.}
@@ -17,27 +25,50 @@ enutri(data = NULL, peso, altura, imc = NULL, cortes = "MS", idoso = FALSE)
 
 \item{cortes}{Categorias (pontos de corte) do estado nutricional.
 \itemize{
-\item "\code{MS}" (padrão) utiliza as definidas pelo Ministério da Saúde brasileiro (Abaixo do peso", Eutrófico, Sobrepeso, Obesidade grau I, Obesidade grau II e Obesidade grau III);
+\item "\code{MS}" (padrão) utiliza as definidas pelo Ministério da Saúde brasileiro (Abaixo do peso, Eutrófico, Sobrepeso, Obesidade grau I, Obesidade grau II e Obesidade grau III);
 \item "\code{OMS}" utiliza as definidas pela Organização mundial da Saúde (Magreza, Baixo peso, Eutrófico, Sobrepeso e Obesidade);
 \item "\code{3cat}" agrupa o peso baixo e o eutrófico em peso normal e identifica o sobrepeso e obesidade.
 }}
 
-\item{idoso}{Argumento lógico. Adaptar a definição de eutrofia para idoso? O padrão é \code{FALSE}.}
+\item{idoso}{Argumento lógico. Adaptar a definição de eutrofia para idoso? O padrão é \code{FALSE};}
+
+\item{idade}{Argumento opcional. Permite a classificação de adultos e idosos com a definição de eutrofia e sobrepeso específica para cada faixa etária, num banco de dados com a variável idade. Indicar entre aspas o nome da variável. Se definido, o argumento \code{idoso} é considerado \code{TRUE}.}
 }
 \value{
 Um fator com a classificação do IMC segundo as categorias definidas.
 }
 \description{
-Classifica o estado nutricional da pessoa segundo valores do Índice de Massa Corporal (IMC), usando os pontos de corte propostos pela Organização Mundial da Saúde. Pode ser informado um vetor com valores do IMC ou um vetor com o peso (Kg) e outro com altura (m^2).
+Classifica o estado nutricional da pessoa segundo valores do Índice de Massa Corporal (IMC), usando os pontos de corte propostos pela Organização Mundial da Saúde. Pode ser informado um vetor com valores do IMC ou um vetor com o peso (Kg) e outro com a altura (m\eqn{^2}).
 }
 \examples{
 data("hasdm") 
 enutri(hasdm) |> 
   tabuleiro()
+enutri(hasdm, cortes = "OMS") |> 
+  tabuleiro()
+  
+# Se a população fosse toda idosa, poderíamos usar o argumento 'idoso = TRUE' 
+# para uma classificação mais acurada.
+ hasdm |> 
+   enutri(idoso = TRUE) |> 
+   tabuleiro()
+   
+# Entretanto, a mediana de idade da população está em 64 anos. Melhor usar o 
+# argumento 'idade' para ajustar a classificação de acordo com o grupo etário.
 hasdm |> 
-  enutri(cortes = "OMS") |> 
-   tabuleiro()
-enutri(hasdm, idoso = TRUE) |> 
-   tabuleiro()
- 
+  enutri(idade = "idade") |> 
+  tabuleiro()
+
+# Se a variável no banco tiver outro nome, digite-o entre aspas: 
+names(hasdm)[3:5] <- c("age", "weight", "height")
+hasdm |> 
+  enutri('weight', 'height', idade = 'age') |> 
+  tabuleiro()
+
+}
+\references{
+\itemize{
+\item Brasil, MS. \href{https://linhasdecuidado.saude.gov.br/portal/obesidade-no-adulto/definicao-obesidade-no-adulto/}{Linhas de cuidado: definição de obesidade no adulto.}
+\item WHO Consultation on Obesity. Obesity: preventeng and managing the global epidemic: report of a WHO consultation. \href{https://iris.who.int/bitstreams/72fe01f6-8c54-4a64-984e-7e20f4700b44/download}{WHO techical report series; 894. Geneva, 2000.}
+}
 }
