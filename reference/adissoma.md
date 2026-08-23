@@ -100,6 +100,7 @@ adissoma(tabela)
 #> 19     75 a 79 anos  7438  6508   4  13950
 #> 20   80 anos e mais 14444 21159   7  35610
 #> 21            Total 62905 54723  28 117656
+
 # Somar a faixa de 0-4 anos:
 tabela2 <- rbind(adissoma(tabela[1:4,], rotulo = "0 a 4 anos")[5,],
                  tabela[-c(1:4),])
@@ -147,88 +148,35 @@ cbind("Faixa etária" = c(tabela2[[1]], "Total"),
 #> 20  80 anos e mais 14444 21159   7  35610
 #> 181          Total 62905 54723  28 117656
 
-x <- xtabs(~ fxetar.det + sexo, obitosRS2019)
-x
-#>           sexo
-#> fxetar.det masc  fem
-#>      1ano     3    7
-#>      2anos    3    3
-#>      3anos    0    2
-#>      4anos    7    0
-#>      5anos    1    1
-#>      6anos    0    3
-#>      7anos    4    3
-#>      8anos    3    2
-#>      9anos    1    0
-#>     10anos    2    2
-#>     11anos    2    1
-#>     12anos    2    2
-#>     13anos    6    2
-#>     14anos    4    3
-#>     15anos    3    2
-#>     16anos    6    1
-#>     17anos   13    2
-#>     18anos   10    3
-#>     19anos   22    8
-#>     20-24    93   26
-#>     25-29    61   28
-#>     30-34   101   47
-#>     35-39   110   59
-#>     40-44   138   88
-#>     45-49   171   99
-#>     50-54   279  180
-#>     55-59   418  257
-#>     60-64   513  313
-#>     65-69   642  440
-#>     70-74   630  482
-#>     75-79   597  561
-#>     80 e + 1278 2075
-#>     <1ano    97   70
-cbind(rownames(x),
-      x |>
-        unclass() |> 
-        data.frame()  ) |> 
-  adissoma() |>
-  adissoma(funcao = "media", exclui = 34) |> # Exclui a linha 34 com o total
-  adissoma(funcao = "mediana", exclui = 34:35)
-#>    rownames(x) masc  fem
-#> 1         1ano    3    7
-#> 2        2anos    3    3
-#> 3        3anos    0    2
-#> 4        4anos    7    0
-#> 5        5anos    1    1
-#> 6        6anos    0    3
-#> 7        7anos    4    3
-#> 8        8anos    3    2
-#> 9        9anos    1    0
-#> 10      10anos    2    2
-#> 11      11anos    2    1
-#> 12      12anos    2    2
-#> 13      13anos    6    2
-#> 14      14anos    4    3
-#> 15      15anos    3    2
-#> 16      16anos    6    1
-#> 17      17anos   13    2
-#> 18      18anos   10    3
-#> 19      19anos   22    8
-#> 20       20-24   93   26
-#> 21       25-29   61   28
-#> 22       30-34  101   47
-#> 23       35-39  110   59
-#> 24       40-44  138   88
-#> 25       45-49  171   99
-#> 26       50-54  279  180
-#> 27       55-59  418  257
-#> 28       60-64  513  313
-#> 29       65-69  642  440
-#> 30       70-74  630  482
-#> 31       75-79  597  561
-#> 32      80 e + 1278 2075
-#> 33       <1ano   97   70
-#> 34       Total 5220 4772
-#> 35       Média  158  145
-#> 36     Mediana   10    3
+# Uma tabela com subtotais 
+tabela3 <- rbind(adissoma(tabela[1:4,], rotulo = "0 a 4 anos"), 
+                 tabela[5:6,],
+                 adissoma(tabela[1:6,], rotulo = "< 15 anos")[7,],
+                 tabela[7:20, ])
+adissoma(tabela3, exclui = c(5,8)) 
+#>    Faixa.Etária.det  Masc   Fem Ign  Total
+#> 1        0 a 6 dias   361   257   5    623
+#> 2       7 a 27 dias   156   111  NA    267
+#> 3     28 a 364 dias   155   148   1    304
+#> 4        1 a 4 anos   144    88  NA    232
+#> 5        0 a 4 anos   816   604   6   1426
+#> 6        5 a 9 anos    64    46  NA    110
+#> 7      10 a 14 anos    83    68  NA    151
+#> 8         < 15 anos   963   718   6   1687
+#> 9      15 a 19 anos   462   141  NA    603
+#> 10     20 a 24 anos   817   271  NA   1088
+#> 11     25 a 29 anos   880   393  NA   1273
+#> 12     30 a 34 anos  1155   561  NA   1716
+#> 13     35 a 39 anos  1508   870   1   2379
+#> 14     40 a 44 anos  1954  1190  NA   3144
+#> 15     45 a 49 anos  2514  1681  NA   4195
+#> 16     50 a 54 anos  3488  2175   2   5665
+#> 17     55 a 59 anos  5170  3265   2   8437
+#> 18     60 a 64 anos  6557  4240   2  10799
+#> 19     65 a 69 anos  7566  5370   1  12937
+#> 20     70 a 74 anos  7989  6181   3  14173
+#> 21     75 a 79 anos  7438  6508   4  13950
+#> 22   80 anos e mais 14444 21159   7  35610
+#> 23            Total 62905 54723  28 117656
 
-class(x)
-#> [1] "xtabs" "table"
 ```
