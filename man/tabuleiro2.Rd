@@ -2,27 +2,44 @@
 % Please edit documentation in R/tabuleiro2.R
 \name{tabuleiro2}
 \alias{tabuleiro2}
-\title{Tabela de frequências univariada}
+\title{Tabela de frequências bivariada}
 \usage{
-tabuleiro2(varcat, digits = 1)
+tabuleiro2(
+  data = NULL,
+  x,
+  y,
+  digits = 1,
+  total = TRUE,
+  cum = TRUE,
+  na.rm = TRUE
+)
 }
 \arguments{
-\item{varcat}{Uma variável categórica}
+\item{data}{Argumento opcional. Banco de dados contendo \code{x}. O padrão é \code{NULL}.}
 
-\item{digits}{No. de decimais}
+\item{x}{A variável de linha.}
+
+\item{y}{A variável de coluna.}
+
+\item{digits}{nº de decimais na tabela. O padrão é 1.}
+
+\item{total}{\code{TRUE} (padrão) apresenta o total de categorias na tabela.}
+
+\item{cum}{\code{TRUE} (padrão) apresenta as frequências acumuladas das cateogrias.}
+
+\item{na.rm}{\code{TRUE} (padrão) remove os "missings".}
 }
 \description{
-Constrói uma tabela com distribuição de frequências brutas, relativas e acumuladas, semelhante às do SPSS, com separadores latinos.
+Constrói uma tabela da distribuição de frequências brutas, relativas e acumuladas de uma variável por outra, com rótulos em português.
 }
 \examples{
-# criar uma variável politômica
-x <- cut(rnorm(1000), 3) # sem missings
-tabuleiro2(x)
-x[1:100] <- NA # gerar missings
-tabuleiro2(x)
+data("hasdm")
+hasdm |> 
+  tabuleiro2(problema, sexo)
 
-\dontrun{
-knitr::kable(tabuleiro2(x), align = rep("r", 4))
-}
-
+data("poprs")
+poprs$fxetar3 <- csapAIH::fxetar3g(poprs$fxetar5)
+poprs |> 
+  tabuleiro2(fxetar3, sexo, cum = FALSE)   
+  
 }
