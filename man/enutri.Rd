@@ -11,7 +11,8 @@ enutri(
   imc = NULL,
   cortes = "MS",
   idoso = FALSE,
-  idade = NULL
+  idade = NULL,
+  categorias = "lista"
 )
 }
 \arguments{
@@ -32,7 +33,9 @@ enutri(
 
 \item{idoso}{Argumento lógico. Adaptar a definição de eutrofia para idoso? O padrão é \code{FALSE};}
 
-\item{idade}{Argumento opcional. Permite a classificação de adultos e idosos com a definição de eutrofia e sobrepeso específica para cada faixa etária, num banco de dados com a variável idade. Indicar entre aspas o nome da variável. Se definido, o argumento \code{idoso} é considerado \code{TRUE}.}
+\item{idade}{Argumento opcional. Permite a classificação de adultos e idosos com a definição de eutrofia e sobrepeso específica para cada faixa etária, num banco de dados com a variável idade. Indicar entre aspas o nome da variável. Se definido, o argumento \code{idoso} é considerado \code{TRUE};}
+
+\item{categorias}{Argumento válido apenas para a apresentação dos intervalos de classificação (pontos de corte do IMC) e rótulos das categorias, para cada classificação utilizada. Pode ser uma \code{"lista"} (padrão) ou uma \code{"matriz"} com duas colunas. Ver \emph{details} e \emph{examples}.}
 }
 \value{
 Um fator com a classificação do IMC segundo as categorias definidas.
@@ -64,6 +67,15 @@ names(hasdm)[3:5] <- c("age", "weight", "height")
 hasdm |> 
   enutri('weight', 'height', idade = 'age') |> 
   tabuleiro()
+
+# Só as categorias utilizadas: 
+enutri() 
+enutri(cortes = "OMS")
+enutri(cortes = "3cat")
+# Se a pessoa é idosa:
+enutri(idoso = TRUE) 
+# Apresentando numa matriz: 
+enutri(cortes = "OMS", idoso = TRUE, categorias = "matriz")
 
 }
 \references{

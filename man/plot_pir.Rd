@@ -66,9 +66,12 @@ Desenha uma pirâmide etária a partir dos arquivos de população distribuídos
 \examples{
 data("POPBR12")
 plot_pir(POPBR12, local = 'Brasil')
-plot_pir(POPBR12[substr(POPBR12$MUNIC_RES, 1,2)==42, ], local='Santa Catarina')
-plot_pir(POPBR12[substr(POPBR12$MUNIC_RES, 1,2)==43, ], local='Rio Grande do Sul')
-plot_pir(POPBR12[POPBR12$MUNIC_RES==431490, ], local='Porto Alegre, RS')
-plot_pir(POPBR12[POPBR12$MUNIC_RES==430520, ], local='Cerro Largo, RS')
+plot_pir(POPBR12[substr(POPBR12$MUNIC_RES, 1,2) == 42, ], local='Santa Catarina')
+plot_pir(POPBR12[substr(POPBR12$MUNIC_RES, 1,2) == 43, ], local='Rio Grande do Sul')
+plot_pir(POPBR12[POPBR12$MUNIC_RES == 431490, ], local='Porto Alegre, RS')
+plot_pir(POPBR12[POPBR12$MUNIC_RES == 430520, ], local='Cerro Largo, RS')
+
+data("popBR25")
+plot_pir(popBR25, local = "Brasil")
 
 }

@@ -27,32 +27,36 @@
 #' @examples 
 #' data("POPBR12")
 #' plot_pir(POPBR12, local = 'Brasil')
-#' plot_pir(POPBR12[substr(POPBR12$MUNIC_RES, 1,2)==42, ], local='Santa Catarina')
-#' plot_pir(POPBR12[substr(POPBR12$MUNIC_RES, 1,2)==43, ], local='Rio Grande do Sul')
-#' plot_pir(POPBR12[POPBR12$MUNIC_RES==431490, ], local='Porto Alegre, RS')
-#' plot_pir(POPBR12[POPBR12$MUNIC_RES==430520, ], local='Cerro Largo, RS')
+#' plot_pir(POPBR12[substr(POPBR12$MUNIC_RES, 1,2) == 42, ], local='Santa Catarina')
+#' plot_pir(POPBR12[substr(POPBR12$MUNIC_RES, 1,2) == 43, ], local='Rio Grande do Sul')
+#' plot_pir(POPBR12[POPBR12$MUNIC_RES == 431490, ], local='Porto Alegre, RS')
+#' plot_pir(POPBR12[POPBR12$MUNIC_RES == 430520, ], local='Cerro Largo, RS')
+#' 
+#' data("popBR25")
+#' plot_pir(popBR25, local = "Brasil")
 #' 
 #' @importFrom utils read.table write.table
 #' 
 #' @export
 #' 
-plot_pir <- 
-function(pop, tabela = FALSE, ano = NULL, local="popula\U00e7\U00e3o", title = NULL, npop = NULL, fontsize = 1.1, axes=FALSE, fonte=NULL, x.lim=NULL, colmasc="mediumblue", colfem="red2", colfxetar="white", border=par("fg"), inside=T, drop.unused.levels = FALSE, ...)
+plot_pir <- function(pop, tabela = FALSE, ano = NULL, local="popula\U00e7\U00e3o", title = NULL, npop = NULL, fontsize = 1.1, axes=FALSE, fonte=NULL, x.lim=NULL, colmasc="mediumblue", colfem="red2", colfxetar="white", border=par("fg"), inside=T, drop.unused.levels = FALSE, ...) 
 {
   if(tabela == FALSE) {
 # Reduzir nomes de variáveis em maiúsculas
 pop <- Hmisc::upData(pop, lowernames=T)
 # -.-.-.-.-.-.-.-.- PREPARAR A VARIÁVEL FAIXA ETÁRIA -.-.-.-.-.-.-.-.-
-pop$fxetaria[pop$fxetaria == "I000"] <- NA
-pop <- na.omit(pop)
-pop$fxetaria <- as.factor(pop$fxetaria)
-nfaixas = length(levels(pop$fxetaria))
-
-if(is.null(pop$fxetar5)) {
-  pop$fxetar5 <- cut(as.numeric(pop$fxetaria), breaks = c(0, 5, 10, 15, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33))
-  levels(pop$fxetar5) <- c("0-4", "5-9", "10-14", "15-19", "20-24", "25-29", "30-34", "35-39", "40-44", "45-49", "50-54", "55-59", "60-64", "65-69", "70-74", "75-79", "80 +")
-}
+if(exists("fxetaria", where = pop)) {
+  pop$fxetaria[pop$fxetaria == "I000"] <- NA
+  pop <- na.omit(pop)
+  pop$fxetaria <- as.factor(pop$fxetaria)
+  nfaixas = length(levels(pop$fxetaria))
   
+  if(is.null(pop$fxetar5)) {
+    pop$fxetar5 <- cut(as.numeric(pop$fxetaria), breaks = c(0, 5, 10, 15, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33))
+    levels(pop$fxetar5) <- c("0-4", "5-9", "10-14", "15-19", "20-24", "25-29", "30-34", "35-39", "40-44", "45-49", "50-54", "55-59", "60-64", "65-69", "70-74", "75-79", "80 +")
+  }
+}
+
 # -.-.-.-.-.-.-.-.- TABULAR A BASE, ESCREVER ARQUIVO E CRIAR OBJETO "pir"
   xx <- xtabs(populacao ~ fxetar5 + sexo, data = pop, 
               drop.unused.levels = drop.unused.levels)

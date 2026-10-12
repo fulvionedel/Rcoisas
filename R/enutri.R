@@ -15,7 +15,8 @@
 #'   - "\code{OMS}" utiliza as definidas pela Organização mundial da Saúde (Magreza, Baixo peso, Eutrófico, Sobrepeso e Obesidade); 
 #'   - "\code{3cat}" agrupa o peso baixo e o eutrófico em peso normal e identifica o sobrepeso e obesidade.
 #' @param idoso Argumento lógico. Adaptar a definição de eutrofia para idoso? O padrão é \code{FALSE};
-#' @param idade Argumento opcional. Permite a classificação de adultos e idosos com a definição de eutrofia e sobrepeso específica para cada faixa etária, num banco de dados com a variável idade. Indicar entre aspas o nome da variável. Se definido, o argumento \code{idoso} é considerado \code{TRUE}. 
+#' @param idade Argumento opcional. Permite a classificação de adultos e idosos com a definição de eutrofia e sobrepeso específica para cada faixa etária, num banco de dados com a variável idade. Indicar entre aspas o nome da variável. Se definido, o argumento \code{idoso} é considerado \code{TRUE};
+#' @param categorias Argumento válido apenas para a apresentação dos intervalos de classificação (pontos de corte do IMC) e rótulos das categorias, para cada classificação utilizada. Pode ser uma \code{"lista"} (padrão) ou uma \code{"matriz"} com duas colunas. Ver \emph{details} e \emph{examples}. 
 #' 
 #' @examples
 #' data("hasdm") 
@@ -42,32 +43,22 @@
 #'   enutri('weight', 'height', idade = 'age') |> 
 #'   tabuleiro()
 #' 
+#' # Só as categorias utilizadas: 
+#' enutri() 
+#' enutri(cortes = "OMS")
+#' enutri(cortes = "3cat")
+#' # Se a pessoa é idosa:
+#' enutri(idoso = TRUE) 
+#' # Apresentando numa matriz: 
+#' enutri(cortes = "OMS", idoso = TRUE, categorias = "matriz")
+#' 
 #' @references 
 #'  - Brasil, MS. [Linhas de cuidado: definição de obesidade no adulto.](https://linhasdecuidado.saude.gov.br/portal/obesidade-no-adulto/definicao-obesidade-no-adulto/)   
 #'  - WHO Consultation on Obesity. Obesity: preventeng and managing the global epidemic: report of a WHO consultation. [WHO techical report series; 894. Geneva, 2000.](https://iris.who.int/bitstreams/72fe01f6-8c54-4a64-984e-7e20f4700b44/download) 
 #'  
 #' @export 
 #' 
-enutri <- function(data, peso = 'peso', altura = 'altura', imc = NULL, cortes = "MS", idoso = FALSE, idade = NULL) {
-  if(missing(data)) { data <- NULL }
-  if(!is.null(data)) {
-    if(is.null(imc)) {
-      if(!exists(peso, data)) { 
-        stop(paste0(" '", peso, "' ", "n\u003o foi encontrado"))
-      }
-      if(!exists(altura, data)) {
-        stop(paste0(" '", altura, "' ", "n\u003o foi encontrada"))
-      }
-      imc <- data[[peso]] / data[[altura]]^2
-    } else {
-      if(!exists(imc, data)) { 
-        stop(paste0(" '", imc, "' ", "n\u003o foi encontrado"))
-      } 
-      imc <- data[[imc]]
-    }
-  } else {
-    imc <- peso / altura^2
-    }
+enutri <- function(data, peso = 'peso', altura = 'altura', imc = NULL, cortes = "MS", idoso = FALSE, idade = NULL, categorias = "lista") {
 
   # Cortes 
   # ----------
@@ -85,24 +76,69 @@ enutri <- function(data, peso = 'peso', altura = 'altura', imc = NULL, cortes = 
     if(isTRUE(idoso) | !is.null(idade)) {
       cortesidoso <- cortes
       cortesidoso[3] <- 22
-      cortesidoso[4] <- 27 
+      cortesidoso[4] <- 27
       cortes <- cortesidoso
     }
     rotulos <- c("Magreza", "Baixo peso", "Eutr\u00f3fico", "Sobrepeso", "Obesidade")
   } else if(cortes == "3cat") {
     cortes <- cortesadulto <- c(-Inf, 25, 30, Inf)
-    if(isTRUE(idoso) | !is.null(idade)) { 
+    if(isTRUE(idoso) | !is.null(idade)) {
       cortesidoso <- cortes
-      cortesidoso[2] <- 27 
+      cortesidoso[2] <- 27
       cortes <- cortesidoso
     }
-    rotulos <- c("Peso normal", "Sobrepeso", "Obesidade")
+    rotulos <- c("Sem sobrepeso", "Sobrepeso", "Obesidade")
   }
   
+  if(missing(data) && missing(peso) && missing(altura) && missing(imc)) {
+    cortes2 <- cortes[-1]
+    cortes2[1] <- paste("<", cortes[[2]])
+    cortes2[2] <- paste(cortes[[2]], "|-", cortes[[3]])
+    if(length(cortes2) > 3) {
+      cortes2[3:5] <- paste(cortes[3:5], "|-", cortes[4:6])      
+    }
+    cortes2[length(cortes2)] <- paste(">=", utils::tail(cortes, 2)[1])
+    
+    if(categorias == "matriz") {
+      classifica <- matrix(cortes2, nrow = length(cortes2),
+                           dimnames = list(Intervalo = rotulos, "Categoria"))
+    } else {
+      classifica <- list(intervalos = cortes2, rotulos = rotulos)
+    }
+    return(classifica)
+  }
+  
+  if(missing(data)) { data <- NULL }
+  if(!is.null(data)) {
+    if(is.null(imc)) {
+      if(!exists(peso, data)) { 
+        stop(paste0('A vari\u00e1vel "', peso, '" n\u00e3o foi encontrada.'))
+      }
+      if(!exists(altura, data)) {
+        stop(paste0('A vari\u00e1vel "', altura, '" n\u00e3o foi encontrada.'))
+      }
+      imc <- data[[peso]] / data[[altura]]^2
+    } else {
+      if(!exists(imc, data)) { 
+        stop(paste0('A vari\u00e1vel "', imc, ' "n\u003o foi encontrada.'))
+      } 
+      imc <- data[[imc]]
+    }
+  } else {
+    if(is.null(imc)) imc <- peso / altura^2 
+    else imc <- imc 
+    }
+
+  # Classificar de segundo a idade - Lipschitz para idosos
+  # ------------------------------------------------------
   if(!is.null(idade)) {
     enutri <- dplyr::if_else(data[[idade]] < 60, 
-                             cut(imc, breaks = cortesadulto, right = FALSE, labels = rotulos), 
-                             cut(imc, breaks = cortesidoso, right = FALSE, labels = rotulos))
+                             cut(imc, right = FALSE, 
+                                 breaks = cortesadulto, 
+                                 labels = rotulos), 
+                             cut(imc, right = FALSE, 
+                                 breaks = cortesidoso, 
+                                 labels = rotulos))
   } else { 
     enutri <- cut(imc, breaks = cortes, right = FALSE, labels = rotulos) 
   }

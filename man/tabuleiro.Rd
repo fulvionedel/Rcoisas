@@ -4,7 +4,16 @@
 \alias{tabuleiro}
 \title{Tabela de frequências univariada}
 \usage{
-tabuleiro(x, digits = 1, total = TRUE, cum = TRUE, data = NULL, ...)
+tabuleiro(
+  x,
+  digits = 1,
+  total = TRUE,
+  cum = TRUE,
+  data = NULL,
+  nome = NULL,
+  as.df = FALSE,
+  ...
+)
 }
 \arguments{
 \item{x}{O vetor a ser tabulado.}
@@ -16,6 +25,10 @@ tabuleiro(x, digits = 1, total = TRUE, cum = TRUE, data = NULL, ...)
 \item{cum}{TRUE (default) apresenta as frequências acumuladas das cateogrias.}
 
 \item{data}{Argumento opcional. Banco de dados contendo \code{x}. O padrão é NULL.}
+
+\item{nome}{Argumento opcional. Nome da variável a ser usado na coluna de categorias. Se \code{NULL} (padrão) é usado o nome da variável (indicado em \code{x})}
+
+\item{as.df}{Se \code{TRUE}, a tabela é guardada em objeto da classe \code{data frame}. Nesse objeto, a primeira coluna leva o nome da variável e contém as categorias tabuladas. É útil para a impressão de tabelas em que se exige essa classe, como \code{\link[flextable]{flextable}}. O padrão é \code{FALSE}.}
 
 \item{...}{permite o uso de argumentos da função \code{\link{table}}.}
 }
@@ -35,6 +48,6 @@ tabuleiro(x, total = FALSE)
 tabuleiro(x, cum = FALSE)
 
 # Oculta a frequência acumulada absoluta e mantém a \% acumulada
-tabuleiro(x, total = FALSE)[,-3]
+tabuleiro(x, total = FALSE)[,-3] 
 
 }
