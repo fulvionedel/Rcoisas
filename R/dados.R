@@ -16,6 +16,13 @@ NULL
 #' @source Sistema de Informações sobre Mortalidade (SIM)
 "obitosRS2019"
 
+#' População brasileira, 2025
+#' 
+#' População por sexo e faixa etária. Municípios brasileiros, 2025.
+#' 
+#' @format Banco de dados com estimativas populacionais por sexo e faixa etária detalhada e com 17 faixas quinquenais para os municípios brasileiros em 2025. 
+"popBR25"
+
 #' População brasileira, 2012
 #' 
 #' População por sexo e faixa etária. Municípios brasileiros, 2012.

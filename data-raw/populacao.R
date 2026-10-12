@@ -1,5 +1,9 @@
 library(dplyr)
 
+# Brasil, 2025 
+popBR25 <- csapAIH::popbr(2025, pormun = TRUE, idade = TRUE)
+usethis::use_data(popBR25, overwrite = TRUE)
+
 # Arquivo de dados: estimativas populacionais Brasil 2012
 
 temp <- tempfile()
