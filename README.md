@@ -11,6 +11,9 @@ Rcoisas: Funções para aulas de epidemiologia e bioestatística
 
 <!-- --- -->
 
+[![GitHub All
+Releases](https://shields.io/github/downloads/fulvionedel/Rcoisas/total.svg)]()
+
 O pacote contém funções com *outputs* em português e bancos de dados
 úteis para a produção de gráficos e tabelas úteis para a construção de
 material didático e exercícios em aula, como a descrição de variáveis
@@ -20,15 +23,16 @@ construção de indicadores de saúde, como a curva de Nelson de Moraes.
 
 <!-- ## Conteúdo -->
 
-Esta é a primeira “*release*” do pacote, com 18 funções, listadas a
+Esta é a primeira “*release*” do pacote, com 20 funções, listadas a
 seguir:
 
      [1] "adissoma"               "bolero"                 "calendas"              
-     [4] "descreve"               "ed"                     "folhinha"              
-     [7] "formatL"                "fxetar.det_pra_fxetar5" "fxetarNM"              
-    [10] "ggplot_pir"             "histobox"               "numescrito"            
-    [13] "plot_pir"               "plotZ"                  "sacamostras"           
-    [16] "tabuleiro"              "tabuleiro2"             "zeroesq"               
+     [4] "descreve"               "ed"                     "enutri"                
+     [7] "folhinha"               "formatL"                "fxetar.det_pra_fxetar5"
+    [10] "fxetarNM"               "ggplot_pir"             "histobox"              
+    [13] "numescrito"             "plot_pir"               "plotZ"                 
+    [16] "sacamostras"            "sigtap"                 "tabuleiro"             
+    [19] "tabuleiro2"             "zeroesq"               
 
 Exemplos de uso de algumas funções podem ser vistos em
 <https://fulvionedel.github.io/Rcoisas/>

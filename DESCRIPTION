@@ -1,8 +1,8 @@
 Package: Rcoisas
 Type: Package
 Title: Minhas Facilidades
-Version: 0.0.1.0
-Date: 2026-01-21
+Version: 0.0.1.1
+Date: 2026-09-26
 Author: Fúlvio Borges Nedel
 Maintainer: Fúlvio B. Nedel <fulvionedel@gmail.com>
 Description: Funções e bancos de dados para descrição e análises básicas, 
@@ -10,13 +10,14 @@ Description: Funções e bancos de dados para descrição e análises básicas,
              de saúde, com 'outputs' em português.
 License: GPL-3
 Imports: 
+    dplyr,
     e1071,
     forcats,
     ggplot2,
     graphics,
+    lubridate,
     stats,
-    dplyr,
-    lubridate
+    tidyr
 Suggests: 
     csapAIH,
     foreign,
@@ -28,7 +29,6 @@ Suggests:
     knitr,
     rmarkdown,
     bookdown,
-    tidyr,
     kableExtra
 Remotes: fulvionedel/csapAIH
 Roxygen: list(markdown = TRUE)
@@ -38,4 +38,4 @@ LazyData: true
 Depends: 
     R (>= 4.1.0)
 URL: https://fulvionedel.github.io/Rcoisas/
-Config/roxygen2/version: 8.0.0
+Config/roxygen2/version: 8.1.0

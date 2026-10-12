@@ -191,3 +191,6 @@ Assim podemos dizer, por exemplo, que a probabilidade de que a causa básica de 
     [...] cardiovascular é `` `r knitr::inline_expr('formatL((tabolero$RP-1)*100, digits = 0)')` ``% maior no sexo feminino que no masculino (RP = `` `r knitr::inline_expr('formatL(tabolero$RP, 2)')` ``; IC~95~ `` `r knitr::inline_expr('formatL(tabolero$lci.rp, 2)')` `` a `` `r knitr::inline_expr('formatL(tabolero$uci.rp, 2)')` ``).
 
 
+## Estado nutricional de adultos 
+
+A função `?enutri` facilita a classificação do Índice de Massa Corporal (IMC) em categorias do estado nutricional. Há três op
