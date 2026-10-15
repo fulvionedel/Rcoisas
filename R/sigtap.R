@@ -18,8 +18,8 @@
 #' # A lista completa de códigos classificados em grupos pode ser conseguida com:
 #' sigtap(Rcoisas:::tabproc) |> head()
 #' 
-#' @note
-#' Agradeço a Matheus Pacheco Andrade, da Gerência de Informação da Secretaria Municipal de Saúde de Florianópolis, SC, por ter encontrado as tabelas no servidor FTP do DATASUS.
+## #' @note
+## #' Agradeço a Matheus Pacheco Andrade, da Gerência de Informação da Secretaria Municipal de Saúde de Florianópolis, SC, por ter  encontrado as tabelas no servidor FTP do DATASUS.
 #' 
 #' @importFrom dplyr "%>%" mutate case_when left_join select rename 
 #' @export

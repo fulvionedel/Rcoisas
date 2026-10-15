@@ -86,11 +86,11 @@ histobox(varnum, col.h = "tomato", col.bx = "yellow", xlab = "Medida", ylab = "F
 
 ### Variáveis categóricas 
 
-**As funções `tabuleiro` e `tabuleiro2`** apresentam uma tabela univariada com frequências absolutas e relativas (%) simples e acumuladas.
+**As funções `tabuleiro` e `tabuleiro.pspp`** apresentam uma tabela univariada com frequências absolutas e relativas (%) simples e acumuladas.
 
 ```{r echo=FALSE}
 cat("tabuleiro", stringr::str_sub(list(args(tabuleiro)) |> as.character(), 10, 83), sep = "")
-cat("tabuleiro2", stringr::str_sub(list(args(tabuleiro2)) |> as.character(), 10, 29), sep = "")
+cat("tabuleiro.pspp", stringr::str_sub(list(args(tabuleiro.pspp)) |> as.character(), 10, 29), sep = "")
 ```
 
 
@@ -108,7 +108,7 @@ knitr::kable(tab1 |> formatL(format = "fg"), align = 'r')
 A função foi criada para oferecer axs estudantes um modo fácil de criar no R uma tabela com essas características e valores em formato latino. Na sua primeira versão os valores eram pré-formatados, oferecendo a seguinte tabela:
 
 ```{r }
-(tab2 <- tabuleiro2(obitosRS2019$RACACOR))
+(tab2 <- tabuleiro.pspp(obitosRS2019$RACACOR))
 ```
 
 que facilmente pode ser formatada com `kable`.
@@ -116,7 +116,7 @@ que facilmente pode ser formatada com `kable`.
 knitr::kable(tab2, align = 'r')
 ```
 
-Mas os valores da tabela estão em formato caractere e não numérico, o que impede a execução de operações matemáticas. Por isso foi rebatizada de `tabuleiro2` e seu desenvolvimento descontinuado. 
+Mas os valores da tabela estão em formato caractere e não numérico, o que impede a execução de operações matemáticas. Por isso foi rebatizada, primeiro como `tabuleiro2` e, desde que foi criada a função `tabuleiro2()` para tabulação vivariada, como `tabuleiro.pspp()` e seu desenvolvimento descontinuado. 
 
 
 ## Curva de Nelson de Moraes 

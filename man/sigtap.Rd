@@ -16,9 +16,6 @@ sigtap(df, varproc = "CO_PROCEDIMENTO", nomeproc = FALSE)
 \description{
 Classifica os procedimentos do SISAB em grandes grupos de procedimentos da tabela SIGTAP.
 }
-\note{
-Agradeço a Matheus Pacheco Andrade, da Gerência de Informação da Secretaria Municipal de Saúde de Florianópolis, SC, por ter encontrado as tabelas no servidor FTP do DATASUS.
-}
 \examples{
 \dontrun{
   sigtap(df = procedimentos, 'CO_PROCEDIMENTO') |> head()
@@ -31,5 +28,6 @@ sigtap(PASC2512, "PA_PROC_ID", nomeproc = TRUE) |> head()
 
 # A lista completa de códigos classificados em grupos pode ser conseguida com:
 sigtap(Rcoisas:::tabproc) |> head()
+
 
 }
