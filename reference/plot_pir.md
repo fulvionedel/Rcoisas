@@ -141,7 +141,7 @@ plot_pir(POPBR12, local = 'Brasil')
 #> 70-74   1691406  2103802
 #> 75-79   1105881  1493580
 #> 80 +    1148647  1827317
-plot_pir(POPBR12[substr(POPBR12$MUNIC_RES, 1,2)==42, ], local='Santa Catarina')
+plot_pir(POPBR12[substr(POPBR12$MUNIC_RES, 1,2) == 42, ], local='Santa Catarina')
 #> Input object size:    542816 bytes;   6 variables     19338 observations
 #> New object size: 542816 bytes;   6 variables 19338 observations
 
@@ -163,7 +163,7 @@ plot_pir(POPBR12[substr(POPBR12$MUNIC_RES, 1,2)==42, ], local='Santa Catarina')
 #> 70-74     53355    65925
 #> 75-79     33424    46482
 #> 80 +      30289    52022
-plot_pir(POPBR12[substr(POPBR12$MUNIC_RES, 1,2)==43, ], local='Rio Grande do Sul')
+plot_pir(POPBR12[substr(POPBR12$MUNIC_RES, 1,2) == 43, ], local='Rio Grande do Sul')
 #> Input object size:    917960 bytes;   6 variables     32736 observations
 #> New object size: 917960 bytes;   6 variables 32736 observations
 
@@ -185,7 +185,7 @@ plot_pir(POPBR12[substr(POPBR12$MUNIC_RES, 1,2)==43, ], local='Rio Grande do Sul
 #> 70-74    113490   150000
 #> 75-79     74330   113777
 #> 80 +      68084   134887
-plot_pir(POPBR12[POPBR12$MUNIC_RES==431490, ], local='Porto Alegre, RS')
+plot_pir(POPBR12[POPBR12$MUNIC_RES == 431490, ], local='Porto Alegre, RS')
 #> Input object size:    3200 bytes;     6 variables     66 observations
 #> New object size: 3200 bytes; 6 variables 66 observations
 
@@ -207,7 +207,7 @@ plot_pir(POPBR12[POPBR12$MUNIC_RES==431490, ], local='Porto Alegre, RS')
 #> 70-74     14105    23040
 #> 75-79     10050    18725
 #> 80 +      10103    24773
-plot_pir(POPBR12[POPBR12$MUNIC_RES==430520, ], local='Cerro Largo, RS')
+plot_pir(POPBR12[POPBR12$MUNIC_RES == 430520, ], local='Cerro Largo, RS')
 #> Input object size:    3200 bytes;     6 variables     66 observations
 #> New object size: 3200 bytes; 6 variables 66 observations
 
@@ -229,4 +229,28 @@ plot_pir(POPBR12[POPBR12$MUNIC_RES==430520, ], local='Cerro Largo, RS')
 #> 70-74       155      234
 #> 75-79       118      182
 #> 80 +        128      234
+
+data("popBR25")
+plot_pir(popBR25, local = "Brasil")
+#> Input object size:    25591704 bytes;     6 variables     902502 observations
+#> New object size: 25591704 bytes; 6 variables 902502 observations
+
+#>        masculino feminino
+#> 0-4      6485679  6188735
+#> 5-9      7321743  6981876
+#> 10-14    7480784  7125225
+#> 15-19    7544138  7218879
+#> 20-24    7928180  7673700
+#> 25-29    8183676  8173692
+#> 30-34    8003264  8182466
+#> 35-39    8031248  8321113
+#> 40-44    8111472  8546246
+#> 45-49    7381590  7915399
+#> 50-54    6317166  6898608
+#> 55-59    5663477  6371783
+#> 60-64    4947164  5757438
+#> 65-69    3934641  4740135
+#> 70-74    2878618  3646007
+#> 75-79    1927758  2582930
+#> 80 e +   1906030  3050177
 ```

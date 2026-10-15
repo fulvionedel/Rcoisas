@@ -6,7 +6,16 @@ acumuladas, com rótulos em português.
 ## Usage
 
 ``` r
-tabuleiro(x, digits = 1, total = TRUE, cum = TRUE, data = NULL, ...)
+tabuleiro(
+  x,
+  digits = 1,
+  total = TRUE,
+  cum = TRUE,
+  data = NULL,
+  nome = NULL,
+  as.df = FALSE,
+  ...
+)
 ```
 
 ## Arguments
@@ -30,6 +39,19 @@ tabuleiro(x, digits = 1, total = TRUE, cum = TRUE, data = NULL, ...)
 - data:
 
   Argumento opcional. Banco de dados contendo `x`. O padrão é NULL.
+
+- nome:
+
+  Argumento opcional. Nome da variável a ser usado na coluna de
+  categorias. Se `NULL` (padrão) é usado o nome da variável (indicado em
+  `x`)
+
+- as.df:
+
+  Se `TRUE`, a tabela é guardada em objeto da classe `data frame`. Nesse
+  objeto, a primeira coluna leva o nome da variável e contém as
+  categorias tabuladas. É útil para a impressão de tabelas em que se
+  exige essa classe, como `flextable`. O padrão é `FALSE`.
 
 - ...:
 
@@ -68,7 +90,7 @@ tabuleiro(x, cum = FALSE)
 #> Total 100000 100.0
 
 # Oculta a frequência acumulada absoluta e mantém a % acumulada
-tabuleiro(x, total = FALSE)[,-3]
+tabuleiro(x, total = FALSE)[,-3] 
 #>    Freq    % %acum
 #> 0 42221 42.2  42.2
 #> 1 42127 42.1  84.3

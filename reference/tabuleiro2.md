@@ -1,46 +1,76 @@
-# Tabela de frequências univariada
+# Tabela de frequências bivariada
 
-Constrói uma tabela com distribuição de frequências brutas, relativas e
-acumuladas, semelhante às do SPSS, com separadores latinos.
+Constrói uma tabela da distribuição de frequências brutas, relativas e
+acumuladas de uma variável por outra, com rótulos em português.
 
 ## Usage
 
 ``` r
-tabuleiro2(varcat, digits = 1)
+tabuleiro2(
+  data = NULL,
+  x,
+  y,
+  digits = 1,
+  total = TRUE,
+  cum = TRUE,
+  na.rm = TRUE
+)
 ```
 
 ## Arguments
 
-- varcat:
+- data:
 
-  Uma variável categórica
+  Argumento opcional. Banco de dados contendo `x`. O padrão é `NULL`.
+
+- x:
+
+  A variável de linha.
+
+- y:
+
+  A variável de coluna.
 
 - digits:
 
-  No. de decimais
+  nº de decimais na tabela. O padrão é 1.
+
+- total:
+
+  `TRUE` (padrão) apresenta o total de categorias na tabela.
+
+- cum:
+
+  `TRUE` (padrão) apresenta as frequências acumuladas das cateogrias.
+
+- na.rm:
+
+  `TRUE` (padrão) remove os "missings".
 
 ## Examples
 
 ``` r
-# criar uma variável politômica
-x <- cut(rnorm(1000), 3) # sem missings
-tabuleiro2(x)
-#>               Freq    %(+NA) % acum
-#> (-3.23,-1.16] "  137" "13,7" "13,7"
-#> (-1.16,0.892] "  688" "68,8" "82,5"
-#> (0.892,2.95]  "  175" "17,5" "100" 
-#> Total         "1.000" "100"  "˗"   
-x[1:100] <- NA # gerar missings
-tabuleiro2(x)
-#>               Freq    %(+NA) % válido % acum
-#> (-3.23,-1.16] "  122" "12,2" "13,6"   "13,6"
-#> (-1.16,0.892] "  616" "61,6" "68,4"   "82,0"
-#> (0.892,2.95]  "  162" "16,2" "18,0"   "100" 
-#> Total válidos "  900" "90,0" "100"    "˗"   
-#> Missing       "  100" "10,0" "˗"      "˗"   
-#> Total         "1.000" "100"  "˗"      "˗"   
+data("hasdm")
+hasdm |> 
+  tabuleiro2(problema, sexo)
+#> # A tibble: 3 × 9
+#>   problema n_Masculino n_Feminino n.cum_Masculino n.cum_Feminino p_Masculino
+#>   <fct>          <int>      <int>           <int>          <int>       <dbl>
+#> 1 só HAS            82        186              82            186       66.7 
+#> 2 só DM              9          9              91            195        7.32
+#> 3 HAS e DM          32         65             123            260       26.0 
+#> # ℹ 3 more variables: p_Feminino <dbl>, p.cum_Masculino <dbl>,
+#> #   p.cum_Feminino <dbl>
 
-if (FALSE) { # \dontrun{
-knitr::kable(tabuleiro2(x), align = rep("r", 4))
-} # }
+data("poprs")
+poprs$fxetar3 <- csapAIH::fxetar3g(poprs$fxetar5)
+poprs |> 
+  tabuleiro2(fxetar3, sexo, cum = FALSE)   
+#> # A tibble: 3 × 5
+#>   fxetar3 n_masc p_masc n_fem p_fem
+#>   <chr>    <int>  <dbl> <int> <dbl>
+#> 1 0-14      3675   17.7  3675  17.6
+#> 2 15-59    11025   53.0 11025  52.9
+#> 3 60e+      6121   29.4  6125  29.4
+  
 ```

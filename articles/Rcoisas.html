@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">Rcoisas</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -408,10 +408,9 @@ IIQ           1.39</code></pre>
 <div class="section level3">
 <h3 id="variáveis-categóricas">Variáveis categóricas<a class="anchor" aria-label="anchor" href="#vari%C3%A1veis-categ%C3%B3ricas"></a>
 </h3>
-<p><strong>As funções <code>tabuleiro</code> e <code>tabuleiro2</code></strong> apresentam uma tabela univariada com frequências absolutas e relativas (%) simples e acumuladas.</p>
-<pre><code><span><span class="fu"><a href="../reference/tabuleiro.html">tabuleiro</a></span><span class="op">(</span><span class="va">x</span>, digits <span class="op">=</span> <span class="fl">1</span>, total <span class="op">=</span> <span class="cn">TRUE</span>, cum <span class="op">=</span> <span class="cn">TRUE</span>, data <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span> </span>
-<span><span class="cn">NULL</span></span>
-<span><span class="fu"><a href="../reference/tabuleiro2.html">tabuleiro2</a></span><span class="op">(</span><span class="va">varcat</span>, digits <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre>
+<p><strong>As funções <code>tabuleiro</code> e <code>tabuleiro.pspp</code></strong> apresentam uma tabela univariada com frequências absolutas e relativas (%) simples e acumuladas.</p>
+<pre><code>tabuleiro(x, digits = 1, total = TRUE, cum = TRUE, data = NULL, nome = NULL, as.df 
+tabuleiro.pspp(varcat, digits = 1)</code></pre>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">tabuleiro</span>(RACACOR, <span class="at">data =</span> obitosRS2019)</span>
 <span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>      Freq     <span class="sc">% Freq.acum %</span>acum</span>
 <span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="dv">1</span>     <span class="dv">8514</span>  <span class="fl">88.3</span>      <span class="dv">8514</span>  <span class="fl">88.3</span></span>
@@ -464,7 +463,7 @@ IIQ           1.39</code></pre>
 </tbody>
 </table>
 <p>A função foi criada para oferecer axs estudantes um modo fácil de criar no R uma tabela com essas características e valores em formato latino. Na sua primeira versão os valores eram pré-formatados, oferecendo a seguinte tabela:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>(tab2 <span class="ot">&lt;-</span> <span class="fu">tabuleiro2</span>(obitosRS2019<span class="sc">$</span>RACACOR))</span>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>(tab2 <span class="ot">&lt;-</span> <span class="fu">tabuleiro.pspp</span>(obitosRS2019<span class="sc">$</span>RACACOR))</span>
 <span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>              Freq     <span class="sc">%(+NA) %</span> válido % acum</span>
 <span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="dv">1</span>             <span class="st">" 8.514"</span> <span class="st">"85,1"</span> <span class="st">"88,3"</span>   <span class="st">"88,3"</span></span>
 <span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a><span class="dv">2</span>             <span class="st">"   567"</span> <span class="st">"5,7"</span>  <span class="st">"5,9"</span>    <span class="st">"94,2"</span></span>
@@ -544,7 +543,7 @@ IIQ           1.39</code></pre>
 </tr>
 </tbody>
 </table>
-<p>Mas os valores da tabela estão em formato caractere e não numérico, o que impede a execução de operações matemáticas. Por isso foi rebatizada de <code>tabuleiro2</code> e seu desenvolvimento descontinuado.</p>
+<p>Mas os valores da tabela estão em formato caractere e não numérico, o que impede a execução de operações matemáticas. Por isso foi rebatizada, primeiro como <code>tabuleiro2</code> e, desde que foi criada a função <code><a href="../reference/tabuleiro2.html">tabuleiro2()</a></code> para tabulação vivariada, como <code><a href="../reference/tabuleiro.pspp.html">tabuleiro.pspp()</a></code> e seu desenvolvimento descontinuado.</p>
 </div>
 </div>
 <div class="section level2">
@@ -740,6 +739,11 @@ IIQ           1.39</code></pre>
 <span id="cb18-88"><a href="#cb18-88" tabindex="-1"></a>  .. ..<span class="sc">$</span> <span class="er">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>] <span class="st">"RP"</span> <span class="st">"IC95inf"</span> <span class="st">"IC95sup"</span> <span class="st">"p"</span></span></code></pre></div>
 <p>Assim podemos dizer, por exemplo, que a probabilidade de que a causa básica de óbito seja cardiovascular é 14% maior no sexo feminino que no masculino (RP = 1,14; IC<sub>95</sub> 1,07 a 1,22). Veja abaixo o código utilizado:</p>
 <pre><code>[...] cardiovascular é `` `r formatL((tabolero$RP-1)*100, digits = 0)` ``% maior no sexo feminino que no masculino (RP = `` `r formatL(tabolero$RP, 2)` ``; IC~95~ `` `r formatL(tabolero$lci.rp, 2)` `` a `` `r formatL(tabolero$uci.rp, 2)` ``).</code></pre>
+</div>
+<div class="section level2">
+<h2 id="estado-nutricional-de-adultos">Estado nutricional de adultos<a class="anchor" aria-label="anchor" href="#estado-nutricional-de-adultos"></a>
+</h2>
+<p>A função <code><a href="../reference/enutri.html">?enutri</a></code> facilita a classificação do Índice de Massa Corporal (IMC) em categorias do estado nutricional. Há três op</p>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>

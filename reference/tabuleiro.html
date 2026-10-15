@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">Rcoisas</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,7 +44,16 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">tabuleiro</span><span class="op">(</span><span class="va">x</span>, digits <span class="op">=</span> <span class="fl">1</span>, total <span class="op">=</span> <span class="cn">TRUE</span>, cum <span class="op">=</span> <span class="cn">TRUE</span>, data <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">tabuleiro</span><span class="op">(</span></span>
+<span>  <span class="va">x</span>,</span>
+<span>  digits <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  total <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  cum <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  data <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  nome <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  as.df <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -69,6 +78,14 @@
 
 <dt id="arg-data">data<a class="anchor" aria-label="anchor" href="#arg-data"></a></dt>
 <dd><p>Argumento opcional. Banco de dados contendo <code>x</code>. O padrão é NULL.</p></dd>
+
+
+<dt id="arg-nome">nome<a class="anchor" aria-label="anchor" href="#arg-nome"></a></dt>
+<dd><p>Argumento opcional. Nome da variável a ser usado na coluna de categorias. Se <code>NULL</code> (padrão) é usado o nome da variável (indicado em <code>x</code>)</p></dd>
+
+
+<dt id="arg-as-df">as.df<a class="anchor" aria-label="anchor" href="#arg-as-df"></a></dt>
+<dd><p>Se <code>TRUE</code>, a tabela é guardada em objeto da classe <code>data frame</code>. Nesse objeto, a primeira coluna leva o nome da variável e contém as categorias tabuladas. É útil para a impressão de tabelas em que se exige essa classe, como <code>flextable</code>. O padrão é <code>FALSE</code>.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
@@ -107,7 +124,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> Total 100000 100.0</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Oculta a frequência acumulada absoluta e mantém a % acumulada</span></span></span>
-<span class="r-in"><span><span class="fu">tabuleiro</span><span class="op">(</span><span class="va">x</span>, total <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">[</span>,<span class="op">-</span><span class="fl">3</span><span class="op">]</span></span></span>
+<span class="r-in"><span><span class="fu">tabuleiro</span><span class="op">(</span><span class="va">x</span>, total <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">[</span>,<span class="op">-</span><span class="fl">3</span><span class="op">]</span> </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Freq    % %acum</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 0 42221 42.2  42.2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 42127 42.1  84.3</span>

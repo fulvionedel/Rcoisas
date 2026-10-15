@@ -57,6 +57,9 @@
 - [`numescrito()`](https://fulvionedel.github.io/Rcoisas/reference/numescrito.md)
   : Escreve números em texto, em português
 
+- [`numinteiro()`](https://fulvionedel.github.io/Rcoisas/reference/numinteiro.md)
+  : Verifica se um número é inteiro
+
 - [`obitosRS2019`](https://fulvionedel.github.io/Rcoisas/reference/obitosRS2019.md)
   : Registros de óbito
 
@@ -69,6 +72,9 @@
 - [`plot_pir()`](https://fulvionedel.github.io/Rcoisas/reference/plot_pir.md)
   : Pirâmides populacionais com os arquivos de população
   disponibilizados pelo DATASUS
+
+- [`popBR25`](https://fulvionedel.github.io/Rcoisas/reference/popBR25.md)
+  : População brasileira, 2025
 
 - [`poprs`](https://fulvionedel.github.io/Rcoisas/reference/poprs.md) :
   População por sexo e faixa etária. Municípios gaúchos, 1980, 2010,
@@ -89,8 +95,11 @@
 - [`tabuleiro()`](https://fulvionedel.github.io/Rcoisas/reference/tabuleiro.md)
   : Tabela de frequências univariada
 
-- [`tabuleiro2()`](https://fulvionedel.github.io/Rcoisas/reference/tabuleiro2.md)
+- [`tabuleiro.pspp()`](https://fulvionedel.github.io/Rcoisas/reference/tabuleiro.pspp.md)
   : Tabela de frequências univariada
+
+- [`tabuleiro2()`](https://fulvionedel.github.io/Rcoisas/reference/tabuleiro2.md)
+  : Tabela de frequências bivariada
 
 - [`zeroesq()`](https://fulvionedel.github.io/Rcoisas/reference/zeroesq.md)
   : Zeros à esquerda

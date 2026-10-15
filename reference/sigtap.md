@@ -25,12 +25,6 @@ sigtap(df, varproc = "CO_PROCEDIMENTO", nomeproc = FALSE)
 
   Deve-se criar uma variável com o nome do procedimento?
 
-## Note
-
-Agradeço a Matheus Pacheco Andrade, da Gerência de Informação da
-Secretaria Municipal de Saúde de Florianópolis, SC, por ter encontrado
-as tabelas no servidor FTP do DATASUS.
-
 ## Examples
 
 ``` r
@@ -248,4 +242,5 @@ sigtap(Rcoisas:::tabproc) |> head()
 #> 4 0101. Ações coletivas/individuais em saúde 010101. Educação em saúde
 #> 5 0101. Ações coletivas/individuais em saúde 010101. Educação em saúde
 #> 6 0101. Ações coletivas/individuais em saúde 010101. Educação em saúde
+
 ```

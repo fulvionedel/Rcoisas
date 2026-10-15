@@ -15,7 +15,8 @@ enutri(
   imc = NULL,
   cortes = "MS",
   idoso = FALSE,
-  idade = NULL
+  idade = NULL,
+  categorias = "lista"
 )
 ```
 
@@ -64,7 +65,14 @@ enutri(
   Argumento opcional. Permite a classificação de adultos e idosos com a
   definição de eutrofia e sobrepeso específica para cada faixa etária,
   num banco de dados com a variável idade. Indicar entre aspas o nome da
-  variável. Se definido, o argumento `idoso` é considerado `TRUE`.
+  variável. Se definido, o argumento `idoso` é considerado `TRUE`;
+
+- categorias:
+
+  Argumento válido apenas para a apresentação dos intervalos de
+  classificação (pontos de corte do IMC) e rótulos das categorias, para
+  cada classificação utilizada. Pode ser uma `"lista"` (padrão) ou uma
+  `"matriz"` com duas colunas. Ver *details* e *examples*.
 
 ## Value
 
@@ -145,4 +153,47 @@ hasdm |>
 #> Obesidade II     16   4.2       364  95.3
 #> Obesidade III    18   4.7       382 100.0
 #> Total           382 100.0       382 100.0
+
+# Só as categorias utilizadas: 
+enutri() 
+#> $intervalos
+#> [1] "< 18.5"     "18.5 |- 25" "25 |- 30"   "30 |- 35"   "35 |- 40"  
+#> [6] ">= 40"     
+#> 
+#> $rotulos
+#> [1] "Abaixo do peso" "Eutrófico"      "Sobrepeso"      "Obesidade I"   
+#> [5] "Obesidade II"   "Obesidade III" 
+#> 
+enutri(cortes = "OMS")
+#> $intervalos
+#> [1] "< 17"       "17 |- 18.5" "18.5 |- 25" "25 |- 30"   ">= 30"     
+#> 
+#> $rotulos
+#> [1] "Magreza"    "Baixo peso" "Eutrófico"  "Sobrepeso"  "Obesidade" 
+#> 
+enutri(cortes = "3cat")
+#> $intervalos
+#> [1] "< 25"     "25 |- 30" ">= 30"   
+#> 
+#> $rotulos
+#> [1] "Sem sobrepeso" "Sobrepeso"     "Obesidade"    
+#> 
+# Se a pessoa é idosa:
+enutri(idoso = TRUE) 
+#> $intervalos
+#> [1] "< 22"     "22 |- 27" "27 |- 30" "30 |- 35" "35 |- 40" ">= 40"   
+#> 
+#> $rotulos
+#> [1] "Abaixo do peso" "Eutrófico"      "Sobrepeso"      "Obesidade I"   
+#> [5] "Obesidade II"   "Obesidade III" 
+#> 
+# Apresentando numa matriz: 
+enutri(cortes = "OMS", idoso = TRUE, categorias = "matriz")
+#>             
+#> Intervalo    Categoria 
+#>   Magreza    "< 17"    
+#>   Baixo peso "17 |- 22"
+#>   Eutrófico  "22 |- 27"
+#>   Sobrepeso  "27 |- 30"
+#>   Obesidade  ">= 30"   
 ```

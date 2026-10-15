@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">Rcoisas</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,7 +51,8 @@
 <span>  imc <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  cortes <span class="op">=</span> <span class="st">"MS"</span>,</span>
 <span>  idoso <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>  idade <span class="op">=</span> <span class="cn">NULL</span></span>
+<span>  idade <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  categorias <span class="op">=</span> <span class="st">"lista"</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -87,7 +88,11 @@
 
 
 <dt id="arg-idade">idade<a class="anchor" aria-label="anchor" href="#arg-idade"></a></dt>
-<dd><p>Argumento opcional. Permite a classificação de adultos e idosos com a definição de eutrofia e sobrepeso específica para cada faixa etária, num banco de dados com a variável idade. Indicar entre aspas o nome da variável. Se definido, o argumento <code>idoso</code> é considerado <code>TRUE</code>.</p></dd>
+<dd><p>Argumento opcional. Permite a classificação de adultos e idosos com a definição de eutrofia e sobrepeso específica para cada faixa etária, num banco de dados com a variável idade. Indicar entre aspas o nome da variável. Se definido, o argumento <code>idoso</code> é considerado <code>TRUE</code>;</p></dd>
+
+
+<dt id="arg-categorias">categorias<a class="anchor" aria-label="anchor" href="#arg-categorias"></a></dt>
+<dd><p>Argumento válido apenas para a apresentação dos intervalos de classificação (pontos de corte do IMC) e rótulos das categorias, para cada classificação utilizada. Pode ser uma <code>"lista"</code> (padrão) ou uma <code>"matriz"</code> com duas colunas. Ver <em>details</em> e <em>examples</em>.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -165,6 +170,49 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> Obesidade II     16   4.2       364  95.3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Obesidade III    18   4.7       382 100.0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Total           382 100.0       382 100.0</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Só as categorias utilizadas: </span></span></span>
+<span class="r-in"><span><span class="fu">enutri</span><span class="op">(</span><span class="op">)</span> </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $intervalos</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "&lt; 18.5"     "18.5 |- 25" "25 |- 30"   "30 |- 35"   "35 |- 40"  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [6] "&gt;= 40"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $rotulos</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Abaixo do peso" "Eutrófico"      "Sobrepeso"      "Obesidade I"   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [5] "Obesidade II"   "Obesidade III" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span><span class="fu">enutri</span><span class="op">(</span>cortes <span class="op">=</span> <span class="st">"OMS"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $intervalos</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "&lt; 17"       "17 |- 18.5" "18.5 |- 25" "25 |- 30"   "&gt;= 30"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $rotulos</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Magreza"    "Baixo peso" "Eutrófico"  "Sobrepeso"  "Obesidade" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span><span class="fu">enutri</span><span class="op">(</span>cortes <span class="op">=</span> <span class="st">"3cat"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $intervalos</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "&lt; 25"     "25 |- 30" "&gt;= 30"   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $rotulos</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Sem sobrepeso" "Sobrepeso"     "Obesidade"    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span><span class="co"># Se a pessoa é idosa:</span></span></span>
+<span class="r-in"><span><span class="fu">enutri</span><span class="op">(</span>idoso <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $intervalos</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "&lt; 22"     "22 |- 27" "27 |- 30" "30 |- 35" "35 |- 40" "&gt;= 40"   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $rotulos</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Abaixo do peso" "Eutrófico"      "Sobrepeso"      "Obesidade I"   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [5] "Obesidade II"   "Obesidade III" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span><span class="co"># Apresentando numa matriz: </span></span></span>
+<span class="r-in"><span><span class="fu">enutri</span><span class="op">(</span>cortes <span class="op">=</span> <span class="st">"OMS"</span>, idoso <span class="op">=</span> <span class="cn">TRUE</span>, categorias <span class="op">=</span> <span class="st">"matriz"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Intervalo    Categoria </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Magreza    "&lt; 17"    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Baixo peso "17 |- 22"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Eutrófico  "22 |- 27"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Sobrepeso  "27 |- 30"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Obesidade  "&gt;= 30"   </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

@@ -200,13 +200,12 @@ histobox(varnum, col.h = "tomato", col.bx = "yellow", xlab = "Medida", ylab = "F
 
 ### Variáveis categóricas
 
-**As funções `tabuleiro` e `tabuleiro2`** apresentam uma tabela
+**As funções `tabuleiro` e `tabuleiro.pspp`** apresentam uma tabela
 univariada com frequências absolutas e relativas (%) simples e
 acumuladas.
 
-    tabuleiro(x, digits = 1, total = TRUE, cum = TRUE, data = NULL, ...) 
-    NULL
-    tabuleiro2(varcat, digits = 1)
+    tabuleiro(x, digits = 1, total = TRUE, cum = TRUE, data = NULL, nome = NULL, as.df 
+    tabuleiro.pspp(varcat, digits = 1)
 
 ``` r
 tabuleiro(RACACOR, data = obitosRS2019)
@@ -246,7 +245,7 @@ Na sua primeira versão os valores eram pré-formatados, oferecendo a
 seguinte tabela:
 
 ``` r
-(tab2 <- tabuleiro2(obitosRS2019$RACACOR))
+(tab2 <- tabuleiro.pspp(obitosRS2019$RACACOR))
               Freq     %(+NA) % válido % acum
 1             " 8.514" "85,1" "88,3"   "88,3"
 2             "   567" "5,7"  "5,9"    "94,2"
@@ -277,8 +276,12 @@ knitr::kable(tab2, align = 'r')
 | Total         | 10.000 |    100 |        ˗ |      ˗ |
 
 Mas os valores da tabela estão em formato caractere e não numérico, o
-que impede a execução de operações matemáticas. Por isso foi rebatizada
-de `tabuleiro2` e seu desenvolvimento descontinuado.
+que impede a execução de operações matemáticas. Por isso foi rebatizada,
+primeiro como `tabuleiro2` e, desde que foi criada a função
+[`tabuleiro2()`](https://fulvionedel.github.io/Rcoisas/reference/tabuleiro2.md)
+para tabulação vivariada, como
+[`tabuleiro.pspp()`](https://fulvionedel.github.io/Rcoisas/reference/tabuleiro.pspp.md)
+e seu desenvolvimento descontinuado.
 
 ## Curva de Nelson de Moraes
 
@@ -467,3 +470,10 @@ básica de óbito seja cardiovascular é 14% maior no sexo feminino que no
 masculino (RP = 1,14; IC₉₅ 1,07 a 1,22). Veja abaixo o código utilizado:
 
     [...] cardiovascular é `` `r formatL((tabolero$RP-1)*100, digits = 0)` ``% maior no sexo feminino que no masculino (RP = `` `r formatL(tabolero$RP, 2)` ``; IC~95~ `` `r formatL(tabolero$lci.rp, 2)` `` a `` `r formatL(tabolero$uci.rp, 2)` ``).
+
+## Estado nutricional de adultos
+
+A função
+[`?enutri`](https://fulvionedel.github.io/Rcoisas/reference/enutri.md)
+facilita a classificação do Índice de Massa Corporal (IMC) em categorias
+do estado nutricional. Há três op
